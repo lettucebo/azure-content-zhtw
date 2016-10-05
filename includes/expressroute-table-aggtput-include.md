@@ -1,5 +1,7 @@
-|                                     | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
+| | **ExpressRoute 閘道輸送量** | **VPN 閘道與 ExpressRoute 共存**|
 |-------------------------------------|-------------------------------------|-----------------------------------------|
-| **Basic SKU**                       |  500 Mbps                           | No   |
-| **Standard SKU**                    | 1000 Mbps                           | Yes  |
-| **High Performance SKU**            | 2000 Mbps                           | Yes  |
+| **基本 SKU** | 500 Mbps | 否 |
+| **標準 SKU** | 1000 Mbps | 是 |
+| **高效能 SKU** | 2000 Mbps | 是 |
+
+<!---HONumber=AcomDC_0921_2016-->

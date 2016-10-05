@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/14/2016"
 	ms.author="bradsev" />
 
 # 使用 SSIS 連接器從 Azure Blob 儲存體來回移動資料
@@ -38,6 +38,7 @@
 若要執行本文所述的工作，您必須有設好的 Azure 訂用帳戶與 Azure 儲存體帳戶。您必須知道您的 Azure 儲存體帳戶名稱與帳戶金鑰，才能上傳或下載資料。
 
 - 若要設定 **Azure 訂用帳戶**，請參閱[免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
+
 - 如需建立**儲存體帳戶**以及取得帳戶和金鑰資訊的指示，請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)。
 
 
@@ -57,7 +58,7 @@
 
 
 ## 將資料上傳至 Azure Blob 儲存體
-為了使用 SSIS 功能封裝將資料從內部部署移至 Azure Blob 儲存體，我們使用 [**Azure Blob 上傳工作**](https://msdn.microsoft.com/library/mt146776.aspx)執行個體，如下所示：
+為了使用 SSIS 功能封裝將資料從內部部署移至 Azure Blob 儲存體，我們使用 [**Azure Blob 上傳工作**](https://msdn.microsoft.com/library/mt146776.aspx)執行個體，如這裡所示：
 
 ![configure-data-science-vm](./media/machine-learning-data-science-move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
 
@@ -68,11 +69,11 @@
 欄位|說明|
 ----------------------|----------------|
 **AzureStorageConnection**|指定現有的或建立新的 Azure 儲存體連線管理員，以參照 Azure 儲存體帳戶；該帳戶指向託管 Blob 檔案的位置。|
-**BlobContainer**|指定將保存上傳的檔案作為 Blob 的 Blob 容器名稱。|
-**BlobDirectory**|指定上傳的檔案將儲存在哪一個 Blob 目錄中以儲存成區塊 Blob。Blob 目錄是虛擬的階層式結構。如果 Blob 已經存在，則會被取代。|
+**BlobContainer**|指定會將上傳的檔案保存為 Blob 的 Blob 容器名稱。|
+**BlobDirectory**|指定上傳的檔案會儲存在哪一個 Blob 目錄中以儲存成區塊 Blob。Blob 目錄是虛擬的階層式結構。如果 Blob 已經存在，則會被取代。|
 **LocalDirectory**|指定包含要上傳的檔案的本機目錄。|
 **FileName**|指定名稱篩選器以選取採用指定名稱模式的檔案。例如，MySheet*.xls* 包括如 MySheet001.xls 與 MySheetABC.xlsx 等檔案|
-**TimeRangeFrom/TimeRangeTo**|指定時間範圍篩選器。將包含在 *TimeRangeFrom* 後和 *TimeRangeTo* 前修改的檔案。|
+**TimeRangeFrom/TimeRangeTo**|指定時間範圍篩選器。會包含在 TimeRangeFrom 後和 TimeRangeTo 前修改的檔案。|
 
 
 > [AZURE.NOTE] **AzureStorageConnection** 認證必須更正且 **BlobContainer** 必須存在，才能嘗試傳輸。
@@ -87,4 +88,4 @@
 - 若要使用 SSIS 在 Azure HDInsight 叢集上執行 Hive 指令碼，請使用 [Azure HDInsight Hive 工作](https://msdn.microsoft.com/library/mt146771.aspx)。
 - 若要使用 SSIS 在 Azure HDInsight 叢集上執行 Pig 指令碼，請使用 [Azure HDInsight Pig 工作](https://msdn.microsoft.com/library/mt146781.aspx)。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

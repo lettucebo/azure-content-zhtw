@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016" 
+	ms.date="09/16/2016" 
 	ms.author="garye"/>
 
 
@@ -39,9 +39,10 @@
 	> [AZURE.TIP] 在 [**屬性**] 窗格中為實驗填入**摘要**和**描述**是不錯的作法。這些屬性會提供記錄實驗的機會，以便稍後查看它的人員能了解您的目標和方法。
 
 3.	在實驗畫布左側的模組調色盤中，展開 [Saved Datasets]。
-4.	尋找您在**我的資料集**下建立的資料集並將它拖曳到畫布上。您也可以在調色盤上方的 [搜尋] 方塊中輸入名稱，以尋找資料集。  
+4.	尋找您在**我的資料集**下建立的資料集並將它拖曳到畫布上。您也可以在調色盤上方的 [搜尋] 方塊中輸入名稱，以尋找資料集。
 
-##準備資料
+## 準備資料
+
 您可以按一下資料集的輸出連接埠 (底部的小圓圈)，然後選取 [視覺化]，來檢視整個資料集的前 100 列資料和部分統計資訊。
 
 因為資料檔案並未隨附資料行標題，所以 Studio 已提供一般標題 (Col1、Col2 等等)。建立模型並不需要良好的標題，但良好的標題可讓您更容易使用實驗中的資料。此外，當我們最終在 Web 服務中發佈此模型時，標題將有助於服務的使用者識別資料行。
@@ -65,7 +66,7 @@
 4.	選取 [[編輯中繼資料][edit-metadata]]，然後在畫布右邊的 [屬性] 窗格中，按一下 [啟動資料行選取器]。
 5.	在 [選取資料行] 對話方塊中，選取 [可用資料行] 中的所有資料列，然後按一下 > 將它們移到 [選取的資料行]。對話方塊應該會看起來如下：![已選取所有資料行的資料行選取器][4]
 7.	按一下 [**確定**] 核取記號。
-8.	回到 [**屬性**] 窗格，找到 [**新增資料行名稱**] 參數。在這個欄位中，輸入資料集中 21 個資料行的名稱清單，並以逗號加以分隔，且依資料行順序排序。您可以從 UCI 網站上的資料集文件中取得資料行名稱，或為求簡便，您可以複製並貼上下列清單：  
+8.	回到 [**屬性**] 窗格，找到 [**新增資料行名稱**] 參數。在這個欄位中，輸入資料集中 21 個資料行的名稱清單，並以逗號加以分隔，且依資料行順序排序。您可以從 UCI 網站上的資料集文件中取得資料行名稱，或為求簡便，您可以複製並貼上下列清單：
 
 		  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
 
@@ -75,7 +76,8 @@
 
 > [AZURE.TIP] 如果您想要確認資料行標題，請執行實驗 (按一下實驗畫布下方的 [執行])。當執行結束 ([編輯中繼資料][edit-metadata]上會出現綠色的勾選記號) 時，按一下[編輯中繼資料][edit-metadata]模組的輸出連接埠，然後選取 [視覺化]。您可以用相同方式檢視任何模組的輸出，以檢視資料在實驗中的執行進度。
 
-##建立訓練和測試資料集
+## 建立訓練和測試資料集
+
 實驗的下一個步驟，是產生將用來訓練及測試模型的個別資料集。
 
 為此，我們將使用[資料分割][split]模組。
@@ -130,4 +132,4 @@
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

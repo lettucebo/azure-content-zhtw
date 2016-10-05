@@ -104,11 +104,11 @@ Azure HD Insight 服務用來執行 [Hive](http://blogs.msdn.com/b/bigdatasuppor
 
 -   選取
 
-    -   輸入以檢視查詢輸入
+    -   **輸入**以檢視查詢輸入
 
-    -   查詢以檢視查詢本身
+    -   **查詢**以檢視查詢本身
 
-    -   輸出以檢視不同的輸出
+    -   **輸出**以檢視不同的輸出
 
 Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查詢參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)中找到。
 
@@ -189,7 +189,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查�
 
 ## **Power BI 儀表板**
 
-### 概觀
+### Overview
 
 本節說明如何設定 Power BI 儀表板，以視覺化方式檢視來自 Azure 串流分析 (熱路徑) 的即時資料，以及來自 Azure 機器學習 (冷路徑) 的預測結果。
 
@@ -268,7 +268,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查�
 
 	-   若要建立新儀表板：在左側窗格中按一下 [儀表板] 區段旁的 **+** 號。為這個新的儀表板輸入名稱「需求預測示範」。
 
-	-   一旦您開啟報告，請按一下 ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png)，將所有視覺效果釘選到儀表板。若要尋找詳細的指示，請參閱[從報告將圖格釘選至 Power BI 儀表板](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report)。前往儀表板頁面並調整視覺效果的大小和位置，以及編輯其標題。若要尋找如何編輯您的圖格的詳細說明，請參閱[編輯圖格 -- 調整大小、移動、重新命名、釘選、刪除、加入超連結](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename)。以下是具有釘選了一些冷路徑視覺效果的範例儀表板。
+	-   一旦您開啟報告，請按一下 ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png)，將所有視覺效果釘選到儀表板。若要尋找詳細的指示，請參閱[從報告將磚釘選至 Power BI 儀表板](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report)。前往儀表板頁面並調整視覺效果的大小和位置，以及編輯其標題。若要尋找如何編輯您的磚的詳細說明，請參閱[編輯磚 -- 調整大小、移動、重新命名、釘選、刪除、加入超連結](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename)。以下是具有釘選了一些冷路徑視覺效果的範例儀表板。
 
 		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic7.png)
 
@@ -296,4 +296,4 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查�
 ## **通知**
 本文是 Microsoft 的資料科學家 Yijing Chen 與軟體工程師 Qiu Min 所撰寫。
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

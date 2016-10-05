@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="媒體服務版本資訊" 
+	pageTitle="媒體服務版本資訊 | Microsoft Azure" 
 	description="媒體服務版本資訊" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/14/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 # Azure 媒體服務版本資訊
@@ -33,7 +33,7 @@
 不允許 percent-encoding。|媒體服務在建置串流內容的 URL 時使用 IAssetFile.Name 屬性的值 (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) 基於這個理由，不允許 percent-encoding。**Name** 屬性的值不能有下列任何 [percent-encoding-reserved 字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#"。而且，副檔名只能有一個 ‘.’。
 屬於 Azure Storage SDK 3.x 版的 ListBlobs 方法無法運作。|媒體服務會根據 [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx) 版本產生 SAS URL。如果您要使用 Azure Storage SDK 列出 Blob 容器中的 Blob，請使用屬於 Azure Storage SDK 2.x 版的 [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 方法。屬於 Azure Storage SDK 3.x 版的 ListBlobs 方法將會失敗。
 媒體服務節流機制會針對向服務發出過多要求的應用程式限制資源使用量。服務可能會傳回「服務無法使用 (503)」HTTP 狀態碼。|如需詳細資訊，請參閱 [Azure 媒體服務錯誤碼](http://msdn.microsoft.com/library/azure/dn168949.aspx)主題中 503 HTTP 狀態碼的說明。
-查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。 | 您需要使用 [略過] 和 [採用] \(.NET) \[最前面] \(REST)，如[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述。 
+查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。 | 您需要使用 [略過] 和 [採用] \(.NET) [最前面] \(REST)，如[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述。 
 某些用戶端在 Smooth Streaming 資訊清單中可能會遇到重複標記問題。|如需詳細資訊，請參閱[本節](media-services-deliver-content-overview.md#known-issues)。
 Azure 媒體服務 .NET SDK 物件無法序列化，因此無法與 Azure 快取搭配運作。|如果您嘗試序列化 SDK AssetCollection 物件以將其新增至 Azure 快取，將會擲回例外狀況。
 編碼工作失敗，並顯示訊息字串「階段︰DownloadFile。代碼：System.NullReferenceException」。|典型的編碼工作流程是將輸入視訊檔案上傳至輸入資產，然後提交該輸入資產的一個或多個編碼工作，而不需要進一步修改該輸入資產。不過，如果您修改輸入資產 (例如新增/刪除/重新命名資產內的檔案)，後續的工作可能會失敗並伴隨「DownloadFile」錯誤。解決方法是刪除輸入資產，然後將輸入檔案重新上傳到新的資產。 
@@ -150,7 +150,7 @@ Azure 媒體服務 (AMS) 現在也在下列資料中心推出：巴西南部、�
 
 - 宣布 Media Encoder Standard 的一般可用性。如需詳細資訊，請參閱[此部落格文章](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
 
-	Media Encoder Standard 使用[本節](http://go.microsoft.com/fwlink/?LinkId=618336)描述的預設值。請注意，使用 4k 編碼的預設值時，您應該取得**進階**保留單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
+	Media Encoder Standard 使用[本節](http://go.microsoft.com/fwlink/?LinkId=618336)描述的預設值。請注意，使用 4k 編碼的預設值時，您應該取得**進階**保留單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-scale-media-processing-overview.md)。
 - 直播即時字幕與 Azure 媒體服務和播放器。如需詳細資訊，請參閱[此部落格文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###媒體服務 .NET SDK 更新
@@ -265,8 +265,8 @@ Azure 媒體服務 .NET SDK 現在是版本 3.1.0.1。
 - 請注意，目前您無法透過 SSL 連線擷取 RTMP 即時資料流。
 - 您也可以透過 SSL 連線串流您的內容。若要這樣做，請確定您的串流 URL 以 HTTPS 開頭。
 - 請注意，只有在您從中傳遞內容的串流端點在 2014 年 9 月 10 日之後建立時，才能透過 SSL 串流。如果您的串流 URL 是根據 9 月 10 日之後建立的串流端點，則 URL 會包含 "streaming.mediaservices.windows.net" (新格式)。包含 "origin.mediaservices.windows.net" (舊格式) 的串流 URL 不支援 SSL。如果您的 URL 是舊格式，而且您希望能夠透過 SSL 進行串流，請[建立新的串流端點](media-services-manage-origins.md)。使用根據新的串流端點建立的 URL，透過 SSL 串流處理內容。
-   
-##<a id="october_changes_14"></a>2014 年 10 月版本
+
+        ##<a id="october_changes_14"></a>October 2014 Release
 
 ### <a id="new_encoder_release"></a>Media Services Encoder 版本
 
@@ -646,4 +646,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

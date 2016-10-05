@@ -117,4 +117,4 @@
 
 - 如果您對自動部署有興趣，請參閱[使用 Resource Manager 範本建立 Windows 虛擬機器](virtual-machines-windows-ps-template.md)。
 
-<!---HONumber=AcomDC_0912_2016--->
+<!---HONumber=AcomDC_0912_2016---->

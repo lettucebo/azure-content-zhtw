@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="09/16/2016"
 	ms.author="roalexan" />
 
 
@@ -72,7 +72,7 @@ API 是透過您經由 Azure 傳統入口網站存取的 API 發行者入口網�
 
 ![API 管理功能表](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-將 **AzureML 示範 API** 輸入為 **Web API 名稱**。在 [Web 服務 URL]** 中，輸入 **https://ussouthcentral.services.azureml.net**。 在 [Web API URL 尾碼]** 中，輸入 **azureml-demo。在 [Web API URL 配置]** 中，核取 [HTTPS]**。在 [產品]** 中，選取 [Starter]**。完成後，按一下 [儲存]**** 以建立 API。
+將 **AzureML 示範 API** 輸入為 **Web API 名稱**。在 [Web 服務 URL]** 中，輸入 **https://ussouthcentral.services.azureml.net** **。在 [Web API URL 尾碼]** 中，輸入 **azureml-demo。在 [Web API URL 配置]** 中，核取 [HTTPS]**。在 [產品]** 中，選取 [Starter]**。完成後，按一下 [儲存]**** 以建立 API。
 
 ![加入新的 API](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -384,4 +384,4 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

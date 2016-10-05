@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 
 # 在 Azure 機器學習中的進階分析案例
 
-本文概述可以運用 Team Data Science Process (TDSP) 來處理的各種範例資料來源和目標案例。TDSP 提供系統化的方法，可讓小組共同建置智慧型應用程式。此處呈現的案例將根據資料特性、來源位置和在 Azure 中的目標儲存機制，來說明資料處理工作流程中可用的選項。
+本文概述可以運用 [Team Data Science Process (TDSP)](data-science-process-overview.md) 來處理的各種範例資料來源和目標案例。TDSP 提供系統化的方法，可讓小組共同建置智慧型應用程式。此處呈現的案例將根據資料特性、來源位置和在 Azure 中的目標儲存機制，來說明資料處理工作流程中可用的選項。
 
 最後一節提供**決策樹**，讓您在選取適合您資料和目標的範例案例時可以使用。
 
@@ -28,10 +28,9 @@
 
 下列各節均提供一個範例案例。在每個案例中，都會列出可能的資料科學或進階分析流程，以及支援的 Azure 資源。
 
->[AZURE.NOTE] **對於所有下列案例，您必須：**
-
-*   [建立儲存體帳戶](../storage/storage-create-storage-account.md)
-*   [建立 Azure ML 工作區](machine-learning-create-workspace.md)
+>[AZURE.NOTE] **對於所有下列案例，您必須：**<br/>
+>* [建立儲存體帳戶](../storage/storage-create-storage-account.md)<br/>
+>* [建立 Azure Machine Learning 工作區](machine-learning-create-workspace.md)
 
 
 ## <a name="smalllocal"></a>案例 #1：本機檔案中的中小型表格式資料集
@@ -92,7 +91,7 @@
 
 9. 使用[匯入資料][import-data]模組從 Azure Blob 讀取資料。
 
-10. 建置從內嵌的資料集開始的 Azure ML 實驗流程。
+10. 建置從內嵌的資料集開始的 Azure 機器學習實驗流程。
 
 
 ## <a name="smalllocaltodb"></a>案例 #4：本機檔案的中小型資料集，以 Azure 虛擬機器中的 SQL Server 為目標
@@ -113,18 +112,18 @@
 
 6.  將資料載入執行於 Azure VM 的 SQL Server 資料庫。
 
-    a.選項 #1：使用 SQL Server Management Studio。
+    選項 #1：使用 SQL Server Management Studio。
 
-		i.  Login to SQL Server VM
-        ii. Run SQL Server Management Studio.
-        iii. Create database and target tables.
-        iv. Use one of the bulk import methods to load the data from VM-local files.
+    - 登入 SQL Server VM
+    - 執行 SQL Server Management Studio。
+    - 建立資料庫和目標資料表。
+    - 使用其中一種大量匯入方法，從 VM 本機檔案載入資料。
 
-    b.選項 #2：使用 IPython Notebook – 不建議用於中型和大型資料集
-
-        i.  Use ODBC connection string to access SQL Server on VM.
-        ii. Create database and target tables.
-        iii. Use one of the bulk import methods to load the data from VM-local files.
+    選項 #2：使用 IPython Notebook – 不建議用於中型和大型資料集
+    <!-- -->    
+    - 使用 ODBC 連線字串，存取 VM 上的 SQL Server。
+    - 建立資料庫和目標資料表。
+    - 使用其中一種大量匯入方法，從 VM 本機檔案載入資料。
 
 7.  視需要瀏覽資料並建立功能。請注意，功能在資料庫資料表中無需具體化。僅注意建立這些功能的必要查詢。
 
@@ -134,7 +133,7 @@
 
 10. 使用[匯入資料][import-data]模組直接從 SQL Server 讀取資料。視需要，將可擷取欄位、建立功能及對資料取樣的必要查詢，直接貼到[匯入資料][import-data]查詢中。
 
-11. 建置從內嵌的資料集開始的 Azure ML 實驗流程。
+11. 建置從內嵌的資料集開始的 Azure 機器學習實驗流程。
 
 ## <a name="largelocaltodb"></a>案例 #5：本機資料中的大型資料集，目標 Azure VM 中的 SQL Server
 
@@ -168,7 +167,7 @@
 
     f.如果需要資料表聯結，請建立索引以加速聯結。
 
- > [AZURE.NOTE] 如需加快大型資料的載入速度，建議您建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
+     > [AZURE.NOTE] 如需加快大型資料的載入速度，建議您建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
 
 5.  視需要瀏覽資料並建立功能。請注意，功能在資料庫資料表中無需具體化。僅注意建立這些功能的必要查詢。
 
@@ -178,7 +177,7 @@
 
 8. 使用[匯入資料][import-data]模組直接從 SQL Server 讀取資料。視需要，將可擷取欄位、建立功能及對資料取樣的必要查詢，直接貼到[匯入資料][import-data]查詢中。
 
-9. 從上傳的資料集開始的簡易 Azure ML 實驗流程
+9. 從上傳的資料集開始的簡單 Azure Machine Learning 實驗流程
 
 ## <a name="largedbtodb"></a>案例 #6：SQL Server 資料庫內部部署中的大型資料集，以 Azure 虛擬機器中的 SQL Server 為目標
 
@@ -190,7 +189,7 @@
 
 2.  使用其中一個資料匯出方法來將資料從 SQL Server 匯出成傾印檔案。
 
-    a.注意：如果您決定從內部部署資料庫移動所有資料，一個替代 (較快速) 方法是將整個資料庫移到 Azure 中的 SQL Server 執行個體。略過匯出資料、建立資料庫，和將資料載入/匯入目標資料庫等步驟，並依照替代方法進行。
+    > [AZURE.NOTE] 如果您決定從內部部署資料庫移動所有資料，一個替代 (較快速) 方法是將整個資料庫移到 Azure 中的 SQL Server 執行個體。略過匯出資料、建立資料庫，和將資料載入/匯入目標資料庫等步驟，並依照替代方法進行。
 
 3.  將傾印檔案上傳至 Azure 儲存體容器。
 
@@ -208,7 +207,7 @@
 
 	f.如果需要資料表聯結，請建立索引以加速聯結。
 
-> [AZURE.NOTE] 如需加快大型資料的載入速度，請建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
+    > [AZURE.NOTE] 如需加快大型資料的載入速度，請建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
 
 5.  視需要瀏覽資料並建立功能。請注意，功能在資料庫資料表中無需具體化。僅注意建立這些功能的必要查詢。
 
@@ -218,7 +217,7 @@
 
 8. 使用[匯入資料][import-data]模組直接從 SQL Server 讀取資料。視需要，將可擷取欄位、建立功能及對資料取樣的必要查詢，直接貼到[匯入資料][import-data]查詢中。
 
-9. 從上傳的資料集開始的簡易 Azure ML 實驗流程。
+9. 從上傳的資料集開始的簡單 Azure Machine Learning 實驗流程。
 
 ### 將整個資料庫從內部部署 SQL Server 複製到 Azure SQL Database 的替代方法
 
@@ -226,7 +225,7 @@
 
 #### 其他 Azure 資源：Azure 虛擬機器 (SQL Server / IPython Notebook 伺服器)
 
-若要在您的 SQL Server VM 中複寫整個 SQL Server 資料庫，您應將資料庫從一個位置/伺服器複製到另一個位置/伺服器 (假設資料庫可以暫時設定離線)。您可以在 SQL Server Management Studio Object Explorer GUI 中，或使用對等的 Transact-SQL 命令來執行此作業。
+若要在您的 SQL Server VM 中複寫整個 SQL Server 資料庫，您應將資料庫從一個位置/伺服器複製到另一個位置/伺服器 (假設資料庫可以暫時設定離線)。您可以在 SQL Server Management Studio Object Explorer 中，或使用對等的 Transact-SQL 命令來執行此作業。
 
 1. 在來源位置卸離資料庫。如需詳細資訊，請參閱 [卸離資料庫](https://technet.microsoft.com/library/ms191491(v=sql.110).aspx)。
 2. 在 Windows 檔案總管或 Windows 命令提示字元視窗中，將已卸離的資料庫檔案和記錄檔複製到位於 Azure 中 SQL Server VM 上的目標位置。
@@ -282,7 +281,7 @@
 
 9. 使用[匯入資料][import-data]模組直接從 `Hive Queries` 讀取資料。視需要，將可擷取欄位、建立功能及對資料取樣的必要查詢，直接貼到[匯入資料][import-data]查詢中。
 
-10. 從上傳的資料集開始的簡易 Azure ML 實驗流程。
+10. 從上傳的資料集開始的簡單 Azure Machine Learning 實驗流程。
 
 ## <a name="decisiontree"></a>用於案例選擇的決策樹
 ------------------------
@@ -314,4 +313,4 @@
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

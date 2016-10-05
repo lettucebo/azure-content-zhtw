@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # v2.0 權杖參考
@@ -21,7 +21,7 @@
 V2.0 端點會在每個[驗證流程](active-directory-v2-flows.md)的處理中發出數種安全性權杖。本文件說明每種權杖的格式、安全性特性和內容。
 
 > [AZURE.NOTE]
-	v2.0 端點並未支援 Azure Active Directory 的所有案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
+	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
 
 ## 權杖的類型
 
@@ -29,7 +29,7 @@ V2.0 端點支援 [OAuth 2.0 授權通訊協定](active-directory-v2-protocols.m
 
 持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。從這個意義上說，「持有者」是可出示權杖的任何一方。雖然某一方必須先向 Azure AD 驗證以收到持有人權杖，但如果傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。雖然某些安全性權杖都有內建的機制，可防止未經授權的人士使用權杖，但持有者權杖沒有這項機制，而必須以安全通道來傳輸，例如傳輸層安全性 (HTTPS)。如果持有人權杖以純文字傳輸，惡意人士可能使用攔截式攻擊來取得權杖，然後未經授權存取受保護的資源。儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。務必確定您的應用程式以安全的方式傳輸和儲存持有人權杖。關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
 
-許多由 v2.0 端點所簽發的權杖都會實作為 Json Web 權杖或 JWT。JWT 是一種精簡的 URL 安全方法，可在兩方之間傳輸資訊。JWT 中包含的資訊也稱為權杖持有人及主體相關資訊的「宣告」或判斷提示。JWT 中的宣告是為了傳輸而編碼和序列化的 JSON 物件。因為 v2.0 端點所簽發的 JWT 已簽署但未加密，所以您可以輕鬆地檢查 JWT 的內容以便偵錯。有數個工具可以進行這項操作，例如 [calebb.net](http://jwt.calebb.net)。如需 JWT 的詳細資訊，您可以參考 [JWT 規格](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。
+許多由 v2.0 端點所簽發的權杖都會實作為 Json Web 權杖或 JWT。JWT 是一種精簡的 URL 安全方法，可在兩方之間傳輸資訊。JWT 中包含的資訊也稱為權杖持有人及主體相關資訊的「宣告」或判斷提示。JWT 中的宣告是為了傳輸而編碼和序列化的 JSON 物件。因為 v2.0 端點所簽發的 JWT 已簽署但未加密，所以您可以輕鬆地檢查 JWT 的內容以便偵錯。如需 JWT 的詳細資訊，您可以參考 [JWT 規格](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。
 
 ## Id\_tokens
 
@@ -50,8 +50,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 #### id\_tokens 中的宣告
 | 名稱 | 宣告 | 範例值 | 說明 |
 | ----------------------- | ------------------------------- | ------------ | --------------------------------- |
-| 對象 | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | 識別權杖的預定接收者。在 id\_token 中，對象是在應用程式註冊入口網站中指派給應用程式的應用程式識別碼。您的應用程式應驗證此值並拒絕不相符的權杖。 |
-| Issuer | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` | 識別可建構並傳回權杖的 Security Token Service (STS)，以及用以使用者驗證的 Azure AD 租用戶。您的應用程式應驗證簽發者宣告，以確保權杖來自 v2.0 端點。它也可以使用宣告的 guid 部分限制允許登入應用程式的租用戶集合。用來表示使用者是使用 Microsoft 帳戶的取用者使用者的 guid 為 `9188040d-6c67-4c5b-b112-36a304b66dad`。 |
+| 觀眾 | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | 識別權杖的預定接收者。在 id\_token 中，對象是在應用程式註冊入口網站中指派給應用程式的應用程式識別碼。您的應用程式應驗證此值並拒絕不相符的權杖。 |
+| 簽發者 | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` | 識別可建構並傳回權杖的 Security Token Service (STS)，以及用以使用者驗證的 Azure AD 租用戶。您的應用程式應驗證簽發者宣告，以確保權杖來自 v2.0 端點。它也可以使用宣告的 guid 部分限制允許登入應用程式的租用戶集合。用來表示使用者是使用 Microsoft 帳戶的取用者使用者的 guid 為 `9188040d-6c67-4c5b-b112-36a304b66dad`。 |
 | 發出時間 | `iat` | `1452285331` | 簽發權杖的時間 (以新紀元 (Epoch) 時間表示)。 |
 | 到期時間 | `exp` | `1452289231` | 權杖失效的時間 (以新紀元 (Epoch) 時間表示)。您的應用程式應使用此宣告來驗證權杖存留期的有效性。 |
 | 生效時間 | `nbf` | `1452285331` | 權杖生效的時間 (以新紀元 (Epoch) 時間表示)。這通常與簽發時間相同。您的應用程式應使用此宣告來驗證權杖存留期的有效性。 |
@@ -154,4 +154,4 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 | 授權碼 (公司或學校帳戶) | 10 分鐘 | 授權碼的存留期特意較短，且應在收到時立即兌換 access\_token 和 refresh\_token。 |
 | 授權碼 (個人帳戶) | 5 分鐘 | 授權碼的存留期特意較短，且應在收到時立即兌換 access\_token 和 refresh\_token。代表個人帳戶簽發的授權碼也是單次使用。 |
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

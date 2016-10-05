@@ -31,7 +31,7 @@
 
 - **一個閘道器存放區。** 閘道器存放區會保存此縮放單位中定義的每個實體的資料。閘道器存放區是在 SQL Azure 資料庫上實作。
 
-- **多個訊息存放區。** 訊息存放區會保存此縮放單位中定義的所有佇列、主題和訂用帳戶的訊息。它也包含所有訂用帳戶資料。除非啟用了[分割訊息實體](service-bus-partitioning.md)，佇列或主題才會對應至一個訊息存放區。訂用帳戶是儲存在與父項主題相同的訊息存放區。除了服務匯流排[進階傳訊](service-bus-premium-messaging.md)以外，訊息存放區會在 SQL Azure 資料庫之上實作。
+- **多個訊息存放區。** 訊息存放區會保存此縮放單位中定義的所有佇列、主題和訂用帳戶的訊息。它也包含所有訂用帳戶資料。除非啟用了[分割訊息實體](../service-bus-messaging/service-bus-partitioning.md)，佇列或主題才會對應至一個訊息存放區。訂用帳戶是儲存在與父項主題相同的訊息存放區。除了服務匯流排[進階傳訊](../service-bus-messaging/service-bus-premium-messaging.md)以外，訊息存放區會在 SQL Azure 資料庫之上實作。
 
 ## 容器
 
@@ -55,8 +55,8 @@
 
 既然您已閱讀服務匯流排架構的概觀，若要開始使用，請瀏覽下列連結：
 
-- [服務匯流排訊息概觀](service-bus-messaging-overview.md)
+- [服務匯流排傳訊概觀](../service-bus-messaging/service-bus-messaging-overview.md)
 - [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
-- [使用服務匯流排佇列的佇列訊息解決方案](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+- [使用服務匯流排佇列的佇列訊息解決方案](../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

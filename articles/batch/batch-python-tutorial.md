@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="09/08/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # 開始使用 Azure Batch Python 用戶端
@@ -44,9 +44,33 @@ Python 教學課程[程式碼範例][github_article_samples]是在 GitHub 上 [a
 
 ### Python 環境
 
-若要在本機工作站上執行 python\_tutorial\_client.py 範例指令碼，您需要與版本 **2.7** 或 **3.3 3.5** 相容的 **Python 解譯器**。此指令碼已在 Linux 和 Windows 上測試。
+若要在本機工作站上執行「python\_tutorial\_client.py」範例指令碼，您需要與版本 **2.7** 或 **3.3+** 相容的 **Python 解譯器**。此指令碼已在 Linux 和 Windows 上測試。
 
-您還必須安裝 **Azure Batch** 和 **Azure 儲存體** Python 封裝。使用此處找到的 **pip** 和 requirements.txt 即可完成此作業：
+### 密碼編譯相依項目
+
+您必須為[密碼編譯][crypto]程式庫安裝 `azure-batch` 和 `azure-storage` Python 套件所需的相依項目。針對您的平台執行下列其中一個適用作業，或參閱[密碼編譯安裝][crypto_install]詳細資料以取得詳細資訊︰
+
+* Ubuntu
+
+    `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
+
+* CentOS
+
+    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+
+* SLES/OpenSUSE
+
+    `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
+
+* Windows
+
+    `pip install cryptography`
+
+>[AZURE.NOTE] 如果要在 Linux 上安裝 Python 3.3+，請使用適用於 Python 相依項目的 python3 對等項目。例如，在 Ubuntu 上︰`apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+
+### Azure 套件
+
+接下來請安裝 **Azure Batch** 和 **Azure 儲存體** Python 套件。使用此處找到的 **pip** 和 requirements.txt 即可完成此作業：
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -56,7 +80,7 @@ Python 教學課程[程式碼範例][github_article_samples]是在 GitHub 上 [a
 
 或者，您可以手動方式安裝 [azure-batch][pypi_batch] 和 [azure-storage][pypi_storage] Python 封裝：
 
-`pip install azure-batch==0.30.0rc4`<br/> `pip install azure-storage==0.30.0`
+`pip install azure-batch`<br/> `pip install azure-storage`
 
 > [AZURE.TIP] 如果您使用無特殊權限的帳戶，則可能需要在您的命令前面加上 `sudo`。例如，`sudo pip install -r requirements.txt`。如需有關如何安裝 Python 封裝的詳細資訊，請參閱 readthedocs.io 上的[安裝封裝][pypi_install]。
 
@@ -254,7 +278,7 @@ Batch **集區** 是 Batch 執行作業工作所在的計算節點 (虛擬機器
 
 ```python
 def create_pool(batch_service_client, pool_id,
-                resource_files, distro, version):
+                resource_files, publisher, offer, sku):
     """
     Creates a pool of compute nodes with the specified OS settings.
 
@@ -263,10 +287,9 @@ def create_pool(batch_service_client, pool_id,
     :param str pool_id: An ID for the new pool.
     :param list resource_files: A collection of resource files for the pool's
     start task.
-    :param str distro: The Linux distribution that should be installed on the
-    compute nodes, e.g. 'Ubuntu' or 'CentOS'.
-    :param str version: The version of the operating system for the compute
-    nodes, e.g. '15' or '14.04'.
+    :param str publisher: Marketplace image publisher
+    :param str offer: Marketplace image offer
+    :param str sku: Marketplace image sku
     """
     print('Creating pool [{}]...'.format(pool_id))
 
@@ -282,24 +305,32 @@ def create_pool(batch_service_client, pool_id,
         # Copy the python_tutorial_task.py script to the "shared" directory
         # that all tasks that run on the node have access to.
         'cp -r $AZ_BATCH_TASK_WORKING_DIR/* $AZ_BATCH_NODE_SHARED_DIR',
-        # Install pip and then the azure-storage module so that the task
-        # script can access Azure Blob storage
+        # Install pip and the dependencies for cryptography
         'apt-get update',
         'apt-get -y install python-pip',
+        'apt-get -y install build-essential libssl-dev libffi-dev python-dev',
+        # Install the azure-storage module so that the task script can access
+        # Azure Blob storage
         'pip install azure-storage']
 
-    # Get the virtual machine configuration for the desired distro and version.
+    # Get the node agent SKU and image reference for the virtual machine
+    # configuration.
     # For more information about the virtual machine configuration, see:
     # https://azure.microsoft.com/documentation/articles/batch-linux-nodes/
-    vm_config = get_vm_config_for_distro(batch_service_client, distro, version)
+    sku_to_use, image_ref_to_use = \
+        common.helpers.select_latest_verified_vm_image_with_node_agent_sku(
+            batch_service_client, publisher, offer, sku)
 
     new_pool = batch.models.PoolAddParameter(
         id=pool_id,
-        virtual_machine_configuration=vm_config,
+        virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+            image_reference=image_ref_to_use,
+            node_agent_sku_id=sku_to_use),
         vm_size=_POOL_VM_SIZE,
         target_dedicated=_POOL_NODE_COUNT,
         start_task=batch.models.StartTask(
-            command_line=wrap_commands_in_shell('linux', task_commands),
+            command_line=
+            common.helpers.wrap_commands_in_shell('linux', task_commands),
             run_elevated=True,
             wait_for_success=True,
             resource_files=resource_files),
@@ -310,7 +341,6 @@ def create_pool(batch_service_client, pool_id,
     except batchmodels.batch_error.BatchErrorException as err:
         print_batch_exception(err)
         raise
-}
 ```
 
 當您建立集區時，您會定義 [PoolAddParameter][py_pooladdparam] 以指定集區的數個屬性：
@@ -319,7 +349,7 @@ def create_pool(batch_service_client, pool_id,
 
 - **計算節點數目** (*target\_dedicated* - 必要)<p/>會指定應在集區中部署多少 VM。請務必注意，所有的 Batch 帳戶都具有預設**配額**，以限制 Batch 帳戶中的**核心** (因而限制計算節點) 數目。您可在 [Azure Batch 服務的配額和限制](batch-quota-limit.md)中發現預設配額以及如何[增加配額](batch-quota-limit.md#increase-a-quota) (例如 Batch 帳戶中的核心數目上限) 的說明。如果您發現自問「為什麼我的集區不會觸達 X 個以上的節點？」，此核心配額可能是原因。
 
-- 節點的**作業系統** (virtual\_machine\_configuration **或** cloud\_service\_configuration - 必要)<p/>在 python\_tutorial\_client.py 中，我們會使用透過 `get_vm_config_for_distro` 協助程式函式取得的 [VirtualMachineConfiguration][py_vm_config] 來建立 Linux 節點的集區。這個協助程式函式會使用 [list\_node\_agent\_skus][py_list_skus] 來取得相容的 [Azure 虛擬機器 Marketplace][vm_marketplace] 映像清單並從中選取映像。您可以改為指定 [CloudServiceConfiguration][py_cs_config] 並從雲端服務建立 Windows 節點的集區。如需這兩種設定的詳細資訊，請參閱[在 Azure Batch 集區中佈建 Linux 計算節點](batch-linux-nodes.md)。
+- 節點的**作業系統** (virtual\_machine\_configuration **或** cloud\_service\_configuration - 必要)<p/>在 python\_tutorial\_client.py 中，我們會使用 [VirtualMachineConfiguration][py_vm_config] 來建立 Linux 節點的集區。`common.helpers`中的 `select_latest_verified_vm_image_with_node_agent_sku` 函式可簡化 [Azure 虛擬機器 Marketplace][vm_marketplace] 映像的使用方式。如需使用 Marketplace 映像的詳細資訊，請參閱[在 Azure Batch 集區中佈建 Linux 計算節點](batch-linux-nodes.md)。
 
 - **計算節點的大小** (vm\_size - 必要)<p/>因為我們要針對 [VirtualMachineConfiguration][py_vm_config] 指定 Linux 節點，所以我們會從 [Azure 中的虛擬機器大小](../virtual-machines/virtual-machines-linux-sizes.md)指定 VM 大小 (在此範例中為 `STANDARD_A1`)。同樣地，如需詳細資訊，請參閱[在 Azure Batch 集區中佈建 Linux 計算節點](batch-linux-nodes.md)。
 
@@ -556,7 +586,9 @@ if query_yes_no('Delete pool?') == 'yes':
 
 當您執行教學課程[程式碼範例][github_article_samples]中的 python\_tutorial\_client.py 指令碼時，主控台輸出大致如下。在 `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` 會暫停執行，然而會建立、啟動集區的計算節點，以及執行集區的啟動工作中的命令。在執行期間和之後，使用 [Azure 入口網站][azure_portal]來監視集區、計算節點、作業和工作。使用 [Azure 入口網站][azure_portal]或 [Microsoft Azure 儲存體總管][storage_explorer]來檢視應用程式所建立的儲存體資源 (容器和 Blob)。
 
-以預設設定執行應用程式時，一般的執行時間**大約 5-7 分鐘**。
+>[AZURE.TIP] 從 `azure-batch-samples/Python/Batch/article_samples` 目錄內執行 *python\_tutorial\_client.py* 指令碼。它會使用相對路徑來匯入 `common.helpers` 模組，因此如果您沒有從此目錄內執行指令碼，您可能會看到 `ImportError: No module named 'common'`。
+
+以預設組態執行範例時，一般的執行時間**大約 5-7 分鐘**。
 
 ```
 Sample start: 2016-05-20 22:47:10
@@ -601,6 +633,8 @@ Press ENTER to exit...
 [azure_portal]: https://portal.azure.com
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
+[crypto]: https://cryptography.io/en/latest/
+[crypto_install]: https://cryptography.io/en/latest/installation/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
@@ -658,4 +692,4 @@ Press ENTER to exit...
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "入口網站中的儲存體認證"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Batch 方案工作流程 (最小圖表)"
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

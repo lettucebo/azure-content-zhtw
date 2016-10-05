@@ -19,7 +19,7 @@
 
 [分析](app-insights-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明 Analytics 查詢語言。
 
-> [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) 如果您的應用程式尚未傳送資料至 Application Insights。
+> [AZURE.NOTE] \[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) 如果您的應用程式尚未傳送資料至 Application Insights。
 
 ## 索引
 
@@ -27,13 +27,13 @@
 **Let 和 set** [let](#let-clause) | [set](#set-clause)
 
 
-**查詢和運算子** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+**查詢和運算子** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **彙總** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
 **純量** [布林常值](#boolean-literals) | [布林運算子](#boolean-operators) | [轉換](#casts) | [純量比較](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
-**數字** [算術運算子](#arithmetic-operators) | [數值常值](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+**數字** [算術運算子](#arithmetic-operators) | [數值常值](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **日期和時間** [日期和時間運算式](#date-and-time-expressions) | [日期和時間常值](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -910,7 +910,7 @@ Traces 資料表中具有特定 `ActivityId` 的所有資料列，按其時間�
 
     T | summarize count() by price_range=bin(price, 10.0)
 
-顯示有多少項目的價格落在 [0,10.0] 、[10.0,20.0] 等依此類推的間隔中的資料表。此範例有一個用於放置計數的資料行，以及一個用於放置價格範圍的資料行。其他所有輸入資料行則會遭到忽略。
+顯示有多少項目的價格落在 [0,10.0] 、 [10.0,20.0] 等依此類推的間隔中的資料表。此範例有一個用於放置計數的資料行，以及一個用於放置價格範圍的資料行。其他所有輸入資料行則會遭到忽略。
 
 
 **語法**
@@ -1053,7 +1053,7 @@ exceptions
 
 ### where 運算子
 
-     T | where fruit=="apple"
+     requests | where resultCode==200
 
 篩選資料表以建立滿足述詞的資料列子集。
 
@@ -1086,7 +1086,7 @@ Predicate 是 `true` 之 T 中的資料列。
 **範例**
 
 ```AIQL
-Traces
+traces
 | where Timestamp > ago(1h)
     and Source == "Kuskus"
     and ActivityId == SubActivityIt 
@@ -1096,6 +1096,26 @@ Traces
 
 請注意，我們將兩個資料行之間的比較放在最後，因為它不能利用索引和強制執行掃描。
 
+
+### where-in 運算子
+
+    requests | where resultCode !in (200, 201)
+
+    requests | where resultCode in (403, 404)
+
+**語法**
+
+    T | where col in (expr1, expr2, ...)
+    T | where col !in (expr1, expr2, ...)
+
+**引數**
+
+* `col`：資料表中的資料行。
+* `expr1`...：純量運算式清單。
+
+使用 `in` 來包含在資料列中 `col` 等於其中一個運算式 `expr1...` 的資料列。
+
+使用 `!in` 來包含在資料列中 `col` 不等於任何運算式 `expr1...` 的資料列。
 
 
 ## 彙總
@@ -1670,7 +1690,7 @@ true 或 false，取決於值是 null 或不是 null。
 
 ## 數字
 
-[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### 數值常值
 
@@ -1684,11 +1704,11 @@ true 或 false，取決於值是 null 或不是 null。
 || |
 |---|-------------|
 | + | 加 |
-| - | 減 | 
-| * | 乘 | 
-| / | 除 | 
-| % | 模數 | 
-|| 
+| - | 減 |
+| * | 乘 |
+| / | 除 |
+| % | 模數 |
+||
 |`<` |小於 
 |`<=`|小於或等於 
 |`>` |大於 
@@ -1757,10 +1777,25 @@ true 或 false，取決於值是 null 或不是 null。
     exp10(v) // 10 raised to the power v
 
 
-
 ### floor
 
 [`bin()`](#bin) 的別名。
+
+### gamma
+
+[gamma 函式](https://en.wikipedia.org/wiki/Gamma_function)
+
+**語法**
+
+    gamma(x)
+
+**引數**
+
+* x：實數
+
+正整數，`gamma(x) == (x-1)!` 例如，`gamma(5) == 4 * 3 * 2 * 1`。
+
+另請參閱 [loggamma](#loggamma)。
 
 
 ### log
@@ -1771,6 +1806,20 @@ true 或 false，取決於值是 null 或不是 null。
 
 
 `v` 應該是 > 0 的實數。否則，會傳回 null。
+
+### loggamma
+
+
+[gamma 函式](#gamma)絕對值的自然對數。
+
+**語法**
+
+    loggamma(x)
+
+**引數**
+
+* x：實數
+
 
 ### rand
 
@@ -2397,7 +2446,7 @@ substring("ABCD", 0, 2)       // AB
 
 ## 陣列、物件和動態
 
-[常值](#dynamic-literals) | [轉換](#casting-dynamic-objects) | [運算子](#operators) | [let 子句](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[常值](#dynamic-literals) | [轉換](#casting-dynamic-objects) | [運算子](#operators) | [let 子句](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic) | [zip](#zip)
 
 
 以下是 Application Insights 例外狀況的查詢結果。`details` 中的值是陣列。
@@ -2699,6 +2748,24 @@ range(1, 8, 3)
 
 請注意，"[0]" 表示陣列存在，但未指定特定路徑所用的索引。
 
+### zip
+
+    zip(list1, list2, ...)
+
+將一組清單結合成一份 Tuple 清單。
+
+* `list1...`︰值的清單
+
+**範例**
+
+    zip(parsejson('[1,3,5]'), parsejson('[2,4,6]'))
+    => [ [1,2], [3,4], [5,6] ]
+
+    
+    zip(parsejson('[1,3,5]'), parsejson('[2,4]'))
+    => [ [1,2], [3,4], [5,null] ]
+
+
 ### 名稱
 
 名稱的長度上限為 1024 個字元。它們會區分大小寫，且可能會包含字母、數字和底線 (`_`)。
@@ -2724,4 +2791,4 @@ range(1, 8, 3)
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->

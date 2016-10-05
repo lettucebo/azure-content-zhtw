@@ -189,7 +189,7 @@ EventProcessorHost 是一個 Java 類別，透過管理持續檢查點以及來�
 > [AZURE.NOTE] 本教學課程使用單一 EventProcessorHost 執行個體。若要增加輸送量，建議您執行多個 EventProcessorHost 執行個體。在這些情況下，各種執行個體會自動彼此協調以對已接收的事件進行負載平衡。如果您想要多個接收者都處理*所有*事件，則必須使用 **ConsumerGroup** 概念。收到來自不同電腦的事件時，根據在其中執行 EventProcessorHost 執行個體的電腦 (或角色) 來指定名稱可能十分有用。
 
 <!-- Links -->
-[Event Hubs Overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-overview.md
 [Azure 儲存體帳戶]: ../storage/storage-create-storage-account.md
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
@@ -198,4 +198,4 @@ EventProcessorHost 是一個 Java 類別，透過管理持續檢查點以及來�
 [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
 
-<!----HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/29/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # 採用 Azure Resource Manager 範本的 Windows VMSS 和預期狀態設定
@@ -90,7 +90,7 @@ VMSS 節點具有 "properties" 區段以及 "VirtualMachineProfile"、"extension
 
 ## 詳細的設定資訊
 
-這是 Azure Resource Manager 範本中 Azure DSC 擴充的設定部分結構描述。
+下列結構描述是用於 Azure Resource Manager 範本中 Azure DSC 擴充功能的 settings 部分。
 
 ```json
 
@@ -169,7 +169,7 @@ VMSS 節點具有 "properties" 區段以及 "VirtualMachineProfile"、"extension
 
 下列範例衍生自 [DSC 擴充處理常式概觀頁面](virtual-machines-windows-extensions-dsc-overview.md)的〈開始使用〉一節。此範例使用 Resource Manager 範本 (而不是Cmdlet) 來部署擴充功能。儲存 「"IisInstall.ps1" 組態，將它放在 .ZIP 檔中，然後以可存取的 URL 上傳此檔案。此範例會使用 Azure Blob 儲存體，但可能從任意位置下載 .ZIP 檔案。
 
-在 Resource Manager 範本中，下列程式碼會指示 VM 下載正確的檔案並執行適當的 PowerShell 函式：
+在 Azure Resource Manager 範本中，下列程式碼會指示 VM 下載正確的檔案並執行適當的 PowerShell 函式：
 
 ```json
 "settings": {
@@ -186,9 +186,9 @@ VMSS 節點具有 "properties" 區段以及 "VirtualMachineProfile"、"extension
 ```
 
 ## 從先前的格式進行更新
-先前格式 (包含 ModulesUrl、ConfigurationFunction、SasToken 或 Properties 等公用屬性) 中的任何設定都會自動調整成目前的格式並如同之前一樣執行。
+先前格式 (包含 ModulesUrl、ConfigurationFunction、SasToken 或 Properties 等公用屬性) 中的任何設定都會自動調整成目前的格式，並以之前的相同方式執行。
 
-先前的 settings 結構描述如下所示︰
+下列結構描述就是先前的 settings 結構描述看起來的樣子︰
 
 ```json
 "settings": {
@@ -224,8 +224,8 @@ VMSS 節點具有 "properties" 區段以及 "VirtualMachineProfile"、"extension
 | --- | --- |
 | settings.wmfVersion | settings.WMFVersion |
 | settings.configuration.url | settings.ModulesUrl |
-| settings.configuration.script | settings.ConfigurationFunction 的第 1 部分 ('\\\' 之前) |
-| settings.configuration.function | settings.ConfigurationFunction 的第 2 部分 ('\\\' 之後) |
+| settings.configuration.script | settings.ConfigurationFunction 的第一個部分 ('\\\' 之前) |
+| settings.configuration.function | settings.ConfigurationFunction 的第二個部分 ('\\\' 之後) |
 | settings.configurationArguments | settings.Properties |
 | settings.configurationData.url | protectedSettings.DataBlobUri (不含 SAS 權杖) |
 | settings.privacy.dataEnabled | settings.Privacy.DataEnabled |
@@ -257,7 +257,7 @@ VMSS 節點具有 "properties" 區段以及 "VirtualMachineProfile"、"extension
 
 問題︰ConfigurationArguments 屬性無法解析成 Hashtable 物件。
 
-解決方式︰讓 ConfigurationArguments 屬性變成雜湊表。請遵循上述範例中提供的格式。請留意引號、逗號和括號。
+解決方式︰讓 ConfigurationArguments 屬性變成雜湊表。請依照上述範例中提供的格式。請留意引號、逗號和括號。
 
 ### 重複的 ConfigurationArguments
 「在公用和受保護的 configurationArguments 中找到重複的引數 '{0}'」
@@ -285,4 +285,14 @@ VMSS 節點具有 "properties" 區段以及 "VirtualMachineProfile"、"extension
 - 提供遺漏的屬性。
 - 移除需要遺漏屬性的屬性。
 
-<!---HONumber=AcomDC_0914_2016-->
+
+## 後續步驟
+[深入了解 DSC 和 VMSS](virtual-machines-scale-sets-dsc.md)
+
+如需詳細資料，請參閱 [DSC 的安全認證管理](virtual-machines-windows-extensions-dsc-credentials.md)。
+
+如需有關 Azure DSC 擴充功能處理常式的詳細資訊，請參閱 [Azure 期望狀態組態擴充功能處理常式簡介](virtual-machines-windows-extensions-dsc-overview.md)。
+
+如需有關 PowerShell DSC 的詳細資訊，請[瀏覽 PowerShell 文件中心](https://msdn.microsoft.com/powershell/dsc/overview)。
+
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,7 +3,7 @@
    description="了解如何透過「編輯和重新整理」來修改在本機 Docker 容器中執行的應用程式、重新整理容器，以及設定偵錯中斷點"
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="07/22/2016"
-   ms.author="allclark" />
+   ms.author="mlearned" />
 
 # 偵錯本機 Docker 容器中的應用程式
 
-## 概觀
+## Overview
 Visual Studio Tools for Docker 提供一致的方式，在 Linux Docker 容器中本機開發和驗證您的應用程式。您不需要每次變更程式碼之後都重新啟動容器。本文章將說明如何使用「編輯及重新整理」功能在本機 Docker 容器中啟動 ASP.NET Core Web 應用程式、進行任何必要的變更，然後重新整理瀏覽器來查看這些變更。它也會示範如何設定中斷點來進行偵錯。
 
 > [AZURE.NOTE] 未來版本將支援 Windows 容器
@@ -26,8 +26,8 @@ Visual Studio Tools for Docker 提供一致的方式，在 Linux Docker 容器�
 您的電腦必須安裝下列工具。
 
 - [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
-- [Microsoft ASP .NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
-- [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)
+- 安裝 [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+- [Microsoft ASP.NET 核心 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 若要在本機執行 Docker 容器，您需要本機 Docker 用戶端。您可以使用需要停用 Hyper-V 的已發行 [Docker 工具箱](https://www.docker.com/products/overview#/docker_toolbox)，或是使用利用 Hyper-V 並需要 Windows 10 的 [Docker for Windows Beta](https://beta.docker.com)。
 
@@ -125,4 +125,4 @@ Visual Studio Tools for Docker 提供一致的方式，在 Linux Docker 容器�
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

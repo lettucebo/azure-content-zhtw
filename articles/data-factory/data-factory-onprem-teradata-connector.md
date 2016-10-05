@@ -13,16 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Teradata 移動資料
 
 本文將概述如何使用 Azure 資料處理站中的複製活動將資料從 Teradata 移動到另一個資料存放區。本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
 
-資料處理站支援透過資料管理閘道器連接至內部部署 Teradata 來源。請參閱[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文來了解資料管理閘道器和設定閘道器的逐步指示。
+資料處理站支援透過資料管理閘道器連接至內部部署 Teradata 來源。請參閱[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文來了解資料管理閘道和設定閘道的逐步指示。
 
-**請注意：**即使 Teradata 裝載於 Azure IaaS VM 中，您還是需要運用閘道器與其連接。如果您正嘗試連接到裝載於雲端中的 Teradata 執行個體，您也可以在 IaaS VM 中安裝閘道器執行個體。
+> [AZURE.NOTE]
+即使 Teradata 裝載於 Azure IaaS VM 中，也必須要有閘道。您可以將閘道安裝在與資料存放區相同或相異的 IaaS VM 上，只要閘道可以連線到資料庫即可。
 
 資料處理站只支援將資料從 Teradata 移至其他資料存放區，而不支援從其他資料存放區移至 Teradata。
 
@@ -35,7 +36,7 @@
 ## 複製資料精靈
 若要建立管線以將資料從 Teradata 複製到任何支援的接收資料存放區，最簡單的方式是使用複製資料精靈。如需使用複製資料精靈建立管線的快速逐步解說，請參閱[教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)。
 
-以下範例提供可用來使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)或 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 建立管線的範例 JSON 定義。這些範例示範如何將資料從 Teradata 複製到 Azure Blob 儲存體。不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到[這裡](data-factory-data-movement-activities.md#supported-data-stores)所說的任何接收器。
+下列範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。這些範例示範如何將資料從 Teradata 複製到 Azure Blob 儲存體。不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到[這裡](data-factory-data-movement-activities.md#supported-data-stores)所說的任何接收器。
 
 ### 範例：從 Teradata 複製資料到 Azure Blob
 
@@ -51,7 +52,7 @@
 
 此範例會每個小時將資料從 Teradata 資料庫中的查詢結果複製到 Blob。範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
-在第一個步驟中，根據[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文中的指示，設定資料管理閘道器。
+第一步是設定資料管理閘道。如需相關指示，請參閱[在內部部署位置和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)。
 
 **Teradata 連結服務：**
 
@@ -86,7 +87,7 @@
 
 此範例假設您已在 Teradata 中建立資料表 "MyTable"，其中包含時間序列資料的資料行 (名稱為 "timestamp")。
 
-設定 “external”: true 和指定 externalData 原則即可通知資料處理站：這是資料處理站外部的資料表而且不是由 Data Factory 中的活動所產生。
+設定 “external”: true 可讓 Data Factory 服務知道資料表是在 Data Factory 外部，而不是由 Data Factory 中的活動所產生。
 
 	{
 	    "name": "TeradataDataSet",
@@ -174,7 +175,7 @@
 
 **具有複製活動的管線：**
 
-此管線包含複製活動，該活動已設定為使用上述輸入和輸出資料集並排定為每小時執行。在管線 JSON 定義中，**source** 類型設為 **RelationalSource**，而 **sink** 類型設為 **BlobSink**。針對 **query** 屬性指定的 SQL 查詢會選取過去一小時內要複製的資料。
+此管線包含複製活動，該活動已設定為使用輸入和輸出資料集並排定為每小時執行。在管線 JSON 定義中，**source** 類型設為 **RelationalSource**，而 **sink** 類型設為 **BlobSink**。針對 **query** 屬性指定的 SQL 查詢會選取過去一小時內要複製的資料。
 
 	{
 	    "name": "CopyTeradataToBlob",
@@ -246,11 +247,11 @@ gatewayName | Data Factory 服務應該用來連接到內部部署 Teradata 資�
 
 ## Teradata 複製活動類型屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
+如需可用來定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。屬性 (例如名稱、描述、輸入和輸出資料表，以及原則) 適用於所有類型的活動。
 
-另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
+另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同。就「複製活動」而言，這些屬性會根據來源和接收器的類型而有所不同。
 
-在「複製活動」的案例中，如果來源的類型為 **RelationalSource** (包含 Teradata)，則 **typeProperties** 區段有下列可用屬性：
+如果來源類型為 **RelationalSource** (包含 Teradata)，則 **typeProperties** 區段可使用下列屬性：
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
@@ -260,12 +261,12 @@ query | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：selec
 
 ## Teradata 的類型對應
 
-如[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行從來源類型轉換成接收類型的自動類型轉換：
+如同[資料移動活動](data-factory-data-movement-activities.md)一文所述，「複製活動」會藉由含有下列 2 個步驟的方法，執行從來源類型轉換成接收類型的自動類型轉換：
 
 1. 從原生來源類型轉換成 .NET 類型
 2. 從 .NET 類型轉換成原生接收類型
 
-將資料移到 Teradata 時，下列對應將用於從 Teradata 類型.NET 類型。
+將資料移到 Teradata 時，下列對應會用於從 Teradata 類型到 .NET 類型。
 
 Teradata 資料庫類型 | .NET Framework 類型
 ----------------- | ---------------------------
@@ -316,4 +317,4 @@ Xml | String
 ## 效能和微調  
 請參閱[複製活動的效能及微調指南](data-factory-copy-activity-performance.md)一文，以了解在 Azure Data Factory 中會影響資料移動 (複製活動) 效能的重要因素，以及各種最佳化的方法。
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

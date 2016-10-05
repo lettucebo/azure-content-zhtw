@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Insights︰使用稽核記錄，在 Azure Insights 中傳送電子郵件和 webhook 警示通知。| Microsoft Azure"
-	description="了解如何使用服務 auditlog 項目來呼叫 Web URL 或在 Azure Insights 中傳送電子郵件通知。"
+	pageTitle="針對 Azure 活動記錄警示設定 Webhook | Microsoft Azure"
+	description="了解如何使用活動記錄警示來呼叫 Webhook。"
 	authors="kamathashwin"
 	manager=""
 	editor=""
@@ -13,33 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="09/15/2016"
 	ms.author="ashwink"/>
 
-# 使用稽核記錄，在 Azure Insights 中傳送電子郵件和 webhook 警示通知
+# 針對 Azure 活動記錄警示設定 Webhook
 
-這篇文章會顯示稽核記錄檔事件觸發 webhook 時的內容結構描述，並且說明如何使用相同的事件傳送電子郵件。
+Webhook 可讓您將 Azure 警示通知路由到其他系統以進行後處理或自訂動作。您可以針對警示使用 Webhook，以將警示路由到會傳送簡訊、記錄錯誤、透過聊天/傳訊服務通知小組，或進行任意數量之其他動作的服務。本文說明如何針對 Azure 活動記錄警示設定 Webhook，並說明 HTTP POST 對 Webhook 之承載的樣貌。如需有關 Azure 度量警示之設定和結構描述的資訊，[請改為參閱本頁](./insights-webhooks-alerts.md)。您也可以將活動記錄警示設定為在啟動時傳送電子郵件。
 
->[AZURE.NOTE] 這項功能目前為預覽版本。未來幾個月將會改善事件警示基礎結構和效能。在此預覽中，這項功能只能使用 Azure PowerShell 和 CLI 存取。稍後才能使用 Azure 入口網站存取相同功能。
+>[AZURE.NOTE] 這項功能目前僅供預覽，因此品質和效能會有變化。
 
-## Webhook
-Webhook 可讓您將 Azure 警示通知路由到其他系統進行後處理或自訂通知。例如，將警示路由到可處理傳入 Web 要求的服務，以傳送 SMS、記錄錯誤，或是使用聊天或傳訊服務通知某人等等。Webhook URI 必須是有效的 HTTP 或 HTTPS 端點。
+您可以使用 [Azure PowerShell Cmdlet](./insights-powershell-samples.md#create-alert-rules)、[跨平台 CLI](./insights-cli-samples.md#work-with-alerts) 或 [Insights REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx) 設定活動記錄警示。
 
-## 電子郵件
-電子郵件可以傳送至任何有效的電子郵件地址。也會通知執行該規則的訂用帳戶的系統管理員和共同管理員。
+## 驗證 Webhook
+Webhook 可使用下列其中一種方法來進行驗證︰
 
-### 範例電子郵件規則
-您必須設定電子郵件規則，webhook 規則，然後告知規則在稽核記錄檔事件發生時啟動。您可以在 [Azure Insights PowerShell 快速入門範例](insights-powershell-samples.md#alert-on-audit-log-event)中看到使用 PowerShell 的範例。
+1. **權杖型授權** - 所儲存的 Webhook URI 具有權杖識別碼，例如 `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+2.	**基本授權** - 所儲存的 Webhook URI 具有使用者名稱和密碼，例如 `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
-
-## 驗證
-有兩種驗證 URI 形式︰
-
-1. 權杖型驗證，方法是儲存 webhook URI 和權杖識別碼做為查詢參數。例如，https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. 基本驗證，方法是使用使用者識別碼和密碼。例如，https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
-
-## 稽核記錄檔事件通知 webhook 內容結構描述
-可以使用新的事件時，稽核記錄檔事件的警示會執行已設定的 webhook，在 webhook 內容中具有事件中繼資料。下列範例顯示 webhook 內容結構描述：
+## 承載結構描述
+POST 作業對於所有以活動記錄為基礎的警示會包含下列 JSON 承載和結構描述。此結構描述類似於度量型警示所使用的結構描述。
 
 ```
 {
@@ -91,32 +83,39 @@ Webhook 可讓您將 Azure 警示通知路由到其他系統進行後處理或�
 
 |元素名稱|	說明|
 |---|---|
-|status |一律設為「啟動」|
-|context|事件的內容|
-|resourceProviderName|受影響資源的資源提供者|
-|conditionType |「事件」|
-|名稱 |警示規則的名稱|
-|id |警示的資源識別碼|
-|說明|	警示建立者在警示上設定的描述|
-|subscriptionId |Azure 訂用帳戶 GUID|
-|timestamp|	Azure 服務產生事件的時間戳記，處理與事件對應的要求|
-|resourceId |可唯一識別該資源的資源識別碼 URI|
-|resourceGroupName|受影響資源的 resource-group-name|
-|properties |一組包含事件相關詳細資料的 <Key, Value> 配對 (也就是字典<String, String>)|
-|事件|元素，包含事件相關中繼資料|
-|授權|擷取事件的 RBAC 屬性。這些屬性通常包括「動作」、「角色」和「範圍」。|
-|category | 事件的類別。支援值包括︰管理、警示、安全性、ServiceHealth、建議|
+|status |用於度量警示。針對活動記錄警示，一律設為「啟動」。|
+|context|事件的內容。|
+|resourceProviderName|受影響資源的資源提供者。|
+|conditionType |一律為「事件」。|
+|名稱 |警示規則的名稱。|
+|id |警示的資源識別碼。|
+|說明|	警示建立期間所設定的警示說明。|
+|subscriptionId |Azure 訂用帳戶識別碼。|
+|timestamp|	處理要求的 Azure 服務產生事件的時間。|
+|resourceId |受影響資源的資源識別碼。|
+|resourceGroupName|受影響資源的資源群組的名稱|
+|屬性 |一組包含事件相關詳細資料的 `<Key, Value>` 配對 (也就是 `Dictionary<String, String>`)。|
+|事件|包含事件相關中繼資料的元素。|
+|授權|事件的 RBAC 屬性。這些屬性通常包括「動作」、「角色」和「範圍」。|
+|category | 事件的類別。支援值包括︰管理、警示、安全性、ServiceHealth、建議。|
 |呼叫者|已執行作業的使用者的電子郵件地址，根據可用性的 UPN 宣告或 SPN 宣告。特定系統呼叫可為 Null。|
-|correlationId|	通常是字串格式的 GUID。具有屬於同一個較大動作的 correlationId 的事件，通常會共用相同的 correlationId。|
-|eventDescription |描述事件的靜態文字|
-|eventDataId|事件的唯一識別碼|
-|eventSource |產生事件的 Azure 服務或基礎結構的名稱|
+|correlationId|	通常是字串格式的 GUID。具有屬於同一個較大動作的 correlationId 的事件，且通常會共用 correlationId。|
+|eventDescription |事件的靜態文字描述。|
+|eventDataId|事件的唯一識別碼。|
+|eventSource |產生事件的 Azure 服務或基礎結構的名稱。|
 |httpRequest|	通常包括 “clientRequestId”、“clientIpAddress” 和 “method” (HTTP 方法，例如 PUT)。|
-|層級|下列其中一個值：重大、錯誤、警告、資訊和詳細資訊|
-|operationId|通常是對應至單一作業的事件之間共用的 GUID|
-|operationName|作業的名稱|
-|properties |事件元素內的元素包含事件的屬性。|
-|status|字串，描述作業的狀態。常見的值包括︰已啟動、進行中、成功、失敗、使用中、已解決|
+|層級|下列其中一個值：「重大」、「錯誤」、「警告」、「資訊」和「詳細資訊」。|
+|operationId|通常是對應至單一作業的事件之間共用的 GUID。|
+|operationName|作業名稱。|
+|屬性 |事件的屬性。|
+|status|字串。作業的狀態。常見的值包括︰「已啟動」、「進行中」、「成功」、「失敗」、「使用中」、「已解決」。|
 |子狀態|	通常包含對應 REST 呼叫的 HTTP 狀態碼。它也可以包含其他描述子狀態的字串。常見子狀態的值包括：確定 (HTTP 狀態碼︰200)，已建立 (HTTP 狀態碼︰201)、接受 (HTTP 狀態碼︰202)、沒有內容 (HTTP 狀態碼︰204)、不正確的要求 (HTTP 狀態碼︰400)、找不到 (HTTP 狀態碼︰404)，衝突 (HTTP 狀態碼︰409)、內部伺服器錯誤 (HTTP 狀態碼︰500)、服務無法使用 (HTTP 狀態碼︰503)、閘道逾時 (HTTP 狀態碼︰504)|
 
-<!---HONumber=AcomDC_0810_2016------>
+## 後續步驟
+- [深入了解活動記錄](./monitoring-overview-activity-logs.md)
+- [對 Azure 警示執行 Azure 自動化指令碼 (Runbook)](http://go.microsoft.com/fwlink/?LinkId=627081)
+- [使用邏輯應用程式透過 Twilio 從 Azure 警示傳送簡訊](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)。此範例適用於度量警示，但經過修改後即可用於活動記錄警示。
+- [使用邏輯應用程式從 Azure 警示傳送 Slack 訊息](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)。此範例適用於度量警示，但經過修改後即可用於活動記錄警示。
+- [使用邏輯應用程式從 Azure 警示傳送訊息到 Azure 佇列](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)。此範例適用於度量警示，但經過修改後即可用於活動記錄警示。
+
+<!---HONumber=AcomDC_0921_2016-->

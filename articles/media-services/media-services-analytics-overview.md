@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/27/2016"   
+	ms.date="09/14/2016"   
 	ms.author="milanga;juliako;johndeu"/>
 
-# Azure 媒體服務分析概觀
+# Azure 媒體服務分析概觀 | Microsoft Azure
 
-##概觀
+##Overview
 
 越來越多組織和企業採用視訊做為慣用的媒體，用來訓練員工、連絡客戶與記錄商務功能。雲端運算可讓您有效儲存、串流及存取這些大型媒體檔案，但是當公司擴充其視訊內容庫，他們必須具備同樣有效的方式從視訊擷取新的解析，以建立與其對象間更有意義與個人化的互動，並將其業務提升到更高的層次。
 
@@ -45,6 +45,8 @@ Azure 媒體分析可讓開發人員在有限規模下快速開始使用視訊�
 
 - **光學字元辨識** - Azure 媒體分析 OCR (光學字元辨識) 可讓您將視訊檔中的文字內容轉換成可編輯、可搜尋的數位文字。這可讓您從媒體的視訊訊號自動擷取有意義的中繼資料。
  
+- **可調整的臉部修訂** - **Azure 媒體修訂器**是可在雲端提供可調整的臉部修訂的 Azure 媒體分析 MP。臉部修訂可讓您修改視訊，以模糊所選人物的臉部。在公共安全和新聞媒體案例中，您可能會想要使用臉部修訂服務。若要手動修訂包含多個臉部的幾分鐘影片，可能要花上數小時的時間，若使用此服務，則只需要幾個簡單的步驟就能完成臉部修訂程序。如需詳細資訊，請參閱[本篇文章](media-services-face-redaction.md)。
+
  
 ## 常見案例
 
@@ -127,7 +129,9 @@ Azure 媒體分析可讓開發人員在有限規模下快速開始使用視訊�
 
 [Azure 媒體分析示範](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-##媒體服務學習路徑
+##後續步驟
+
+檢閱媒體服務學習路徑。
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -144,4 +148,4 @@ Azure 媒體分析可讓開發人員在有限規模下快速開始使用視訊�
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

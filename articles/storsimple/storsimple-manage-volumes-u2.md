@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務來管理磁碟區 (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
-## 概觀
+## Overview
 
 本教學課程說明如何使用 StorSimple Manager 服務來建立和管理已安裝 Update 2 的 StorSimple 裝置與 StorSimple 虛擬裝置上的磁碟區。
 
@@ -89,12 +89,12 @@ StorSimple 磁碟區可以是：
 
 使用本教學課程中的指示以執行下列工作：
 
-- 新增磁碟區 
-- 修改磁碟區 
+- 新增磁碟區
+- 修改磁碟區
 - 變更磁碟區類型
-- 刪除磁碟區 
-- 使磁碟區離線 
-- 監視磁碟區 
+- 刪除磁碟區
+- 使磁碟區離線
+- 監視磁碟區
 
 ## 新增磁碟區
 
@@ -144,8 +144,8 @@ StorSimple 磁碟區可以是：
 
 > [AZURE.IMPORTANT] 
 >
-> - 如果您修改裝置上的磁碟區大小，也必須變更主機上的磁碟區大小。 
-> - 此處所述的主機端步驟適用於 Windows Server 2012 (2012R2)。Linux 或其他主機作業系統的程序會有所不同。如果要在執行其他作業系統的主機上修改磁碟區，請參考主機作業系統的指示。 
+> - 如果您修改裝置上的磁碟區大小，也必須變更主機上的磁碟區大小。
+> - 此處所述的主機端步驟適用於 Windows Server 2012 (2012R2)。Linux 或其他主機作業系統的程序會有所不同。如果要在執行其他作業系統的主機上修改磁碟區，請參考主機作業系統的指示。
 
 #### 若要修改磁碟區
 
@@ -299,4 +299,4 @@ StorSimple 磁碟區可以是：
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

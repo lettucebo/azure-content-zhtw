@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016" 
+	ms.date="09/16/2016" 
 	ms.author="garye"/>
 
 
@@ -84,4 +84,4 @@ UCI 網站提供了功能向量的屬性說明，這些屬性包括財務資訊�
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -2,9 +2,9 @@
 	
 ![Azure 資料湖分析程序流程圖](./media/data-lake-analytics-basic-process-include/data-lake-analytics-process.png)
 	
-	1. Create a Data Lake Analytics account.
-	2. Prepare the source data. Data Lake Analytic jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts.   
-	3. Develop a U-SQL script.
-	4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads from the source data, process the data as instructed in the U-SQL script, and then save the output to either a Data Lake Store account or a Blob storage account.
+1. 建立資料湖分析帳戶。
+2. 準備來源資料。資料湖分析工作可讀取 Azure 資料湖存放區帳戶或 Azure Blob 儲存體帳戶資料中的資料。
+3. 開發 U SQL 指令碼。
+4. 將工作 (U-SQL 指令碼) 提交至資料湖分析帳戶。此工作會讀取來源資料、依照 U-SQL 指令碼中的指示處理資料，然後將輸出儲存至資料湖存放區帳戶或 Blob 儲存體帳戶。
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="08/15/2016"
+    ms.date="09/19/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp 中的新內容
@@ -20,18 +20,18 @@
 > [AZURE.IMPORTANT]
 Azure RemoteApp 即將中止。如需詳細資訊，請參閱[公告](https://go.microsoft.com/fwlink/?linkid=821148)。
 
-我們一律會根據您的意見來努力改善 Azure RemoteApp。以下是日後提供功能的大約時段。
+**已取消並結束所有預覽和藍圖項目，因為 Azure RemoteApp 已宣布淘汰。**
 
-|功能|2016 年 4-6 月|2016 年 7 - 9 月|
+|功能|狀態|
 |-----------|-------|-------|
-|Azure Remote App 可在 [Azure 傳統入口網站](http://manage.windowsazure.com)和 [Azure 入口網站](https://portal.azure.com)中取得 - 私人預覽| | |
-|能夠將個別應用程式發佈給特定使用者 - 私人預覽 ([意見反應](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))| | |
-|Windows 用戶端可轉散發 MSI 封裝 ([意見反應](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/)) - 私人預覽| | |
-|Azure 資源管理員 (ARM) 支援|||
-|Azure v2 資源支援| ||
-|雲端解決方案提供者 (CSP)|||
-|印度地區的可用性|||
-|英國地區的可用性|||
+|Azure Remote App 可在 [Azure 傳統入口網站](http://manage.windowsazure.com)和 [Azure 入口網站](https://portal.azure.com)中取得 - 私人預覽|**Canceled**|
+|能夠將個別應用程式發佈給特定使用者 - 私人預覽 ([意見反應](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|**Canceled**|
+|Windows 用戶端可轉散發 MSI 封裝 ([意見反應](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/)) - 私人預覽|**Canceled**|
+|Azure 資源管理員 (ARM) 支援|**Canceled**|
+|Azure v2 資源支援|**Canceled**|
+|雲端解決方案提供者 (CSP)|**Canceled**|
+|印度地區的可用性|**Canceled**|
+|英國地區的可用性|**Canceled**|
 
 
 其他已在今年初加入的改進功能：
@@ -50,4 +50,4 @@ Azure RemoteApp 即將中止。如需詳細資訊，請參閱[公告](https://go
 - 澳大利亞資料中心的可用性
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

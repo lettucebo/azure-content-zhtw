@@ -176,7 +176,7 @@ Skydesk Email 與 Azure AD 整合提供下列優點：
 
     c.[變更密碼 URL] 是選擇性的，將它保留為空白。
 
-    d.按一下 [Get Key From File] (從檔案取得金鑰) 來選取下載的 Skydesk Email 憑證，然後按一下 [開啟] 以上傳憑證。
+    d.按一下 [Get Key From File] \(從檔案取得金鑰) 來選取下載的 Skydesk Email 憑證，然後按一下 [開啟] 以上傳憑證。
 
     e.選取 [RSA] 做為 [演算法]。
 

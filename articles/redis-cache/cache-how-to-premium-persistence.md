@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # 如何設定進階 Azure Redis 快取的資料永續性
 
 Azure Redis 快取有不同的快取服務，在快取大小和功能 (包括新的進階層) 的選擇上提供了彈性。
 
-Azure Redis 快取進階層包括叢集、永續性及虛擬網路支援。本文說明如何在進階 Azure Redis 快取執行個體中設定永續性。
+Azure Redis 快取進階層包括叢集、永續性及虛擬網路支援之類的功能。本文說明如何在進階 Azure Redis 快取執行個體中設定永續性。
 
-如需其他進階快取功能的資訊，請參閱[如何設定進階 Azure Redis 快取的叢集](cache-how-to-premium-clustering.md)和[如何設定進階 Azure Redis 快取的虛擬網路支援](cache-how-to-premium-vnet.md)。
+如需其他進階快取功能的相關資訊，請參閱 [Azure Redis 快取進階層簡介](cache-premium-tier-intro.md)。
 
 ## 資料永續性是什麼？
 Redis 永續性可讓您保存儲存在 Redis 中的資料。您也可以擷取快照和備份資料，以在硬體失敗時載入。這是優於基本或標準層的重大優勢，基本或標準層的所有資料是儲存在記憶體中，若發生快取節點故障的失敗，資料可能會遺失。
@@ -57,9 +57,9 @@ Redis 永續性是在 [**Redis 資料永續性**] 刀鋒視窗中所設定。若
 
 若要設定備份間隔，請選取下拉式清單中的 [**備份頻率**]。選項包括 [15 分鐘]、[30 分鐘]、[60 分鐘]、[6 小時]、[12 小時] 及 [24 小]時。在先前的備份作業成功完成後，此間隔便會開始倒數計時，時間過後就會起始新的備份。
 
-按一下 [儲存體帳戶] 選取要使用的儲存體帳戶，然後從 [儲存體金鑰] 下拉式清單中選擇 [主要金鑰] 或 [次要金鑰]。您必須選擇與快取相同區域的儲存體帳戶，建議選取 [**進階儲存體**] 帳戶，因為進儲存體的輸送量較高。
+按一下 [儲存體帳戶] 選取要使用的儲存體帳戶，然後從 [儲存體金鑰] 下拉式清單中選擇 [主要金鑰] 或 [次要金鑰]。您必須選擇與快取相同區域的儲存體帳戶，建議選取 [進階儲存體] 帳戶，因為進儲存體的輸送量較高。
 
->[AZURE.IMPORTANT] 如果重新產生了永續性帳戶的儲存體金鑰，您必須從 [**儲存體金鑰**] 下拉式清單中重新選擇所需的金鑰。
+>[AZURE.IMPORTANT] 如果重新產生了永續性帳戶的儲存體金鑰，您必須從 [儲存體金鑰] 下拉式清單中重新選擇所需的金鑰。
 
 ![Redis 永續性][redis-cache-persistence-selected]
 
@@ -98,14 +98,13 @@ Redis 永續性是在 [**Redis 資料永續性**] 刀鋒視窗中所設定。若
 ### 如果我調整為不同大小，並還原為調整作業之前製作的備份時，會發生什麼事？
 
 -	如果您已調整為較大的大小則沒有任何影響。
--	如果已調整為較小的大小，而且您的自訂[資料庫](cache-configure.md#databases)設定大於新大小的[資料庫限制](cache-configure.md#databases)，則將不會還原這些資料庫中的資料。如需詳細資訊，請參閱[我的自訂資料庫設定在調整期間會受到影響嗎？](#is-my-custom-databases-setting-affected-during-scaling)
+-	如果已調整為較小的大小，而且您的自訂[資料庫](cache-configure.md#databases)設定大於新大小的[資料庫限制](cache-configure.md#databases)，則不會還原這些資料庫中的資料。如需詳細資訊，請參閱[我的自訂資料庫設定在調整期間會受到影響嗎？](#is-my-custom-databases-setting-affected-during-scaling)
 -	如果已調整為較小的大小，而且較小的大小中沒有足夠的空間可保存來自最近備份的所有資料，將會在還原程序中收回金鑰，通常是使用 [allkeys-lru](http://redis.io/topics/lru-cache) 收回原則。
 
 ## 後續步驟
 了解如何使用更多進階快取功能。
 
--	[如何設定進階 Azure Redis Cache 的叢集](cache-how-to-premium-clustering.md)
--	[如何設定進階 Azure Redis Cache 的虛擬網路支援](cache-how-to-premium-vnet.md)
+-	[Azure Redis Cache 高階層簡介](cache-premium-tier-intro.md)
   
 <!-- IMAGES -->
 
@@ -119,4 +118,4 @@ Redis 永續性是在 [**Redis 資料永續性**] 刀鋒視窗中所設定。若
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/19/2016" 
     ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Spring CM 整合
@@ -20,7 +20,7 @@
   
 本教學課程中說明的案例假設您已經具有下列項目：
 
--   有效的 Azure 訂閱
+-   有效的 Azure 訂用帳戶
 -   啟用 SpringCM 單一登入的訂用帳戶
   
 完成本教學課程之後，您已指派給 SpringCM 的 Azure Active Directory 使用者將能夠使用 [AAD 存取面板] 單一登入。
@@ -52,9 +52,9 @@
 
     ![新增應用程式](./media/active-directory-saas-spring-cm-tutorial/IC749321.png "新增應用程式")
 
-5.  在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。
+5.  在 [欲執行動作] 對話方塊中，按一下 [從資源庫加入應用程式]。
 
-    ![從組件庫新增應用程式](./media/active-directory-saas-spring-cm-tutorial/IC749322.png "從組件庫新增應用程式")
+    ![從資源庫新增應用程式](./media/active-directory-saas-spring-cm-tutorial/IC749322.png "從資源庫新增應用程式")
 
 6.  在 [搜尋方塊]中，輸入 **SpringCM**。
 
@@ -154,4 +154,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資料，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

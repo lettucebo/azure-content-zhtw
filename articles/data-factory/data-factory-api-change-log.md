@@ -13,21 +13,48 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/21/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - .NET API 變更記錄 
-本文章提供 Azure Data Factory SDK 在特定版本中有何變更的相關資訊。您可以在[這裡](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)找到 Azure Data Factory 的最新 Nuget 封裝
+本文章提供 Azure Data Factory SDK 在特定版本中有何變更的相關資訊。您可以在[這裡](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)找到 Azure Data Factory 的最新 NuGet 封裝
+
+## 版本 4.11.0
+新增功能︰
+
+- 已加入下列連結服務類型：
+	- [OnPremisesMongoDbLinkedService](https://msdn.microsoft.com/library/mt765129.aspx)
+	- [AmazonRedshiftLinkedService](https://msdn.microsoft.com/library/mt765121.aspx)
+	- [AwsAccessKeyLinkedService](https://msdn.microsoft.com/library/mt765144.aspx)
+- 已加入下列資料集類型：
+	- [MongoDbCollectionDataset](https://msdn.microsoft.com/library/mt765145.aspx)
+	- [AmazonS3Dataset](https://msdn.microsoft.com/library/mt765112.aspx)
+- 已加入下列複製來源類型：
+	- [MongoDbSource](https://msdn.microsoft.com/zh-TW/library/mt765123.aspx)
+
+## 版本 4.10.0
+- 下列選擇性屬性已新增至 TextFormat：
+	- [SkipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
+	- [FirstRowAsHeader](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.firstrowasheader.aspx)
+	- [TreatEmptyAsNull](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
+- 已加入下列連結服務類型：
+	- [OnPremisesCassandraLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandralinkedservice.aspx)
+	- [SalesforceLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.salesforcelinkedservice.aspx)
+- 已加入下列資料集類型：
+	- [OnPremisesCassandraTableDataset](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandratabledataset.aspx)
+- 已加入下列複製來源類型：
+	- [CassandraSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.cassandrasource.aspx)
+- 新增 [WebServiceInputs](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azuremlbatchexecutionactivity.webserviceinputs.aspx) 屬性至 AzureMLBatchExecutionActivity
+	- 可將多個 Web 服務輸入傳遞到 Azure Machine Learning 實驗
+
 
 ## 版本 4.9.1
-發行日期：2016.07.05
 
 ### 錯誤修正
 
 - 取代 [WebLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.weblinkedservice.authenticationtype.aspx) 的 WebApi 型驗證。
 
 ## 版本 4.9.0
-發行日期︰2016.06.10
 
 ### 新增功能
 
@@ -40,7 +67,6 @@
 - 將 [WriteBatchSize](https://msdn.microsoft.com/library/dn884293.aspx) 和 [WriteBatchTimeout](https://msdn.microsoft.com/library/dn884245.aspx) 標示為 CopySink 中的選擇性項目。
 
 ## 版本 4.8.0
-發行日期：2016.05.25
 
 ### 新增功能
 - 複製活動類型中已新增下列選擇性屬性，以啟用複製效能的微調︰
@@ -48,7 +74,6 @@
 	- [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
 
 ## 4\.7.0 版
-發行日期：2016-05-20
 
 ### 新增功能
 * 加入了新的 StorageFormat 類型 [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) 類型，可用來複製最佳化資料列單欄式 (ORC) 格式的檔案。
@@ -56,14 +81,12 @@
     * 允許使用 PolyBase 將資料複製到「SQL 資料倉儲」。
 
 ## 4\.6.1 版
-發行日期：2016-04-26
 
 ### 錯誤修正
 * 修正用於列出活動時段的 HTTP 要求。
     * 從要求承載移除資源群組名稱和 Data Factory 名稱。
 
 ## 4\.6.0 版
-發行日期：2016.04.14
 
 ### 新增功能
 
@@ -76,7 +99,6 @@
 - 加入了新的 [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) 類型 [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) 類型，可用來定義資料採用 JSON 格式的資料集。
 
 ## 4\.5.0 版
-發行日期：2016.02.24
 
 ### 新增功能
 * 加入了[活動時段的清單作業](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.activitywindowoperationsextensions.aspx)。
@@ -89,7 +111,6 @@
     * [WebSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
 
 ## 4\.4.0 版
-發行日期：2016.01.28
 
 ### 新增功能
 
@@ -97,7 +118,6 @@
 	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx)。如需概念性資訊和範例，請參閱 [Azure 儲存體 SAS 連結服務](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service)。
 
 ## 4\.3.0 版
-發行日期：2015.11.25
 
 ### 新增功能
 
@@ -106,7 +126,6 @@
 	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx)。如需概念性資訊和範例，請參閱 [使用 Azure Data Factory 從 ODBC 資料存放區移動資料](data-factory-odbc-connector.md)。
 
 ## 4\.2.0 版
-發行日期：2015-11-10
 
 ### 新增功能
 
@@ -117,7 +136,6 @@
 
 
 ## 4\.1.0 版
-發行日期：2015-10-28
 
 ### 新增功能
 * 已加入下列連結服務類型：
@@ -133,10 +151,9 @@
 
 
 ## 4\.0.1 版
-發行日期：2015-10-13
 
 ### 重大變更
-下列類別已重新命名。新名稱為類別在 4.0.0 版之前的原始名稱。
+下列類別已重新命名。新的名稱是 4.0.0 版之前的原始類別名稱。
  
 4\.0.0 中的名稱 | 4\.0.1 中的名稱
 :------------ | :------------ 
@@ -149,7 +166,6 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 
 
 ## 4\.0.0 版
-發行日期：2015-10-02
 
 ### 重大變更
 
@@ -169,7 +185,6 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 | TableListResponse | [DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters | [DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) | 
     
-- 此版本的 **API 版本**為：**2015-10-01**。
 
 - **List** 方法現在會傳回分頁式結果。如果回應包含非空白的 **NextLink** 屬性，用戶端應用程式需要繼續提取下一個頁面，直到傳回了所有頁面為止。下列是一個範例：
 
@@ -190,6 +205,6 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 ### 新增功能
 - [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 類別支援兩個新屬性 (**SliceIdentifierColumnName** 和 **SqlWriterCleanupScript**)，以支援將資料等冪複製到 Azure SQL 資料倉儲。如需這些屬性的詳細資訊，請參閱 [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md)文章，尤其是[機制 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) 和 [機制 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2) 小節。
 
-- 我們現在支援對 Azure SQL Database 和 Azure SQL 資料倉儲的來源執行預存程序，做為複製活動的一部分。[SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) 和 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 類別具有下列屬性，以支援此功能：**SqlReaderStoredProcedureName** 和 **StoredProcedureParameters**。如需這些屬性的詳細資料，請參閱 Azure.com 上的 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 和 [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource)文章。
+- 我們現在支援對 Azure SQL Database 和 Azure SQL 資料倉儲的來源執行預存程序，做為複製活動的一部分。[SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) 和 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 類別具有下列屬性：**SqlReaderStoredProcedureName** 和 **StoredProcedureParameters**。如需這些屬性的詳細資料，請參閱 Azure.com 上的 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 和 [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource)文章。
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

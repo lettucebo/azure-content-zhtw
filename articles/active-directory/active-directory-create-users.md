@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
-	ms.author="curtand;viviali"/>
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
 # 在 Azure Active Directory 新增新的使用者或具有 Microsoft 帳戶的使用者
 
@@ -36,8 +36,8 @@
 
 > [AZURE.IMPORTANT] 如果您的組織使用多個網域，當您新增使用者帳戶時，請注意下列問題：
 >
-> - 若要跨網域新增具有相同使用者主體名稱 (UPN) 的使用者帳戶，請**先**新增 geoffgrisso@contoso.onmicrosoft.com **再**新增 geoffgrisso@contoso.com。
-> - **請勿**先新增 geoffgrisso@contoso.com 再新增 geoffgrisso@contoso.onmicrosoft.com。此順序很重要，事後想要復原會很麻煩。
+> - 若要跨網域新增具有相同使用者主體名稱 (UPN) 的使用者帳戶，請「先」新增 geoffgrisso@contoso.onmicrosoft.com，「再」新增 geoffgrisso@contoso.com。
+> - 請「勿」先新增 geoffgrisso@contoso.com 再新增 geoffgrisso@contoso.onmicrosoft.com。此順序很重要，事後想要復原會很麻煩。
 
 ## 變更使用者資訊
 
@@ -86,4 +86,4 @@
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

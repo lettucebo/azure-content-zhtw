@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="09/20/2016"
    ms.author="devtiw"/>
 
 
@@ -460,8 +460,8 @@ Azure AD 用戶端識別碼和密碼也可使用在 https://manage.windowsazure.
 1. 設定金鑰保存庫的存取原則：
 	- 設定 ‘EnabledForDiskEncryption’ 旗標：“azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
 	- 設定權限給 Azure AD 應用程式，以將密碼寫入 KeyVault：“azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]”
-2. 若要啟用現有/執行中 VM 上的加密，請輸入：*azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. 取得加密狀態：*“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
+2. 若要啟用現有/執行中 VM 上的加密，請輸入：azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>
+3. 取得加密狀態：“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”
 4. 若要從客戶加密的 VHD 啟用新 VM 上的加密，請使用以下參數搭配 “azure vm create” 命令：
 	- disk-encryption-key-vault-id <disk-encryption-key-vault-id>
 	- disk-encryption-key-url <disk-encryption-key-url>
@@ -503,8 +503,8 @@ Azure AD 用戶端識別碼和密碼也可使用在 https://manage.windowsazure.
 1. 設定金鑰保存庫的存取原則：
 	- 設定 ‘EnabledForDiskEncryption’ 旗標：“azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
 	- 設定權限給 Azure AD 應用程式，以將密碼寫入 KeyVault：“azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]”
-2. 若要啟用現有/執行中 VM 上的加密，請輸入：*azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. 取得加密狀態：*“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
+2. 若要啟用現有/執行中 VM 上的加密，請輸入：azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>
+3. 取得加密狀態：“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”
 4. 若要從客戶加密的 VHD 啟用新 VM 上的加密，請使用以下參數搭配 “azure vm create” 命令：
 	- disk-encryption-key-vault-id <disk-encryption-key-vault-id>
 	- disk-encryption-key-url <disk-encryption-key-url>
@@ -538,7 +538,7 @@ Azure AD 用戶端識別碼和密碼也可使用在 https://manage.windowsazure.
 1. 設定金鑰保存庫的存取原則：
 	- 設定 ‘EnabledForDiskEncryption’ 旗標：“azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
 	- 設定權限給 Azure AD 應用程式，以將密碼寫入 KeyVault：“azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]”
-2. 若要啟用現有/執行中 VM 上的加密，請輸入：*azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
+2. 若要啟用現有/執行中 VM 上的加密，請輸入：azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>
 3. 取得加密狀態：“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”
 4. 若要從客戶加密的 VHD 啟用新 VM 上的加密，請使用以下參數搭配 “azure vm create” 命令。
 	- *disk-encryption-key-vault-id <disk-encryption-key-vault-id>*
@@ -858,4 +858,4 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 設定值設定為 "True"，顯示這
 
 [探索使用 Azure PowerShell 的 Azure 磁碟加密 - 第 2 部分](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

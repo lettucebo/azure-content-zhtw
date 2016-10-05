@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/05/2016"
+   ms.date="09/20/2016"
    ms.author="larryfr"/>
 
 # 在 HDInsight (Hadoop) 中使用 Apache Storm、事件中樞和 HBase 分析感應器資料 
@@ -61,7 +61,7 @@
 
 * **Storm on HDInsight**：即時處理事件中樞的資料。
 
-* **HBase on HDInsight**：針對 Storm 繼續處理的資料，提供持續的 NoSQL 資料存放區。
+* **HBase on HDInsight**：針對 Storm 所處理過的資料，提供持續的 NoSQL 資料存放區。
 
 * **Azure 虛擬網路服務**：確保 Storm on HDInsight 及 HBase on HDInsight 叢集之間能夠安全通訊。
 
@@ -98,6 +98,12 @@
 
 * **DashboardBolt.java**：示範如何使用 Socket.io 用戶端程式庫，讓 Java 將資料即時傳送至 Web 儀表板。
 
+這個範例會使用 [Flux](https://storm.apache.org/releases/0.10.0/flux.html) 架構，因此拓撲定義是包含在 YAML 檔案中。檔案有兩個：
+
+* __no-hbase.yaml__ - 在開發環境中測試拓撲時會使用此檔案。它不會使用 HBase 元件，因為您無法從叢集所在的虛擬網路之外存取 HBase Java API。
+
+* __with-hbase.yaml__ - 將拓撲部署至 Storm 叢集時會使用此檔案。它會使用 HBase 元件，因為它是在和 HBase 叢集相同的虛擬網路中執行。
+
 ## 準備您的環境
 
 使用此範例之前，您必須建立 Azure 事件中樞以供 Storm 拓撲讀取。
@@ -106,24 +112,30 @@
 
 事件中樞是此範例的資料來源。請使用下列步驟建立新的事件中心。
 
-1. 從 [Azure 傳統入口網站](https://manage.windowsazure.com)選取 [新增]| Service Bus | Event Hub | Custom Create**.
+1. 從 [Azure 入口網站](https://portal.azure.com)，選取 [+ 新增] -> [物聯網] -> [事件中樞]。
 
-2. 在 [新增事件中樞] 對話方塊中，輸入 [事件中樞名稱]，選取要建立中樞的 [區域]，然後建立新的命名空間或選取現有的命名空間。最後，按一下箭頭以繼續。
+2. 在 [建立命名空間] 刀鋒視窗中，執行下列工作︰
 
-2. 在 [設定事件中樞] 對話方塊中，輸入 [資料分割計數] 和 [訊息保留] 值。在此範例中，資料分割計數使用 10，訊息保留使用 1。
+    1. 輸入命名空間的__名稱__。
+    2. 選取定價層。此範例使用 [基本] 就已足夠。
+    3. 選取要使用的 Azure [訂用帳戶]。
+    4. 選取現有的資源群組，或建立一個新的群組。
+    5. 選取事件中樞的 [位置]。
+    6. 選取 [釘選到儀表板]，然後按一下 [建立]。
 
-3. 建立事件中樞後，選取命名空間，然後選取 [事件中樞]。最後，選取您稍早建立的事件中樞。
+3. 建立程序完成時，就會顯示您的命名空間的 [事件中樞] 刀鋒視窗。從這裡選取 [+ 新增事件中樞]。在 [建立事件中樞] 刀鋒視窗中，輸入 [sensordata] 的名稱，然後選取 [建立]。讓其他欄位保持使用預設值。
 
-4. 選取 [設定]，然後使用下列資訊建立兩個新的存取原則。
+4. 從您的命名空間的 [事件中樞] 刀鋒視窗中，選取 [事件中樞]。選取 [sensordata] 項目。
 
-	| 名稱 | 權限 |
+5. 從 sensordata 事件中樞的刀鋒視窗中，選取 [共用存取原則]。使用 [+ 新增] 連結新增下列原則︰
+
+
+	| 原則名稱 | Claims |
     | ----- | ----- |
 	| devices | 傳送 |
 	| storm | 接聽 |
 
-	建立權限之後，在頁面底部選取 [儲存] 圖示。這會建立共用存取原則，用以傳送訊息至此中樞，以及讀取此中樞的訊息。
-
-5. 儲存原則之後，使用頁面底部的 [共用存取金鑰產生器]，擷取「裝置」和「Storm」原則的金鑰。妥善儲存這些金鑰，以便稍後使用。
+5. 選取這兩個原則，並記下 [主索引鍵] 值。在後續步驟中，您會需要這兩個原則的值。
 
 ## 下載並設定專案。
 
@@ -134,28 +146,28 @@
 命令執行完畢後，您會擁有以下目錄架構：
 
 	hdinsight-eventhub-example/
-		TemperatureMonitor/ - this is the Java topology
-			conf/
-				Config.properties
-				hbase-site.xml
-			src/
-			test/
-			dashboard/ - this is the node.js web dashboard
-			SendEvents/ - utilities to send fake sensor data
+		TemperatureMonitor/ - this contains the topology
+			resources/
+                log4j2.xml - set logging to minimal
+                no-hbase.yaml - topology definition for local testing
+                with-hbase.yaml - topology definition that uses HBase in a virutal network
+			src/ - the Java bolts
+            dev.properties - contains configuration values for your environment
+		dashboard/nodejs/ - this is the node.js web dashboard
+		SendEvents/ - utilities to send fake sensor data
 
 > [AZURE.NOTE] 本文件不會深入探究此範例包含的程式碼，不過會附上程式碼的完整註解。
 
-開啟 **Config.properties** 檔案，並新增您先前針對以下所列項目建立事件中樞時使用的資訊。資訊新增完畢後，請儲存檔案。
+開啟 **hdinsight-eventhub-example/TemperatureMonitor/dev.properties** 檔案，並對下列幾行新增事件中樞資訊︰
 
-	eventhubspout.username = storm
+    eventhub.read.policy.name: storm
+    eventhub.read.policy.key: KeyForTheStormPolicy
+    eventhub.namespace: YourNamespace
+    eventhub.name: sensordata
 
-	eventhubspout.password = <the key of the 'storm' policy>
+> [AZURE.NOTE] 此範例假設您使用了 __storm__ 做為具有 __Listen__ 宣告的原則名稱，而且您的事件中樞名稱為 __sensordata__。
 
-	eventhubspout.namespace = <the event hub namespace>
-
-	eventhubspout.entitypath = <the event hub name>
-
-	eventhubspout.partitions.count = <the number of partitions for the event hub>
+ 資訊新增完畢後，請儲存檔案。
 
 ## 編譯並在本機測試
 
@@ -187,19 +199,21 @@
 
 > [AZURE.NOTE] 本節中的步驟採用 Node.js，因此可使用於任何平台上。如需其他語言的範例，請查看 [SendEvents] 目錄。
 
-1. 開啟新的命令提示字元或終端機，將目錄變更至 **hdinsight-eventhub-example/SendEvents/nodejs**，然後使用以下命令安裝應用程式需要的相依項目：
+1. 開啟新的命令提示字元、殼層或終端機，將目錄變更至 **hdinsight-eventhub-example/SendEvents/nodejs**，然後使用以下命令安裝應用程式需要的相依項目：
 
 		npm install
 
 2. 以文字編輯器開啟 **app.js** 檔案，並新增您稍早取得的事件中樞資訊：
 
 		// ServiceBus Namespace
-		var namespace = 'servicebusnamespace';
+		var namespace = 'YourNamespace';
 		// Event Hub Name
-		var hubname ='eventhubname';
+		var hubname ='sensordata';
 		// Shared access Policy name and key (from Event Hub configuration)
 		var my_key_name = 'devices';
-		var my_key = 'key';
+		var my_key = 'YourKey';
+    
+    > [AZURE.NOTE] 此範例假設您使用了 __sensordata__ 做為事件中樞的名稱，並使用 __devices__ 做為具有 __Send__ 宣告的原則名稱。
 
 2. 使用以下命令在事件中樞插入新項目：
 
@@ -220,19 +234,27 @@
 
 ### 啟動拓撲
 
-2. 使用下列命令在本機上啟動拓撲：
+2. 開啟新的命令提示字元、殼層或終端機，將目錄變更至 __hdinsight-eventhub-example/TemperatureMonitor__，然後使用下列命令啟動拓撲︰
 
-        mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
+        mvn compile exec:java -Dexec.args="--local -R /no-hbase.yaml --filter dev.properties"
+    
+    如果您要使用 PowerShell，請改用下列命令︰
 
-	這樣會啟動拓撲，從事件中樞讀取檔案，然後將檔案傳送至 Azure 網站中執行的儀表板。您應該會看見 Web 儀表板中出現資料行，如下所示：
+        mvn compile exec:java "-Dexec.args=--local -R /no-hbase.yaml --filter dev.properties"
+
+    > [AZURE.NOTE] 如果您是在 Linux/Unix/OS X 系統上，而且[已在開發環境中安裝 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，您可以改用下列命令︰
+    >
+    > `mvn compile package` `storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /no-hbase.yaml`
+
+	這會以本機模式啟動 __no-hbase.yaml__ 檔案中定義的拓撲。__dev.properties__ 檔案中包含的值可提供事件中樞的連線資訊。啟動之後，拓撲會從事件中樞讀取項目，並將它們傳送到在本機電腦上執行的儀表板。您應該會看見 Web 儀表板中出現資料行，如下所示：
 
 	![儀表板與資料](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
-    > [AZURE.NOTE] 如果您從 PowerShell 提示字元執行此命令，您必須使用雙引號括住 `-Dstorm.topology=com.microsoft.examples.Temperature` 參數。例如，`mvn compile exec:java "-Dstorm.topology=com.microsoft.examples.Temperature"`。
-
 3. 儀表板執行時，請使用前幾個步驟的 `node app.js` 命令，將新的資料傳送至事件中樞。由於溫度值是隨機產生，因此圖形必須更新才能顯示大量溫度變更。
 
-3. 確定更新成功後，請使用 Ctrl+C 鍵停止拓撲。若要停止 SendEvent 應用程式，請選取視窗並按任意鍵。您也可以使用 Ctrl-C 鍵中斷 Web 伺服器。
+    > [AZURE.NOTE] 在使用 `node app.js` 命令時，您必須位於 __hdinsight-eventhub-example/SendEvents/Nodejs__ 目錄。
+
+3. 確定更新成功後，請使用 Ctrl+C 鍵停止拓撲。您也可以使用 Ctrl-C 鍵停止本機 Web 伺服器。
 
 ## 建立 Storm 和 HBase 叢集
 
@@ -275,9 +297,9 @@
 
 ## 設定儀表板 Bolt
 
-若要將資料傳送至已部署為 Web 應用程式的儀表板，您必須修改 __DashboardBolt.java__ 檔案中的下列一行︰
+若要將資料傳送至部署為 Web 應用程式的儀表板，您必須修改 __dev.properties__ 檔案中的下面這行︰
 
-    socket = IO.socket("http://localhost:3000");
+    dashboard.uri: http://localhost:3000
 
 將 `http://localhost:3000` 變更為 `http://BASENAME-dashboard.azurewebsites.net` 並儲存檔案。以您在先前步驟中提供的基底名稱取代 __BASENAME__。您也可以使用先前建立的資源群組來選取儀表板和檢視 URL。
 
@@ -305,7 +327,7 @@
 
     	scan 'SensorData'
 		
-	應該會傳回類似以下的資訊，指出資料表中有 0 個資料列。
+	這會傳回類似下列範例的資訊，指出資料表中有 0 個資料列。
 	
 		ROW                   COLUMN+CELL                                       0 row(s) in 0.1900 seconds
 
@@ -321,9 +343,9 @@
 
 ### 下載 hbase-site.xml
 
-從命令提示字元中，使用 SCP 來下載 __hbase-site.xml__ 叢集的 datasourcegroups.xml 檔。在下列範例中，以建立叢集時所提供的 SSH 使用者取代 __USERNAME__，並以您稍早提供的基底名稱取代 __BASENAME__。出現提示時，請輸入 SSH 使用者的密碼。以 TemperatureMonitor 專案中此檔案的路徑取代 `/path/to/TemperatureMonitor/conf/hbase-site.xml`。
+從命令提示字元中，使用 SCP 來下載 __hbase-site.xml__ 叢集的 datasourcegroups.xml 檔。在下列範例中，以建立叢集時所提供的 SSH 使用者取代 __USERNAME__，並以您稍早提供的基底名稱取代 __BASENAME__。出現提示時，請輸入 SSH 使用者的密碼。以 TemperatureMonitor 專案中此檔案的路徑取代 `/path/to/TemperatureMonitor/resources/hbase-site.xml`。
 
-    scp USERNAME@hbase-BASENAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml /path/to/TemperatureMonitor/conf/hbase-site.xml
+    scp USERNAME@hbase-BASENAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml /path/to/TemperatureMonitor/resources/hbase-site.xml
 
 這會將 __hbase-site.xml__ 下載到指定的路徑。
 
@@ -338,6 +360,10 @@
 2. 使用下列命令，將此元件安裝到開發環境上的本機 Maven 儲存機制中。這可讓 Maven 在編譯專案時找到封裝。以檔案名稱中包含的版本號碼取代 __###__。
 
         mvn install:install-file -Dfile=storm-hbase-####.jar -DgroupId=org.apache.storm -DartifactId=storm-hbase -Dversion=#### -Dpackaging=jar
+    
+    如果您要使用 PowerShell，請使用下列命令︰
+
+        mvn install:install-file "-Dfile=storm-hbase-####.jar" "-DgroupId=org.apache.storm" "-DartifactId=storm-hbase" "-Dversion=####" "-Dpackaging=jar"
 
 ### 在專案中啟用 storm-hbase 元件
 
@@ -362,22 +388,11 @@
 
 2. 儲存 __pom.xml__ 檔案。
 
-3. 以文字編輯器開啟 **TemperatureMonitor/src/main/java/com/microsoft/examples/Temperature.java**，並將開頭的 `//` 移除以取消下列各行的註解。
-
-		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
-    	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
-
-	這樣會啟用 HBase bolt。
-
-	> [AZURE.NOTE] 只有在部署至 Storm 叢集時，才應啟用 HBase Bolt，在本機上測試時則不應啟用。
-
-4. 儲存 __Temperature.java__ 檔案。
-    
 ## 建置、封裝及部署應用程式到 HDInsight
 
 在開發環境中，使用下列步驟將 Storm 拓撲部署至 Storm 叢集。
 
-1. 使用下列命令執行新的組建並從專案建立 JAR 封裝：
+1. 從 __TemperatureMonitor__ 目錄使用下列命令來執行新的組建，並從專案建立 JAR 封裝：
 
 		mvn clean compile package
 
@@ -385,9 +400,13 @@
 
 2. 使用 scp 將 __TemperatureMonitor-1.0-SNAPSHOT.jar__ 檔案上傳至您的 Storm 叢集。在下列範例中，以建立叢集時所提供的 SSH 使用者取代 __USERNAME__，並以您稍早提供的基底名稱取代 __BASENAME__。出現提示時，請輸入 SSH 使用者的密碼。
 
-        scp target\TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:
+        scp target\TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
     
     > [AZURE.NOTE] 上傳檔案可能需要幾分鐘的時間，因為其大小為 MB。
+
+    使用 scp 來上傳 __dev.properties__ 檔案，因為其中包含用來連線到事件中樞和儀表板的資訊。
+
+        scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
 
 3. 上傳檔案後，使用 SSH 連線到叢集。
 
@@ -395,9 +414,9 @@
 
 4. 在 SSH 工作階段中，使用以下命令啟動拓撲。
 
-        storm jar TemperatureMonitor-1.0-SNAPSHOT.jar com.microsoft.examples.Temperature tempmonitor
+        storm jar TemperatureMonitor-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /with-hbase.yaml --filter dev.properties
     
-    這會使用封裝內含的 __com.microsoft.examples.Temperature__ 類別啟動拓撲，並以 __tempmonitor__ 做為此拓樸執行個體的易記名稱。
+    這會使用 __with-hbase.yaml__ 檔案中的拓撲定義和 __dev.properties__ 檔案中的組態值啟動拓撲。
 
 3. 拓撲啟動後，以瀏覽器開啟您發佈至 Azure 的網站，然後使用 `node app.js` 命令將資料傳送至事件中樞。您應該會看見顯示資訊的 Web 儀表板更新。
 
@@ -459,7 +478,7 @@
 
 您現在已了解如何使用 Storm 來讀取事件中樞的資料、將資料儲存在 HBase 中，以及使用 Socket.io 和 D3.js 在外部儀表板上視覺化此資訊。
 
-* 如需 Storm 拓撲搭配使用 HDinsight 的更多範例，請參閱：
+* 如需 Storm 拓撲搭配使用 HDInsight 的更多範例，請參閱：
 
     * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
@@ -477,4 +496,4 @@
 
 [azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

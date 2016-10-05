@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2016" 
+	ms.date="09/21/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取常見問題集
@@ -45,6 +45,56 @@
 -	[如何監視快取的健全狀況和效能？](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 
 
+
+## 規劃常見問題集
+
+-	[應該使用哪個 Redis 快取供應項目和大小？](#what-redis-cache-offering-and-size-should-i-use)
+-	[Azure Redis 快取效能](#azure-redis-cache-performance)
+-	[我應該在哪個區域找到快取？](#in-what-region-should-i-locate-my-cache)
+-	[Azure Redis 快取如何收費？](#how-am-i-billed-for-azure-redis-cache)
+
+
+
+## 開發常見問題集
+
+-	[StackExchange.Redis 設定選項的作用為何？](#what-do-the-stackexchangeredis-configuration-options-do)
+-	[我可以使用哪些 Redis 快取用戶端？](#what-redis-cache-clients-can-i-use)
+-	[Azure Redis 快取有本機模擬器嗎？](#is-there-a-local-emulator-for-azure-redis-cache)
+-	[如何執行 Redis 命令？](#how-can-i-run-redis-commands)
+-	[Azure Redis 快取為什麼沒有像一些其他 Azure 服務的 MSDN 類別庫參考？](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
+-	[是否可以使用 Azure Redis 快取做為 PHP 工作階段快取？](#can-i-use-azure-redis-cache-as-a-php-session-cache)
+
+
+## 安全性常見問題集
+
+-	[何時應該啟用非 SSL 連接埠來連線至 Redis？](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
+
+
+## 生產環境常見問題集
+
+-	[生產環境的最佳作法有哪些？](#what-are-some-production-best-practices)
+-	[使用常見 Redis 命令時的一些考量為何？](#what-are-some-of-the-considerations-whzh-TWing-common-redis-commands)
+-	[如何效能評定和測試我快取的效能？](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+-	[執行緒集區成長的重要詳細資料](#important-details-about-threadpool-growth)
+-	[使用 StackExchange.Redis 時啟用伺服器 GC 在用戶端上取得更多輸送量](#enable-server-gc-to-get-more-throughput-on-the-client-whzh-TWing-stackexchangeredis)
+
+
+## 監視與疑難排解常見問題集
+
+本節的常見問題集涵蓋常見的監視和疑難排解問題。如需監視 Azure Redis 快取執行個體和進行疑難排解的詳細資訊，請參閱[如何監視 Azure Redis 快取](cache-how-to-monitor.md)和[如何針對 Azure Redis 快取進行疑難排解](cache-how-to-troubleshoot.md)。
+
+-	[如何監視快取的健全狀況和效能？](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+-	[我的快取診斷儲存體帳戶設定已變更，發生了什麼事？](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
+-	[為什麼會針對某些新的快取啟用診斷，而不會針對其他快取啟用？](#why-is-diagnostics-enabled-for-some-new-caches-but-not-others)
+-	[為什麼看到逾時？](#why-am-i-seeing-timeouts)
+-	[我的用戶端為什麼中斷與快取的連線？](#why-was-my-client-disconnected-from-the-cache)
+
+
+## 先前的快取服務常見問題集
+
+-	[我適合使用哪個 Azure 快取服務？](#which-azure-cache-offering-is-right-for-me)
+
+
 ### 何謂 Azure Redis 快取？
 
 Azure Redis 快取是以常用的開放原始碼 [Redis 快取](http://redis.io)為基礎。它可讓您從 Azure 內的任何應用程式存取由 Microsoft 管理的安全、專用 Redis 快取。如需更詳細的概觀，請參閱 Azure.com 上的 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)產品頁面。
@@ -64,12 +114,6 @@ Azure Redis 快取是以常用的開放原始碼 [Redis 快取](http://redis.io)
 -    [免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=redis_cache_hero)。您將獲得能用來試用 Azure 付費服務的額度。即使在額度用完後，您仍可保留帳戶並使用免費的 Azure 服務和功能。
 -    [啟用 Visual Studio 訂閱者權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero)。您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
 
-## 規劃常見問題集
-
--	[應該使用哪個 Redis 快取供應項目和大小？](#what-redis-cache-offering-and-size-should-i-use)
--	[Azure Redis 快取效能](#azure-redis-cache-performance)
--	[我應該在哪個區域找到快取？](#in-what-region-should-i-locate-my-cache)
--	[Azure Redis 快取如何收費？](#how-am-i-billed-for-azure-redis-cache)
 
 <a name="cache-size"></a>
 ### 應該使用哪個 Redis 快取供應項目和大小？
@@ -82,7 +126,7 @@ Azure Redis 快取是以常用的開放原始碼 [Redis 快取](http://redis.io)
 -	**輸送量**：進階層提供最大的可用輸送量。如果快取伺服器或用戶端達到頻寬限制，您會在用戶端上收到逾時。如需詳細資訊，請參閱下列表格。
 -	**高可用性/SLA**：Azure Redis 快取保證標準/進階快取的可用性時間不低於 99.9%。若要深入了解我們的 SLA，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)。SLA 的範圍僅涵蓋與快取端點的連線。SLA 未涵蓋資料遺失防護。建議您使用高階層中的 Redis 資料永續性功能，以增加資料遺失時的復原能力。
 -	**Redis 資料持續性**：進階層可讓您將快取資料保存在 Azure 儲存體帳戶。在基本/標準快取中，所有資料都只儲存在記憶體中。如果基礎結構發生問題，資料可能會遺失。建議您使用高階層中的 Redis 資料永續性功能，以增加資料遺失時的復原能力。Azure Redis 快取在 Redis 永續性中提供 RDB 和 AOF (即將推出) 選項。如需詳細資訊，請參閱[如何設定進階 Azure Redis 快取的持續性](cache-how-to-premium-persistence.md)。
--	**Redis 叢集**：如果您想建立大於 53 GB 的快取，或想跨多個 Redis 節點共用資料，可以使用進階層中的 Redis 叢集。每個節點均包含一個主要/複本快取組以提供高可用性。如需詳細資訊，請參閱[如何設定進階 Azure Redis 快取叢集](cache-how-to-premium-clustering.md)。
+-	**Redis 叢集**︰若要建立大於 53 GB 的快取，或要跨多個 Redis 節點共用資料，您可以使用高階層中的 Redis 叢集。每個節點均包含一個主要/複本快取組以提供高可用性。如需詳細資訊，請參閱[如何設定進階 Azure Redis 快取叢集](cache-how-to-premium-clustering.md)。
 -	**增強的安全性和網路隔離**：Azure 虛擬網路 (VNET) 部署可為您的 Azure Redis 快取、子網路、存取控制原則和其他功能提供增強的安全性和隔離，以進一步限制存取權。如需詳細資訊，請參閱[如何設定進階 Azure Redis 快取的虛擬網路支援](cache-how-to-premium-vnet.md)。
 -	**設定 Redis**：在標準層和進階層中，您可以設定 Redis 以接收 Keyspace 通知。
 -	**用戶端連線的最大數目**：進階層提供可連線至 Redis 的最大用戶端數目，針對較大型的快取有更高的連線數目。[如需詳細資訊，請參閱定價頁面](https://azure.microsoft.com/pricing/details/cache/)。
@@ -130,13 +174,6 @@ Azure Redis 快取是以常用的開放原始碼 [Redis 快取](http://redis.io)
 
 [此處](https://azure.microsoft.com/pricing/details/cache/)提供 Azure Redis 快取價格。定價頁面所列的價格為每小時的費率。快取是根據從建立快取到刪除快取的時間，以分鐘為單位來收費。沒有用於停止或暫停快取收費的選項。
 
-## 開發常見問題集
-
--	[StackExchange.Redis 設定選項的作用為何？](#what-do-the-stackexchangeredis-configuration-options-do)
--	[我可以使用哪些 Redis 快取用戶端？](#what-redis-cache-clients-can-i-use)
--	[Azure Redis 快取有本機模擬器嗎？](#is-there-a-local-emulator-for-azure-redis-cache)
--	[如何執行 Redis 命令？](#how-can-i-run-redis-commands)
--	[Azure Redis 快取為什麼沒有像一些其他 Azure 服務的 MSDN 類別庫參考？](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
 
 <a name="cache-configuration"></a>
 ### StackExchange.Redis 設定選項的作用為何？
@@ -221,9 +258,19 @@ Microsoft Azure Redis 快取是以受歡迎的開放原始碼 Redis 快取為基
 因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考；而是每個用戶端都會維護其專屬的參考文件。除了參考文件之外，還有數個教學課程，可示範如何使用不同的語言和快取用戶端來開始使用 Azure Redis 快取。若要存取這些教學課程，請參閱[如何使用 Azure Redis 快取](cache-dotnet-how-to-use-azure-redis-cache.md)，然後在文章上方的語言切換器中，按一下所需的語言。
 
 
-## 安全性常見問題集
+### 是否可以使用 Azure Redis 快取做為 PHP 工作階段快取？
 
--	[何時應該啟用非 SSL 連接埠來連線至 Redis？](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
+是，若要使用 Azure Redis 快取做為 PHP 工作階段快取，請在 `session.save_path` 中指定 Azure Redis 快取執行個體的連接字串。
+
+>[AZURE.IMPORTANT] 使用 Azure Redis 快取做為 PHP 工作階段快取時，您必須將用來連線到快取的安全性金鑰進行 URL 編碼，如下列範例所示。
+>
+>`session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
+>
+>如果金鑰未進行 URL 編碼，您可能會收到類似下面的例外狀況︰`Failed to parse session.save_path`
+
+如需對 PhpRedis 用戶端使用 Redis 快取做為 PHP 工作階段快取的詳細資訊，請參閱 [PHP 工作階段處理常式](https://github.com/phpredis/phpredis#php-session-handler)。
+
+
 
 <a name="cache-ssl"></a>
 ### 何時應該啟用非 SSL 連接埠來連線至 Redis？
@@ -236,13 +283,7 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 
 如需下載 Redis 工具的指示，請參閱[如何執行 Redis 命令？](#cache-commands)小節。
 
-## 生產環境常見問題集
 
--	[生產環境的最佳作法有哪些？](#what-are-some-production-best-practices)
--	[使用常見 Redis 命令時的一些考量為何？](#what-are-some-of-the-considerations-whzh-TWing-common-redis-commands)
--	[如何效能評定和測試我快取的效能？](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
--	[執行緒集區成長的重要詳細資料](#important-details-about-threadpool-growth)
--	[使用 StackExchange.Redis 時啟用伺服器 GC 在用戶端上取得更多輸送量](#enable-server-gc-to-get-more-throughput-on-the-client-whzh-TWing-stackexchangeredis)
 
 ### 生產環境的最佳作法有哪些？
 
@@ -357,15 +398,7 @@ CLR 執行緒集區有兩種類型的執行緒：「背景工作」和「I/O 完
 
 
 
-## 監視與疑難排解常見問題集
 
-本節的常見問題集涵蓋常見的監視和疑難排解問題。如需監視 Azure Redis 快取執行個體和進行疑難排解的詳細資訊，請參閱[如何監視 Azure Redis 快取](cache-how-to-monitor.md)和[如何針對 Azure Redis 快取進行疑難排解](cache-how-to-troubleshoot.md)。
-
--	[如何監視快取的健全狀況和效能？](#how-do-i-monitor-the-health-and-performance-of-my-cache)
--	[我的快取診斷儲存體帳戶設定已變更，發生了什麼事？](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
--	[為什麼會針對某些新的快取啟用診斷，而不會針對其他快取啟用？](#why-is-diagnostics-enabled-for-some-new-caches-but-not-others)
--	[為什麼看到逾時？](#why-am-i-seeing-timeouts)
--	[我的用戶端為什麼中斷與快取的連線？](#why-was-my-client-disconnected-from-the-cache)
 
 <a name="cache-monitor"></a>
 ### 如何監視快取的健全狀況和效能？
@@ -418,9 +451,7 @@ Redis 快取 [設定] 刀鋒視窗的 [支援 + 疑難排解] 區段也包含數
 
 
 
-## 先前的快取服務常見問題集
 
--	[我適合使用哪個 Azure 快取服務？](#which-azure-cache-offering-is-right-for-me)
 
 ### 我適合使用哪個 Azure 快取服務？
 
@@ -449,4 +480,4 @@ Redis 成功的另一個重要層面是建置健全、有活力的開放原始�
 
 ["minIoThreads" 組態設定]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

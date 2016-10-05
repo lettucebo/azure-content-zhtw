@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="09/06/2016"
+	ms.date="09/19/2016"
 	ms.author="larryfr"/>
 
 # 搭配 HDInsight 中的 Hadoop 使用 Hive 和 HiveQL 來分析範例 Apache Log4j 檔案
@@ -32,6 +32,8 @@ Hive 可讓您將結構投影在大量非結構化資料上。定義結構後，
 
 Hive 了解如何處理結構化和半結構化資料 (例如，以特定字元分隔欄位的文字檔)。Hive 也支援自訂複雜或不規則結構化資料的**序列化/反序列化程式 (SerDe)**。如需詳細資訊，請參閱[如何搭配 HDInsight 使用自訂 JSON SerDe](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) (英文)。
 
+## 使用者定義函式 (UDF)
+
 Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQL 中實作功能或不易模型化的邏輯。如需搭配 Hive 使用 UDF 的範例，請參閱以下內容：
 
 * [搭配使用 Java 使用者定義函式與 Hive](hdinsight-hadoop-hive-java-udf.md)
@@ -42,6 +44,7 @@ Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQ
 
 * [如何將自訂 Hive UDF 新增至 HDInsight (英文)](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
+* [自訂 Hive UDF 範例以將日期/時間格式轉換為 Hive 時間戳記](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
 ## Hive 內部和外部資料表比較。
 
@@ -214,4 +217,4 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

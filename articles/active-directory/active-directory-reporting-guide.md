@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="09/16/2016"
    ms.author="dhanyahk"/>
 
 
@@ -29,4 +29,4 @@
  - [Azure Active Directory 報告「未知的執行者」事件](active-directory-reporting-unknown-actor.md)
  - [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

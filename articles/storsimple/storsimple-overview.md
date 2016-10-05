@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="04/26/2016"
+   ms.date="09/20/2016"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 系列：混合式雲端存放解決方案
 
-## 概觀
+## Overview
 
 歡迎使用 Microsoft Azure StorSimple，StorSimple 是一個整合式儲存體解決方案，可管理內部部署裝置與 Microsoft Azure 雲端儲存體之間的儲存體工作。StorSimple 是一個有效率、符合成本效益且易於管理的存放區域網路 (SAN) 解決方案，可減少許多與企業儲存體和資料保護相關聯的問題和支出。它使用專屬的 StorSimple 8000 系列裝置、與雲端服務整合以及提供一組管理工具，提供所有企業儲存體 (包括雲端儲存體) 的整體檢視。(發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。如果您使用 StorSimple 5000/7000 系列裝置，請至 [StorSimple 說明](http://onlinehelp.storsimple.com/))。
 
@@ -63,7 +63,7 @@ Microsoft Azure StorSimple 解決方案包括下列元件：
 - **StorSimple Manager 服務** – Azure 傳統入口網站的延伸模組，可讓您透過單一 Web 介面管理 StorSimple 裝置或 StorSimple 虛擬裝置。您可以使用 StorSimple Manager 服務來建立和管理服務、檢視和管理裝置、檢視警示、管理磁碟區，以及檢視和管理備份原則與備份類別。
 - **Windows PowerShell for StorSimple** – 可讓您管理 StorSimple 裝置的命令列介面。Windows PowerShell for StorSimple 的功能包括：可讓您註冊您的 StorSimple 裝置、在您的裝置上設定網路介面、安裝特定類型的更新，以及透過存取支援工作階段及變更裝置狀態來疑難排解您的裝置。藉由連接至序列主控台或使用 Windows PowerShell 遠端處理，您可以存取 Windows PowerShell for StorSimple。
 - **Azure PowerShell StorSimple Cmdlet** – 一組 Windows PowerShell Cmdlet，可讓您從命令列將服務層級和移轉工作自動化。如需適用於 StorSimple 的 Azure PowerShell Cmdlet 的詳細資訊，請移至 [Cmdlet 參考](https://msdn.microsoft.com/library/dn920427.aspx)。
-- **StorSimple Snapshot Manager** – MMC 嵌入式管理單元，可使用磁碟區群組和 Windows 磁碟區陰影複製服務產生應用程式一致備份。此外，您可以使用 StorSimple Snapshot Manager 建立備份排程及複製或還原磁碟區。 
+- **StorSimple Snapshot Manager** – MMC 嵌入式管理單元，可使用磁碟區群組和 Windows 磁碟區陰影複製服務產生應用程式一致備份。此外，您可以使用 StorSimple Snapshot Manager 建立備份排程及複製或還原磁碟區。
 - **StorSimple Adapter for SharePoint** – 此工具可將 Microsoft Azure StorSimple 儲存體和資料保護明確延伸至 SharePoint 伺服器陣列，並可讓您從 SharePoint 管理中心入口網站檢視和管理 StorSimple 儲存體。
 
 下圖提供 Microsoft Azure StorSimple 架構和元件的高階檢視。
@@ -95,9 +95,9 @@ StorSimple 裝置包括 SSD 和硬碟 HDD，並支援叢集和自動容錯移轉
 
 虛擬裝置具有下列功能：
 
-- 模仿實體設備的運作方式，而且可對雲端中的虛擬機器提供 iSCSI 介面。 
-- 您可以在雲端中建立無限量的虛擬裝置，視需要將其開啟和關閉。 
-- 可協助您模擬災害復原、開發和測試案例中的內部部署環境，並可協助從備份進行項目層級的擷取。 
+- 模仿實體設備的運作方式，而且可對雲端中的虛擬機器提供 iSCSI 介面。
+- 您可以在雲端中建立無限量的虛擬裝置，視需要將其開啟和關閉。
+- 可協助您模擬災害復原、開發和測試案例中的內部部署環境，並可協助從備份進行項目層級的擷取。
 
 利用 Update 2 和更新版本，StorSimple 虛擬裝置可在兩個模型中使用：8010 裝置 (先前稱為 1100 模型) 和 8020 裝置。8010 裝置的最大容量為 30 TB。利用 Azure 進階儲存體帳戶的 8020 裝置的最大容量為 64 TB。(在本機層中，Azure 進階儲存體會將資料儲存在 SSD 上，而標準儲存體會將資料儲存在 HDD 上。) 請注意，您必須具有 Azure 進階儲存體帳戶才能使用進階儲存體。如需進階儲存體的詳細資訊，請移至[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage/storage-premium-storage.md)。
 
@@ -165,9 +165,9 @@ Microsoft Azure StorSimple 包括 StorSimple Adapter for SharePoint，其為可�
  
 除了專用的 StorSimple 裝置、虛擬裝置和其他元件以外，Microsoft Azure StorSimple 還會使用下列軟體技術來提供資料的快速存取，並減少儲存體使用：
 
-- [自動儲存體分層](#automatic-storage-tiering) 
-- [精簡佈建](#thin-provisioning) 
-- [重複資料刪除和壓縮](#deduplication-and-compression) 
+- [自動儲存體分層](#automatic-storage-tiering)
+- [精簡佈建](#thin-provisioning)
+- [重複資料刪除和壓縮](#deduplication-and-compression)
 
 ### 自動儲存體分層
 
@@ -188,7 +188,7 @@ StorSimple 會隨著使用模式變更而調整並重新排列資料和儲存體
 3. 一開始，StorSimple 將資料儲存在裝置的快速 SSD 層上。
 4. 當 SSD 層接近容量上限時，StorSimple deduplicates 會刪除重複資料並壓縮最舊的資料區塊，並將它們移至 HDD 層。
 5. 當 HDD 層接近容量上限時，StorSimple 會加密最舊的資料區塊，並透過 HTTPS 將它們安全地傳送到 Microsoft Azure 儲存體帳戶。
-6. Microsoft Azure 會在其資料中心和遠端資料中心建立多個資料複本，確保災害發生時可以復原資料。 
+6. Microsoft Azure 會在其資料中心和遠端資料中心建立多個資料複本，確保災害發生時可以復原資料。
 7. 當檔案伺服器要求雲端中儲存的資料時，StorSimple 會順暢地傳回它，並將複本儲存在 StorSimple 裝置的 SSD 層上。
 
 ### 精簡佈建
@@ -204,6 +204,47 @@ Microsoft Azure StorSimple 會使用重複資料刪除和資料壓縮，來進�
 重複資料刪除減少整體儲存資料量的方式是刪除儲存資料集中的重複資料。當資訊變更時，StorSimple 會忽略未變更的資料，而只擷取變更。此外，StorSimple 會透過識別並移除不必要資訊來減少儲存資料量。
 
 >[AZURE.NOTE] 本機固定磁碟區上的資料不會進行重複資料刪除或壓縮。不過，本機固定磁碟區的備份會進行重複資料刪除和壓縮。
+
+## StorSimple 工作負載摘要
+
+下表顯示所支援 StorSimple 工作負載的摘要。
+
+| 案例 | 工作負載 | 支援 | 限制 | 版本 |
+|---------------------------|-------------------------|-----------|------------------------------------------------|----------------------|
+| 共同作業 | 檔案共用 | 是 | | 所有版本 |
+| 共同作業 | 分散式檔案共用| 是 | | 所有版本 |
+| 共同作業 | SharePoint | 是* |只有使用固定在本機的磁碟區時才支援 | Update 2 和更新版本 |
+| 封存 | 簡易檔案封存 | 是 | | 所有版本 |
+| 虛擬化 | 虛擬機器 | 是* |只有使用固定在本機的磁碟區時才支援 | Update 2 和更新版本 |
+| 資料庫 | SQL | 是* |只有使用固定在本機的磁碟區時才支援 | Update 2 和更新版本 |
+| 視訊監視 | 視訊監視 | 是* |當 StorSimple 僅供此工作負載專用時才支援| Update 2 和更新版本 |
+| 備份 | 主要目標備份 | 是* |當 StorSimple 僅供此工作負載專用時才支援| Update 3 和更新版本 |
+| 備份 | 次要目標備份 | 是* |當 StorSimple 僅供此工作負載專用時才支援| Update 3 和更新版本 |
+
+是&#42; - 應套用解決方案指導方針和限制。
+
+StorSimple 8000 系列裝置不支援下列工作負載。如果部署於 StorSimple，這些工作負載將導致產生不支援的組態。
+
+-  醫學造影
+-  Exchange
+-  VDI
+-  Oracle
+-  SAP
+-  巨量資料
+-  內容發佈
+-  從 SCSI 開機
+
+以下是 StorSimple 支援的基礎結構元件清單。
+
+| 案例 | 工作負載 | 支援 | 限制 | 版本 |
+|----------|---------------|-----------|-----------------------------------------------|--------------|
+| 一般 | ExpressRoute | 是 | 所有版本 |
+| 一般 | DataCore FC | 是* |使用 DataCore SANsymphony 時支援 | 所有版本 |
+| 一般 | DFSR | 是* |只有使用固定在本機的磁碟區時才支援 | 所有版本 |
+| 一般 | 編製索引 | 是* |針對分層磁碟區，只支援編製中繼資料索引 (無資料)。<br>針對固定在本機的磁碟區，支援編製完整索引。| 所有版本 |
+| 一般 | 防毒 | 是* |針對分層磁碟區，只支援在開啟和關閉時進行掃描。<br> 針對固定在本機的磁碟區，支援完整掃描。| 所有版本 |
+
+是&#42; - 應套用解決方案指導方針和限制。
 
 ## StorSimple 術語 
 
@@ -278,4 +319,4 @@ Microsoft Azure StorSimple 會使用重複資料刪除和資料壓縮，來進�
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

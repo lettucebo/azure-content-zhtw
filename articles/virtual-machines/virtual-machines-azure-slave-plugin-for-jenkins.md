@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
 # 如何搭配使用 Azure 從屬外掛程式與 Jenkins 連續整合
@@ -36,14 +36,14 @@
 
 1. 按一下 [**直接安裝而不重新啟動**] 或 [**立即下載並於重新啟動後安裝**]。
 
-現在外掛程式已安裝完畢，接下來的步驟是在 Azure 訂用帳戶設定檔中設定外掛程式，以及建立用來建立從屬節點虛擬機器的範本。
+現在外掛程式已安裝完畢，接下來的步驟是使用您的 Azure 訂用帳戶設定檔來設定外掛程式，以及建立為從屬節點建立虛擬機器時將使用的範本。
 
 
-## 使用您的訂用帳戶設定檔設定 Azure 從屬外掛程式
+## 使用您的訂用帳戶設定檔來設定 Azure 從屬外掛程式
 
-訂用帳戶設定檔也稱為發佈設定，它是一個 XML 檔案，內含要在開發環境中使用 Azure 所需具備的安全認證和一些額外資訊。若要設定 Azure 從屬外掛程式，您需要：
+訂用帳戶設定檔也稱為發佈設定，它是一個 XML 檔案，內含要與開發環境中的 Azure 搭配運作時所需的安全認證和一些額外資訊。若要設定 Azure 從屬外掛程式，您需要：
 
-* 訂用帳戶識別碼
+* 訂用帳戶 ID
 * 訂用帳戶的管理憑證
 
 您可以在[訂用帳戶設定檔]中找到這些資訊。以下是訂用帳戶設定檔的範例。
@@ -67,7 +67,7 @@
 
 	</PublishData>
 
-有了訂用帳戶設定檔後，請遵循下列步驟來設定 Azure 從屬外掛程式：
+有了訂用帳戶設定檔後，請依照下列步驟來設定 Azure 從屬外掛程式：
 
 1. 在 Jenkins 儀表板中，按一下 [**管理 Jenkins**]。
 
@@ -79,13 +79,13 @@
 
     ![雲端區段][cloud section]
 
-    此動作會顯示一些欄位，您必須在其中輸入訂用帳戶的詳細資料。
+    這會顯示一些欄位，您必須在其中輸入訂用帳戶的詳細資料。
 
     ![訂用帳戶組態][subscription configuration]
 
-1. 從訂用帳戶設定檔複製訂用帳戶識別碼和管理憑證值，並貼至適當欄位。
+1. 從訂用帳戶設定檔中複製訂用帳戶 ID 和管理憑證值，然後貼到適當的欄位。
 
-    在複製訂用帳戶識別碼和管理憑證時，請勿將括住值的引號也包括進來。
+    複製訂用帳戶 ID 和管理憑證時，請勿將括住值的引號也包括進來。
 
 1. 按一下 [驗證組態]。
 
@@ -246,4 +246,4 @@ Jenkins 會隨即使用上一節建立的範本來建立從屬節點，並執行
 [checkpoint general template config]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-slave-template-general-configuration.png
 [OS Image list sample]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-os-family-list-sample.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

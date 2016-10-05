@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/09/2016"
+	ms.date="09/19/2016"
 	ms.author="raynew"/>
 
 
@@ -193,11 +193,11 @@ Site Recovery 提供的「快速入門」經驗可協助您盡快部署。「快
 1. 執行 Provider 安裝程式檔案。
 2. 在 [Microsoft Update] 中，您可以選擇進行更新，以便根據您的 Microsoft Update 原則安裝 Provider 更新。
 3. 在 [安裝] 中接受或修改預設 Provider 安裝位置，然後按一下 [安裝]。
-5. 在 [保存庫設定] 頁面中，按一下 [瀏覽] 來選取您已下載的保存庫金鑰檔案。指定 Azure Site Recovery 訂用帳戶、保存庫名稱，以及 Hyper-V 伺服器所屬的 Hyper-V 網站。
+4. 在 [保存庫設定] 頁面中，按一下 [瀏覽] 來選取您已下載的保存庫金鑰檔案。指定 Azure Site Recovery 訂用帳戶、保存庫名稱，以及 Hyper-V 伺服器所屬的 Hyper-V 網站。
 
 	![伺服器註冊](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
-4\. 在 [Proxy 設定] 中，指定將安裝在伺服器上的 Provider 要如何透過網際網路連接到 Azure Site Recovery。
+5\. 在 [Proxy 設定] 中，指定將安裝在伺服器上的 Provider 要如何透過網際網路連接到 Azure Site Recovery。
 
 - 如果您想要讓 Provider 直接連線，請選取 [不使用 Proxy 直接連線]。
 - 如果您想要使用伺服器上目前設定的 Proxy 來連線，請選取 [以現有的 Proxy 設定連線]。
@@ -207,9 +207,9 @@ Site Recovery 提供的「快速入門」經驗可協助您盡快部署。「快
 
 	![網際網路](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
-5\. 安裝完成之後，按一下 [註冊] 以在保存庫中註冊該伺服器。![安裝位置](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
+6\. 安裝完成之後，按一下 [註冊] 以在保存庫中註冊該伺服器。![安裝位置](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-6\. 註冊完成之後，Azure Site Recovery 便會抓取來自 Hyper-V 伺服器的中繼資料，而該伺服器會顯示在 [設定] > [Site Recovery 基礎結構] > [Hyper-V 主機] 刀鋒視窗上。
+7\. 註冊完成之後，Azure Site Recovery 便會抓取來自 Hyper-V 伺服器的中繼資料，而該伺服器會顯示在 [設定] > [Site Recovery 基礎結構] > [Hyper-V 主機] 刀鋒視窗上。
 
 
 ### 命令列安裝
@@ -469,4 +469,4 @@ Site Recovery 會提供容量規劃工具，協助您為來源環境、Site Reco
 
 在您的部署設定完成並開始執行之後，請[深入了解](site-recovery-failover.md)不同類型的容錯移轉。
 
-<!----HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -60,7 +60,12 @@
 - 刪除 - 如果不再使用復原服務保存庫，您可予以刪除來釋出儲存空間。只有在從保存庫中刪除了所有受保護的伺服器之後，[刪除] 才會啟用。
 
 ![備份儀表板工作](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
-
+## 針對使用 Azure 備份代理程式之備份的警示：
+| 警示層級 | 傳送的警示 |
+| ------------- | ------------- |
+| 重要 | 備份失敗、復原失敗 |
+| 警告 | 備份完成，但有警告 (當不到一百個檔案因為損毀問題而未備份，以及超過一百萬個檔案成功備份時) |
+| 資訊 | None |
 ## 管理備份警示
 按一下 [備份警示] 圖格以開啟 [備份警示] 刀鋒視窗及管理警示。
 
@@ -285,9 +290,14 @@ A3.以下是不傳送通知以便減少警示雜訊的案例︰
    - 作業便會取消。
    - 第二個備份作業會失敗，因為原始的備份作業正在進行中。
 
+## 疑難排解監視問題<br>
+#### 問題︰來自 Azure 備份代理程式的作業與警示未出現在入口網站中。
+##### 疑難排解步驟：
+「OBRecoveryServicesManagementAgent」可用來將作業和警示的資料傳送至 Azure 備份服務。開啟工作管理員，然後檢視「OBRecoveryServicesManagementAgent」處理序是否正在執行。此處理序有時會停止或關閉。如果處理序並未執行，請從控制台瀏覽服務清單、啟動或重新啟動「Microsoft Azure 復原服務管理代理程式」。如需進一步資訊，請瀏覽「Azure 備份代理程式安裝資料夾」\\Microsoft Azure Recovery Services Agent\\Temp\\GatewayProvider* 中的記錄。<b>例如：</b>C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Temp\\GatewayProvider0.errlog
+
 ## 後續步驟
 - [從 Azure 還原 Windows Server 或 Windows 用戶端](backup-azure-restore-windows-server.md)
 - 若要深入了解 Azure 備份，請參閱 [Azure 備份概觀](backup-introduction-to-azure-backup.md)
 - 瀏覽 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

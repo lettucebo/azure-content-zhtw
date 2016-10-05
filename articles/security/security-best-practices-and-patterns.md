@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/08/2016"
+   ms.date="09/16/2016"
    ms.author="terrylan"/>
 
 # Azure 安全性最佳作法與模式
@@ -44,4 +44,4 @@ Azure 提供安全的平台，您可以在其中建立您的解決方案。我�
 
 我們希望在 Azure 安全性架構和最佳作法中納入更多文章。如果您有希望我們納入的主題，請在本頁面底部的討論區中讓我們知道。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

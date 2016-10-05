@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/16/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>在 Azure 上處理 SQL Server 虛擬機器中的資料
@@ -113,10 +113,7 @@
 上述以位置為基礎的功能可進一步用來產生其他計數功能，如先前所述。
 
 
-> [AZURE.TIP] 您可以使用所選擇的語言，利用程式設計方式插入記錄。您可能需要將資料插入區塊中，以改善寫入效率 ([使用 Python 存取 SQLServer 的 HelloWorld 範例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python))。
- 
-
-> [AZURE.TIP] 另一個替代方式是使用 [BCP 公用程式](https://msdn.microsoft.com/library/ms162802.aspx)在資料庫中插入資料
+> [AZURE.TIP] 您可以使用所選擇的語言，利用程式設計方式插入記錄。您可能需要將資料插入區塊中，以改善寫入效率 ([使用 Python 存取 SQLServer 的 HelloWorld 範例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python))。另一個替代方式是使用 [BCP 公用程式](https://msdn.microsoft.com/library/ms162802.aspx)在資料庫中插入資料
 
 ###<a name="sql-aml"></a>連接到 Azure Machine Learning
 
@@ -152,4 +149,4 @@ Python 中的 [Pandas 程式庫](http://pandas.pydata.org/)提供一組豐富的
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

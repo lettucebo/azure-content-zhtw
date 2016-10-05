@@ -20,7 +20,7 @@
 
 這個主題說明在範本中管理和共用狀態的最佳做法。本主題所顯示的參數與變數為您可以定義的物件類型範例，方便您用來組織部署需求。在這些範例中，您可以實作自己的物件與您環境適用的屬性值。
 
-本主題是較大份白皮書的一部分。若要閱讀整份文件，請下載 [世界級 ARM 範本注意事項和證明可行的作法] (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf)。
+本主題是較大份白皮書的一部分。若要閱讀整份文件，請下載 [世界級 ARM 範本注意事項和證明可行的作法](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf)。
 
 
 ## 提供標準的組態設定

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # Azure AD 的驗證案例
@@ -82,7 +82,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 | 宣告 | 說明 |
 |-------|-------------|
 | 應用程式識別碼 | 識別使用權杖的應用程式。
-| 對象 | 識別權杖針對的收件者資源。 |
+| 觀眾 | 識別權杖針對的收件者資源。 |
 | 應用程式驗證內容類別參考 | 指出如何驗證用戶端 (公用用戶端與機密用戶端的比較)。 |
 | 驗證時刻 | 記錄驗證發生的日期和時間。 |
 | 驗證方法 | 指出如何驗證權杖的主體 (密碼、憑證等)。 |
@@ -468,4 +468,4 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

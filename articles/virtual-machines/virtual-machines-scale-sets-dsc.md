@@ -15,12 +15,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/29/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # 搭配 Azure DSC 擴充功能使用虛擬機器擴展集
 
-[虛擬機器擴展集 (VMSS)](virtual-machines-windows-vmss-powershell-creating.md) 可以搭配 [Azure 期望狀態組態 (DSC)](virtual-machines-windows-extensions-dsc-overview.md) 擴充功能處理常式來使用。VMSS 是用來設定虛擬機器的部署以符合負載。當 VM 上線時，可使用 DSC 來設定它們，因為它們正在執行生產環境的軟體。
+[虛擬機器擴展集 (VMSS)](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 可以搭配 [Azure 期望狀態組態 (DSC)](virtual-machines-windows-extensions-dsc-overview.md) 擴充功能處理常式來使用。VMSS 提供一個部署及管理大量虛擬機器的方式，可以因應負載情況來彈性地相應縮小和放大。當 VM 上線時，可使用 DSC 來設定它們，因為它們正在執行生產環境的軟體。
 
 ## 部署至 VM 和 VMSS 之間的差異
 
@@ -98,4 +98,13 @@ VMSS 節點具有 "properties" 區段以及 "VirtualMachineProfile", "extensionP
 
 VMSS 的行為與單一 VM 的行為完全相同。建立新的 VM 時，會使用 DSC 擴充功能自動進行佈建。如果擴充功能需要較新版本的 WMF，VM 會在上線之前重新開機。一旦上線之後，它就會下載 DSC 組態 .zip，並在 VM 上佈建它。您可以在 [Azure DSC 擴充功能概觀](virtual-machines-windows-extensions-dsc-overview.md)中找到更多詳細資料。
 
-<!---HONumber=AcomDC_0914_2016-->
+## 後續步驟 ##
+查看[適用於 DSC 擴充功能的 Azure Resource Manager 範本](virtual-machines-windows-extensions-dsc-template.md)。
+
+了解 [DSC 擴充功能如何安全地處理認證](virtual-machines-windows-extensions-dsc-credentials.md)。
+
+如需有關 Azure DSC 擴充功能處理常式的詳細資訊，請參閱 [Azure 期望狀態組態擴充功能處理常式簡介](virtual-machines-windows-extensions-dsc-overview.md)。
+
+如需有關 PowerShell DSC 的詳細資訊，請[瀏覽 PowerShell 文件中心](https://msdn.microsoft.com/powershell/dsc/overview)。
+
+<!---HONumber=AcomDC_0921_2016-->

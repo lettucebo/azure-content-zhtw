@@ -128,4 +128,4 @@
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [存取 Data Lake Store 的診斷記錄](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016--->

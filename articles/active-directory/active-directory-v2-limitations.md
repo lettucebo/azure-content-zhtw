@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # 我應該使用 v2.0 端點嗎？
@@ -121,4 +121,4 @@ Azure Active Directory 服務中有一組開發人員功能 (v2.0 端點尚不�
 - Azure AD 使用者的群組宣告
 - 應用程式角色和角色宣告
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

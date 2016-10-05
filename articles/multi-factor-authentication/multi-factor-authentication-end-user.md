@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure Multi-Factor Authentication 對我有何意義？" 
-	description="這是可協助使用者開始使用 Azure Multi-Factor Authentication 的 Azure Multi-Factor Authentication 頁面。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Azure Multi-Factor Authentication 對我有何意義？"
+	description="這是可協助使用者開始使用 Azure Multi-Factor Authentication 的 Azure Multi-Factor Authentication 頁面。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -40,13 +40,11 @@
 選取以下其中一個主題以便開始。
 
 主題|說明
-:------------- | :------------- | 
+:------------- | :------------- |
 [設定體驗](multi-factor-authentication-end-user-first-time.md)| 描述第一次設定 Multi-Factor Authentication 的程序。
 [登入體驗](multi-factor-authentication-end-user-signin.md)|顯示使用各種方法 (例如電話或應用程式) 登入時所能預期的情況。
 [變更您的設定](multi-factor-authentication-end-user-manage-settings.md)|示範如何變更您的設定，例如電話號碼或慣用的註冊方法。
 [協助使用應用程式密碼](multi-factor-authentication-end-user-app-passwords.md)| 尋找有關建立和使用應用程式密碼的資訊。
 [使用行動應用程式](multi-factor-authentication-microsoft-authenticator.md)|Microsoft 驗證器應用程式適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)。
 
- 
-
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

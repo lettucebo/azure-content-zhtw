@@ -2,6 +2,6 @@
 
 * [建立您的第一個 Azure 函式](../articles/azure-functions/functions-create-first-azure-function.md)
 * [Azure Functions 開發人員參考](../articles/azure-functions/functions-reference.md)
-* [C#](../articles/azure-functions/functions-reference-csharp.md) 或 [Node](../articles/azure-functions/functions-reference-node.md) 開發人員參考
+* [C#](../articles/azure-functions/functions-reference-csharp.md)、[F#](../articles/azure-functions/functions-reference-fsharp.md) 或 [Node](../articles/azure-functions/functions-reference-node.md) 開發人員參考
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

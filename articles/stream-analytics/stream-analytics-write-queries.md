@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -52,7 +52,7 @@
 
     ![輪詢資料查詢](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
 
-3.	瀏覽至測試檔案。[github] (https://github.com/Azure/azure-stream-analytics/tree/master/Sample 資料) 上有幾個範例檔案，而您也可以透過輸入索引標籤上的範例資料函式，從您自己的資料流輸入來擷取範例資料。
+3.	瀏覽至測試檔案。[github](https://github.com/Azure/azure-stream-analytics/tree/master/Sample 資料) 上有幾個範例檔案，而您也可以透過輸入索引標籤上的範例資料函式，從您自己的資料流輸入來擷取範例資料。
 
     ![查詢輸入](./media/stream-analytics-write-queries/5-stream-analytics-write-queries.png)
 
@@ -71,4 +71,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

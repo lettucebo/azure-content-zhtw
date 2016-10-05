@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # Azure 資訊安全中心規劃和操作指南
@@ -190,13 +190,13 @@ Azure 安全性監視擴充功能會掃描各種安全性相關組態，並從�
 
 大多數 Azure 環境是動態的，包含定期上下波動的新資源、組態或變更等。資訊安全中心有助於確保您看得到這些新資源的安全性狀態。
 
-當您將新資源 (VM、SQL DB) 加入至 Azure 環境時，資訊安全中心會自動探索這些資源並開始監視其安全性。這也包括 PaaS Web 角色和背景工作角色。如果已在[安全性原則](security-center-policies.md)中啟用資料收集，則會自動為您的虛擬機器啟用其他監視功能。
+當您將新資源 (VM、SQL DB) 新增至 Azure 環境時，資訊安全中心會自動探索這些資源並開始監視其安全性。這也包括 PaaS Web 角色和背景工作角色。如果已在[安全性原則](security-center-policies.md)中啟用資料收集，則會自動為您的虛擬機器啟用其他監視功能。
 
 ![主要領域](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-ga.png)
 
 1.	針對虛擬機器，存取 [資源安全性健全狀況] 圖格，並按一下 [虛擬機器]。[監視建議] 區段會呈現有關啟用資料收集的問題或相關建議。
 2.	檢視 [建議] 以查看針對新資源所找出的任何 (若有的話) 安全性風險。
-3.	，將新的 VM 加入至您的環境時，通常一開始只會安裝作業系統。資源擁有者可能需要一些時間來部署這些 VM 將使用的其他應用程式。在理想情況下，您應該知道此工作負載的最終目的。它會成為應用程式伺服器？ 以這個新工作負載將會成為的項目為基礎，您可以啟用適當的**安全性原則** (這是此工作流程中的第三個步驟)。
+3.	將新的 VM 新增至您的環境時，通常一開始只會安裝作業系統。資源擁有者可能需要一些時間來部署這些 VM 將使用的其他應用程式。在理想情況下，您應該知道此工作負載的最終目的。它會成為應用程式伺服器？ 以這個新工作負載將會成為的項目為基礎，您可以啟用適當的**安全性原則** (這是此工作流程中的第三個步驟)。
 4.	將新資源新增至 Azure 環境時，[安全性警示] 圖格中可能會出現新的警示。請隨時確認此圖格中是否有新的警示，並根據資訊安全中心的建議採取動作。
 
 您也會想要定期監視現有資源的狀態，以找出已造成安全性風險、偏離建議基準和安全性警示的組態變更。從資訊安全中心儀表板開始。在這裡，您可以用一致的方式檢閱三個主要區域。
@@ -211,7 +211,7 @@ Azure 安全性監視擴充功能會掃描各種安全性相關組態，並從�
 
 資訊安全中心會偵測並在發生威脅時警示您。組織應監視新的安全性警示並視需要採取動作，進一步調查或修補攻擊。如需資訊安全中心威脅偵測運作方式的詳細資訊，請閱讀 [Azure 資訊安全中心的偵測功能](security-center-detection-capabilities.md)。
 
-雖然本文目的並非要幫助您建立自己的事件回應計劃，但我們會在雲端生命週期中使用 Microsoft Azure 安全性回應做為事件回應階段的基礎。這些階段如下圖所示：
+雖然本文目的並非要幫助您建立自己的事件回應計劃，但我們會在雲端生命週期中使用 Microsoft Azure 安全性回應作為事件回應階段的基礎。這些階段如下圖所示：
 
 ![可疑的活動](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
@@ -231,7 +231,9 @@ Azure 安全性監視擴充功能會掃描各種安全性相關組態，並從�
 
 如您所見，此刀鋒視窗會顯示有關攻擊發生時間、來源主機名稱、目標 VM 的詳細資訊，也會提供建議步驟。在某些情況下，攻擊的來源資訊可能是空的。如需有關這類行為的詳細資訊，請閱讀 [Azure 資訊安全中心警示中的缺少來源資訊](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/)。
 
-> [AZURE.NOTE] 在[如何利用 Azure 資訊安全中心和 Microsoft Operations Management Suite 進行事件回應](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703)影片中，您可以看到一些示範，有助於您了解如何在每個階段使用資訊安全中心。
+在[如何利用 Azure 資訊安全中心和 Microsoft Operations Management Suite 進行事件回應](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703)影片中，您可以看到一些示範，有助於您了解如何在每個階段使用資訊安全中心。
+
+> [AZURE.NOTE] 如需有關如何使用資訊安全中心功能協助進行事件回應程序的詳細資訊，請參閱[善用 Azure 資訊安全中心進行事件回應](security-center-incident-response.md)。
 
 ## 另請參閱
 在本文件中，您已了解如何規劃資訊安全中心的採用。如要深入了解資訊安全中心，請參閱下列主題：
@@ -242,4 +244,4 @@ Azure 安全性監視擴充功能會掃描各種安全性相關組態，並從�
 - [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題。
 - [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) — 尋找有關 Azure 安全性與相容性的部落格文章。
 
-<!----HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

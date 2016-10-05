@@ -4,7 +4,8 @@
     services="storage"
     documentationCenter="na"
     authors="tamram"
-    manager="carmonm"/>
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -12,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/02/2016"
-    ms.author="micurd"/>
+    ms.date="09/20/2016"
+    ms.author="micurd;tamram"/>
 
 # 使用 Azure CLI 搭配 Azure 儲存體
 
-## 概觀
+## Overview
 
 Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用在 Azure 平台上。它提供許多與 [Azure 入口網站](https://portal.azure.com)相同的功能，以及豐富的資料存取功能。
 
@@ -92,9 +93,9 @@ Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用�
 
 ## 使用 Azure CLI 管理儲存體帳戶
 
-### 連線到您的 Azure 訂用帳戶
+### 連接到 Azure 訂用帳戶
 
-雖然大部分的儲存體命令在沒有 Azure 訂用帳戶的狀況下仍然能夠運作，但是我們建議您從 Azure CLI 連線到您的訂用帳戶。若要設定 Azure CLI 以使用您的訂用帳戶，請遵循[從 Azure CLI 連線到 Azure 訂用帳戶](../xplat-cli-connect.md)中的步驟。
+雖然大多數儲存體命令在沒有 Azure 訂用帳戶的情況下也能運作，但是仍建議您從 Azure CLI 連接到您的訂用帳戶。若要設定讓 Azure CLI 與您的訂用帳戶搭配運作，請依照[從 Azure CLI 連接到 Azure 訂用帳戶](../xplat-cli-connect.md)中的步驟操作。
 
 ### 建立新的儲存體帳戶
 
@@ -221,4 +222,4 @@ Azure 檔案共用是 Azure 中的 SMB 檔案共用。所有目錄和檔案都�
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

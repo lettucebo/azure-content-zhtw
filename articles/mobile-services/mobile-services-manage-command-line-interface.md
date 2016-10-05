@@ -39,7 +39,7 @@
 
 * **Mac**：下載 [Azure SDK 安裝程式][mac-installer]。開啟已下載的 .pkg 檔案，並依照提示完成安裝步驟。
 
-* **Linux**：安裝最新版本的 [Node.js][nodejs-org] (請參閱[透過封裝管理員來安裝 Node.js][install-node-linux])，然後執行下列命令：
+* **Linux**：安裝最新版本的 [Node.js][nodejs-org] \(請參閱[透過封裝管理員來安裝 Node.js][install-node-linux])，然後執行下列命令：
 
 	npm install azure-cli -g
 

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/21/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # 在 StorSimple 裝置上安裝 Update 2
 
-## 概觀
+## Overview
 
 本教學課程說明如何透過 Azure 傳統入口網站，在執行舊版軟體的 StorSimple 裝置上安裝 Update 2。本教學課程也涵蓋了當閘道器設定於 StorSimple 裝置之 DATA 0 以外的網路介面上，而您嘗試從 Update 1 以前的軟體版本更新時所需的步驟。
 
@@ -91,4 +91,4 @@ Update 2 讓 Microsoft 從裝置提取其他診斷資訊。因此，當我們的
 
 深入了解 [Update 2 版](storsimple-update2-release-notes.md)。
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

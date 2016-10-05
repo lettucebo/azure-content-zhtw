@@ -389,7 +389,7 @@ AP4000
 
 ### 說明
 
-對 Azure 網站和 Azure 行動服務等專案使用 [ConfigurationManager] (https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) 類別不會產生執行階段問題。不過，最佳做法是使用雲端 [ConfigurationManager] (https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) 做為所有 Azure 雲端應用程式組態的統一管理方式。
+對 Azure 網站和 Azure 行動服務等專案使用 [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) 類別不會產生執行階段問題。不過，最佳做法是使用雲端 [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) 做為所有 Azure 雲端應用程式組態的統一管理方式。
 
 請在 [Azure Code Analysis 意見反應](http://go.microsoft.com/fwlink/?LinkId=403771)分享您的想法和意見。
 
@@ -449,7 +449,7 @@ AP4001
 
 - 若是 ASP.NET vNext 應用程式，請使用 configuration.json 來儲存連接字串。
 
-如需使用 web.config 或 app.config 等組態檔的相關資訊，請參閱 [ASP.NET Web 組態指導方針] (https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx)。如需 Azure 環境變數運作方式的相關資訊，請參閱 [Azure 網站：應用程式字串與連接字串的運作方式](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。如需在原始檔控制中儲存連接字串的相關資訊，請參閱[避免將敏感資訊 (例如連接字串) 放在儲存於原始程式碼儲存機制的檔案](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)。
+如需使用 web.config 或 app.config 等組態檔的相關資訊，請參閱 [ASP.NET Web 組態指導方針](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx)。如需 Azure 環境變數運作方式的相關資訊，請參閱 [Azure 網站：應用程式字串與連接字串的運作方式](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。如需在原始檔控制中儲存連接字串的相關資訊，請參閱[避免將敏感資訊 (例如連接字串) 放在儲存於原始程式碼儲存機制的檔案](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)。
 
 ## 使用診斷組態檔
 

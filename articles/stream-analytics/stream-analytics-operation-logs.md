@@ -5,7 +5,7 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -49,7 +49,7 @@
 
   ![Azure 入口網站選取串流分析](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
 
-這會開啟刀鋒視窗，顯示訂用帳戶所有資源在過去 7 天中的事件。按一下 [篩選] 命令，可以篩選查看指定類型或時間範圍的事件。
+這會開啟刀鋒視窗，當中會顯示您訂用帳戶中所有資源在過去 7 天的事件。按一下 [篩選] 命令，可以篩選查看指定類型或時間範圍的事件。
 
   ![Azure 入口網站選取串流分析](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)
 
@@ -96,4 +96,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

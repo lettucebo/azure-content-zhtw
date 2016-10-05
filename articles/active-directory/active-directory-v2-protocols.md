@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # v2.0 通訊協定 - OAuth 2.0 與 OpenID Connect
@@ -22,7 +22,7 @@ v2.0 端點可以使用 Azure AD，利用業界標準通訊協定 (OpenID Connec
 <!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
-	v2.0 端點並未支援 Azure Active Directory 的所有案例和功能。若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
+	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
 
 ## 基本概念
 幾乎在所有的 OAuth 和 OpenID Connect 流程中，都有四個參與交換的合作對象：
@@ -44,7 +44,7 @@ v2.0 端點可以使用 Azure AD，利用業界標準通訊協定 (OpenID Connec
 
 如需詳細資訊，請了解如何[註冊應用程式](active-directory-v2-app-registration.md)。
 
-## Endpoints
+## 端點
 註冊完成後，應用程式即會向 v2.0 端點傳送要求以與 Azure AD 通訊：
 
 ```
@@ -80,4 +80,4 @@ OAuth 2.0 和 OpenID Connect 的 v2.0 實作會廣泛運用持有人權杖，包
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

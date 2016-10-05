@@ -28,7 +28,7 @@
 
 ![][1]
  
-圖 1：服務匯流排提供多租用戶服務，可透過雲端連接應用程式。
+**圖 1：服務匯流排提供多租用戶服務，可透過雲端連接應用程式。**
 
 在一個命名空間內，您可以使用四種不同通訊機制的一或多個執行個體，這些機制各以不同的方式連接應用程式。選擇如下：
 
@@ -110,9 +110,9 @@
 
 現在，您已了解 Azure 服務匯流排的基礎，請參考下列連結以取得更多資訊。
 
-- 如何使用[服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
-- 如何使用[服務匯流排主題](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-- 如何使用[服務匯流排轉送](service-bus-dotnet-how-to-use-relay.md)
+- 如何使用[服務匯流排佇列](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+- 如何使用[服務匯流排主題](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- 如何使用[服務匯流排轉送](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 - [服務匯流排範例](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -120,4 +120,4 @@
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

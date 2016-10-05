@@ -1,7 +1,8 @@
-When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. When the virtual network gateway is created, it is built as virtual hardware. When you select a higher gateway SKU, more processing power is allocated to the gateway in order to route traffic and, in the case of VPN Gateway, process VPN encryption.
+建立虛擬網路閘道時，您必須指定想要使用的閘道 SKU。建立虛擬網路閘道後，它會建置為虛擬硬碟。當您選取較高的閘道 SKU 時，系統會配置更多處理能力給閘道，以便路由傳送流量，而在使用「VPN 閘道」的情況下，還會處理 VPN 加密。
 
-ExpressRoute virtual network gateways can use the following SKUs: 
+ExpressRoute 虛擬網路閘道可以使用下列 SKU：
 
-- Standard
+- 標準
 - HighPerformance
 
+<!---HONumber=AcomDC_0921_2016-->

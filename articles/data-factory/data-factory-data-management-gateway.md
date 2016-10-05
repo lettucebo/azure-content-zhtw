@@ -494,6 +494,6 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 
 
 ## 後續步驟
-- 如需閘道的詳細資訊，請參閱[資料管理閘道](data-factory-data-management-gateway.md)文章。
+- 請參閱[在內部部署和雲端資料存放區之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文。在該逐步解說中，您會建立一個使用閘道將資料從內部部署 SQL Server 資料庫移到 Azure Blob 的管線。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

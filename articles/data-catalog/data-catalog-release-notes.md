@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/11/2016"
+   ms.date="09/21/2016"
    ms.author="maroche"/>
 
 # Azure 資料目錄版本資訊
@@ -58,10 +58,6 @@
 
 如需詳細資訊，請參閱[啟用或停用可疑網站之連結和檔案的安全性警告](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE)。
 
-### 預覽中遺漏 BLOB 和 UDT 資料行
-
-當您註冊的資料表和檢視包含二進位大型物件 (BLOB) 和使用者自訂資料型別 (UDT) 資料行，且選擇要包含資料資產的預覽時，預覽中將不會包含這些資料行。
-
 ### Proxy 與原則設定及資料來源註冊
 
 使用者可能會遇到一種情況，他們可以登入 Azure 資料目錄入口網站，但在嘗試登入資料來源註冊工具時，卻遇到錯誤訊息，導致無法登入。
@@ -88,4 +84,4 @@
 
 若要找出 RegistrationTool.exe.config 檔案，請啟動註冊工具，然後開啟 Windows 工作管理員公用程式。在工作管理員的 [詳細資料] 索引標籤，以滑鼠右鍵按一下 RegistrationTool.exe，再從快顯功能表中選擇 [開啟檔案位置]。
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

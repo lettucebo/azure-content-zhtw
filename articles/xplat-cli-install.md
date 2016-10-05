@@ -52,7 +52,7 @@
 
 * [Windows 安裝程式][windows-installer]
 
-* [Linux tar 檔案][linux-installer] (需要 Node.js 和 npm) - 透過執行 `sudo npm install -g <path to downloaded tar file>` 來安裝
+* [Linux tar 檔案][linux-installer] \(需要 Node.js 和 npm) - 透過執行 `sudo npm install -g <path to downloaded tar file>` 來安裝
 
 
 ## 選項 3。使用 Docker 容器

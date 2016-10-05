@@ -574,7 +574,7 @@ In some cases, the call to the login method can be avoided after the first time 
 
 Promise 提供一種機制，可排定工作來處理尚未計算的值。這是一種管理非同步 API 互動的抽象觀念。
 
-當所提供的函數順利完成或發生錯誤時，`done` Promise 就會立即執行。與 `then` Promise 不同，此函數一定會擲回函數內未處理的任何錯誤，而且在處理常式執行完成之後，會擲回原本由 then 在錯誤狀態下以 Promise 傳回的任何錯誤。如需詳細資訊，請參閱 [Promise.done 方法] (英文)。
+當所提供的函數順利完成或發生錯誤時，`done` Promise 就會立即執行。與 `then` Promise 不同，此函數一定會擲回函數內未處理的任何錯誤，而且在處理常式執行完成之後，會擲回原本由 then 在錯誤狀態下以 Promise 傳回的任何錯誤。如需詳細資訊，請參閱 [Promise.done 方法] \(英文)。
 
 	promise.done(onComplete, onError);
 
@@ -587,7 +587,7 @@ Promise 提供一種機制，可排定工作來處理尚未計算的值。這是
 	   alert("Error: " + err);
 	});
 
-`then` Promise 與 `done` Promise 相同，但不同於 `then` Promise 的是，`done` 一定會擲回函數內未處理的任何錯誤。如果您沒有提供錯誤處理常式給 `then`，而作業發生錯誤，它不會擲回例外狀兄，但會傳回錯誤狀態的 Promise。如需詳細資訊，請參閱 [Promise.then 方法] (英文)。
+`then` Promise 與 `done` Promise 相同，但不同於 `then` Promise 的是，`done` 一定會擲回函數內未處理的任何錯誤。如果您沒有提供錯誤處理常式給 `then`，而作業發生錯誤，它不會擲回例外狀兄，但會傳回錯誤狀態的 Promise。如需詳細資訊，請參閱 [Promise.then 方法] \(英文)。
 
 	promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 

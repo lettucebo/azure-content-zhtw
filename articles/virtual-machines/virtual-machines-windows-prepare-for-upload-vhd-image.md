@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/18/2016"
 	ms.author="glimoli;genli"/>
 
 # 準備要上傳至 Azure 的 Windows VHD
-若要從內部部署將 Windows VM 上傳至 Azure，您必須正確地準備虛擬硬碟 (VHD)。您必須完成數個建議的步驟，才能將 VHD 上傳至 Azure。執行 `sysprep` 是一般程序，但只是將映像一般化的其中一個步驟。本文將說明如何準備要上傳至 Microsoft Azure 的 Windows VHD。
+若要從內部部署將 Windows VM 上傳至 Azure，您必須正確地準備虛擬硬碟 (VHD)。您必須完成數個建議的步驟，才能將 VHD 上傳至 Azure。本文說明如何準備要上傳至 Microsoft Azure 的 Windows VHD，同時也說明 [Sysprep 的使用時機和使用方式](#step23)。
 
 ## 準備虛擬磁碟
 
@@ -248,8 +248,8 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 14. 移除任何額外的傳輸驅動程式介面篩選，例如分析 TCP 封包的軟體。
 15. 若要確定磁碟狀況良好且一致，請執行 `CHKDSK /f` 命令。
-16.	解除安裝所有其他協力廠商軟體和驅動程式。
-17. 確定協力廠商應用程式並未使用連接埠 3389。在 Azure 中，此連接埠是由 RDP 服務所使用。
+16.	將與實體元件或任何其他虛擬化技術相關的所有其他協力廠商軟體和驅動程式解除安裝。
+17. 確定協力廠商應用程式並未使用連接埠 3389。在 Azure 中，此連接埠是由 RDP 服務所使用。您可以使用 `netstat -anob` 命令來檢查應用程式正在使用的連接埠。
 18.	如果您想要上傳的 Windows VHD 是一個網域控制站，請遵循[這些額外步驟](https://support.microsoft.com/kb/2904015)來準備磁碟。
 19.	將 VM 重新開機，以確保 Windows 仍然狀況良好，可以使用 RDP 連線來達成。
 20.	重設目前的本機系統管理員密碼，並確定您可以使用此帳戶，透過 RDP 連線登入 Windows。此存取權限會受到「允許透過遠端桌面服務登入」原則物件所控制。此物件位於 [電腦設定]\\[Windows 設定]\\[安全性設定]\\[本機原則]\\[使用者權限指派] 之下。
@@ -279,13 +279,13 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 	- [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031：Microsoft Windows 的安全性更新，可解決提高權限問題：2016 年 3 月 8 日
 
 	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048：CSRSS 安全性更新的描述︰2016 年 4 月 12 日
-	- [KB2904100](https://support.microsoft.com/kb/2904100) 在 Windows 中，系統會在磁碟 I/O 期間凍結
-
-23. 如果您想要建立映像以便從中部署多部電腦，您需要先執行 `sysprep` 來將該映像一般化，然後將 VHD 上傳至 Azure。如需如何建立一般化映像的詳細資訊，請參閱下列文章：
+	- [KB2904100](https://support.microsoft.com/kb/2904100) 在 Windows 中，系統會在磁碟 I/O 期間凍結<a id="step23"></a>
+23. 如果您想要建立映像以便從中部署多部電腦，您需要先執行 `sysprep` 來將該映像一般化，然後將 VHD 上傳至 Azure。您不需要執行 `sysprep`，即可使用特製化 VHD。如需如何建立一般化映像的詳細資訊，請參閱下列文章：
 
 	- [使用 Resource Manager 部署模型，從現有的 Azure VM 建立 VM 映像](virtual-machines-windows-capture-image.md)
 	- [使用傳統部署模型，從現有的 Azure VM 建立 VM 映像](virtual-machines-windows-classic-capture-image.md)
 	- [伺服器角色的 Sysprep 支援](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
 
 
 ## 建議的額外組態
@@ -319,4 +319,4 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 - [將 Windows VM 映像上傳至 Azure 供 Resource Manager 部署使用](virtual-machines-windows-upload-image.md)
 
-<!----HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

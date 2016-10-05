@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/05/2016"
+ms.date="09/20/2016"
 ms.author="larryfr"/>
 
 #在 HDInsight 叢集建立期間新增 Hive 程式庫
@@ -88,4 +88,4 @@ __需求__
 
 在這份文件中，您已經學會如何在叢集建立期間將 jar 檔案包含的 Hive 程式庫新增至 HDInsight 叢集。如需有關使用 Hive 的詳細資訊，請參閱[搭配使用 Hive 與 HDInsight](hdinsight-use-hive.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

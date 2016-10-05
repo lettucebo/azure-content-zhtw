@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/31/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin" />
 
 # Azure Active Directory 驗證程式庫
@@ -63,4 +63,4 @@ ADAL 可用於各種平台上。
 
 [Azure Active Directory 程式碼範例](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

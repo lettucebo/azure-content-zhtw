@@ -13,7 +13,7 @@
    ms.topic="support-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="required"
-   ms.date="06/16/2016"
+   ms.date="09/20/2016"
    ms.devlang="na"
    ms.author="delhan"/>
 
@@ -83,6 +83,6 @@
 
 ## 後續步驟
 
-如果您在 Azure 中建立新的 Windows VM 時遇到問題，請參閱 [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure (針對在 Azure 中建立新 Windows 虛擬機器的部署問題進行疑難排解)](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)。
+如果您在 Azure 中建立新的 Windows VM 時遇到問題，請參閱[針對在 Azure 中建立新 Windows 虛擬機器的部署問題進行疑難排解](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)。
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -110,4 +110,4 @@ Azure Data Lake Store 與 Hadoop 生態系統中的大多數開放原始碼元�
 * [使用 Azure Data Factory 進行 Azure Data Lake Store 的資料協調](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [保護 Azure Data Lake Store 中的資料](https://mix.office.com/watch/1q2mgzh9nn5lx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016--->

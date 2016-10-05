@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # 如何設定進階 Azure Redis 快取的 Redis 叢集
 Azure Redis 快取有不同的快取服務，在快取大小和功能 (包括新的進階層) 的選擇上提供了彈性。
 
-Azure Redis 快取進階層包括叢集、永續性及虛擬網路支援。本文說明如何在進階 Azure Redis 快取執行個體中設定叢集。
+Azure Redis 快取進階層包括叢集、永續性及虛擬網路支援之類的功能。本文說明如何在進階 Azure Redis 快取執行個體中設定叢集。
 
-如需其他進階快取功能的資訊，請參閱[如何設定進階 Azure Redis 快取的永續性](cache-how-to-premium-persistence.md)和[如何設定進階 Azure Redis 快取的虛擬網路支援](cache-how-to-premium-vnet.md)。
+如需其他進階快取功能的相關資訊，請參閱 [Azure Redis 快取進階層簡介](cache-premium-tier-intro.md)。
 
 ## Redis 叢集是什麼？
 Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://redis.io/topics/cluster-tutorial) 一樣。使用 Redis 叢集可以獲得下列好處：
@@ -31,7 +31,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 -	更多輸送量：當您增加分區數目時，輸送量會呈線性增加。
 -	更多記憶體大小：當您增加分區數目時，會呈線性增加。
 
-如需進階快取的大小、輸送量和頻寬等方面的詳細資訊，請參閱 [Azure Redis Cache 常見問題集](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)。
+如需高階快取的大小、輸送量和頻寬等方面的詳細資訊，請參閱 [Azure Redis 快取常見問題集](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)。
 
 在 Azure 中，Redis 叢集以主要/複本模型方式提供，其中的每個分區都有一個具複寫功能的主要/複本組，而複寫是由 Azure Redis 快取服務管理。
 
@@ -87,9 +87,9 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
     如需詳細資訊，請參閱 [Redis 叢集規格 - 實作的子集](http://redis.io/topics/cluster-spec#implemented-subset)。
 
 -	如果您使用 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)，則必須使用 1.0.481 或更新版本。您可以使用與連接未啟用叢集的快取時所用的相同[端點、連接埠和金鑰](cache-configure.md#properties)來連接快取。唯一的差別在於必須在資料庫 0 上完成所有的讀取和寫入。
-	-	其他用戶端可能有不同的需求。請參閱[所有 Redis 用戶端都支援叢集嗎？](#do-all-redis-clients-support-clustering)。
--	如果您的應用程式使用分成單一命令的多個索引鍵作業，則所有索引鍵都必須位於相同的分區。若要完成此動作，請參閱[如何在叢集中散發金鑰？](#how-are-keys-distributed-in-a-cluster)。
--	如果您使用 Redis ASP.NET 工作階段狀態提供者，則必須使用 2.0.1 或更高版本。請參閱[我可以將叢集使用於 Redis ASP.NET 工作階段狀態和輸出快取提供者嗎？](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)。
+	-	其他用戶端可能有不同的需求。請參閱[所有 Redis 用戶端都支援叢集嗎？](#do-all-redis-clients-support-clustering)
+-	如果您的應用程式使用分成單一命令的多個索引鍵作業，則所有索引鍵都必須位於相同的分區。若要完成此動作，請參閱[如何在叢集中散發金鑰？](#how-are-keys-distributed-in-a-cluster)
+-	如果您使用 Redis ASP.NET 工作階段狀態提供者，則必須使用 2.0.1 或更高版本。請參閱[我可以將叢集使用於 Redis ASP.NET 工作階段狀態和輸出快取提供者嗎？](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 ### 如何在叢集中散發索引鍵？
 
@@ -153,8 +153,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 ## 後續步驟
 了解如何使用更多進階快取功能。
 
--	[如何設定高階 Azure Redis Cache 的永續性](cache-how-to-premium-persistence.md)
--	[如何設定高階 Azure Redis Cache 的虛擬網路支援](cache-how-to-premium-vnet.md)
+-	[Azure Redis Cache 高階層簡介](cache-premium-tier-intro.md)
   
 <!-- IMAGES -->
 
@@ -164,4 +163,4 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!----HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

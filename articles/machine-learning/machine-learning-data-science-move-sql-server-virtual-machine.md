@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;bradsev" />
+	ms.date="09/14/2016" 
+	ms.author="bradsev" />
 
 # 移動資料至 Azure 虛擬機器上的 SQL Server
 
@@ -32,7 +32,7 @@
 <b>來源</b> |<b>目的地：Azure VM 上的 SQL Server</b> |
 ------------------ |-------------------- |
 <b>一般檔案</b> |1\.<a href="#insert-tables-bcp">命令列大量複製公用程式 (BCP) </a><br> 2.<a href="#insert-tables-bulkquery">大量插入 SQL 查詢 </a><br> 3.<a href="#sql-builtin-utilities">SQL Server 中的圖形化內建公用程式</a>
-<b>內部部署的 SQL Server</b> | 1\.<a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">將 SQL Server 資料庫部署至 Microsoft Azure VM 精靈</a><br> 2.<a href="#export-flat-file">匯出到一般檔案 </a><br> 3.<a href="#sql-migration">SQL Database 移轉精靈 </a> <br> 4.<a href="#sql-backup">資料庫備份和還原 </a><br>
+<b>內部部署的 SQL Server</b> | 1\.<a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">將 SQL Server 資料庫部署至 Microsoft Azure VM 精靈</a><br> 2.<a href="#export-flat-file">匯出到一般檔案 </a><br> 3.<a href="#sql-migration">SQL Database 移轉精靈 </a> <br> 4.<a href="#sql-backup">資料庫備份和還原</a><br>
 
 請注意，本文件假設 SQL 命令是從 SQL Server Management Studio 或 Visual Studio 資料庫總管中執行。
 
@@ -224,4 +224,4 @@ SQL Server Management Studio 的資料庫備份/還原選項的螢幕擷取畫�
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

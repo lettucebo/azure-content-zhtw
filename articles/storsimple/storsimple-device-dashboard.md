@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/09/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 裝置儀表板
 
-## 概觀
+## Overview
 
 StorSimple Manager 裝置儀表板可提供特定 StorSimple 裝置的資訊概觀；相對於服務儀表板，其提供 Microsoft Azure StorSimple 解決方案中所有裝置的相關資訊。
 
@@ -100,4 +100,4 @@ StorSimple Manager 裝置儀表板可提供特定 StorSimple 裝置的資訊概�
 - [深入了解 StorSimple Manager 服務儀表板](storsimple-service-dashboard.md)。
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0921_2016-->

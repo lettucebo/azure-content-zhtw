@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/12/2016"
+   ms.date="09/15/2016"
    ms.author="magoedte;bwren"/>
 
 # 在 Azure 自動化中啟動 Runbook
@@ -32,14 +32,6 @@
 下圖說明 Runbook 的生命週期的詳細逐步程序。它包含了 Runbook 在 Azure 自動化中啟動的不同方式、Hybrid Runbook Worker 執行 Azure 自動化 Runbook 所需的元件，以及不同元件之間的互動。若要了解如何在您的資料中心執行自動化 Runbook，請參閱[混合式 Runbook 背景工作](automation-hybrid-runbook-worker.md)
 
 ![Runbook 架構](media/automation-starting-runbook/runbooks-architecture.png)
-
-## 使用 Azure 入口網站啟動 Runbook
-
-1.	在 Azure 入口網站中，選取 [**自動化**]，然後按一下自動化帳戶的名稱。
-2.	選取 [**Runbook**] 索引標籤。
-3.	選取 Runbook，然後按一下 [**啟動**]。
-4.	如果 Runbook 有參數，系統會提示您提供每個參數的文字方塊的值。請參閱以下的 [Runbook 參數](#Runbook-parameters)，以取得參數的進一步詳細資訊。
-5.	選取 [**啟動**] Runbook 訊息旁邊的 [**檢視工作**]，或選取 Runbook 的 [**工作**] 索引標籤，以檢視 Runbook 工作的狀態。
 
 ## 使用 Azure 入口網站啟動 Runbook
 
@@ -91,7 +83,7 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 ### 具名值
 
-如果參數是資料型別 [object]，則您可以使用下列 JSON 格式，將它傳送的具名值清單：*{"Name1":Value1, "Name2":Value2, "Name3":Value3}*。這些值必須是簡單型別。Runbook 將接收參數做為 [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx)，並具有對應到每個具名值的屬性。
+如果參數是資料類型 [object]，則您可以使用下列 JSON 格式，對它傳送具名值清單：{Name1:'Value1', Name2:'Value2', Name3:'Value3'}。這些值必須是簡單型別。Runbook 將接收參數做為 [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx)，並具有對應到每個具名值的屬性。
 
 請考慮可接受稱為 user 的參數的下列測試 Runbook。
 
@@ -195,4 +187,4 @@ jsmith
 -	目前文件中的 Runbook 架構提供在 Azure 中管理資源的 Runbook 整體概觀，並利用 Hybrid Runbook Worker 進行內部部署。若要了解如何在您的資料中心執行自動化 Runbook，請參閱[混合式 Runbook 背景工作](automation-hybrid-runbook-worker.md)。
 -	若要深入了解如何建立模組化 Runbook，以供其他 Runbook 用於特定或一般函式，請參閱[子 Runbook](automation-child-runbooks.md)。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

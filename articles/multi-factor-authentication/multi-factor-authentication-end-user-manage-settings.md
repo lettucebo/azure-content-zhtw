@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="使用 Azure Multi-Factor Authentication 時碰到困難 | Microsoft Azure" 
-	description="本文件將提供如果使用者使用 Azure Multi-Factor Authentication 遇到問題時，該怎麼辦的資訊。" 
+<properties
+	pageTitle="使用 Azure Multi-Factor Authentication 時碰到困難 | Microsoft Azure"
+	description="本文件將提供如果使用者使用 Azure Multi-Factor Authentication 遇到問題時，該怎麼辦的資訊。"
 	services="multi-factor-authentication"
 	keywords = "多重要素驗證用戶端, 驗證的問題, 相互關聯識別碼"
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 # 使用 Azure Multi-Factor Authentication 時碰到困難
 >[AZURE.IMPORTANT]
@@ -44,7 +44,7 @@
  - **工作階段識別碼** - 您接收到的特定工作階段識別碼。
  - **相互關聯識別碼** – 當使用者看見此錯誤時所產生的相互關連識別碼。
  - **時間戳記** – 您看到錯誤時的精確日期和時間 (包含時區)。
- 
+
 ![相互關連識別碼](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
  - **使用者識別碼** – 看到錯誤的使用者其識別碼為何 (例如 user@contoso.com)？
@@ -58,7 +58,7 @@
 有兩個選項可讓您恢復使用您的帳戶。首先，如果您已設有備用驗證電話號碼，您可用它來恢復使用您的帳戶並變更安全性設定。
 
 如果您已有指定次要驗證電話號碼，您可以使用它來登入。![設定](./media/multi-factor-authentication-end-user-manage/altphone.png) 請注意，在上方的螢幕擷取畫面中，已設有兩個電話號碼，一個的結尾是 67，另一個的結尾是 30。
-  
+
 若要使用備用的電話號碼登入，請依照一般方式登入，然後選擇 [使用不同的驗證選項]。![不同的驗證方式](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
 然後選取其他電話號碼。在此案例中，您要選取 [撥號給我 +X XXXXXXXX30]
@@ -74,13 +74,13 @@
 視您使用 Multi-Factor Authentication 的方式而定，有一些地方可讓您變更如電話號碼等設定。使用下表協助您選擇最符合的狀況。
 
 如何使用多因素驗證|說明
-:------------- | :------------- | 
+:------------- | :------------- |
 [搭配 Office 365 使用](#changing-your-settings-with-office-365)| 這表示您會透過 Office 365 入口網站變更您的設定。
 [我不知道](#changing-your-settings-with-the-myapps-portal)|這表示您會登入 [http://myapps.microsoft.com](http://myapps.microsoft.com)，並在此變更您的設定。
 [搭配 Microsoft Azure 使用](#changing-your-settings-with-microsoft-azure)| 這表示您會透過 Azure 入口網站變更您的設定。
 
 
- 
+
 ### 變更您的 Office 365 設定
 
 
@@ -128,7 +128,7 @@
 請務必設定次要驗證電話號碼。由於您的主要電話號碼與行動應用程式可能在同一個手機上，因此如果您的手機遺失或遭竊，您只能依靠次要電話號碼恢復使用您的帳戶。
 
 第一個方式是使用次要驗證方法。如果您已有指定次要驗證電話號碼，您可以使用它來登入。![設定](./media/multi-factor-authentication-end-user-manage/altphone.png) 請注意，在上方的螢幕擷取畫面中，已設有兩個電話號碼，一個的結尾是 67，另一個的結尾是 30。
-  
+
 若要使用備用的電話號碼登入，請依照一般方式登入，然後選擇 [使用不同的驗證選項]。![不同的驗證方式](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
 然後選取其他電話號碼。在此案例中，您要選取 [撥號給我 +X XXXXXXXX30]
@@ -172,4 +172,4 @@
 
 最後，請務必在此頁面上留下一些詳細的意見反應，讓我們可以更新此頁面，並藉由提供更多的資訊，持續讓它更加完善。
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

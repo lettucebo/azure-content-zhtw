@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -24,7 +24,7 @@
 這個範例是簡單的待辦事項清單單一頁面應用程式，在後端 REST API 儲存工作、使用 .NET 4.5 MVC 架構撰寫，並且使用 Azure AD 的 OAuth 持有人權杖進行保護。AngularJS 應用程式會使用我們的開放原始碼 JavaScript 驗證程式庫 [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) 以處理整個登入程序，並且取得用以呼叫 REST API 的權杖。可以套用這個相同的模式以驗證其他 REST API，例如 [Microsoft Graph](https://graph.microsoft.com)。
 
 > [AZURE.NOTE]
-	v2.0 端點並未支援 Azure Active Directory 的所有案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
+	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
 
 ## 下載
 
@@ -46,7 +46,7 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet.git
 
 - 為您的應用程式新增 **Web** 平台。
 - 輸入正確的**重新導向 URI**。此範例的預設值是 `https://localhost:44326/`。
-- 保留 [允許隱含流程] 核取方塊啟用。 
+- 保留 [允許隱含流程] 核取方塊啟用。
 
 將指派給您應用程式的「應用程式識別碼」複製起來，您很快會需要用到這些識別碼。
 
@@ -233,4 +233,4 @@ return $http.get('/api/tasks');
 
 我們鼓勵您造訪[此頁面](https://technet.microsoft.com/security/dd252948)並訂閱資訊安全摘要報告警示，以在安全性事件發生時收到通知。
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

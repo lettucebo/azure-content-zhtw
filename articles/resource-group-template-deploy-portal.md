@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="09/15/2016" 
 	ms.author="tomfitz"/>
 
 # 使用 Resource Manager 範本與 Azure 入口網站來部署資源
@@ -34,7 +34,7 @@
 
     ![建立空的資源群組](./media/resource-group-template-deploy-portal/create-empty-group.png)
 
-2. 提供其名稱和位置，再視需要選取訂用帳戶。
+2. 提供其名稱和位置，再視需要選取訂用帳戶。您需要提供資源群組的位置，因為資源群組會儲存資源的相關中繼資料。為了符合法規，您可能會想要指定中繼資料的儲存位置。一般情況下，我們建議您指定大部分資源所在的位置。使用相同位置可簡化範本。
 
     ![設定群組值](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
@@ -50,7 +50,7 @@
 
     ![搜尋 Marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
-3. 根據您選取的資源類型，您必須在部署前設定相關的屬性集合。這些選項並未在這裡顯示，因為它們會隨著資源類型而有所不同。對於所有類型，您必須選取目的地資源群組。下圖顯示如何建立 Web 應用程式並將其部署至您建立的資源群組。
+3. 根據所選資源的類型，您必須在部署前設定相關的屬性集合。這些選項並未在這裡顯示，因為它們會隨著資源類型而有所不同。對於所有類型，您必須選取目的地資源群組。下圖顯示如何建立 Web 應用程式並將其部署至您建立的資源群組。
 
     ![建立資源群組](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
@@ -118,4 +118,4 @@
 - 若要針對部署錯誤進行疑難排解，請參閱[使用 Azure 入口網站對資源群組部署進行疑難排解](resource-manager-troubleshoot-deployments-portal.md)。
 - 若要從部署或資源群組擷取範本，請參閱[從現有資源匯出 Azure Resource Manager 範本](resource-manager-export-template.md)。
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

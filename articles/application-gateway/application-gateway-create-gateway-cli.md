@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace" />
 
 # 使用 Azure CLI 建立應用程式閘道
@@ -53,6 +53,28 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 
 「Azure 應用程式閘道」需要有自己的子網路。建立虛擬網路時，請確定您保留足夠的位址空間，以便擁有多個子網路。將應用程式閘道部署到子網路之後，就只能將額外的應用程式閘道新增到該子網路。
 
+## 登入 Azure
+
+開啟 [Microsoft Azure 命令提示字元] 並登入。
+
+    azure login
+
+輸入上述範例後會提供程式碼。在瀏覽器中瀏覽至 https://aka.ms/devicelogin 以繼續登入程序。
+
+![顯示裝置登入的 cmd][1]
+
+在瀏覽器中，輸入收到的程式碼。系統會將您重新導向至 [登入] 頁面。
+
+![要輸入程式碼的瀏覽器][2]
+
+輸入程式碼後您已登入，請關閉瀏覽器以繼續進行案例。
+
+![已順利登入][3]
+
+## 切換至 Resource Manager 模式
+
+    azure config mode arm
+
 ## 建立資源群組
 
 建立應用程式閘道之前，會建立資源群組以包含應用程式閘道。以下顯示命令。
@@ -73,11 +95,13 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 
 ## 建立應用程式閘道
 
-建立虛擬網路和子網路後，便已完成應用程式閘道的先決條件。此外，下列步驟需要先前匯出的 .pfx 憑證及憑證的密碼。用於後端的 IP 位址是後端伺服器的 IP 位址。這些值可以是虛擬網路中的私人 IP、公用 IP 或後端伺服器的完整網域名稱。
+建立虛擬網路和子網路後，便已完成應用程式閘道的先決條件。此外下列步驟也需要先前匯出的 .pfx 憑證和憑證密碼︰用於後端的 IP 位址是後端伺服器的 IP 位址。這些值可以是虛擬網路中的私人 IP、公用 IP 或後端伺服器的完整網域名稱。
 
-    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd
+    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
 
-此範例會建立一個具有接聽程式、後端集區、後端 http 設定及規則之預設設定的基本應用程式閘道。也會設定 SSL 卸載。佈建成功之後，您可以依據您的部署需求修改這些設定。如果您已經用先前步驟中定義的後端集區 IP 位址來定義您的 Web 應用程式，一旦佈建並啟動應用程式閘道，負載平衡就會開始。
+
+
+此範例會建立一個具有接聽程式、後端集區、後端 http 設定及規則之預設設定的基本應用程式閘道。也會設定 SSL 卸載。佈建成功之後，您可以依據您的部署需求修改這些設定。如果在先前步驟中已經以後端集區定義 Web 應用程式，一旦建立之後，負載平衡即開始。
 
 ## 後續步驟
 
@@ -88,5 +112,8 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 <!--Image references-->
 
 [scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
+[1]: ./media/application-gateway-create-gateway-cli/figure1.png
+[2]: ./media/application-gateway-create-gateway-cli/figure2.png
+[3]: ./media/application-gateway-create-gateway-cli/figure3.png
 
-<!----HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

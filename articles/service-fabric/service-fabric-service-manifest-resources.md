@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
+   ms.date="09/14/2016"
    ms.author="subramar"/>
 
 # 在服務資訊清單中指定資源
 
-## 概觀
+## Overview
 
 服務資訊清單可宣告/變更服務使用的資源，且不需變更已編譯的程式碼。Azure Service Fabric 支援針對服務的端點資源組態。透過應用程式資訊清單中的 SecurityGroup，即可控制存取服務資訊清單中的指定資源。資源宣告可讓您在部署階段變更這些資源，也就是服務不需要導入新的組態機制。ServiceManifest.xml 檔案的結構描述定義是和 Service Fabric SDK 及工具一起安裝在 *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*。
 
-## Endpoints
+## 端點
 
-如果沒有指定明確通訊埠 (例如，請查看下列 *ServiceEndpoint1* 端點)，在服務資訊清單中定義端點資源時，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。此外，服務也可以在資源中要求特定連接埠。不同的連接埠號碼可以指派給在不同叢集節點上執行的服務複本，而在同一節點上執行的相同服務複本也可以共用同一個連接埠。服務複本可將此類連接埠用於各種用途，例如複寫、接聽用戶端要求等。
+在服務資訊清單中定義端點資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。例如，請看本段落之後提供的資訊清單片段中所指定的端點 *ServiceEndpoint1*。此外，服務也可以在資源中要求特定連接埠。不同的連接埠號碼可以指派給在不同叢集節點上執行的服務複本，而在同一節點上執行的服務複本可以共用連接埠。然後服務複本就可以在需要時使用這些連接埠進行複寫和接聽用戶端要求。
 
 ```xml
 <Resources>
@@ -90,12 +90,12 @@ Service Fabric 會自動將 HTTP 端點處理為 ACL。
 
 ## 範例：指定服務的 HTTPS 端點
 
-HTTPS 通訊協定提供伺服器驗證，也能用於加密用戶端-伺服器通訊。為了在 Service Fabric 服務上啟用此通訊協定，在您定義服務時，請在服務資訊清單的 [資源] -> [端點] -> [端點] 區段指定通訊協定，如先前針對 *ServiceEndpoint3* 端點所示。
+HTTPS 通訊協定提供伺服器驗證，也能用於加密用戶端-伺服器通訊。若要在 Service Fabric 服務上啟用 HTTPS，請在服務資訊清單的 [資源] -> [端點] -> [端點] 區段指定通訊協定，如先前針對 *ServiceEndpoint3* 端點所示。
 
->[AZURE.NOTE] 因為這會是一項重大變更，所以服務的通訊協定無法在應用程式升級期間變更。
+>[AZURE.NOTE] 服務的通訊協定在應用程式升級期間如果不是一項重大變更就無法變更。
 
 
-以下是您必須為 HTTPS 設定的範例 ApplicationManifest。(您必須提供指紋給憑證。) EndpointRef 是在您設定 HTTPS 通訊協定的 ServiceManifest 中 EndpointResource 的參考。您可以加入一個以上的 Endpointcertificate。
+以下是您必須為 HTTPS 設定的範例 ApplicationManifest。您必須提供憑證的指紋。EndpointRef 是在您設定 HTTPS 通訊協定的 ServiceManifest 中 EndpointResource 的參考。您可以加入一個以上的 EndpointCertificate。
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,4 +137,4 @@ HTTPS 通訊協定提供伺服器驗證，也能用於加密用戶端-伺服器�
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

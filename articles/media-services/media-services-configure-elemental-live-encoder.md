@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="設定 Elemental Live 編碼器來傳送單一位元速率的即時串流" 
+	pageTitle="設定 Elemental Live 編碼器來傳送單一位元速率的即時串流 | Microsoft Azure" 
 	description="本主題會示範如何設定 Elemental Live 編碼器，藉此將單一位元速率的即時串流傳送到 AMS 通道，其已針對即時編碼而啟用。" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="cenkdin;anilmur;juliako"/>
 
 #使用 Elemental Live 編碼器來傳送單一位元速率的即時串流
@@ -32,8 +32,7 @@
 
 - 必須具備使用 Elemental Live Web 介面來建立即時事件的工作知識。
 - [建立 Azure 媒體服務帳戶](media-services-create-account.md)
-- 請確定執行的串流端點至少有一個配置的串流單位。如需詳細資訊，請參閱[在媒體服務帳戶中管理串流端點](media-services-manage-origins.md)
-
+- 請確定執行的串流端點至少有一個配置的串流單位。如需詳細資訊，請參閱[在媒體服務帳戶中管理串流端點](media-services-portal-manage-streaming-endpoints.md)。
 - 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 - 啟動工具並連接到您的 AMS 帳戶。
 
@@ -176,4 +175,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

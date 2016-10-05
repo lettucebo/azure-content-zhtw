@@ -116,10 +116,11 @@ Site Recovery 是一項 Azure 服務，可藉由將內部部署實體伺服器�
 
 **必要條件** | **詳細資料**
 --- | ---
-**內部部署 VMware VM** | 您想要保護的 VMware VM 應該安裝並執行 VMware 工具。<br/><br/> 您想要保護的機器應該要符合建立 Azure VM 的 [Azure 必要條件](site-recovery-best-practices.md#azure-virtual-machine-requirements)。<br/><br/>受保護機器上的個別磁碟容量不應超過 1023 GB。VM 可以有多達 64 個磁碟 (因此多達 64 TB)。<br/><br/>不支援共用磁碟客體叢集。<br/><br/>不支援「整合可延伸韌體介面」(UEFI)/「可延伸韌體介面」(EFI) 開機。<br/><br/>機器名稱應包含 1 到 63 個字元 (字母、數字和連字號)。名稱必須以字母或數字開頭，並以字母或數字結尾。為機器啟用複寫之後，您就可以修改 Azure 名稱。<br/><br/>如果來源 VM 有 NIC 小組，在容錯移轉至 Azure 之後，它會轉換成單一 NIC。<br/><br/>如果受保護的 VM 具有 iSCSI 磁碟，則當 VM 容錯移轉至 Azure 時，Site Recovery 會將受保護的 VM iSCSI 磁碟轉換成 VHD 檔案。如果 Azure VM 可以觸及 iSCSI 目標，則它會連接到 iSCSI 目標，並且基本上查看兩個磁碟 – Azure VM 上的 VHD 磁碟和來源 iSCSI 磁碟。在此情況下，您必須將出現在 Azure VM 的 iSCSI 目標中斷連線。
-**Windows 機器 (實體或 VMware)** | 機器應該執行受支援的 64 位元作業系統：Windows Server 2012 R2、Windows Server 2012 或 Windows Server 2008 R2 (至少為 SP1)。<br/><br/> 作業系統應該安裝在 C:\\ 磁碟機上。OS 磁碟應該是 Windows 基本磁碟而非動態磁碟。資料磁碟可以是動態磁碟。<br/><br/>Site Recovery 支援具有 RDM 磁碟的 VM。在容錯回復期間，如果原始來源 VM 和 RDM 磁碟可用，則 Site Recovery 會重複使用 RDM 磁碟。如果它們都無法使用，在容錯回復期間，Site Recovery 會為每個磁碟建立新的 VMDK 檔案。
-**Linux 機器** | 您將需要受支援的 64 位元作業系統：Red Hat Enterprise Linux 6.7、7.1、7.2；Centos 6.5、6.6、6.7、7.0、7.1、7.2；執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) 的 Oracle Enterprise Linux 6.4、6.5；SUSE Linux Enterprise Server 11 SP3。<br/><br/>受保護機器上的 /etc/hosts 檔案應該包含將本機主機名稱對應至與所有網路介面卡關聯之 IP 位址的項目。<br/><br/>如果您想要在容錯移轉之後，使用「安全殼層」用戶端 (SSH) 來連線到執行 Linux 的 Azure 虛擬機器，請確定在受保護電腦上的「安全殼層」服務已設定為在系統開機時自動啟動，而且防火牆規則允許對其進行 SSH 連線。<br/><br/>主機名稱、掛接點、裝置名稱及 Linux 系統路徑和檔案名稱 (例如 /etc/、/usr) 應該僅使用英文。<br/><br/>只能針對具有下列儲存體的 Linux 機器啟用保護：檔案系統 (EXT3、ETX4、ReiserFS、XFS)；多重路徑軟體裝置對應工具 (multipath)；磁碟區管理員：(LVM2)。不支援使用 HP CCISS 控制站儲存體的實體伺服器。只有在 SUSE Linux Enterprise Server 11 SP3 上才支援 ReiserFS 檔案系統。<br/><br/>Site Recovery 支援具有 RDM 磁碟的 VM。在 Linux 的容錯回復期間，Site Recovery 不會重複使用 RDM 磁碟。取而代之的是，它會為每個對應的 RDM 磁碟建立新的 VMDK 檔案。<br/><br/>請確定您在 VMware 的 VM 組態參數中設定了 disk.enableUUID=true 設定。如果不存在，請建立該項目。這樣才能提供一致的 UUID 給 VMDK，使其可正確掛接。加入這項設定也可確保在容錯回復期間只將差異變更傳輸回到內部部署，而不是傳輸完整的複寫。
-**行動服務** | **Windows**︰若要將行動服務自動推送到執行 Windows 的 VM，您將需要提供系統管理員帳戶 (Windows 機器上的本機系統管理員)，如此處理序伺服器才能執行推送安裝。<br/><br/> **Linux**︰若要將行動服務自動推送到執行 Linux 的 VM，您將需要建立一個可供處理序伺服器用來執行推送安裝的帳戶。<br/><br/> 依預設會複寫機器上的所有磁碟。若要[將磁碟從複寫範圍中排除](#exclude-disks-from-replication)，必須先在機器上手動安裝行動服務，然後才啟用複寫。
+**內部部署 VMware VM** | 您想要保護的 VMware VM 應該安裝並執行 VMware 工具。<br/><br/> 您想要保護的機器應該要符合建立 Azure VM 的 [Azure 必要條件](site-recovery-best-practices.md#azure-virtual-machine-requirements)。<br/><br/>受保護機器上的個別磁碟容量不應超過 1023 GB。VM 可以有多達 64 個磁碟 (因此多達 64 TB)。<br/><br/>不支援使用加密的磁碟 (不論是根磁碟還是資料磁碟) 來保護 VM。
+
+不支援共用磁碟客體叢集。<br/><br/>如果您想要啟用「應用程式一致性」，應將受保護 VM 上的「連接埠 20004」保持開啟。
+
+不支援「整合可延伸韌體介面」(UEFI)/「可延伸韌體介面」(EFI) 開機。<br/><br/>機器名稱應包含 1 到 63 個字元 (字母、數字及連字號)。名稱必須以字母或數字開頭，並以字母或數字結尾。為機器啟用複寫之後，您就可以修改 Azure 名稱。<br/><br/>如果來源 VM 有 NIC 小組，在容錯移轉至 Azure 之後，它會轉換成單一 NIC。<br/><br/>如果受保護的 VM 具有 iSCSI 磁碟，則當 VM 容錯移轉至 Azure 時，Site Recovery 會將受保護的 VM iSCSI 磁碟轉換成 VHD 檔案。如果 Azure VM 可以觸及 iSCSI 目標，則它會連接到 iSCSI 目標，並且基本上查看兩個磁碟 – Azure VM 上的 VHD 磁碟和來源 iSCSI 磁碟。在此情況下，您必須將出現在 Azure VM 的 iSCSI 目標中斷連線。**Windows 機器 (實體或 VMware)** | 機器應該執行受支援的 64 位元作業系統：Windows Server 2012 R2、Windows Server 2012 或 Windows Server 2008 R2 (至少為 SP1)。<br/><br/> 作業系統應該安裝在 C:\\ 磁碟機上。OS 磁碟應該是 Windows 基本磁碟而非動態磁碟。資料磁碟可以是動態磁碟。<br/><br/>Site Recovery 支援具有 RDM 磁碟的 VM。在容錯回復期間，如果原始來源 VM 和 RDM 磁碟可用，則 Site Recovery 會重複使用 RDM 磁碟。如果它們都無法使用，在容錯回復期間，Site Recovery 會為每個磁碟建立新的 VMDK 檔案。**Linux 機器** | 您將需要受支援的 64 位元作業系統：Red Hat Enterprise Linux 6.7、7.1、7.2；Centos 6.5、6.6、6.7、7.0、7.1、7.2；執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) 的 Oracle Enterprise Linux 6.4、6.5；SUSE Linux Enterprise Server 11 SP3。<br/><br/>受保護機器上的 /etc/hosts 檔案應該包含將本機主機名稱對應至與所有網路介面卡關聯之 IP 位址的項目。<br/><br/>如果您想要在容錯移轉之後，使用「安全殼層」用戶端 (SSH) 來連線到執行 Linux 的 Azure 虛擬機器，請確定在受保護電腦上的「安全殼層」服務已設定為在系統開機時自動啟動，而且防火牆規則允許對其進行 SSH 連線。<br/><br/>主機名稱、掛接點、裝置名稱及 Linux 系統路徑和檔案名稱 (例如 /etc/、/usr) 應該僅使用英文。<br/><br/>只能針對具有下列儲存體的 Linux 機器啟用保護：檔案系統 (EXT3、ETX4、ReiserFS、XFS)；多重路徑軟體裝置對應工具 (multipath)；磁碟區管理員：(LVM2)。不支援使用 HP CCISS 控制站儲存體的實體伺服器。只有在 SUSE Linux Enterprise Server 11 SP3 上才支援 ReiserFS 檔案系統。<br/><br/>Site Recovery 支援具有 RDM 磁碟的 VM。在 Linux 的容錯回復期間，Site Recovery 不會重複使用 RDM 磁碟。取而代之的是，它會為每個對應的 RDM 磁碟建立新的 VMDK 檔案。<br/><br/>請確定您在 VMware 的 VM 組態參數中設定了 disk.enableUUID=true 設定。如果不存在，請建立該項目。這樣才能提供一致的 UUID 給 VMDK，使其可正確掛接。加入這項設定也可確保在容錯回復期間只將差異變更傳輸回到內部部署，而不是傳輸完整的複寫。**行動服務** | **Windows**︰若要將行動服務自動推送到執行 Windows 的 VM，您將需要提供系統管理員帳戶 (Windows 機器上的本機系統管理員)，如此處理序伺服器才能執行推送安裝。<br/><br/> **Linux**︰若要將行動服務自動推送到執行 Linux 的 VM，您將需要建立一個可供處理序伺服器用來執行推送安裝的帳戶。<br/><br/> 依預設會複寫機器上的所有磁碟。若要[將磁碟從複寫範圍中排除](#exclude-disks-from-replication)，必須先在機器上手動安裝行動服務，然後才啟用複寫。
 
 ## 準備部署
 
@@ -791,8 +792,8 @@ UnifiedAgent.exe [/Role <代理程式/主要目標>] [/InstallLocation <安裝�
 
 以下是監視 Site Recovery 部署的組態設定、狀態和健康狀態的方式︰
 
-1. 按一下保存庫名稱來存取 [基本資訊] 儀表板。在此儀表板中，您可以看見 Site Recovery 作業、複寫狀態、復原方案、伺服器健康狀態和事件。您可以自訂 [基本資訊] 以顯示最適合您的圖格和配置，包括其他 Site Recovery 和備份保存庫的狀態。
-
+1. 按一下保存庫名稱來存取 [基本資訊] 儀表板。在此儀表板中，您可以看見 Site Recovery 作業、複寫狀態、復原方案、伺服器健康狀態和事件。您可以自訂 [基本資訊] 以顯示對您最有用的圖格和配置，包括其他 Site Recovery 和「備份」保存庫的狀態。
+<br> 
 ![基本資訊](./media/site-recovery-vmware-to-azure/essentials.png)
 
 2. 在 [健全狀況] 圖格中，您可以監視發生問題的站台伺服器 (VMM 或組態伺服器)，以及 Site Recovery 在過去 24 小時內引發的事件。
@@ -863,4 +864,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428).Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!----HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

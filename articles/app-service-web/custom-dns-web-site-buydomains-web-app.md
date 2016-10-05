@@ -58,15 +58,14 @@
 
 	a) 每年「自動續訂」您的網域
 	
-	b) 選擇加入購買時免費隨附的「隱私權保護」
+	b) 選擇加入購買時免費隨附的「隱私權保護」(其登錄不支援隱私權的 TLD 除外。例如：.co.in、.co.uk 等等)
 	
 	c) 為 WWW 和根網域「指派預設主機名稱」到目前的 Web 應用程式。
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
   
     > [AZURE.NOTE] Option C configures DNS bindings and Hostname bindings automatically for you.  This way, your Web App can be accessed using custom domain as soon as the purchase is complete (baring DNS propagation delays in few cases). In case, your Web App is behind Azure Traffic Manager, you will not see an option to assign root domain, as A-Records do not work with the Traffic Manager. 
-    >
-    >You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
+    You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
 	
 7. 按一下 [**購買網域**] 刀鋒視窗中的 [**選取**]，您就會在 [**購買確認**] 刀鋒視窗看到購買資訊。如果您接受法律條款並按下 [**購買**]，您的訂單將會送出，而您可以在 [**通知**] 中監控購買程序。網域訂單可能需要幾分鐘的時間才能完成。
 
@@ -103,4 +102,4 @@
 - 您可能已經在某個時間點刪除了自訂網域。請查看稽核記錄，方法是前往您應用程式的主刀鋒視窗，然後按一下 [設定] > [稽核記錄]。
 - 您正在查看的 [自訂網域及 SSL] 刀鋒視窗，可能屬於不同 Azure 訂用帳戶所建立的應用程式。請切換到不同訂用帳戶的另一個應用程式，並查看該應用程式的 [自訂網域及 SSL] 刀鋒視窗。在入口網站中，除了應用程式之外，您無法查看或管理不同的 Azure 訂用帳戶所建立的自訂網域。不過，如果您在網域的 [管理網域] 刀鋒視窗中按一下 [進階管理]，您會被重新導向到網域提供者的網站，讓您能夠在那裡為不同 Azure 訂用帳戶所建立的應用程式[手動設定您的自訂網域，就跟設定所有外部自訂網域一樣](web-sites-custom-domain-name.md)。
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

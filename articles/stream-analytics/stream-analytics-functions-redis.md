@@ -4,7 +4,7 @@
 	keywords="data stream, redis cache, service bus queue, 資料流, redis 快取, 服務匯流排佇列"
 	services="stream-analytics"
 	authors="ryancrawcour"
-	manager="paulettm"
+	manager="jhubbard"
     documentationCenter=""
 	/>
 
@@ -202,6 +202,7 @@ Azure 串流分析可讓您快速開發及部署低成本的解決方案，即�
 
 - [Azure Functions 開發人員參考](../azure-functions/functions-reference.md)
 - [Azure Functions C# 開發人員參考](../azure-functions/functions-reference-csharp.md)
+- [Azure Functions F# 開發人員參考](../azure-functions/functions-reference-fsharp.md)
 - [Azure Functions NodeJS 開發人員參考](../azure-functions/functions-reference.md)
 - [Azure Functions 觸發程序和繫結](../azure-functions/functions-triggers-bindings.md)
 - [如何監視 Azure Redis 快取](../redis-cache/cache-how-to-monitor.md)
@@ -214,4 +215,4 @@ Azure 串流分析可讓您快速開發及部署低成本的解決方案，即�
 [use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: ../azure-functions/functions-create-first-azure-function.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

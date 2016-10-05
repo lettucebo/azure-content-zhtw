@@ -24,7 +24,7 @@
 
 ## <a name="enable-vpn"> </a>啟用 VPN 連線
 
->VPN 連線僅供**進階**層使用。若要切換到它，請在 [Azure 傳統入口網站][]中開啟 API 管理服務，然後開啟 [調整] 索引標籤。在 [**一般**] 區段下選取進階層，然後按一下 [儲存]。
+>VPN 連線僅供**進階**和**開發人員**層使用。若要切換到它，請在 [Azure 傳統入口網站][]中開啟 API 管理服務，然後開啟 [調整] 索引標籤。在 [**一般**] 區段下選取進階層，然後按一下 [儲存]。
 
 若要啟用 VPN 連線，請在 [Azure 傳統入口網站][]中開啟 API 管理服務，然後切換到 [設定] 索引標籤。
 
@@ -34,7 +34,7 @@
 
 您現在會看見佈建 API 管理服務所在的所有區域的清單。
 
-為每個區域選取 VPN 和子網路。VPN 的清單是依據您要設定的區域中所設定 Azure 訂閱可用的虛擬網路而填入。
+為每個區域選取 VPN 和子網路。VPN 的清單是依據您要設定的區域中所設定 Azure 訂用帳戶可用的虛擬網路而填入。
 
 ![選取 VPN][api-management-setup-vpn-select]
 
@@ -85,4 +85,4 @@ API 管理取決於多項 Azure 服務。當 API 管理服務執行個體裝載�
 [使用 Azure 傳統入口網站建立具有站對站 VPN 連線的虛擬網路]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

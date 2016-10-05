@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # Azure 期望狀態組態擴充功能處理常式簡介 #
@@ -29,7 +29,7 @@ Azure VM 代理程式和相關聯的擴充功能是 Microsoft Azure 基礎結構
 ## 必要條件 ##
 **本機電腦**：若要與 Azure VM 擴充功能互動，您需要使用 Azure 入口網站或 Azure PowerShell SDK。
 
-**客體代理程式** 要以 DSC 組態進行配置的 Azure VM 必須為支援 Windows Management Framework (WMF) 4.0 或 5.0 的作業系統。如需所支援作業系統版本的完整清單，請參閱 [DSC 擴充功能版本歷程記錄](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/)。
+**客體代理程式**：將由 DSC 組態設定的 Azure VM 必須是支援 Windows Management Framework (WMF) 4.0 或 5.0 的 OS。如需所支援作業系統版本的完整清單，請參閱 [DSC 擴充功能版本歷程記錄](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/)。
 
 ## 詞彙和概念 ##
 本指南假設您已熟悉下列概念︰
@@ -44,9 +44,9 @@ Azure VM 代理程式和相關聯的擴充功能是 Microsoft Azure 基礎結構
 
 Azure DSC 擴充功能會使用「Azure VM 代理程式」架構來傳遞、套用在 Azure VM 上執行的 DSC 組態，並針對這些組態提出報告。DSC 擴充功能需具備一個 .zip 檔案 (其中至少包含一份設定文件)，以及一組透過 Azure PowerShell SDK 或 Azure 入口網站提供的參數。
 
-首次呼叫擴充功能時，它會執行安裝程序。此程序會安裝如以下定義之版本的 Windows Management Framework (WMF)︰
+首次呼叫擴充功能時，它會執行安裝程序。此程序會使用下列邏輯來安裝某個 Windows Management Framework (WMF) 版本︰
 
-1. 如果 Azure VM 作業系統是 Windows Server 2016，則不採取任何動作。WS 2016 已安裝最新版本的 PowerShell。
+1. 如果 Azure VM 作業系統是 Windows Server 2016，則不採取任何動作。Windows Server 2016 已安裝最新版的 PowerShell。
 2. 如果已指定 `wmfVersion` 屬性，則除非該 WMF 版本與 VM 的作業系統不相容，否則會逕行安裝。
 3. 如果未指定 `wmfVersion` 屬性，則會安裝 WMF 的最新適用版本。
 
@@ -60,7 +60,7 @@ PowerShell Cmdlet 可與 ARM 或 ASM 搭配使用，來封裝、發佈和監視 
 
 對於這個 Cmdlet 所建立的 .zip 檔案，.ps1 組態指令碼位於封存資料夾的根目錄。資源會將模組資料夾放置在封存資料夾中。
 
-`Set-AzureVMDscExtension` 會將 PowerShell DSC 擴充功能所需的設定插入 VM 組態物件中，然後就可使用 `Update-AzureVM` 將此物件套用至 Azure VM。
+`Set-AzureVMDscExtension` 會將 PowerShell DSC 擴充功能所需的設定插入 VM 組態物件中，接著即可使用 `Update-AzureVM` 將此物件套用至 Azure VM。
 
 `Get-AzureVMDscExtension` 會擷取特定 VM 的 DSC 擴充功能狀態。
 
@@ -140,8 +140,10 @@ C:\\WindowsAzure\\Logs\\Plugins\\Microsoft.Powershell.DSC[Version Number]
 
 如需有關 PowerShell DSC 的詳細資訊，請[瀏覽 PowerShell 文件中心](https://msdn.microsoft.com/powershell/dsc/overview)。
 
+查看[適用於 DSC 擴充功能的 Azure Resource Manager 範本](virtual-machines-windows-extensions-dsc-template.md)。
+
 若要尋找您可以使用 PowerShell DSC 來管理的其他功能，請[瀏覽 PowerShell 資源庫](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)以取得更多 DSC 資源。
 
 如需有關將敏感性參數傳遞到組態中的詳細資訊，請參閱[使用 DSC 擴充功能處理常式安全地管理認證](virtual-machines-windows-extensions-dsc-credentials.md)。
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

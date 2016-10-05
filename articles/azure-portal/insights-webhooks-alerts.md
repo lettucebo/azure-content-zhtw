@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何設定 Azure 警示以傳送至其他系統 | Microsoft Azure"
+	pageTitle="針對 Azure 度量警示設定 Webhook | Microsoft Azure"
 	description="重設 Azure 警示的路徑到其他非 Azure 系統。"
 	authors="kamathashwin"
 	manager=""
@@ -13,32 +13,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="09/15/2016"
 	ms.author="ashwink"/>
 
-# 如何設定警示的 Webhook
+# 針對 Azure 度量警示設定 Webhook
 
-Webhook 允許使用者將 Azure 警示通知路由到其他系統進行後處理或自訂通知。這些範例可以是將警示路由到可處理傳入 Web 要求的服務，以傳送 SMS、記錄錯誤、透過聊天/傳訊服務通知小組等等。
+Webhook 可讓您將 Azure 警示通知路由到其他系統以進行後處理或自訂動作。您可以針對警示使用 Webhook，以將警示路由到會傳送簡訊、記錄錯誤、透過聊天/傳訊服務通知小組，或進行任意數量之其他動作的服務。本文說明如何針對 Azure 度量警示設定 Webhook，並說明 HTTP POST 對 Webhook 之承載的樣貌。如需有關 Azure 活動記錄警示 (事件警示) 之設定和結構描述的資訊，[請改為參閱本頁](./insights-auditlog-to-webhook-email.md)。
 
-Webhook URI 必須是有效的 HTTP 或 HTTPS 端點。Azure 警示服務會在指定的 Webhook 進行 POST 作業，傳遞特定的 JSON 承載和結構描述。
+Azure 警示會將警示內容以 JSON 格式 (定義如下的結構描述) HTTP POST 到您在建立警示時提供的 Webhook URI。此 URI 必須是有效的 HTTP 或 HTTPS 端點。當警示啟動時，Azure 會針對每個要求張貼一個項目。
 
 ## 透過入口網站設定 Webhook
 
-您可以在 [Azure 入口網站](https://portal.azure.com/)的 [建立/更新警示] 畫面中，新增或更新 Webhook URI。
+您可以在[入口網站](https://portal.azure.com/)的 [建立/更新警示] 畫面中新增或更新 Webhook URI。
 
 ![新增警示規則](./media/insights-webhooks-alerts/Alertwebhook.png)
 
+您也可以使用 [Azure PowerShell Cmdlet](./insights-powershell-samples.md#create-alert-rules)、[跨平台 CLI](./insights-cli-samples.md#work-with-alerts) 或 [Insights REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx) 設定警示以張貼至 Webhook URI。
 
-## 驗證
+## 驗證 Webhook
 
-驗證可以有兩種類型：
+Webhook 可使用下列其中一種方法來進行驗證︰
 
-1. **權杖驗證** - 此種驗證是指您將使用權杖識別碼 (例如 *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*) 儲存 Webhook URI
-2.	**基本驗證** - 使用使用者識別碼和密碼：此種驗證是指您會儲存 Webhook URI 為 *https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*
+1. **權杖型授權** - 所儲存的 Webhook URI 具有權杖識別碼，例如 `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+2.	**基本授權** - 所儲存的 Webhook URI 具有使用者名稱和密碼，例如 `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## 承載結構描述
 
-POST 作業對於所有以計量為基礎的警示將會包含下列 JSON 承載和結構描述。
+POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和結構描述。
 
 ```
 {
@@ -74,51 +75,41 @@ POST 作業對於所有以計量為基礎的警示將會包含下列 JSON 承載
 ```
 
 
-| 欄位 | 是否為強制？ | 是否有固定的值？ | 注意事項 |
+| 欄位 | 強制 | 一組固定值 | 注意事項 |
 | :-------------| :-------------   | :-------------   | :-------------   |
-|status|Y|“Activated”、“Resolved”|這是您了解警示種類的方式。Azure 會針對某人設定的條件自動傳送已啟動和已解決的警示。|
-|context| Y | | 警示內容|
-|timestamp| Y | | 警示觸發的時間。從診斷儲存體一讀取到計量，警示就會立即觸發。|
+|status|Y|“Activated”、“Resolved”|以您設定的條件為基礎的警示狀態。|
+|context| Y | | 警示內容。|
+|timestamp| Y | | 警示觸發的時間。|
 |id | Y | | 每個警示規則都有唯一的識別碼。|
-|名稱|Y | |
-|說明 |Y | |有關警示的說明。|
-|conditionType |Y |“Metric”、“Event” |支援兩種類型的警示。一個根據計量，一個根據事件。我們未來會支援事件的警示，因此使用此值可檢查警示是根據計量或事件|
-|condition |Y | |這會根據 conditionType 檢查特定欄位|
+|名稱 |Y | | 警示名稱。|
+|說明 |Y | |警示的描述。|
+|conditionType |Y |“Metric”、“Event” |支援兩種類型的警示。一種根據度量條件，另一種根據活動記錄中的事件。使用此值來檢查警示是根據度量或事件。|
+|condition |Y | | 根據 conditionType 所要檢查的特定欄位。|
 |metricName |用於計量警示 | |定義規則所監視的計量名稱。|
-|metricUnit |用於計量警示 |"Bytes"、"BytesPerSecond"、"Count"、"CountPerSecond"、"Percent"、"Seconds"|	 計量允許的單位。允許的值：https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx|
-|metricValue |用於計量警示 | |造成警示的計量實際值|
-|threshold |用於計量警示 | |啟動警示的閾值|
+|metricUnit |用於計量警示 |"Bytes"、"BytesPerSecond"、"Count"、"CountPerSecond"、"Percent"、"Seconds"|	 計量允許的單位。[允許的值在此列出](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx)。|
+|metricValue |用於計量警示 | |造成警示的計量實際值。|
+|threshold |用於計量警示 | |會啟動警示的臨界值。|
 |windowSize |用於計量警示 | |根據 threshold 用來監視警示活動的時間長度。必須介於 5 分鐘到 1 天之間。ISO 8601 持續時間格式。|
-|timeAggregation |用於計量警示 |"Average"、"Last"、"Maximum"、"Minimum"、"None"、"Total" |	收集的資料應如何隨著時間結合。預設值為 Average。允許的值：https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
-|operator |用於計量警示 | |用來比較資料和閾值的運算子。|
-|subscriptionId |Y | |Azure 訂用帳戶 GUID|
-|resourceGroupName |Y | |受影響資源的 resource-group-name|
-|resourceName |Y | |受影響資源的資源名稱|
-|resourceType |Y | |受影響資源的資源類型|
-|resourceId |Y | |可唯一識別該資源的資源識別碼 URI|
-|resourceRegion |Y | |受影響資源的區域/位置|
-|portalLink |Y | |連到資源摘要頁面的直接 Azure 入口網站連結|
-|properties |N |選用 |是一組包含事件相關詳細資料的 <Key, Value> 配對 (也就是字典<String, String>)。properties 欄位是選擇性的。在自訂 UI 或邏輯應用程式的工作流程中，使用者可以輸入可透過承載傳遞的索引鍵/值。另一種將自訂屬性傳回給 Webhook 的替代方式是透過 Webhook URI 本身 (做為查詢參數)|
+|timeAggregation |用於計量警示 |"Average"、"Last"、"Maximum"、"Minimum"、"None"、"Total" |	收集的資料應如何隨著時間結合。預設值為 Average。[允許的值在此列出](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx)。|
+|operator |用於計量警示 | |用來比較目前之度量資料與設定之臨界值的運算子。|
+|subscriptionId |Y | |Azure 訂用帳戶識別碼。|
+|resourceGroupName |Y | |受影響資源的資源群組的名稱。|
+|resourceName |Y | |受影響資源的資源名稱。|
+|resourceType |Y | |受影響資源的資源類型。|
+|resourceId |Y | |受影響資源的資源識別碼。|
+|resourceRegion |Y | |受影響資源的區域或位置。|
+|portalLink |Y | |入口網站資源摘要頁面的直接連結。|
+|屬性 |N |選用 |一組包含事件相關詳細資料的 `<Key, Value>` 配對 (也就是 `Dictionary<String, String>`)。properties 欄位是選擇性的。在自訂 UI 或邏輯應用程式的工作流程中，使用者可以輸入可透過承載傳遞的索引鍵/值。另一種將自訂屬性傳回給 Webhook 的替代方式是透過 Webhook URI 本身 (做為查詢參數)|
 
 
->[AZURE.NOTE] 透過入口網站無法使用 properties 欄位。在我們即將推出的 Insights SDK 中，您可以透過警示 API 設定屬性。
+>[AZURE.NOTE] 屬性欄位只能使用 [Insights REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx) 來設定。
 
 ## 後續步驟
 
-如需額外的背景，請觀賞[使用 PagerDuty 整合 Azure 警示](http://go.microsoft.com/fwlink/?LinkId=627080)視訊，深入了解 Azure 警示和 Webhook
+- 請觀賞[使用 PagerDuty 整合 Azure 警示](http://go.microsoft.com/fwlink/?LinkId=627080)視訊，以深入了解 Azure 警示和 Webhook
+- [對 Azure 警示執行 Azure 自動化指令碼 (Runbook)](http://go.microsoft.com/fwlink/?LinkId=627081)
+- [使用邏輯應用程式透過 Twilio 從 Azure 警示傳送簡訊](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+- [使用邏輯應用程式從 Azure 警示傳送 Slack 訊息](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+- [使用邏輯應用程式從 Azure 警示傳送訊息到 Azure 佇列](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-若要了解如何以程式設計方式建立 Webhook，請參閱[使用 Azure Insights SDK (C#) 建立含有 Webhook 的警示](https://code.msdn.microsoft.com/Create-Azure-Alerts-with-b938077a)。
-
-設定了 Webhook 和警示之後，請探索這些其他選項來啟動自動化指令碼。
-
-[執行 Azure 自動化指令碼 (Runbook)](http://go.microsoft.com/fwlink/?LinkId=627081)
-
-使用 Azure 警示可傳送訊息至其他服務。請使用下列範例範本開始。
-
-[使用邏輯應用程式透過 Twilio API 傳送 SMS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-
-[使用邏輯應用程式傳送殘存訊息](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-
-[使用邏輯應用程式傳送訊息至 Azure 佇列](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

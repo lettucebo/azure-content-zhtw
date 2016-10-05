@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/12/2016"
+   ms.date="09/25/2016"
    ms.author="markvi"/>
 
 # Azure Active Directory 報告 - 預覽版
@@ -26,7 +26,7 @@
 
 - **登入活動** – 受管理應用程式和使用者登入活動的使用情況相關資訊
 
-- **系統活動** - 使用者和群組管理、受管理應用程式和目錄活動的相關稽核資訊
+- **稽核記錄檔** - 使用者和群組管理、受管理應用程式和目錄活動的相關系統活動資訊
 
 視您所尋找的資料範圍而定，按一下 [Azure 入口網站](https://portal.azure.com)的服務清單中的 [使用者和群組] 或 [企業應用程式]，即可存取這些報告。
 
@@ -118,7 +118,7 @@
 
 ![報告](./media/active-directory-reporting-azure-portal/84.png "報告")
 
-## 系統活動
+## 稽核記錄檔
 
 Azure Active Directory 中的稽核記錄檔會提供系統活動的記錄以符合法規。
 
@@ -216,4 +216,4 @@ Azure 入口網站中有三個主要類別可稽核相關活動︰
 
 請參閱 [Azure Active Directory 報告指南](active-directory-reporting-guide.md)。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

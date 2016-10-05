@@ -65,9 +65,11 @@
    
         info:     New mode is arm
 
-4. 如果您沒有現有資源群組，請建立新的資源群組。提供您的解決方案所需的資源群組名稱和位置。隨即傳回新資源群組的摘要。
+4. 如果您沒有現有資源群組，請建立新的資源群組。提供您的解決方案所需的資源群組名稱和位置。您需要提供資源群組的位置，因為資源群組會儲存資源的相關中繼資料。為了符合法規，您可能會想要指定中繼資料的儲存位置。一般情況下，我們建議您指定大部分資源所在的位置。使用相同位置可簡化範本。
 
         azure group create -n ExampleResourceGroup -l "West US"
+
+     隨即傳回新資源群組的摘要。
    
         info:    Executing command group create
         + Getting resource group ExampleResourceGroup
@@ -85,7 +87,7 @@
 
         azure group template validate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
 
-5. 若要將資源部署至資源群組，請執行下列命令，並提供必要的參數。參數會包含您部署的名稱、資源群組的名稱、您建立之範本的路徑或 URL，以及您案例所需的任何其他參數。
+5. 若要將資源部署至資源群組，請執行下列命令，並提供必要的參數。參數會包含您部署的名稱、資源群組的名稱、範本的路徑或 URL，以及您案例所需的任何其他參數。
    
      您有下列三個選項可以用來提供參數值：
 
@@ -171,4 +173,4 @@
 - 如需將您的方案部署到不同環境的指引，請參閱 [Microsoft Azure 中的開發和測試環境](solution-dev-test-environments.md)。
 - 如需有關使用 KeyVault 參考來傳遞安全值的詳細資料，請參閱[在部署期間傳遞安全值](resource-manager-keyvault-parameter.md)。
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

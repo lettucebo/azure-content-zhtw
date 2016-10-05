@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="09/19/2016"
     ms.author="aungoo-msft"/>
 
 # Azure 進階儲存體：專為高效能而設計
 
-## 概觀  
+## Overview  
 這篇文章提供使用 Azure 進階儲存體來建置高效能應用程式的指導方針。您可以使用這份文件所提供的指示，並根據您的應用程式所採用的技術，結合適合的效能最佳作法。為了說明指導方針，在這整份文件中，我們以進階儲存體上執行的 SQL Server 為範例。
 
 雖然我們在本文中說明儲存體層的效能案例，但您必須將應用程式層最佳化。例如，如果您在 Azure 進階儲存體上裝載 SharePoint 伺服器陣列，您可以使用本文件的 SQL Server 範例將資料庫伺服器最佳化。此外，也要將 SharePoint 伺服器陣列的 Web 伺服器和應用程式伺服器最佳化，才能發揮最高效能。
@@ -231,6 +231,8 @@ Azure 進階儲存體目前提供三種磁碟大小。對於 IOPS、頻寬和儲
 ## 磁碟快取  
 採用 Azure 進階儲存體的高延展性 VM 有一項稱為 BlobCache 的多層快取技術。BlobCache 結合虛擬機器 RAM 和本機 SSD 進行快取。此快取適用於進階儲存體永續性磁碟和 VM 本機磁碟。根據預設，針對作業系統磁碟，此快取設定會設為讀取/寫入，而針對裝載於進階儲存體的資料磁碟，則設為唯讀。在進階儲存體上啟用磁碟快取時，高延展性 VM 可以達到極高的效能層級，超過基礎磁碟效能。
 
+>[AZURE.WARNING] 變更 Azure 磁碟的快取設定會將目標磁碟中斷連接再重新連接。如果它是作業系統磁碟，則會重新啟動 VM。在變更磁碟快取設定之前，請先將可能受此中斷情況影響的所有應用程式/服務停止。
+
 若要深入了解 BlobCache 的運作方式，請參閱[深入 Azure 進階儲存體](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)部落格文章。
 
 務必在正確的一組磁碟上啟用快取。高階磁碟上是否應該啟用磁碟快取，取決於磁碟將處理的工作負載模式。下表顯示作業系統磁碟和資料磁碟的預設快取設定。
@@ -268,7 +270,7 @@ Azure 進階儲存體目前提供三種磁碟大小。對於 IOPS、頻寬和儲
 重要事項：您可以使用伺服器管理員 UI，將一個等量磁碟區的總欄數最多設定為 8 個。當連接 8 個以上的磁碟時，請使用 PowerShell 來建立磁碟區。您可以使用 PowerShell 將欄數設定為等於磁碟數量。例如，如果單一等量磁碟區中有 16 個磁碟，請在 *New-VirtualDisk* PowerShell Cmdlet 的 *NumberOfColumns* 參數中指定 16 欄。
 
 
-在 Linux 上，請使用 MDADM 公用程式將磁碟串接在一起。有關在 Linux 上串接磁碟的詳細步驟，請參閱[在 Linux 上設定軟體 RAID](../virtual-machines/virtual-machines-linux-configure-raid.md)。
+在 Linux 上，請使用 MDADM 公用程式將磁碟串接在一起。如需有關在 Linux 上等量分割磁碟的詳細步驟，請參閱[在 Linux 上設定軟體 RAID](../virtual-machines/virtual-machines-linux-configure-raid.md)。
 
 
 *等量大小* 磁碟串接時一項重要設定是等量大小。等量大小或區塊大小是指應用程式在等量磁碟區上可定址的最小資料區塊。您設定的等量大小取決於應用程式的類型及其要求模式。如果您選擇錯誤的等量大小，可能會導致 IO 對齊錯錯，進而導致應用程式的效能降低。
@@ -393,9 +395,9 @@ Azure 進階儲存體會根據您選擇的 VM 大小和磁碟大小，佈建指�
 *結合的讀取和寫入最大輸送量* ![](media/storage-premium-storage-performance/image10.png)
 
 ### FIO  
-FIO 是 Linux VM 上用於儲存體效能評定的一項常用工具。它可以靈活地選取不同的 IO 大小、循序或隨機讀取和寫入。它會繁衍背景工作執行緒或處理程序來執行指定的 I/O 作業。您可以使用工作檔案，指定每個背景工作執行緒必須執行的 I/O 作業類型。我們已經為下面範例所示的每個案例建立一個工作檔案。您可以變更這些工作檔案中的規格，對進階儲存體上執行的不同工作負載進行效能評定。在範例中，我們使用執行 **Ubuntu** 的標準 DS 14 VM。請使用[效能評定一節](#Benchmarking)的開頭所述的相同設定，並於執行效能評定測試之前先準備快取。
+FIO 是 Linux VM 上用於儲存體效能評定的一項常用工具。它可以靈活地選取不同的 IO 大小、循序或隨機讀取和寫入。它會繁衍背景工作執行緒或處理程序來執行指定的 I/O 作業。您可以使用工作檔案，指定每個背景工作執行緒必須執行的 I/O 作業類型。我們已經為下面範例所示的每個案例建立一個工作檔案。您可以變更這些工作檔案中的規格，對進階儲存體上執行的不同工作負載進行效能評定。在範例中，我們使用執行 **Ubuntu** 的標準 DS 14 VM。請使用[效能評定](#Benchmarking)一節的開頭所述的相同設定，並於執行效能評定測試之前先備妥快取。
 
-開始之前，在虛擬機器上[下載 FIO](https://github.com/axboe/fio) 並安裝。
+開始進行之前，請先在虛擬機器上[下載 FIO](https://github.com/axboe/fio) 並安裝。
 
 對 Ubuntu 執行下列命令，
 
@@ -540,4 +542,4 @@ rate_iops=12500
 - [Azure 虛擬機器中的 SQL Server 效能最佳作法](../virtual-machines/virtual-machines-windows-sql-performance.md)
 - [Azure 進階儲存體為 Azure VM 中的 SQL Server 提供最高效能](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

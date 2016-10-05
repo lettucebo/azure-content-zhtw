@@ -23,11 +23,11 @@
 - [傳統模式的備份常見問題集](backup-azure-backup-faq.md)
 - [Resource Manager 模式的備份常見問題集](backup-azure-backup-ibiza-faq.md)
 
-本文提供復原服務保存庫特有資訊，並補充說明 [Azure 備份常見問題集](backup-azure-backup-faq)。Azure 備份常見問題集提供一組關於 Azure 備份服務的完整問答。
+本文提供復原服務保存庫特有資訊，並補充說明 [Azure 備份常見問題集](backup-azure-backup-faq.md)。Azure 備份常見問題集提供一組關於 Azure 備份服務的完整問答。
 
 您可以在本文件或相關文件的 Disqus 一節中詢問有關 Azure 備份的問題。您也可以在[論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
 
-## 復原服務保存庫是以 Resource Manager 為基礎，那麼是否仍支援備份保存庫 (傳統模式)？<br/>
+## 復原服務保存庫是以 Resource Manager 為基礎。備份保存庫 (傳統模式) 是否仍受支援？<br/>
 是，仍然支援備份保存庫。在[傳統入口網站](https://manage.windowsazure.com)中建立備份保存庫。在 [Azure 入口網站](https://portal.azure.com)中建立復原服務保存庫。不過，強烈建議您建立復原服務保存庫，因為所有未來的增強功能僅可用於復原服務保存庫中。
 
 ## 是否可以將備份保存庫移轉至復原服務保存庫？<br/>
@@ -43,4 +43,4 @@
 2. 將虛擬機器從傳統模式移轉至 Resource Manager 模式。確定虛擬機器對應的儲存體和網路也會移轉至 Resource Manager 模式。
 3. 建立復原服務保存庫，並利用保存庫儀表板上的 [備份] 動作，在移轉的虛擬機器上設定備份。深入了解如何[在復原服務保存庫中啟用備份](backup-azure-vms-first-look-arm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

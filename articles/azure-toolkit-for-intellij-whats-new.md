@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="07/07/2016" 
+	ms.date="09/20/2016" 
 	ms.author="robmcm;asirveda"/>
 
 # 適用於 IntelliJ 的 Azure 工具組新增功能
@@ -56,7 +56,7 @@
   - [在 IntelliJ 中建立 Azure Hello World Web 應用程式]
   - *適用於 IntelliJ 的 Azure 工具組新增功能 (本文)*
 
-如需如何搭配使用 Azure 與 Java 的詳細資訊，請參閱 [Azure Java 開發人員中心]。
+如需有關在 Azure 中使用 Java 的詳細資訊，請參閱 [Azure Java 開發人員中心]。
 
 <!-- URL List -->
 
@@ -73,4 +73,4 @@
 
 [IntelliJ 的 HDInsight Tools 外掛程式]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

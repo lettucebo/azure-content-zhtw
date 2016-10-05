@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/05/2016"
+   ms.date="09/20/2016"
    ms.author="larryfr"/>
 
 #使用 Ambari REST API 管理 HDInsight 叢集
 
 [AZURE.INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢集的管理和監視。以 Linux 為基礎的 HDInsight 叢集上有 Ambari，用來監視叢集並進行組態變更。在這份文件中，您將透過執行一般工作，例如尋找叢集節點的完整格式的網域名稱或尋找叢集所使用的預設儲存體帳戶，學習使用 Ambari REST API 的基本概念。
+Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢集的管理和監視。以 Linux 為基礎的 HDInsight 叢集上有 Ambari，用來監視叢集並進行組態變更。在本文件中，您會了解使用 cURL 執行一般工作來處理 Ambari REST API 的基本概念。
 
 ##必要條件
 
@@ -41,7 +41,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 在 HDInsight 上 Ambari REST API 的基礎 URI 是 https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME，其中 __CLUSTERNAME__ 是叢集的名稱。
 
-> [AZURE.IMPORTANT] URI (CLUSTERNAME.azurehdinsight.net,) 完整網域名稱 (FQDN) 部分中的叢集名稱區分大小寫，URI 中的其他部分也區分大小寫。例如，如果您的叢集名稱為 MyCluster，有效的 URI 如下：
+> [AZURE.IMPORTANT] URI (CLUSTERNAME.azurehdinsight.net) 完整網域名稱 (FQDN) 部分中的叢集名稱區分大小寫，URI 中的其他部分也區分大小寫。例如，如果您的叢集名稱為 MyCluster，有效的 URI 如下：
 >
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/MyCluster` `https://MyCluster.azurehdinsight.net/api/v1/clusters/MyCluster`
 >
@@ -49,13 +49,13 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 >
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster` `https://MyCluster.azurehdinsight.net/api/v1/clusters/mycluster`
 
-連線到 HDInsight 上的 Ambari 需要 HTTPS。您也必須使用系統管理員帳戶名稱 (預設值是 __admin__) 和建立叢集時所提供的密碼來驗證 Ambari。
+連線到 HDInsight 上的 Ambari 需要 HTTPS。在驗證連線時，您必須使用系統管理員帳戶名稱 (預設值是 __admin__) 和建立叢集時所提供的密碼。
 
-以下是使用 cURL 來對 REST API 執行 GET 要求的範例：
+下列範例使用 cURL 來對 REST API 提出 GET 要求。將 __PASSWORD__ 取代為叢集的系統管理員密碼。將 __CLUSTERNAME__ 取代為叢集的名稱：
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME"
     
-如果您執行此動作，請將 __PASSWORD__ 取代為您的叢集的管理員密碼，並將 __CLUSTERNAME__ 取代為叢集名稱，您會收到一份 JSON 文件，開頭類似下列資訊：
+其回應是開頭資訊類似下列內容的 JSON 文件︰
 
     {
     "href" : "http://10.0.0.10:8080/api/v1/clusters/CLUSTERNAME",
@@ -74,11 +74,9 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
         "Host/host_status/UNKNOWN" : 0,
         "Host/host_status/ALERT" : 0
 
-由於這是 JSON，使用 JSON 剖析器來擷取資料通常較容易。例如，如果您想要擷取叢集的健全狀態資訊，可以使用下列項目。
+由於這是 JSON，使用 JSON 剖析器來處理資料會較為容易。例如，下列範例使用 jq 來只顯示 `health_report` 元素。
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report'
-    
-這會擷取 JSON 文件，然後將輸出用管道輸送至 jq。`.Clusters.health_report` 指出您要擷取的 JSON 文件內的元素。
 
 ##範例：取得叢集節點的 FQDN
 
@@ -88,7 +86,10 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 * __背景工作節點__：`curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" | jq '.host_components[].HostRoles.host_name'`
 * __Zookeeper 節點__：`curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq '.host_components[].HostRoles.host_name'`
 
-請注意，每一項均遵循查詢我們知道在這些節點上執行之元件的相同模式，然後擷取 `host_name` 元素，其中包含這些節點的 FQDN。
+請注意，上述每個範例都遵循以下相同模式︰
+
+1. 對我們知道是在這些節點上執行的元件進行查詢。
+2. 擷取 `host_name` 元素，其包含這些節點的 FQDN。
 
 傳回文件的 `host_components` 元素包含多個項目。使用 `.host_components[]`，然後指定元素內的路徑，將對每個項目執行迴圈並從特定路徑提取值。如果您只想要一個值，例如第一個 FQDN 項目，您可以以集合形式傳回項目，然後選取特定項目：
 
@@ -104,9 +105,9 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
     
-> [AZURE.NOTE] 這個方法會傳回套用至伺服器的第一個組態 (`service_config_version=1`) 其中會包含這項資訊。如果是擷取在叢集建立後修改的值，您可能需要列出組態版本並擷取最新的版本。
+> [AZURE.NOTE] 這個方法會傳回套用至伺服器的第一個組態 (`service_config_version=1`)，其包含這項資訊。如果您擷取在叢集建立後已修改過的值，您可能需要列出組態版本並擷取最新的版本。
 
-這會傳回值類似下列的值，其中 __CONTAINER__ 為預設容器和 __ACCOUNTNAME__ 是 Azure 儲存體帳戶名稱：
+這會傳回類似下列範例的值，其中 __CONTAINER__ 為預設容器和 __ACCOUNTNAME__ 是 Azure 儲存體帳戶名稱：
 
     wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
@@ -118,7 +119,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
     
     這會傳回帳戶的資源群組名稱。
     
-    > [AZURE.NOTE] 如果此命令未傳回任何項目，您需要將 Azure CLI 變更為 Azure 資源管理員模式，然後再重新執行命令。若要切換至 Azure 資源管理員模式，請使用下列命令。
+    > [AZURE.NOTE] 如果此命令未傳回任何項目，您需要將 Azure CLI 變更為 Azure 資源管理員模式，然後再重新執行命令。若要切換至 Azure Resource Manager 模式，請使用下列命令：
     >
     > `azure config mode arm`
     
@@ -126,7 +127,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
         azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
 
-    這會傳回帳戶的主要金鑰。
+    此範例會傳回帳戶的主要金鑰。
     
 3. 使用上傳命令來將檔案儲存在容器：
 
@@ -142,7 +143,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_configs"
         
-    這會傳回 JSON 文件，其中包含叢集上安裝之元件的目前組態 (由 _tag_ 值識別)。例如，以下是摘錄自從 Spark 叢集類型傳回的資料。
+    此範例會傳回 JSON 文件，其中包含叢集上安裝之元件的目前組態 (由「tag」值識別)。下列範例是從 Spark 叢集類型傳回之資料的摘要。
     
         "spark-metrics-properties" : {
             "tag" : "INITIAL",
@@ -166,15 +167,15 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     
-    Curl 會擷取 JSON 文件，然後 jq 用來做一些修改以建立範本，讓我們可用來新增/修改組態值。它特別具有下列功能：
+    Curl 擷取 JSON 文件，然後使用 jq 來對資料進行修改以便建立範本。範本則可用來新增/修改組態值。它特別具有下列功能：
     
-    * 建立唯一的值，其中包含字串 "version" 和日期，會儲存在 __newtag__
-    * 建立新的所需組態的根文件
-    * 取得 .items 陣列的內容，並且新增在 __desired\_config__ 元素下。
-    * 刪除 __href__、__version__ 和 __Config__ 元素，因為提交新組態時不需要這些
-    * 加入新的 __tag__ 元素，並且將其值設為 __version#################__，其中數值部分是根據目前的日期。每個組態都必須有唯一的標記。
+    * 建立唯一的值，其中包含字串 "version" 和日期，會儲存在 __newtag__。
+    * 建立新的所需組態的根文件。
+    * 取得 `.items[]` 陣列的內容，並且新增在 __desired\_config__ 元素下。
+    * 刪除 __href__、__version__ 和 __Config__ 元素，因為提交新組態時不需要這些元素。
+    * 新增 __tag__ 元素，並將其值設定為 __version#################__。數字部分是根據目前的日期。每個組態都必須有唯一的標記。
     
-    最後，將資料儲存至 __newconfig.json__ 文件。此文件結構類似以下內容：
+    最後，將資料儲存至 __newconfig.json__ 文件。此文件結構應會顯示為類似下列範例：
     
         {
             "Clusters": {
@@ -190,7 +191,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
             }
         }
 
-3. 開啟 __newconfig.json__ 文件並且在 __properties__ 物件中修改/加入值。例如，將 __"spark.yarn.am.memory"__ 的值從 __"1g"__ 變更為 __"3g"__，並且針對 __"spark.kryoserializer.buffer.max"__ 以值 __"256m"__ 加入新元素。
+3. 開啟 __newconfig.json__ 文件並且在 __properties__ 物件中修改/加入值。下列範例將 __"spark.yarn.am.memory"__ 的值從 __"1g"__ 變更為 __"3g"__，並且針對 __"spark.kryoserializer.buffer.max"__ 以值 __"256m"__ 加入新元素。
 
         "spark.yarn.am.memory": "3g",
         "spark.kyroserializer.buffer.max": "256m",
@@ -201,27 +202,27 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
         cat newconfig.json | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME"
         
-    此命令使用管線將 __newconfig.json__ 檔案的內容傳送至 CURL 要求，後者會將它提交至叢集中作為所需的新組態。這會傳回 JSON 文件。這份文件中的 __versionTag__ 元素應符合您所提交的版本，__configs__ 物件將會包含您所要求的組態變更。
+    此命令使用管線將 __newconfig.json__ 檔案的內容傳送至 CURL 要求，後者會將它提交至叢集中作為所需的新組態。cURL 要求會傳回 JSON 文件。這份文件中的 __versionTag__ 元素應符合您所提交的版本，__configs__ 物件將會包含您所要求的組態變更。
 
 ###範例︰重新啟動服務元件
 
 此時，如果您看一下 Ambari Web UI，Spark 服務就會指出它需要重新啟動，新組態才會生效。使用下列步驟重新啟動服務。
 
-1. 使用以下命令以啟用 Spark 服務的維護模式。
+1. 使用以下命令以啟用 Spark 服務的維護模式：
 
         echo '{"RequestInfo": {"context": "turning on maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
 
-    這會將 JSON 文件傳送到開啟維護模式的伺服器 (包含在 `echo` 陳述式)。您可以使用下列要求驗證服務現在處於維護模式中。
+    此命令會將 JSON 文件傳送到開啟維護模式的伺服器 (包含在 `echo` 陳述式)。您可以使用下列要求驗證服務現在處於維護模式中：
     
         curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK" | jq .ServiceInfo.maintenance_state
         
     這會傳回 `"ON"` 的值。
 
-3. 接下來，使用以下命令以關閉服務。
+3. 接下來，使用以下命令以關閉服務：
 
         echo '{"RequestInfo": {"context" :"Stopping the Spark service"}, "Body": {"ServiceInfo": {"state": "INSTALLED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
         
-    您會收到如下所示的回應。
+    此命令會傳回類似以下的回應。
     
         {
             "href" : "http://10.0.0.18:8080/api/v1/clusters/CLUSTERNAME/requests/29",
@@ -235,13 +236,13 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
     
         curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME/api/v1/clusters/CLUSTERNAME/requests/29" | jq .Requests.request_status
     
-    如果此值傳回 `"COMPLETED"`，則要求已完成。
+    如果此命令傳回 `"COMPLETED"` 值，則表示要求已完成。
 
 4. 前一個要求完成後，使用以下命令來啟動服務。
 
         echo '{"RequestInfo": {"context" :"Restarting the Spark service"}, "Body": {"ServiceInfo": {"state": "STARTED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
 
-    重新啟動服務後，它會使用新的組態設定。
+    在服務重新啟動後，它就會成為新的組態設定。
 
 5. 最後，使用以下命令來關閉維護模式。
 
@@ -253,4 +254,4 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 > [AZURE.NOTE] 某些 Ambari 功能已停用，因為這些功能是由 HDInsight 雲端服務所管理；例如，在叢集中新增或移除主機，或新增服務。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

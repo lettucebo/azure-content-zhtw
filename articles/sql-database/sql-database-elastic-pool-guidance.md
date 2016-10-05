@@ -95,7 +95,7 @@ Azure SQL Database 中的彈性集區可讓 SaaS 開發人員將一組資料庫�
 
 如需可用的大小，請參閱[彈性資料庫集區和彈性資料庫的 eDTU 和儲存體限制](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases)。
 
-SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的資源使用量，並在 Azure 入口網站中建議適當的集區組態。除了這些建議，內建體驗會估計伺服器上一些自訂資料庫的 eDTU 使用量。這可讓您以互動方式將資料庫新增至集區並加以移除，藉此進行「假設」分析，以在認可變更前取得資源使用量分析和大小建議。如需相關作法，請參閱[監視、管理和估算彈性集區大小](sql-database-elastic-pool-manage-portal.md)。
+SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的資源使用量，並在 Azure 入口網站中建議適當的集區組態。除了這些建議之外，內建體驗也會預估伺服器上一組自訂資料庫的 eDTU 使用量。這可讓您以互動方式將資料庫新增至集區並加以移除，藉此進行「假設」分析，以在認可變更前取得資源使用量分析和大小建議。如需相關作法，請參閱[監視、管理和估算彈性集區大小](sql-database-elastic-pool-manage-portal.md)。
 
 如需更有彈性的資源使用量評估 (允許 V12 之前的伺服器有隨選大小估計值)，以及不同伺服器中資料庫的大小估計值，請參閱[用來識別彈性資料庫集區適用資料庫的 PowerShell 指令碼](sql-database-elastic-pool-database-assessment-powershell.md)。
 
@@ -131,4 +131,4 @@ SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的�
 - [SQL Database 選項和效能：了解每個服務層中可用的項目](sql-database-service-tiers.md)
 - [用來識別彈性資料庫集區適用資料庫的 PowerShell 指令碼](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->

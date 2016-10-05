@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/05/2016"
+    ms.date="09/13/2016"
     ms.author="larryfr"/>
 
 # 使用 HDInsight 開發指令碼動作
@@ -167,6 +167,11 @@ Bash 指令碼應該儲存為 ASCII 格式，該格式以 LF 做為行尾結束�
 | `test_is_headnode` | 如果在叢集前端節點上執行，會傳回 1；否則傳回 0。 |
 | `test_is_datanode` | 如果目前節點是資料 (背景工作角色) 節點，會傳回 1；否則傳回 0。 |
 | `test_is_first_datanode` | 如果目前節點是第一個資料 (背景工作角色) 節點 (名為 workernode0)，會傳回 1；否則傳回 0。 |
+| `get_headnodes` | 傳回叢集中前端節點的完整網域名稱。名稱會以逗號分隔。發生錯誤時會傳回空字串。 |
+| `get_primary_headnode` | 取得主要前端節點的完整網域名稱。發生錯誤時會傳回空字串。 |
+| `get_secondary_headnode` | 取得次要前端節點的完整網域名稱。發生錯誤時會傳回空字串。 |
+| `get_primary_headnode_number` | 取得主要前端節點的數字尾碼。發生錯誤時會傳回空字串。 |
+| `get_secondary_headnode_number` | 取得次要前端節點的數字尾碼。發生錯誤時會傳回空字串。 |
 
 ## <a name="commonusage"></a>常見使用模式
 
@@ -268,4 +273,4 @@ _解決方式_：將檔案儲存為 ASCII，或不具有 BOM 的 UTF-8。您也�
 
 * 使用 [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx)，以了解如何使用 REST 在 HDInsight 叢集上執行管理動作。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

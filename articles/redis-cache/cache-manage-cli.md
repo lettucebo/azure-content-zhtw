@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure 命令列介面 (Azure CLI) 建立並管理 Azure Redis 快取
@@ -53,7 +53,7 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。本文
 | StaticIP | -p, --static-ip <static-ip> | 當快取是裝載在 VNET 中，為快取在子網路中指定唯一 IP 位址。如果未提供，則會從子網路中為您選擇一個。 |
 | 子網路 | t, --subnet <subnet> | 當快取是裝載在 VNET 中，指定要在其中部署快取的子網路。 |
 | VirtualNetwork | -v, --virtual-network <virtual-network> | 當快取是裝載在 VNET 中時，指定確切的虛擬網路 ARM 資源識別碼以將 Redis 快取部署到其中。範例格式：/subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| 訂閱 | -s, --subscription | 訂閱識別碼。 |
+| 訂用帳戶 | -s, --subscription | 訂用帳戶識別碼。 |
 
 ## 查看所有的 Redis 快取命令
 
@@ -271,4 +271,4 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。本文
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

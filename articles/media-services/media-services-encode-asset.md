@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 隨選媒體編碼器的概觀和比較" 
-	description="本主題概要說明並提供 Azire 隨選媒體編碼器的比較。" 
+	pageTitle="Azure 隨選媒體編碼器的概觀和比較 | Microsoft Azure" 
+	description="本主題概要說明並比較 Azure 隨選媒體編碼器。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 #Azure 隨選媒體編碼器的概觀和比較
@@ -29,7 +29,7 @@ Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 若要利用[動態封裝](media-services-dynamic-packaging-overview.md)，您需要執行下列動作：
 
 - 將您的夾層 (來源) 檔編碼為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (編碼步驟稍後示範於本教學課程中)。
-- 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](media-services-manage-origins.md#scale_streaming_endpoints/)。
+- 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](media-services-portal-manage-streaming-endpoints.md)。
 
 媒體服務支援本文中所描述的下列隨選編碼器：
 
@@ -38,7 +38,7 @@ Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 
 本文概略敘述隨選媒體編碼器，並提供文章連結以提供更詳細資訊。本主題也提供各種編碼器的比較。
 
-請注意，每個媒體服務帳戶預設一次可以有一個進行中的編碼工作。您可以保留編碼單位，這樣就可以同時執行多個編碼工作，其中一個用於您購買的每一個編碼保留單位。如需相關資訊，請參閱[調整編碼單位](media-services-portal-encoding-units.md)。
+請注意，每個媒體服務帳戶預設一次可以有一個進行中的編碼工作。您可以保留編碼單位，這樣就可以同時執行多個編碼工作，其中一個用於您購買的每一個編碼保留單位。如需相關資訊，請參閱[調整編碼單位](media-services-scale-media-processing-overview.md)。
 
 ##Media Encoder Standard
 
@@ -78,7 +78,7 @@ Media Encoder Standard 使用[這裡](http://go.microsoft.com/fwlink/?linkid=618
  
 ##Media Encoder Premium Workflow
 
-###概觀
+###Overview
 
 [介紹 Azure 媒體服務中的 Premium 編碼](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
@@ -242,4 +242,4 @@ TransientError|涵蓋暫時性問題 (例如 Azure 儲存體暫時性網路問�
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

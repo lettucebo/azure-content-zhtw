@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -53,6 +53,8 @@ Machine Learning Studio 是專為與矩形或表格式資料搭配使用而設�
 - 純文字 (.txt)
 - 逗號分隔值 (CSV)，具有標頭 (.csv) 或不具標頭 (.nh.csv)
 - 定位鍵分隔值 (TSV)，具有標頭 (.tsv) 或不具標頭 (.nh.tsv)
+- Excel 檔案
+- Azure 資料表
 - Hive 資料表
 - SQL 資料庫資料表
 - OData 值
@@ -89,4 +91,4 @@ Machine Learning Studio 使用名為***資料表格***的內部資料類型以�
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

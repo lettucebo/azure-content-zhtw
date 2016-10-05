@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"/>
 
 # 使用 PowerShell 升級至 Azure SQL Database V12
@@ -32,11 +32,11 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 本文提供將現有的 SQL Database V11 伺服器和資料庫升級至 SQL Database V12 的說明。
 
-在升級至 V12 的過程中，您將會把所有 Web 和商務資料庫都升級至新的服務層級，因此本文也包含了升級 Web 和商務資料庫的說明。
+在升級至 V12 的過程中，您會將所有 Web 和商務資料庫都升級至新的服務層級，因此本文也包含了升級 Web 和商務資料庫的說明。
 
 此外，與升級至單一資料庫的個別效能等級 (定價層) 相比，移轉至[彈性資料庫集區](sql-database-elastic-pool.md)更符合成本效益。集區也可以簡化資料庫管理，因為您只需要管理集區的效能設定，而不需分開管理個別資料庫的效能等級。如果您的資料庫位於多部伺服器上，請考慮將它們移到相同的伺服器，並利用將它們放入集區所帶來的優點。
 
-只要遵循本文的步驟，您就可以輕鬆地將資料庫從 V11 伺服器直接自動移轉至彈性資料庫集區。
+只要依照本文中的步驟操作，您就可以輕鬆地將資料庫從 V11 伺服器直接移轉至彈性資料庫集區。
 
 請注意，您的資料庫會維持在線上，並且在整個升級作業中都會繼續保持運作。在實際轉換到新的效能等級時，資料庫連線可能會暫時中斷一段非常短的時間，通常約 90 秒，但最長可達 5 分鐘。如果您的應用程式[對於連線終止有暫時性的錯誤處理方式](sql-database-connectivity-issues.md)，就足以在升級結束時防止連線中斷。
 
@@ -53,26 +53,24 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 ## 必要條件
 
-若要使用 PowerShell 將伺服器升級至 V12，您必須安裝 Azure PowerShell 並加以執行，然後視您可能需要的版本將其切換為資源管理員模式，才能存取 Azure 資源管理員 PowerShell Cmdlet。
-
-若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行中。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
+若要使用 PowerShell 將伺服器升級至 V12，您必須安裝並執行最新的 Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 
 ## 設定您的認證並選取您的訂用帳戶
 
-若要針對 Azure 訂用帳戶執行 PowerShell Cmdlet，您必須先建立至 Azure 帳戶的存取權。執行以下項目，然後您會看到要輸入認證的登入畫面。請使用與登入 Azure 入口網站相同的電子郵件和密碼。
+若要針對您的 Azure 訂用帳戶執行 PowerShell Cmdlet，您必須先建立對您 Azure 帳戶的存取權。請執行下列命令，然後您就會看到可供輸入認證的登入畫面。請使用與登入 Azure 入口網站相同的電子郵件和密碼。
 
 	Add-AzureRmAccount
 
-成功登入後，您應該會在畫面中看到一些資訊，包括用於登入的 ID 與可以存取的 Azure 訂用帳戶。
+成功登入後，您應該會在畫面中看到一些資訊，包括您用來登入的 ID 及您可存取的 Azure 訂用帳戶。
 
-若要選取使用的訂用帳戶，您必須提供訂用帳戶識別碼 (**-SubscriptionId**) 或訂用帳戶名稱 (**-SubscriptionName**)。您可以複製上一個步驟中的資訊，或者，如果您有多個訂用帳戶，則可以執行 **Get-AzureRmSubscription** Cmdlet，然後從結果集中複製所需的訂用帳戶資訊。
+若要選取要使用的訂用帳戶，您必須提供訂用帳戶 ID (**-SubscriptionId**) 或訂用帳戶名稱 (**-SubscriptionName**)。您可以複製上一個步驟中的資訊，或者，如果您有多個訂用帳戶，則可以執行 **Get-AzureRmSubscription** Cmdlet，然後從結果集中複製所需的訂用帳戶資訊。
 
 使用您的訂用帳戶資訊執行下列 Cmdlet，以設定您目前的訂用帳戶：
 
-	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Set-AzureRmContext -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-會針對您在上方剛選取的訂用帳戶執行下列命令。
+下列命令會針對您剛才在上方選取的訂用帳戶執行。
 
 ## 取得建議
 
@@ -109,7 +107,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
     # Selecting the right subscription
     #
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Set-AzureRmContext -SubscriptionName $SubscriptionName
 
     # Getting the upgrade recommendations
     #
@@ -163,7 +161,7 @@ ElasticPoolCollection 和 DatabaseCollection 參數都是選擇性項目：
 除了監視個別的資料庫之外，您也可以[使用入口網站](sql-database-elastic-pool-manage-portal.md)或藉由 [PowerShell](sql-database-elastic-pool-manage-powershell.md) 監視彈性資料庫集區。
 
 
-**資源耗用量資料：**Basic、Standard 及 Premium 資料庫的資源耗用量資料會透過使用者資料庫中的 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV 提供。此 DMV 以 15 秒的間隔提供幾乎即時的前一小時作業資源耗用量資訊。某一間隔的 DTU 百分比耗用量會以 CPU、IO 及記錄檔方面的最大百分比耗用量來計算。下列是計算前一小時之平均 DTU 百分比耗用量的查詢：
+**資源耗用量資料：**Basic、Standard 及 Premium 資料庫的資源耗用量資料會透過使用者資料庫中的 [sys.dm_ db_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV 提供。此 DMV 以 15 秒的間隔提供幾乎即時的前一小時作業資源耗用量資訊。某一間隔的 DTU 百分比耗用量會以 CPU、IO 及記錄檔方面的最大百分比耗用量來計算。下列是計算前一小時之平均 DTU 百分比耗用量的查詢：
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -201,4 +199,4 @@ ElasticPoolCollection 和 DatabaseCollection 參數都是選擇性項目：
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

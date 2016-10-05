@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # 2\.0 通訊協定 - 使用隱含流程的 SPA
@@ -30,7 +30,7 @@
 不過，如果您不想使用單一頁面應用程式中的程式庫，並且自行傳送通訊協定訊息，請遵循下列一般步驟。
 
 > [AZURE.NOTE]
-	v2.0 端點並未支援所有的 Azure Active Directory 案例和功能。若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
+	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
     
 ## 通訊協定圖表
 整個隱含登入流程看起來類似下列圖表 - 以下將詳細說明每個步驟。
@@ -232,4 +232,4 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

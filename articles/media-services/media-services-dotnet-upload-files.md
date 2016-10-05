@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 .NET 將檔案上傳至媒體服務帳戶" 
+	pageTitle="使用 .NET 將檔案上傳至媒體服務帳戶 | Microsoft Azure" 
 	description="了解如何建立並上傳資產，以將媒體內容移至媒體服務中。" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="08/30/2016" 
+ 	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
@@ -28,6 +28,12 @@
 在媒體服務中，您可以將數位檔案上傳 (或內嵌) 到資產。**資產**實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式字幕檔案 (以及這些檔案的相關中繼資料)。 上傳檔案之後，您的內容會安全地儲存在雲端，以進一步進行處理和串流處理。
 
 資產中的檔案稱為**資產檔案**。**AssetFile** 執行個體和實際媒體檔是兩個不同的物件。AssetFile 執行個體包含媒體檔案的相關中繼資料，而媒體檔案包含實際的媒體內容。
+
+>[AZURE.NOTE]當您選擇資產檔案名稱時適用下列考量︰
+>
+>- 媒體服務在建置串流內容的 URL 時使用 IAssetFile.Name 屬性的值 (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) 基於這個理由，不允許 percent-encoding。**Name** 屬性的值不能有下列任何 [percent-encoding-reserved 字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#"。而且，副檔名只能有一個 '.'。
+>
+>- 名稱長度不應超過 260 個字元。
 
 建立資產時，您可以指定下列加密選項。
 
@@ -44,7 +50,6 @@
 
 如果您指定使用 **StorageEncrypted** 選項來加密資產，則 Media Services SDK for .NET 會建立資產的 **StorateEncrypted** 和 **ContentKey**。
 
->[AZURE.NOTE]媒體服務在建置串流內容的 URL 時使用 IAssetFile.Name 屬性的值 (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) 基於這個理由，不允許 percent-encoding。**Name** 屬性的值不能有下列任何 [percent-encoding-reserved 字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#"。而且，副檔名只能有一個 ‘.’。
 
 本主題顯示如何使用 Media Services .NET SDK 以及 Media Services .NET SDK 延伸模組，以將檔案上傳到媒體服務資產。
 
@@ -311,11 +316,11 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-
 ##後續步驟
+
 您已將資產上傳至媒體服務，現在請移至[如何取得媒體處理器][]主題。
 
 [如何取得媒體處理器]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

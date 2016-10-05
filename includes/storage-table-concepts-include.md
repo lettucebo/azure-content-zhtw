@@ -17,7 +17,7 @@ Azure 資料表儲存體服務可儲存大量的結構化資料。此服務是�
 
 -   **URL 格式：**程式碼使用此位址格式來定位帳戶中的資料表：http://`<storage account>`.table.core.windows.net/`<table>`  
       
-    您可以使用此位址搭配 OData 通訊協定來直接定址 Azure 資料表。如需詳細資訊，請參閱 [OData.org][] (英文)
+    您可以使用此位址搭配 OData 通訊協定來直接定址 Azure 資料表。如需詳細資訊，請參閱 [OData.org][] \(英文)
 
 -   **儲存體帳戶：**一律透過儲存體帳戶來存取 Azure 儲存體。如需關於儲存體帳戶容量的詳細資訊，請參閱＜[Azure 儲存體延展性和效能目標](../articles/storage/storage-scalability-targets.md)＞(英文)。
 

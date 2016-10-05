@@ -33,7 +33,7 @@ Azure RemoteApp 即將中止。如需詳細資訊，請參閱[公告](https://go
 
 
 - 當您結束應用程式後，請儲存並關閉 RemoteApp 應用程式。未關閉應用程式可能會導致資料遺失。
-- 在 Azure RemoteApp 中使用自訂應用程式之前，請先進行驗證。這包括確認它們可在多重工作階段的平台上運作，而且不會使用不必要的資源，例如可能使同一收藏中的其他使用者缺乏的記憶體和 CPU。如需詳細資訊，請下載並檢閱[遠端桌面服務的應用程式相容性最佳做法](http://www.microsoft.com/download/details.aspx?id=18704)。
+- 在 Azure RemoteApp 中使用自訂應用程式之前，請先進行驗證。這包括確認它們可在多重工作階段的平台上運作，而且不會使用不必要的資源，例如可能使同一收藏中的其他使用者缺乏的記憶體和 CPU。如需詳細資訊，請下載並檢閱[遠端桌面服務的應用程式相容性最佳做法](http://www.dabcc.com/resources/Application%20Compatibility%20Best%20Practices%20for%20Remote%20Desktop%20Services.pdf)。
 
 ## 設定和管理
 
@@ -46,4 +46,4 @@ Azure RemoteApp 即將中止。如需詳細資訊，請參閱[公告](https://go
 	- 在範本映像中設定任何全系統的設定，而不是在服務的個別虛擬機器上設定。
 	- 停用發佈之應用程式的自動軟體更新 - 改為手動套用至範本映像，並從範本部署之前測試它們。
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

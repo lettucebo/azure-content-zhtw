@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="09/12/2016"
 	ms.author="piyushjo" />
 
 #Azure Mobile Engagement iOS SDK 版本資訊
+
+##4\.0.0 (09/12/2016)
+
+-   iOS 10 裝置上有固定的通知不會採取動作。
+-   取代 XCode 7。
 
 ##3\.2.4 (06/30/2016)
 
@@ -71,4 +76,4 @@
 -   增強安全性。
 -   已移除 SmartAd 追蹤。
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

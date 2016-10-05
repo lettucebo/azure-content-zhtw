@@ -46,7 +46,7 @@ App Service 環境需要針對虛擬網路設定的有效 DNS 基礎結構。如
 有兩種方法可限制送至此端點的流量：
 
 
-- [網路存取控制清單][NetworkAccessControlLists] (網路 ACL)
+- [網路存取控制清單][NetworkAccessControlLists] \(網路 ACL)
 
 - [網路安全性群組][NetworkSecurityGroups]
 

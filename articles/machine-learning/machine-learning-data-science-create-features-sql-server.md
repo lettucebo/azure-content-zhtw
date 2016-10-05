@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev;fashah;garye" />
 
 
@@ -23,7 +23,7 @@
 本文件說明如何針對儲存在 Azure 上的 SQL Server VM 中資料產生特徵，以協助演算法更有效率地從資料學習。使用 SQL 或使用類似 Python 的程式設計語言都可以達到此目的，以下示範這兩者。
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-這個**功能表**所連結的主題會說明如何在各種環境中建立資料的特徵。此工作是 [Team Data Science Process TDSP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中的一個步驟。
+這個**功能表**所連結的主題會說明如何在各種環境中建立資料的特徵。此工作是 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中的一個步驟。
 
 > [AZURE.NOTE] 如需實用範例，您可以參考 [NYC 計程車資料集](http://www.andresmh.com/nyctaxitrips/)，並參考標題為[使用 IPython Notebook 和 SQL Server 來處理有爭議的 NYC 資料](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)的 IPNB，以進行端對端逐步解說。
 
@@ -31,8 +31,8 @@
 ## 必要條件
 本文假設您擁有：
 
-* 建立 Azure 儲存體帳戶。如需指示，請參閱[建立 Azure 儲存體帳戶](../hdinsight-get-started.md#storage)
-* 您儲存的資料是在 SQL Server。如果不是，請參閱 [移動資料至 Azure 機器學習的 Azure SQL Database](machine-learning-data-science-move-sql-azure.md)，可以取得如何移動資料到該處的指示。
+* 建立 Azure 儲存體帳戶。如需指示，請參閱[建立 Azure 儲存體帳戶](../hdinsight-get-started.md#storage)。
+* 將資料儲存在 SQL Server。如果還沒這麼做，請參閱 [移動資料至 Azure 機器學習的 Azure SQL Database](machine-learning-data-science-move-sql-azure.md)，以取得如何移動資料到該處的指示。
 
 
 ##<a name="sql-featuregen"></a>使用 SQL 的功能產生
@@ -95,10 +95,7 @@
 上述以位置為基礎的功能可進一步用來產生其他計數功能，如先前所述。
 
 
-> [AZURE.TIP] 您可以使用所選擇的語言，利用程式設計方式插入記錄。您可能需要插入區塊中的資料以改善寫入效率[在此處看看如何使用 pyodbc 來執行此動作的範例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)。
- 
-
-> [AZURE.TIP] 另一個替代方式是使用 [BCP 公用程式](https://msdn.microsoft.com/library/ms162802.aspx)在資料庫中插入資料
+> [AZURE.TIP] 您可以使用所選擇的語言，利用程式設計方式插入記錄。您可能需要插入區塊中的資料以改善寫入效率[在此處看看如何使用 pyodbc 來執行此動作的範例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)。另一個替代方式是使用 [BCP 公用程式](https://msdn.microsoft.com/library/ms162802.aspx)在資料庫中插入資料
 
 ###<a name="sql-aml"></a>連接到 Azure Machine Learning
 
@@ -125,4 +122,4 @@ Python 中的 [Pandas 程式庫](http://pandas.pydata.org/)提供一組豐富的
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016--->

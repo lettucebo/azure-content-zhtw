@@ -87,7 +87,7 @@ Site Recovery 是一項 Azure 服務，可藉由將內部部署實體伺服器�
 --- | ---
 **VMM**| 在 System Center 2012 R2 上執行的一或多部 VMM 伺服器。每部 VMM 伺服器應設定一或多個雲端。雲端應包含：<br/><br/>一或多個 VMM 主機群組。<br/><br/> 每個主機群組中的一或多個 Hyper-V 主機伺服器或叢集。<br/><br/>[深入了解](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html)如何設定 VMM 雲端。
 **Hyper-V** | Hyper-V 主機伺服器至少必須執行附帶 Hyper-V 角色的 Windows Server 2012 R2，並且已安裝最新更新。<br/><br/> Hyper-V 伺服器應該包含一或多部 VM。<br/><br/> 必須在 VMM 雲端管理包含您要複寫之 VM 的 Hyper-V 主機伺服器或叢集。<br/><br/>Hyper-V 伺服器應連接到網際網路 (直接或透過 Proxy)。<br/><br/>Hyper-V 伺服器應該安裝文章 [2961977](https://support.microsoft.com/kb/2961977) 中所提的修正程式。<br/><br/>Hyper-V 主機伺服器需要網際網路存取權，才能將資料複寫至 Azure。
-**Provider 和代理程式** | 在 Azure Site Recovery 部署期間，您將在 VMM 伺服器上安裝 Azure Site Recovery Provider 以及在 Hyper-V 主機上安裝復原服務代理程式。Provider 和代理程式必須透過網際網路直接連接或透過 Proxy 連接到 Azure Site Recovery。請注意，不支援 HTTPS 型 Proxy。VMM 伺服器和 Hyper-V 主機上的 Proxy 伺服器應該允許存取︰<br/><br/> .hypervrecoverymanager.windowsazure.com <br/><br/> .accesscontrol.windows.net <br/><br/> .backup.windowsazure.com <br/><br/> .blob.core.windows.net <br/><br/> *.store.core.windows.net<br/><br/>如果您在 VMM 伺服器上有以 IP 位址為基礎的防火牆規則，請檢查這些規則是否允許與 Azure 通訊。您需要允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)和 HTTPS (433) 通訊協定。<br/><br/>允許您的訂用帳戶的 Azure 區域和美國西部的 IP 位址範圍。<br/><br/>此外，VMM 伺服器上的 Proxy 伺服器需要存取 https://www.msftncsi.com/ncsi.txt
+**Provider 和代理程式** | 在 Azure Site Recovery 部署期間，您將在 VMM 伺服器上安裝 Azure Site Recovery Provider 以及在 Hyper-V 主機上安裝復原服務代理程式。Provider 和代理程式必須透過網際網路直接連接或透過 Proxy 連接到 Azure Site Recovery。請注意，不支援 HTTPS 型 Proxy。VMM 伺服器和 Hyper-V 主機上的 Proxy 伺服器應該允許存取︰<br/><br/> .hypervrecoverymanager.windowsazure.com <br/><br/> .accesscontrol.windows.net <br/><br/> .backup.windowsazure.com <br/><br/> .blob.core.windows.net <br/><br/> *.store.core.windows.net<br/><br/>如果您在 VMM 伺服器上有以 IP 位址為基礎的防火牆規則，請檢查這些規則是否允許與 Azure 通訊。您需要允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)和 HTTPS (443) 連接埠。<br/><br/>允許您的訂用帳戶的 Azure 區域和美國西部的 IP 位址範圍。<br/><br/>此外，VMM 伺服器上的 Proxy 伺服器需要存取 https://www.msftncsi.com/ncsi.txt
 
 
 ## 受保護的機器必要條件
@@ -148,7 +148,7 @@ Site Recovery 是一項 Azure 服務，可藉由將內部部署實體伺服器�
 ## 建立復原服務保存庫
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下 [新增] > [管理] > [復原服務]。或者，您可以按一下 [瀏覽] > [復原服務保存庫] > [加入]。
+2. 按一下 [新增] > [管理] > [復原服務]。或者，您可以按一下 [瀏覽] > [復原服務保存庫] > [新增]。
 
 	![新增保存庫](./media/site-recovery-vmm-to-azure/new-vault3.png)
 
@@ -571,4 +571,4 @@ Site Recovery 會提供容量規劃工具，協助您為來源環境、Site Reco
 
 在您的部署設定完成並開始執行之後，請[深入了解](site-recovery-failover.md)不同類型的容錯移轉。
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

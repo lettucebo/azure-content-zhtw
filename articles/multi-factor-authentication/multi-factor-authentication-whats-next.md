@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - 後續步驟" 
-	description="這是描述 Azure Multi-factor Authentication 後續步驟的 MFA 頁面。其內容包括報告、詐騙警示、一次性略過、自訂語音訊息、快取、信任的 IP 及應用程式密碼。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Azure Multi-Factor Authentication - 後續步驟"
+	description="這是描述 Azure Multi-factor Authentication 後續步驟的 MFA 頁面。其內容包括報告、詐騙警示、一次性略過、自訂語音訊息、快取、信任的 IP 及應用程式密碼。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2016"
+	ms.author="kgremban"/>
 
 # 設定 Azure Multi-Factor Authentication
 
@@ -28,12 +28,12 @@
 
 
 功能| 說明| 涵蓋的項目
-:------------- | :------------- | :------------- | 
+:------------- | :------------- | :------------- |
 [詐騙警示](#fraud-alert)|您可以配置及設定詐騙警示，讓使用者得以針對存取其資源的詐騙嘗試提出報告。|如何設定、配置及提報詐騙活動
 [一次性略過](#one-time-bypass) |一次性略過可讓使用者「略過」Multi-Factor Authentication 來通過驗證一次。|如何設定及配置一次性略過
 [自訂語音訊息](#custom-voice-messages) |自訂語音訊息可讓您將自己的錄音或問候語用於 Multi-Factor Authentication。 |如何設定及配置自訂問候語和訊息
 [快取](#caching-in-azure-multi-factor-authentication)|您可以利用快取來設定一段特定的時間，讓後續的驗證嘗試自動成功。 |如何設定及配置驗證快取。
-[信任的 IP](#trusted-ips)|信任的 IP 是 Multi-Factor Authentication 的功能，它賦予受管理或同盟租用戶管理員，讓從公司近端內部網路登入之使用者略過 Multi-Factor Authentication 的能力。|配置及設定要免除 Multi-Factor Authentication 的 IP 位址	
+[信任的 IP](#trusted-ips)|信任的 IP 是 Multi-Factor Authentication 的功能，它賦予受管理或同盟租用戶管理員，讓從公司近端內部網路登入之使用者略過 Multi-Factor Authentication 的能力。|配置及設定要免除 Multi-Factor Authentication 的 IP 位址
 [應用程式密碼](#app-passwords)|應用程式密碼允許非 MFA 感知應用程式略過 Multi-Factor Authentication 並繼續運作。|應用程式密碼的相關資訊。
 [針對已記住的裝置和瀏覽器，記住其 Multi-Factor Authentication](#remember-multi-factor-authentication-for-devices-users-trust)|可讓您在使用者使用 MFA 成功登入後的設定天數內記住裝置。|啟用此功能及設定的天數的相關資訊。
 [可選取的驗證方法](#selectable-verification-methods)|可讓您選擇可供使用者使用的驗證方法。|啟用或停用驗證方法 (例如通話或簡訊) 的相關資訊。
@@ -172,9 +172,9 @@ Microsoft 的預設語音問候語會指示使用者按 0# 以提交詐騙警示
 
 信任的 IP 是 Multi-Factor Authentication 的功能，它賦予受管理或同盟租用戶管理員，讓從公司近端內部網路登入之使用者略過 Multi-Factor Authentication 的能力。這些功能適用於擁有 Azure AD Premium、Enterprise Mobility Suite 或 Azure Multi-Factor Authentication 授權的 Azure AD 租用戶。
 
- 
+
 Azure AD 租用戶類型| 可用的信任 IP 選項
-:------------- | :------------- | 
+:------------- | :------------- |
 受管理|特定 IP 位址範圍 – 對於從公司內部網路登入的使用者，管理員可以指定要略過 Multi-Factor Authentication 的 IP 位址範圍。
 同盟|<li>所有同盟使用者 - 所有從組織內部登入的同盟使用者，都能使用 AD FS 發行的宣告略過 Multi-Factor Authentication。</li><li>特定 IP 位址範圍 – 對於從公司內部網路登入的使用者，管理員可以指定要略過 Multi-Factor Authentication 的 IP 位址範圍。
 
@@ -182,7 +182,7 @@ Azure AD 租用戶類型| 可用的信任 IP 選項
 
 
 |信任的 IP 已啟用| 信任的 IP 已提用
-:------------- | :------------- | :------------- | 
+:------------- | :------------- | :------------- |
 公司網路內部|瀏覽器流量不需要 Multi-Factor Authentication。|瀏覽器流量需要 Multi-Factor Authentication。
 |對於豐富型用戶端應用程式，如果使用者尚未建立任何應用程式密碼，使用一般密碼即可。一旦建立應用程式密碼之後，使用者就必須使用應用程式密碼。|豐富型用戶端應用程式需要應用程式密碼
 公司網路外部|瀏覽器流量需要 Multi-Factor Authentication。|瀏覽器流量需要 Multi-Factor Authentication。
@@ -209,7 +209,7 @@ Azure AD 租用戶類型| 可用的信任 IP 選項
 
 
 
- 
+
 ## 應用程式密碼
 
 在 Office 2010 或更舊版本和 Apple Mail 等某些應用程式中，您無法使用 Multi-Factor Authentication。若要使用這些應用程式，您需要使用「應用程式密碼」來取代傳統的密碼。應用程式密碼可讓應用程式略過 Multi-Factor Authentication 並繼續運作。
@@ -225,7 +225,7 @@ Azure AD 租用戶類型| 可用的信任 IP 選項
 以下清單是應用程式密碼的重要須知。
 
 驗證體驗|以瀏覽器為基礎的應用程式|非以瀏覽器為基礎的應用程式
-:------------- | :------------- | :------------- 
+:------------- | :------------- | :-------------
 |<ul><li>驗證的第一個要素會在內部部署</li><li>第二個要素是由雲端識別執行的電話式方法。</li>|<ul><li>管理員和使用者可以使用應用程式密碼來登入。
 
 - 使用者可以擁有多個應用程式密碼，不過這樣會增加遭竊的機率。因為應用程式密碼很難記住，導致使用者傾向於將它們書寫下來。我們不建議且不鼓勵這種做法，因為只有一個要素需要使用應用程式密碼登入。
@@ -362,7 +362,7 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 現在可以選擇當使用者使用 Multi-Factor Authentication 時，可供使用者使用的驗證方法。先前只有內部部署伺服器版本才有這項功能。下表扼要概述可以為使用者啟用或停用的各種驗證方法。
 
 方法|說明
-:------------- | :------------- | 
+:------------- | :------------- |
 [電話通話](multi-factor-authentication-end-user-first-time-mobile-phone.md)| 撥打自動語音電話給驗證電話。使用者可接聽電話並按電話鍵盤上的 # 進行驗證。此電話號碼將不會同步到內部部署 Active Directory。
 [電話簡訊](multi-factor-authentication-end-user-first-time-mobile-phone.md)|傳送包含驗證碼的簡訊給使用者。系統會提示使用者使用驗證碼來回覆簡訊，或在登入介面中輸入驗證碼。
 [行動應用程式的通知](multi-factor-authentication-end-user-first-time-mobile-app.md)|在此模式中，Microsoft 驗證器應用程式可防止未經授權存取帳戶，並停止詐騙交易。使用推播通知至您的電話或已註冊的裝置即可進行。只需檢視通知，如果合法，則點選 [驗證]。否則，您可選擇 [拒絕]，或選擇拒絕並回報詐騙通知。如需回報詐騙通知的相關資訊，請參閱＜如何使用 Multi-Factor Authentication 的拒絕和回報詐騙功能＞。</br></br>Microsoft 驗證器應用程式適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)。|
@@ -379,4 +379,4 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 9. 按一下 [儲存]。
 10. 按一下 [關閉]。
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

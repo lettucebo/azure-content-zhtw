@@ -1,21 +1,21 @@
 
-<properties 
-	pageTitle="搭配 Azure Multi-factor Authentication 使用辦公室或行動電話進行登入" 
-	description="此頁面說明使用者如何使用行動電話進行登入。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="搭配 Azure Multi-factor Authentication 使用辦公室或行動電話進行登入"
+	description="此頁面說明使用者如何使用行動電話進行登入。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # 搭配 Azure Multi-factor Authentication 使用辦公室或行動電話進行登入
 
@@ -38,13 +38,4 @@
 
 <li>您現在應已登入。</li>
 
-
-
-
-
-
-
-
- 
-
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->

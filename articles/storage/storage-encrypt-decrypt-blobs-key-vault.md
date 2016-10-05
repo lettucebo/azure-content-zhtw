@@ -1,20 +1,20 @@
 <properties
-   pageTitle="教學課程︰在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob | Microsoft Azure"
-   description="本教學課程將告訴您如何使用 Microsoft Azure 儲存體的用戶端加密並搭配 Azure 金鑰保存庫來加密和解密 blob。"
-   services="storage"
-   documentationCenter=""
-   authors="adhurwit"
-   manager=""
-   editor="tysonn"/>
+	pageTitle="教學課程︰在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob | Microsoft Azure"
+	description="本教學課程將告訴您如何使用 Microsoft Azure 儲存體的用戶端加密並搭配 Azure 金鑰保存庫來加密和解密 blob。"
+	services="storage"
+	documentationCenter=""
+	authors="adhurwit"
+	manager=""
+	editor="tysonn"/>
 
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="03/31/2016"
-   ms.author="lakasa"/>
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="09/20/2016"
+	ms.author="lakasa;robinsh"/>
 
 # 教學課程：在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob
 
@@ -29,7 +29,7 @@
 如需 Azure 儲存體用戶端加密的概觀資訊，請參閱 [Microsoft Azure 儲存體用戶端加密和 Azure 金鑰保存庫](storage-client-side-encryption.md)。
 
 
-## 先決條件
+## 必要條件
 
 若要完成本教學課程，您必須具備下列項目：
 
@@ -235,4 +235,4 @@ RSA 金鑰的私密金鑰保留在保存庫金鑰中，為了進行解密，從�
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0921_2016-->

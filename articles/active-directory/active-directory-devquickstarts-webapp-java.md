@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 
@@ -312,7 +312,7 @@ Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直
 </html>
 ```
 
-- 最後，在 `\webapp` 下建立稱為 `\secure` 的資料夾，以建立我們需要的安全網頁，如此一來，目錄即為 `\webapp\secure`。 
+- 最後，在 `\webapp` 下建立稱為 `\secure` 的資料夾，以建立我們需要的安全網頁，如此一來，目錄即為 `\webapp\secure`。
 
 - 在此目錄內，接著建立 `aad.jsp` 檔案，並剪下/貼上下列內容：
 
@@ -359,7 +359,7 @@ Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直
 
 讓我們編寫一些 Java 檔案，為我們執行這項工作：
 
-1. 在稱為 'adal4jsample' 的根目錄中建立資料夾來儲存我們所有的 Java 檔案。 
+1. 在稱為 'adal4jsample' 的根目錄中建立資料夾來儲存我們所有的 Java 檔案。
 
 我們將在 Java 檔案中使用命名空間 `com.microsoft.aad.adal4jsample`。大部分的 IDE 會為此建立巢狀的資料夾結構 (例如 `/com/microsoft/aad/adal4jsample`)。您可以隨意這樣做，但不必要。
 
@@ -1750,4 +1750,4 @@ public class BasicFilter implements Filter {
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

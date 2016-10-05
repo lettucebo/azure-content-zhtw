@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/31/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 
@@ -31,7 +31,7 @@
 
 若要整合您的應用程式與 Azure AD，請遵循[開發人員指示](active-directory-authentication-scenarios.md)。接著完成下面問題，並傳送至 waadpartners@microsoft.com。
 
-* 提供可由 Azure AD 小組搭配您的應用程式來測試整合的測試租用戶或帳戶的認證。  
+* 提供可由 Azure AD 小組搭配您的應用程式來測試整合的測試租用戶或帳戶的認證。
 
 * 提供有關 Azure AD 小組如何使用 [Azure AD 同意架構](active-directory-integrating-applications.md#overview-of-the-consent-framework)登入並連接 Azure AD 執行個體到您的應用程式的指示。
 
@@ -67,7 +67,7 @@
 
 使用[這些指示來新增自訂應用程式](active-directory-saas-custom-apps.md)，支援 SAML 2.0 的任何應用程式都可直接與 Azure AD 租用戶整合。一旦您測試過應用程式可與 Azure AD 整合後，請將下列資訊傳送至 <waadpartners@microsoft.com>。
 
-* 提供可由 Azure AD 小組搭配您的應用程式來測試整合的測試租用戶或帳戶的認證。  
+* 提供可由 Azure AD 小組搭配您的應用程式來測試整合的測試租用戶或帳戶的認證。
 
 * 提供您的應用程式的 SAML 登入 URL、簽發者 URL (實體 ID) 和回覆 URL (判斷提示取用者服務) 的值，如[此處](active-directory-saas-custom-apps.md)所述。如果您通常會提供這些值做為一個 SAML 中繼資料檔的一部分，也請一併傳送該檔案。
 
@@ -97,4 +97,4 @@
 > 
 > 附加應用程式標誌 (PNG 檔案、150px x 122px、透明背景色彩)：
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

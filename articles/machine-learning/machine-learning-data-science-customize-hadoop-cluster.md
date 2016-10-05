@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="hangzh;bradsev" />
 
 # 自訂適用於 Team Data Science Process 的 Azure HDInsight Hadoop 叢集 
 
 本文將說明若將 HDInsight Hadoop 叢集佈建為 HDInsight 服務，如何藉由在每個節點上安裝 64 位元的 Anaconda (Python 2.7) 來自訂該叢集。它也會示範如何存取前端節點，以將自訂工作提交至叢集。這項自訂讓許多熱門的 Python 模組 (隨附於 Anaconda) 非常方便地在使用者定義函式 (UDF) 中使用，這類函式是設計來處理叢集中的 Hive 記錄。如需此案例中使用的程序的相關指示，請參閱[如何提交 Hive 查詢](machine-learning-data-science-move-hive-tables.md#submit)。
 
-以下功能表所連結的主題會說明如何設定 Team Data Science Process (TDSP) 所用的各種資料科學環境。
+以下功能表所連結的主題會說明如何設定 [Team Data Science Process (TDSP)](data-science-process-overview.md) 所用的各種資料科學環境。
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
@@ -86,4 +86,4 @@
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

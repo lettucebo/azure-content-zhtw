@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用媒體服務 REST API 設定內容金鑰授權原則" 
+	pageTitle="使用媒體服務 REST API 設定內容金鑰授權原則 | Microsoft Azure" 
 	description="了解如何使用媒體服務 REST API 設定內容金鑰的授權原則。" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/19/2016"  
 	ms.author="juliako"/>
 
 
-#動態加密：設定內容金鑰授權原則 
+#動態加密：設定內容金鑰授權原則
 [AZURE.INCLUDE [媒體-服務-選取器-內容-金鑰-auth-原則](../../includes/media-services-selector-content-key-auth-policy.md)]
- 
 
-##概觀
+
+##Overview
 
 Microsoft Azure 媒體服務可讓您傳遞使用進階加密標準 (AES) (使用 128 位元加密金鑰) 和 PlayReady 或 Widevine DRM 所動態加密的內容。媒體服務也提供服務，可傳遞金鑰和 PlayReady/Widevine 授權給授權用戶端。
 
@@ -44,7 +44,7 @@ Microsoft Azure 媒體服務可讓您傳遞使用進階加密標準 (AES) (使�
 
 ###適用一些考量事項：
 
-- 為了能夠使用動態封裝和動態加密，您至少有一個串流保留單元。如需詳細資訊，請參閱[如何調整媒體服務](media-services-manage-origins.md#scale_streaming_endpoints)。
+- 為了能夠使用動態封裝和動態加密，您至少有一個串流保留單元。如需詳細資訊，請參閱[如何調整媒體服務](media-services-portal-manage-streaming-endpoints.md)。
 - 您的資產必須包含一組調適性位元速率 MP4 或調適性位元速率 Smooth Streaming 檔案。如需詳細資訊，請參閱[為資產編碼](media-services-encode-asset.md)。
 - 使用 **AssetCreationOptions.StorageEncrypted** 選項，上傳資產並為其編碼。
 - 如果您計劃有多個內容金鑰需要相同的原則組態，強烈建議建立一個授權原則，並針對多個內容金鑰重複使用。
@@ -53,7 +53,7 @@ Microsoft Azure 媒體服務可讓您傳遞使用進階加密標準 (AES) (使�
 - 目前，您無法加密 HDS 串流格式，或漸進式下載。
 
 
-##AES-128 動態加密 
+##AES-128 動態加密
 
 >[AZURE.NOTE] 使用媒體服務 REST API 時，適用下列考量事項：
 >
@@ -483,4 +483,4 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -94,4 +94,4 @@
 - 了解如何[在資源管理員部署模型中建立路由](virtual-network-create-udr-arm-template.md)並將其關聯至子網路。
 - 了解如何[在傳統部署模型中建立路由](virtual-network-create-udr-classic-ps.md)並將其關聯至子網路。
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0810_2016--->

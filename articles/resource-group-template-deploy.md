@@ -60,9 +60,9 @@
 
         Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
-3. 一般而言，在部署新範本時，您會希望建立新的資源群組以包含該資源。如果您想要部署到現有的資源群組，則您可以略過此步驟並直接使用該資源群組。
+3. 一般而言，在部署新範本時，您會希望建立新的資源群組以包含該資源。如果您想要部署到現有的資源群組，則您可以略過此步驟並使用該資源群組。
 
-     若要建立新的資源群組，請提供資源群組的名稱和位置。
+     若要建立新的資源群組，請提供資源群組的名稱和位置。您需要提供資源群組的位置，因為資源群組會儲存資源的相關中繼資料。為了符合法規，您可能會想要指定中繼資料的儲存位置。一般情況下，我們建議您指定大部分資源所在的位置。使用相同位置可簡化範本。
 
         New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
@@ -193,4 +193,4 @@
 - 若要在範本中定義參數，請參閱[編寫範本](resource-group-authoring-templates.md#parameters)。
 - 如需如何將解決方案部署到不同環境的指南，請參閱[Microsoft Azure 中開發和測試環境](solution-dev-test-environments.md)。
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

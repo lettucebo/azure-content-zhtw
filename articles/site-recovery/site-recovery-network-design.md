@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="06/21/2016"
+	ms.date="09/19/2016"
 	ms.author="pratshar"/>
 
 #  設計用於災害復原的網路基礎結構
 
 這篇文章的對象是 IT 專業人員，他們負責架構設計、實作和支援業務持續性和災害復原 (BCDR) 的基礎結構，而且想要利用 Microsoft Azure Site Recovery (ASR) 來支援並增強其 BCDR 服務。本白皮書將討論 System Center Virtual Machine Manager 伺服器部署的實際考量、自動縮放子網路與子網路容錯移轉的優缺點比較，以及如何架構 Microsoft Azure 中虛擬網站的災害復原。
 
-## 概觀
+## Overview
 
 [Azure Site Recovery (ASR)](https://azure.microsoft.com/services/site-recovery/) 是 Microsoft Azure 服務，可協調虛擬化應用程式的保護和復原，以達成業務持續性和災害復原 (BCDR) 之目的。這份文件的目的是引導讀者完成設計網路的程序，著重於使用 Site Recovery 複寫虛擬機器 (VM) 時如何架構災害復原網站上的 IP 範圍和子網路。
 
@@ -36,7 +36,7 @@ ASR 讓容錯移轉成真，第一步是將指定的虛擬機器從主要資料�
 
 設計復原網站的網路時，系統管理員有兩種選擇：
 
-- 在復原網站的網路使用不同的 IP 位址範圍。在此案例中，虛擬機器在容錯移轉之後會收到新的 IP 位址，系統管理員必須進行 DNS 更新。在[這裡](site-recovery-vmm-to-vmm.md#test-your-deployment)深入了解如何進行 DNS 更新 
+- 在復原網站的網路使用不同的 IP 位址範圍。在此案例中，虛擬機器在容錯移轉之後會收到新的 IP 位址，系統管理員必須進行 DNS 更新。在[這裡](site-recovery-vmm-to-vmm.md#test-your-deployment)深入了解如何進行 DNS 更新
 - 在復原網站的網路使用相同的 IP 位址範圍。在某些案例中，即使容錯移轉之後，系統管理員偏好保留他們的 IP 位址給主要網站。在正常案例中，系統管理員必須更新路由以指出 IP 位址的新位置。但是，有些案例在主要和復原網站之間有部署延伸的 VLAN，保留虛擬機器的 IP 位址會變成一個不錯的選擇。保留相同 IP 位址可簡化復原程序，因為拿掉了容錯移轉後的所有網路相關步驟。
 
 
@@ -120,7 +120,7 @@ Woodgrove 決定將來自 IP 位址範圍 (172.16.1.0/24, 172.16.2.0/24) 的 IP 
 為了協助 Woodgrove 滿足他們的業務需求，我們必須實作下列工作流程：
 
 - 建立額外的網路，我們叫它「復原網路」，容錯移轉的虛擬機器將在這裡建立。
-- 為了確保 VM 的 IP 會在容錯移轉之後保留，請移至於 VM 屬性下方的 [設定] 索引標籤，指定 VM 在內部部署使用的相同 IP，然後按一下 [儲存]。當 VM 容錯移轉時，Azure Site Recovery 將指派前述 IP 給虛擬機器。 
+- 為了確保 VM 的 IP 會在容錯移轉之後保留，請移至於 VM 屬性下方的 [設定] 索引標籤，指定 VM 在內部部署使用的相同 IP，然後按一下 [儲存]。當 VM 容錯移轉時，Azure Site Recovery 將指派前述 IP 給虛擬機器。
 
 ![網路屬性](./media/site-recovery-network-design/network-design8.png)
 
@@ -179,4 +179,4 @@ Woodgrove 決定將來自 IP 位址範圍 (172.16.1.0/24, 172.16.2.0/24) 的 IP 
 
 [了解](site-recovery-network-mapping.md)當 VMM 伺服器用來管理主要網站時，「網站復原」如何對應來源和目標網路。
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

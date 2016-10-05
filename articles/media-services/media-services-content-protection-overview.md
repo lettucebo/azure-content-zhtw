@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="保護內容概觀" 
+	pageTitle="保護內容概觀 | Microsoft Azure" 
 	description="此文章簡介如何利用 Media Services 保護內容。" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 #保護內容概觀
@@ -36,13 +36,13 @@ Microsoft Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存�
 
 根據您想要上傳、儲存和傳遞的內容類型，媒體服務會提供各種加密選項供您選擇。
 
-###None 
+###None
 
 不使用加密。這是預設值。使用此選項時，您的內容在傳輸或儲存體中靜止時不會受到保護。
 
 如果您計劃使用漸進式下載傳遞 MP4，請使用此選項來上傳內容。
 
-###StorageEncrypted 
+###StorageEncrypted
 
 使用 **StorageEncrypted**，使用 AES 256 位元加密對您的純文字內容進行本機加密，然後將其上傳到已靜止加密儲存的 Azure 儲存體。使用儲存體加密保護的資產會在編碼之前自動解除加密並放在加密的檔案系統中，並且選擇性地在上傳為新的輸出資產之前重新加密。儲存體加密的主要使用案例是當您想要使用強式加密保護靜止在磁碟上的高品質輸入媒體檔案時。
 
@@ -58,7 +58,7 @@ AMS 儲存體加密會將 **AES-CTR** 模式加密套用至整個檔案。AES CT
 - [AesCtr](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/FileEncryptionTransform.cs)
 
 
-###CommonEncryptionProtected 
+###CommonEncryptionProtected
 
 如果您想要使用一般加密來加密 (或上傳已加密) 內容，請使用 **CommonEncryptionProtected**。PlayReady 和 Widewine 是依照一般加密 (CENC) 規格，並且受 AMS 支援。
 
@@ -78,7 +78,7 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 
 播放程式要求串流時，媒體服務便會使用 AES 或一般加密，使用指定的金鑰動態加密您的內容。為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
->[AZURE.NOTE]若要利用動態加密，您必須先為想要從該處傳遞加密內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整媒體服務](media-services-manage-origins.md#scale_streaming_endpoints)。
+>[AZURE.NOTE]若要利用動態加密，您必須先為想要從該處傳遞加密內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整媒體服務](media-services-portal-manage-streaming-endpoints.md)。
 
 ##授權和金鑰傳遞服務
 
@@ -86,9 +86,9 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 
 請注意，如果您是使用入口網站，則可以設定一個 AES 原則 (將會套用到所有 AES 加密內容) 以及一個 PlayReady 原則 (將會套用到所有 PlayReady 加密內容)。如果您想要進一步控制組態，請使用 Media Services SDK for .NET。
 
-##DRM 授權 
+##DRM 授權
 
-###PlayReady 授權 
+###PlayReady 授權
 
 媒體服務提供一種服務，來傳遞 PlayReady 授權。使用者播放程式 (例如 Silverlight) 嘗試播放 PlayReady 保護內容時，會將要求傳送到授權傳遞服務來取得授權。如果授權服務核准要求，就會發出傳送給用戶端並可用來解密和播放所指定內容的授權。
 
@@ -155,4 +155,4 @@ AMS 也可讓您傳遞使用 Widevine DRM 加密的 MPEG DASH。PlayReady 和 Wi
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

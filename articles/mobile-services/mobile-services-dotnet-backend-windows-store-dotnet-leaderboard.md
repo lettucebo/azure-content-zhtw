@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="09/20/2016"
 	ms.author="glenga"/>
 
 # 使用 Azure 行動服務 .NET 後端建立排行榜應用程式
@@ -25,7 +25,7 @@
 
 本教學課程將說明如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集應用程式。Azure 行動服務提供可擴充而安全的後端，具有內建的驗證、監控、推播通知和其他功能，以及用來建置行動應用程式的跨平台用戶端程式庫。行動服務的 .NET 後端以 [ASP.NET Web API](http://asp.net/web-api) 為基礎，可為 .NET 開發人員提供建立 REST API 的絕佳途徑。
 
-## 概觀
+## Overview
 
 Web API 是一個開放原始碼架構，可為 .NET 開發人員提供建立 REST API 的絕佳途徑。您可以在 Azure 網站或使用 .NET 後端的 Azure 行動服務上主控 Web API 方案，甚或以自訂程序自我主控。行動服務是特別針對行動應用程式設計的主控環境。當您在行動服務上主控 Web API 服務時，除了資料儲存以外，您還可獲得下列好處：
 
@@ -765,4 +765,4 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 [新增推播通知]: ../notification-hubs-windows-store-dotnet-get-started.md
 [開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

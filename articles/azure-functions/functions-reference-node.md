@@ -22,15 +22,16 @@
 
 > [AZURE.SELECTOR]
 - [C# 指令碼](../articles/azure-functions/functions-reference-csharp.md)
+- [F# 指令碼](../articles/azure-functions/functions-reference-fsharp.md)
 - [Node.js](../articles/azure-functions/functions-reference-node.md)
 
-Azure Functions 的 Node/JavaScript 體驗能讓您輕鬆地匯出函數，系統會傳遞一個 `context` 物件給該函數以便與執行階段通訊，以及用來透過繫結接收和傳送資料。
+Azure Functions 的 Node/JavaScript 體驗能讓您輕鬆地匯出函式，系統會傳遞一個 `context` 物件給該函式以便與執行階段通訊，以及用來透過繫結接收和傳送資料。
 
 本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。
 
 ## 匯出函數
 
-所有 JavaScript 函數都必須透過 `module.exports` 匯出單一 `function`，如此執行階段才能找到函數並執行它。此函數一定要包含 `context` 物件。
+所有 JavaScript 函式都必須透過 `module.exports` 匯出單一 `function`，如此執行階段才能找到函式並執行它。此函式一定要包含 `context` 物件。
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -46,17 +47,17 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-`direction === "in"` 的繫結會和函數引數一起傳遞，這表示您可以使用 [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 以動態方式處理新的輸入 (例如，藉由使用 `arguments.length` 來反覆查看您的所有輸入)。如果您只有不含任何其他輸入的觸發程序，這項功能就很便利，因為您可以如預期般存取觸發程序資料，而不需要參考 `context` 物件。
+`direction === "in"` 的繫結會和函式引數一起傳遞，這表示您可以使用 [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 以動態方式處理新的輸入 (例如，藉由使用 `arguments.length` 來反覆查看您的所有輸入)。如果您只有不含任何其他輸入的觸發程序，這項功能就很便利，因為您可以如預期般存取觸發程序資料，而不需要參考 `context` 物件。
 
-引數一律會以在 *function.json* 中出現的順序傳遞至函數，即使您未在匯出陳述式中指定也一樣。例如，如果您有 `function(context, a, b)` 並將它變更為 `function(context, a)`，您仍然可以在函數程式碼中藉由參考 `arguments[3]` 來取得 `b` 的值。
+引數一律會以在 function.json 中出現的順序傳遞至函式，即使您未在匯出陳述式中指定也一樣。例如，如果您有 `function(context, a, b)` 並將它變更為 `function(context, a)`，您仍然可以在函式程式碼中藉由參考 `arguments[3]` 來取得 `b` 的值。
 
 所有繫結 (不論方向為何) 也都會傳遞到 `context` 物件 (如下所示)。
 
 ## context 物件
 
-執行階段使用 `context` 物件來將資料傳遞至函數並從中傳出，而且可讓您與執行階段進行通訊。
+執行階段使用 `context` 物件來將資料傳遞至函式並從中傳出，而且可讓您與執行階段進行通訊。
 
-內容物件一律為函數的第一個參數且應一律包含，因為它具有像是 `context.done` 和 `context.log` 的方法，而您必須要有這些方法才能正確地使用執行階段。您可以任意方式命名物件 (也就是 `ctx` 或 `c`)。
+內容物件一律為函式的第一個參數且應一律包含，因為它具有像是 `context.done` 和 `context.log` 的方法，而您必須要有這些方法才能正確地使用執行階段。您可以任意方式命名物件 (也就是 `ctx` 或 `c`)。
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -89,9 +90,9 @@ context.bindings.myOutput = {
 
 ## `context.done([err],[propertyBag])`
 
-`context.done` 函數會通知執行階段您已完成執行。當您完成使用函數時呼叫它是很重要的。如果沒有這麼做，執行階段仍然永遠不會知道您的函數已完成。
+`context.done` 函式會通知執行階段您已完成執行。當您完成使用函數時呼叫它是很重要的。如果沒有這麼做，執行階段仍然永遠不會知道您的函數已完成。
 
-`context.done` 函數可讓您將使用者定義的錯誤傳回執行階段，以及傳回屬性的屬性包，這些屬性將會覆寫 `context.bindings` 物件上的屬性。
+`context.done` 函式可讓您將使用者定義的錯誤傳回執行階段，以及傳回屬性的屬性包，這些屬性將會覆寫 `context.bindings` 物件上的屬性。
 
 ```javascript
 // Even though we set myOutput to have:
@@ -142,9 +143,9 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 Node 版本目前鎖定在 `5.9.1`。我們正在調查加入更多版本並允許設定的支援。
 
-您可以在您的函數中加入封裝，做法是將 project.json 檔案上傳至函數應用程式檔案系統中的函數資料夾。如需檔案上傳指示，請參閱 [Azure Functions 開發人員參考主題](functions-reference.md#fileupdate)中的**如何更新函數應用程式檔案**一節。
+您可以在您的函式中加入封裝，做法是將 project.json 檔案上傳至函式應用程式檔案系統中的函式資料夾。如需檔案上傳指示，請參閱 [Azure Functions 開發人員參考主題](functions-reference.md#fileupdate)中的**如何更新函式應用程式檔案**一節。
 
-您也可以在函數應用程式的 SCM (Kudu) 命令列介面中使用 `npm install`：
+您也可以在函式應用程式的 SCM (Kudu) 命令列介面中使用 `npm install`：
 
 1. 瀏覽至 `https://<function_app_name>.scm.azurewebsites.net`。
 
@@ -154,7 +155,7 @@ Node 版本目前鎖定在 `5.9.1`。我們正在調查加入更多版本並允�
 
 4. 執行 `npm install`。
 
-一旦安裝您需要的封裝之後，就能以一般方式將它們匯入您的函數 (也就是透過 `require('packagename')`)
+一旦安裝您需要的封裝之後，就能以一般方式將它們匯入您的函式 (也就是透過 `require('packagename')`)
 
 ```javascript
 // Import the underscore.js library
@@ -198,6 +199,7 @@ function GetEnvironmentVariable(name)
 
 * [Azure Functions 開發人員參考](functions-reference.md)
 * [Azure Functions C# 開發人員參考](functions-reference-csharp.md)
+* [Azure Functions F# 開發人員參考](functions-reference-fsharp.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

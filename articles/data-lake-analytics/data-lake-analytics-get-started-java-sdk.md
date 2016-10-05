@@ -24,8 +24,6 @@
 
 在本教學課程中，您將開發 Java 主控台應用程式，其中包含一般管理作業，以及建立測試資料和提交作業的範例。若要使用其他支援的工具進行同一個教學課程，請按一下此區段最上方的索引標籤。
 
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
-
 ## 必要條件
 
 * Java Development Kit (JDK) 8 (使用 Java 1.8 版)。
@@ -356,4 +354,4 @@
 - 針對管理工作，請參閱[使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
 - 若要取得資料湖分析概觀，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

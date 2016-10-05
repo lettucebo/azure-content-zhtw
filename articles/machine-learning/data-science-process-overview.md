@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
-	ms.author="bradsev;gopitk" />
+	ms.date="09/19/2016"
+	ms.author="bradsev" />
 
 
 # 何謂 Team Data Science Process (TDSP)？
@@ -74,9 +74,9 @@ Team Data Science Process 的分析環境包含數個元件：
 與網域專家合作的資料科學家，必須識別可擷取資料集的顯著屬性以及最適合用來預測計劃期間所識別之重要商業變數的特性。這些新特性可以衍生自現有資料，或可能需要收集其他資料。此程序稱為**特性工程**，這是建置有效預測性分析系統的重要步驟之一。要執行此步驟，必須有創意地結合網域知識和獲取自資料瀏覽步驟的深入資訊。如需指引，請參閱 [Team Data Science Process 中的特徵工程設計](machine-learning-data-science-create-features.md)。
 
 
-## 4\.建立 ML 模型並加以訓練
+## 4\.建立和訓練機器學習服務模型
 
-資料科學家會建立分析模型，使用已清理和特性化的資料來預測規劃步驟中定義的商業需求所識別的重要變數。機器學習系統支援多個適用於各種情況的**模型化演算法**。如需指引，請參閱[如何選擇 Team Azure 機器學習的演算法](machine-learning-algorithm-choice.md)。
+資料科學家會建立分析模型，使用已清理和特性化的資料來預測規劃步驟中定義的商業需求所識別的重要變數。機器學習系統支援多個適用於各種情況的**模型化演算法**。如需指引，請參閱[如何選擇 Azure Machine Learning 的演算法](machine-learning-algorithm-choice.md)。
 
 資料科學家必須選擇最適合其預測工作的模型，而來自多個模型的結果也經常必須結合以取得最佳結果。模型化的輸入資料通常隨機分成三個部分：
 
@@ -100,4 +100,4 @@ Team Data Science Process 的分析環境包含數個元件：
 
 此外也會提供完整的端對端逐步解說，說明**特定案例**之程序中的所有步驟。[Team Data Science Process 逐步解說](data-science-process-walkthroughs.md)主題中會列出這些逐步解說與縮圖描述。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

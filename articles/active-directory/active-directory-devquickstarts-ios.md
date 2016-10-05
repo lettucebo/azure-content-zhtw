@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # 將 Azure AD 整合至 iOS 應用程式
@@ -48,7 +48,7 @@ iOS 格式的重新導向 URI：
 - 	**aap-scheme** - 這已在您的 XCode 專案中註冊。它是其他應用程式呼叫您的方式。您可以在 Info.plist -> URL types -> URL Identifier 下找到此項目。如果您尚未設定任何一個，建議您建立一個。
 - 	**bundle-id** - 這是在您的 XCode 專案設定中，[identity] 下可找到的 [Bundle Identifier]。
 
-此 QuickStart 程式碼的範例為：******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+此 QuickStart 程式碼的範例為：***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2.註冊 DirectorySearcher 應用程式*
 若要讓您的應用程式取得權杖，您必須先在 Azure AD 租用戶中註冊這個應用程式，並授權它存取 Azure AD Graph API：
@@ -226,8 +226,8 @@ ADAL 可讓您輕鬆地將這些常見的身分識別功能全部納入您的應
 您現在可以繼續探索其他案例。您可以嘗試：
 
 - [使用 Azure AD 保護 Node.js Web API](active-directory-devquickstarts-webapi-nodejs.md)
-- 了解[如何使用 ADAL 在 iOS 上啟用跨應用程式的 SSO](active-directory-sso-ios.md)  
+- 了解[如何使用 ADAL 在 iOS 上啟用跨應用程式的 SSO](active-directory-sso-ios.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0921_2016-->

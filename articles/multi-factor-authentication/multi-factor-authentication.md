@@ -4,8 +4,8 @@
 	keywords="MFA 的簡介, mfa 概觀, 什麼是 mfa"
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
 <tags
@@ -13,9 +13,9 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # 什麼是 Azure Multi-Factor Authentication？
 多因素驗證 (MFA) 是需要使用多種驗證方法，並在使用者登入和交易中新增重要的第二層安全性的驗證方法。其運作方式需要下列其中任何二或多個驗證方法：
@@ -147,12 +147,12 @@ Azure Multi-Factor Authentication 為雲端與伺服器提供可選取的驗證�
 
 因為 Azure Multi-Factor Authentication 的種類繁多，我們必須從幾個重點來判斷，以便找出最合適的版本。這些重點包括：
 
--	<a href="#-1">我要保護什麼</a>
--	<a href="#-2">使用者位於何處</a>
+-	[我要保護什麼](#what-am-i-trying-to-secure)
+-	[使用者位於何處](#where-are-the-users-located)
 
 下列小節將提供如何判斷以上重點的指引。
 
-<h3 id="-1">我要保護什麼？</h3>
+### 我要保護什麼？
 
 為了判斷出正確的 Multi-Factor Authentication 解決方案，首先我們必須回答一個問題：您試圖使用第二個驗證方法來保護什麼？它是 Azure 中的應用程式嗎？ 或者是遠端存取系統之類的系統。藉由判斷我們嘗試保護的東西，我們可以找出該在何處啟用 Multi-Factor Authentication 這個問題的答案。
 
@@ -168,7 +168,7 @@ VPN、RDG 等遠端存取| |* |
 
 
 
-<h3 id="-2">使用者位於何處</h3>
+### 使用者位於何處
 
 接下來，不論是雲端中的 Multi-Factor Authentication 或使用 MFA Server 的內部部署 Multi-Factor Authentication，只要根據使用者的所在位置，我們就可以判斷出合適的解決方案。
 
@@ -209,4 +209,4 @@ MFA 報告 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

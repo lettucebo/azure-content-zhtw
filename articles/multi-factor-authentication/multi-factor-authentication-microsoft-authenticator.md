@@ -3,7 +3,7 @@
 	description="了解如何升級至最新版的 Azure Authenticator。"
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
+	authors="kgremban"
 	manager="femila"
 	editor="curtland"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Microsoft 驗證器
 
@@ -137,4 +137,4 @@ Microsoft 驗證器應用程式適用於 [Windows Phone](http://go.microsoft.com
 
 ![刪除按鈕](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

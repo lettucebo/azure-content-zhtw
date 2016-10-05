@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 # 使用 SQL 資料分割資料表平行處理大量資料匯入
@@ -25,7 +25,8 @@
 
 - [建立新的資料庫](https://technet.microsoft.com/library/ms176061.aspx) (如果不存在)
 - 將資料庫檔案群組新增至將用來保留資料分割實體檔案的資料庫
-- 注意：這可透過 [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) (如果是新的) 或 [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) (如果資料庫已經存在) 來完成
+
+  注意：這可透過 [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) (如果是新的) 或 [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) (如果資料庫已經存在) 來完成
 
 - 將一或多個檔案 (視需要) 新增至每個資料庫檔案群組
 
@@ -74,7 +75,7 @@
 	    <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
 	    <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
 
-- 提示：若要根據函數/配置確認範圍會在每個資料分割中生效，請執行下列查詢：
+  提示：若要根據函數/配置確認範圍會在每個資料分割中生效，請執行下列查詢：
 
 	    SELECT psch.name as PartitionScheme,
 	    	prng.value AS ParitionValue,
@@ -89,7 +90,7 @@
 	    CREATE TABLE <table_name> ( [include schema definition here] )
 	    ON <TablePScheme>(<partition_field>)
 
-- 如需詳細資訊，請參閱[建立分割區資料表及索引](https://msdn.microsoft.com/library/ms188730.aspx)。
+如需詳細資訊，請參閱[建立分割區資料表及索引](https://msdn.microsoft.com/library/ms188730.aspx)。
 
 
 ## 大量匯入每個個別資料分割資料表的資料
@@ -187,4 +188,4 @@
 如需使用公用資料集進行 Cortana 分析程序的端對端逐步解說範例，請參閱 [Cortana 分析程序實務範例：使用 SQL Server](machine-learning-data-science-process-sql-walkthrough.md)。
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

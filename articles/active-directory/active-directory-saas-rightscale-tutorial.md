@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -31,7 +31,7 @@
 
 若要設定 Azure AD 與 RightScale 整合，您需要下列項目：
 
-- 一個 Azure AD 訂用帳戶
+- Azure AD 訂用帳戶
 - 一個已啟用 RightScale 單一登入功能的訂用帳戶
 
 
@@ -112,14 +112,14 @@
 
 	![設定單一登入](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_03.png)
 
-3. 在 [設定應用程式設定] 對話方塊頁面上，如果您想要以「IDP 起始模式」設定應用程式，請執行下列步驟，然後按 [下一步]：
+3. 在 [設定應用程式設定] 對話方塊頁面上，如果您想要以 **IDP 起始模式**設定應用程式，請執行下列步驟，然後按一下 [下一步]：
 
 	![設定單一登入](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_04.png)
 
 
     a.在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://login.rightscale.com/login/saml2/consume`
 
-	b.按 [下一步]
+	b.按 [**下一步**]
 
 4. 如果您想要在 [設定應用程式設定] 對話方塊頁面上以「SP 起始模式」設定應用程式，則請按一下 [顯示進階設定 (選擇性)]，然後輸入「登入 URL」並按 [下一步]。
  
@@ -218,7 +218,7 @@
 
     c.按 [下一步]。
 
-6.  在 [使用者設定檔] 對話方塊頁面上，執行下列步驟：
+6.  在 [使用者設定檔]對話方塊頁面上，執行下列步驟：
 
 	![建立 Azure AD 測試使用者](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png)
 
@@ -309,4 +309,4 @@
 [204]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

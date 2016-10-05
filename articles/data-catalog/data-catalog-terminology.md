@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/06/2016"
+   ms.date="09/21/2016"
    ms.author="maroche"/>
 
 # Azure 資料目錄術語
@@ -40,7 +40,7 @@ Azure 資料目錄是以雲端為基礎的中繼資料儲存機制，其中可�
 
 ## 描述性中繼資料
 
-描述性中繼資料是描述資料資產的用途或意圖的中繼資料。描述性中繼資料通常由目錄使用者利用 Azure 資料目錄入口網站來加入，但也可以在註冊期間從資料來源擷取。Azure 資料目錄註冊工具會從 SQL Server Analysis Services 和 SQL Server Reporting Services 中的 Description 屬性擷取描述，以及從 SQL Server 資料庫中的 [ms\_description 擴充屬性](https://technet.microsoft.com/library/ms190243.aspx)擷取描述 (如果這些屬性已填入值)。
+描述性中繼資料是描述資料資產的用途或意圖的中繼資料。描述性中繼資料通常由目錄使用者利用 Azure 資料目錄入口網站來加入，但也可以在註冊期間從資料來源擷取。例如，Azure 資料目錄註冊工具會從 SQL Server Analysis Services 和 SQL Server Reporting Services 中的 Description 屬性擷取描述，以及從 SQL Server 資料庫中的 [ms\_description 擴充屬性](https://technet.microsoft.com/library/ms190243.aspx)擷取描述 (如果這些屬性已填入值)。
 
 ## 要求存取
 
@@ -86,4 +86,4 @@ Azure 資料目錄中的資料設定檔是資料表層級的快照集和及資�
 
 - 〈[開始使用 Azure 資料目錄](data-catalog-get-started.md)〉 - 這篇文章提供端對端教學課程，示範如何使用 Azure 資料目錄來探索資料來源。
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

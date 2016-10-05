@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/05/2016"
+   ms.date="09/20/2016"
    ms.author="carlrab"/>
 
 # 使用動態管理檢視監視 Azure SQL Database
 
-Microsoft Azure SQL Database 可使用動態管理檢視的子集來診斷可能因為封鎖或長時間執行的查詢、資源瓶頸、不佳的查詢計畫等等所造成的效能問題。本主題提供如何使用動態管理檢視偵測常見效能問題的資訊。
+Microsoft Azure SQL Database 可使用動態管理檢視的子集來診斷可能因為封鎖或長時間執行的查詢、資源瓶頸、不佳的查詢計畫等等所造成的效能問題。本主題提供有關如何使用動態管理檢視來偵測常見效能問題的資訊。
 
 SQL Database 部分支援動態管理檢視的三個類別目錄：
 
@@ -76,7 +76,7 @@ JOIN sys.dm_exec_sessions AS s
 WHERE c.session_id = @@SPID;
 ```
 
-> [AZURE.NOTE] 當執行 **sys.dm\_exec\_requests** 和 **sys.dm\_exec\_sessions 檢視**時，如果使用者在資料庫上具有 **VIEW DATABASE STATE** 權限，使用者將會看到資料庫上所有執行中的工作階段；否則，使用者只會看見目前的工作階段。
+> [AZURE.NOTE] 執行 **sys.dm\_exec\_requests** 和 **sys.dm\_exec\_sessions views** 時，如果您具備資料庫的 **VIEW DATABASE STATE** 權限，您就會看到該資料庫上所有正在執行的工作階段；否則您只會看到目前的工作階段。
 
 ## 監視查詢效能
 
@@ -135,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [SQL Database 簡介](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

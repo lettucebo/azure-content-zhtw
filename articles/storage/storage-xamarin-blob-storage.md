@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="xamarin"
 	authors="micurd"
-	manager=""
+	manager="jahogg"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="micurd"/>
+	ms.author="micurd;tamram"/>
 
 # 如何使用 Xamarin 的 Blob 儲存體
 
@@ -217,4 +217,4 @@ Xamarin 可讓開發人員使用共用的 C# 程式碼基底，使用其原生�
 
 [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-<!----HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

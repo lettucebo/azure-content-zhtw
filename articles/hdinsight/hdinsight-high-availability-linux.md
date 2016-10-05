@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="09/13/2016"
 	ms.author="larryfr"/>
 
 #HDInsight 上 Hadoop 叢集的可用性和可靠性
@@ -41,6 +41,10 @@ HDInsight 叢集提供次要的前端節點，在主要節點失敗時，可讓�
 
 > [AZURE.IMPORTANT] 這兩個前端節點會同時為作用中和在叢集中執行。某些服務，例如 HDFS 或 YARN，在任何給定的時間僅能在其中一個前端節點上為「作用中」(而在其他前端節點上為「待命」)。HiveServer2 或 Hive MetaStore 等其他服務可同時在這兩個前端節點上作用。
 
+前端節點 (和 HDInsight 中的其他節點) 以數值做為節點主機名稱的一部分。例如，`hn0-CLUSTERNAME` 或 `hn4-CLUSTERNAME`。
+
+> [AZURE.IMPORTANT] 請勿將數值與節點 (不論是主要或次要) 相關聯；數值只是用來為每個節點提供唯一名稱。
+
 ###Nimbus 節點
 
 對於 Storm 叢集，Nimbus 節點會透過在背景工作節點之間散佈並監視處理，來提供 Hadoop jobtracker 類似的功能。HDInsight 提供 2 個 Nimbus 節點給 Storm 叢集類型。
@@ -64,9 +68,9 @@ HDInsight 叢集提供次要的前端節點，在主要節點失敗時，可讓�
 
 ## 存取節點
 
-經由公用閘道器提供透過網際網路存取叢集，並僅限於連接至前端節點 (若 R 伺服器是在 HDInsight 叢集上) 和邊緣節點。由於公用閘道器會將要求路由至裝載所要求服務的前端節點，因此在前端節點上執行服務的存取不會受到具多個前端節點的影響。比方說，如果 Ambari 目前裝載在前端節點 1 上，閘道器會將 Ambari 收到的要求路由至該節點。
+經由公用閘道器提供透過網際網路存取叢集，並僅限於連接至前端節點 (若 R 伺服器是在 HDInsight 叢集上) 和邊緣節點。由於公用閘道器會將要求路由至裝載所要求服務的前端節點，因此在前端節點上執行服務的存取不會受到具多個前端節點的影響。比方說，如果 Ambari 目前裝載在次要前端節點上，閘道器會將 Ambari 收到的要求路由至該節點。
 
-使用 SSH 存取叢集時，透過連接埠 22 (SSH 的預設值) 的連接將會連接到前端節點 0；透過連接埠 23 的連接將會連接到前端節點 1。例如，`ssh username@mycluster-ssh.azurehdinsight.net` 將連線到名為 __mycluster__ 的叢集前端節點 0 。
+使用 SSH 存取叢集時，透過連接埠 22 (SSH 的預設值) 的連接將會連接到主要前端節點；透過連接埠 23 的連接將會連接到次要前端節點。例如，`ssh username@mycluster-ssh.azurehdinsight.net` 會連線到名為 __mycluster__ 之叢集的主要前端節點。
 
 > [AZURE.NOTE] 這也適用於根據 SSH 的通訊協定，例如 SSH 檔案傳輸通訊協定 (SFTP)。
 
@@ -143,7 +147,7 @@ Ambari REST API 可透過網際網路提供，而且公用閘道器會處理路�
 	  }
 	}
 
-該 URL 會告訴我們**前端節點 0** 上目前執行的服務。
+該 URL 會告訴我們服務目前正在名為 __hn0-CLUSTERNAME__ 的前端節點上執行。
 
 該狀態會告訴我們此服務目前正在執行，或**已啟動**。
 
@@ -225,4 +229,4 @@ Ambari REST API 可透過網際網路提供，而且公用閘道器會處理路�
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

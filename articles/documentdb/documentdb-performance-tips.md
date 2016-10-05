@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2016" 
+	ms.date="09/19/2016" 
 	ms.author="mimig"/>
 
 # DocumentDB 的效能秘訣
 
 Azure DocumentDB 是一個既快速又彈性的分散式資料庫，可在獲得延遲與輸送量保證的情況下順暢地調整。使用 DocumentDB 時，您不須進行主要的架構變更，或是撰寫複雜的程式碼來調整您的資料庫。相應增加和減少就像進行單一 API 呼叫或 [SDK 方法呼叫](documentdb-performance-levels.md#changing-performance-levels-using-the-net-sdk)一樣簡單。不過，由於 DocumentDB 是透過網路呼叫存取，所以您可以進行用戶端最佳化以達到最高效能。
 
-如果您詢問「如何改善我的資料庫效能？」，請考慮下列選項。
+如果您詢問「如何改善我的資料庫效能？」，請考慮下列選項：
 
 ## 網路
 <a id="direct-connection"></a>
@@ -89,24 +89,36 @@ Azure DocumentDB 是一個既快速又彈性的分散式資料庫，可在獲得
     請注意，每個 DocumentClient 執行個體都具備執行緒安全，並且在直接模式中運作時執行有效率的連接管理和位址快取。若要藉由 DocumentClient 獲得有效率的連接管理和更佳的效能，建議在應用程式存留期內對每個 AppDomain 使用單一 DocumentClient 執行個體。<a id="max-connection"></a>
 3. **增加每部主機的 System.Net MaxConnections**
 
-    DocumentDB 要求預設是透過 HTTPS/REST 發出，並受制於每個主機名稱或 IP 位址的預設連線限制。您可能必須將此值設定成較高的值 (100-1000)，以便讓用戶端程式庫能夠利用多個連到 DocumentDB 的同時連線。在 .NET SDK 1.8.0 和更新版本中，[ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 的預設值為 50，而若要變更此值，您可以將 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/zh-TW/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) 設定為更高的值。
+    DocumentDB 要求預設是透過 HTTPS/REST 發出，並受制於每個主機名稱或 IP 位址的預設連線限制。您可能必須將 MaxConnections 設定成較高的值 (100-1000)，以便讓用戶端程式庫能夠利用多個連到 DocumentDB 的同時連線。在 .NET SDK 1.8.0 和更新版本中，[ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 的預設值為 50，而若要變更此值，您可以將 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/zh-TW/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) 設定為更高的值。
 
-4. **開啟伺服器端 GC**
+4. **微調分割之集合的平行查詢**
+
+    DocumentDB .NET SDK 1.9.0 版和更新版本支援平行查詢，可讓您平行查詢分割的集合。如需詳細資訊，請參閱＜使用 SDK＞和相關的程式碼範例。它們的設計目的是要改善查詢延遲和輸送量。平行查詢提供兩個可供使用者微調以符合其需求的參數：(a) MaxDegreeOfParallelism：用來控制可平行查詢的分割數目上限，以及 (b) MaxBufferedItemCount：用來控制預先擷取的結果數目。
+    
+    (a) **微調 MaxDegreeOfParallelism：**平行查詢的運作方式是以平行方式查詢多個分割。不過，對於查詢會以循序方式擷取來自個別分割集合的資料。因此，將 MaxDegreeOfParallelism 設定為分割數目會最有機會達到最高效能的查詢，但前提是其他所有系統條件皆維持不變。如果您不知道分割數目，您可以將 MaxDegreeOfParallelism 設定為較高的數字，然後系統會選擇最小值 (資料分割數目、使用者提供的輸入值) 做為 MaxDegreeOfParallelism。
+    
+    請務必注意，若對於查詢是以平均方式將資料分佈於所有分割，平行查詢便會產生最佳效益。如果分割之集合的分割方式是查詢所傳回的所有或大多數資料集中在少數幾個分割中 (最差的情況是集中在一個分割)，則這些分割會成為查詢效能的瓶頸。
+    
+    (b) **微調 MaxBufferedItemCount：**平行查詢的設計目的是要在用戶端處理目前的結果批次時預先擷取結果。預先擷取有助於改善查詢的整體延遲。MaxBufferedItemCount 是用來限制預先擷取之結果數量的參數。將 MaxBufferedItemCount 設定為預期傳回的結果數目 (或更高的數目)，可讓查詢透過預先擷取獲得最大效益。
+    
+    請注意，預先擷取會以相同方式運作，不受 MaxDegreeOfParallelism 的影響，而且來自所有分割的資料會有單一緩衝區。
+
+5. **開啟伺服器端 GC**
     
     在某些情況下，降低廢棄項目收集頻率可能會有幫助。在 .NET 中，請將 [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) 設定為 true。
 
-5. **在 RetryAfter 間隔實作降速**
+6. **在 RetryAfter 間隔實作降速**
  
-    在進行效能測試期間，您應該增加負載，直到系統對小部分要求進行節流處理為止。如果進行節流處理，用戶端應用程式應該在節流時降速，且持續時間達伺服器指定的重試間隔。這可確保您在重試之間花費最少的等待時間。重試原則支援包含於 DocumentDB [.NET](documentdb-sdk-dotnet.md) 和 [Java](documentdb-sdk-java.md) 的 1.8.0 版和更新版本中，以及 [Node.js](documentdb-sdk-nodejs.md) 和 [Python](documentdb-sdk-python.md) 的 1.9.0 版或更新版本中。如需詳細資訊，請參閱[超過保留的輸送量限制](documentdb-request-units.md#exceeding-reserved-throughput-limits)和 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)。
+    在進行效能測試期間，您應該增加負載，直到系統對小部分要求進行節流處理為止。如果進行節流處理，用戶端應用程式應該在節流時降速，且持續時間達伺服器指定的重試間隔。採用降速可確保您在重試之間花費最少的等待時間。重試原則支援包含於 DocumentDB [.NET](documentdb-sdk-dotnet.md) 和 [Java](documentdb-sdk-java.md) 的 1.8.0 版和更新版本中，以及 [Node.js](documentdb-sdk-nodejs.md) 和 [Python](documentdb-sdk-python.md) 的 1.9.0 版或更新版本中。如需詳細資訊，請參閱[超過保留的輸送量限制](documentdb-request-units.md#exceeding-reserved-throughput-limits)和 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)。
 
-6. **相應放大用戶端工作負載**
+7. **相應放大用戶端工作負載**
 
     如果您是以高輸送量層級 (> 50,000 RU/秒) 進行測試，用戶端應用程式可能會成為瓶頸，因為電腦對 CPU 或網路的使用率將達到上限。如果您達到這個點，您可以將用戶端應用程式向外延展至多部伺服器，以繼續將 DocumentDB 帳戶再往前推進一步。
 
-7. **快取較低讀取延遲的文件 URI**
+8. **快取較低讀取延遲的文件 URI**
 
     盡可能快取文件 URI 以達到最佳讀取效能。<a id="tune-page-size"></a>
-8. **調整查詢/讀取摘要的頁面大小以獲得更好的效能**
+9. **調整查詢/讀取摘要的頁面大小以獲得更好的效能**
 
     使用讀取摘要功能 (亦即 ReadDocumentFeedAsync) 執行大量文件讀取時，或發出 DocumentDB SQL 查詢時，如果結果集太大，則會以分段方式傳回結果。根據預設，會以 100 個項目或 1 MB 的區塊傳回結果 (以先達到的限制為準)。
 
@@ -116,17 +128,17 @@ Azure DocumentDB 是一個既快速又彈性的分散式資料庫，可在獲得
     
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 
-9. **增加執行緒/工作數目**
+10. **增加執行緒/工作數目**
 
-	請參閱「網路」一節中的[增加執行緒/工作數目](increase-threads.md)。
+	請參閱＜網路＞一節中的[增加執行緒/工作數目](increase-threads.md)。
 
 ## 索引原則
 
 1. **使用延遲索引加快尖峰時間擷取速率**
 
-    DocumentDB 可讓您在集合層級指定索引編製原則，該原則可讓您選擇是否要對集合中的文件自動編製索引。此外，您也可以選擇同步 (一致) 和非同步 (延遲) 索引更新。每次在集合中插入、取代或刪除文件時，預設會同步更新索引。這可讓查詢遵守與文件讀取操作相同的[一致性層級](documentdb-consistency-levels.md)，而不會有任何需要索引趕上的延遲。
+    DocumentDB 可讓您在集合層級指定索引編製原則，該原則可讓您選擇是否要對集合中的文件自動編製索引。此外，您也可以選擇同步 (一致) 和非同步 (延遲) 索引更新。每次在集合中插入、取代或刪除文件時，預設會同步更新索引。同步模式可讓查詢遵守與文件讀取操作相同的[一致性層級](documentdb-consistency-levels.md)，而不會有任何需要索引趕上的延遲。
     
-    當發生資料寫入暴增，而您想要拉長時間來分攤編製內容索引所需的工作時，可以考慮延遲索引編製。這可讓您有效地使用您佈建的輸送量，並在尖峰時間，以最少的延遲為寫入要求提供服務。不過，請特別注意，啟用延遲索引編製功能後，不論為 DocumentDB 帳戶設定的一致性層級為何，查詢結果最終仍是會保持一致。
+    當發生資料寫入暴增，而您想要拉長時間來分攤編製內容索引所需的工作時，可以考慮延遲索引編製。延遲索引編製也可讓您有效地使用您佈建的輸送量，並在尖峰時間，以最少的延遲為寫入要求提供服務。不過，請特別注意，啟用延遲索引編製功能後，不論為 DocumentDB 帳戶設定的一致性層級為何，查詢結果最終仍是會保持一致。
 
     因此，一致索引編製模式 (IndexingPolicy.IndexingMode 設定為 [一致]) 會產生每次寫入的最高要求單位費用，而延遲索引編製模式 (IndexingPolicy.IndexingMode 設定為 [延遲]) 和不編製索引 (IndexingPolicy.Automatic 設定為 False) 在寫入時的編製索引成本為零。
 
@@ -177,7 +189,7 @@ Azure DocumentDB 是一個既快速又彈性的分散式資料庫，可在獲得
 
     SDK 全都隱含地攔截這個回應，採用伺服器指定的 retry-after 標頭，並重試此要求。除非有多個用戶端同時存取您的帳戶，否則下次重試將會成功。
 
-    如果您有多個用戶端都以高於要求速率的方式累積運作，則用戶端在內部設定為 9 的預設重試計數可能會不敷使用；在此情況夏，用戶端將擲回 DocumentClientException (狀態碼 429) 到應用程式。在 ConnectionPolicy 執行個體上設定 RetryOptions，即可變更預設重試次數。根據預設，如果要求繼續以高於要求速率的方式運作，則會在 30 秒的累計等候時間後傳回 DocumentClientException (狀態碼 429)。即使目前的重試計數小於最大重試計數 (預設值 9 或使用者定義的值)，也會發生這種情況。
+    如果您有多個用戶端都以高於要求速率的方式累積運作，則用戶端在內部設定為 9 的預設重試計數可能會不敷使用；在此情況下，用戶端會擲回 DocumentClientException (狀態碼 429) 到應用程式。在 ConnectionPolicy 執行個體上設定 RetryOptions，即可變更預設重試次數。根據預設，如果要求繼續以高於要求速率的方式運作，則會在 30 秒的累計等候時間後傳回 DocumentClientException (狀態碼 429)。即使目前的重試計數小於最大重試計數 (預設值 9 或使用者定義的值)，也會發生這種情況。
 
     雖然自動重試行為有助於改善大部分應用程式的恢復功能和可用性，但是在進行效能基準測試時可能會有所歧異 (尤其是在測量延遲時)。如果實驗達到伺服器節流並導致用戶端 SDK 以無訊息模式重試，則用戶端觀察到的延遲將會突然增加。若要避免效能實驗期間的延遲尖峰，測量每個作業所傳回的費用，並確保要求是以低於保留要求速率的方式運作。如需詳細資訊，請參閱[要求單位](documentdb-request-units.md)。
    
@@ -199,4 +211,4 @@ Azure DocumentDB 是一個既快速又彈性的分散式資料庫，可在獲得
 
 此外，若要深入了解如何針對規模和高效能設計您的應用程式，請參閱 [Azure DocumentDB 的資料分割與調整規模](documentdb-partition-data.md)。
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

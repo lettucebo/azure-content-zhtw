@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure Multi-Factor Authentication 的 Azure MFA 登入體驗" 
+<properties
+	pageTitle="Azure Multi-Factor Authentication 的 Azure MFA 登入體驗"
 	description="本頁面將指引您移至何處才能看到 Azure MFA 可用的各種登入方法。"
-	keywords="使用者驗證, 登入經驗, 使用行動電話登入, 使用辦公室電話登入" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	keywords="使用者驗證, 登入經驗, 使用行動電話登入, 使用辦公室電話登入"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication 的登入體驗
 > [AZURE.NOTE]  以下文件顯示一般登入體驗。如需登入的說明，請參閱[使用 Azure Multi-Factor Authentication 時碰到困難](multi-factor-authentication-end-user-manage-settings.md)
@@ -27,7 +27,7 @@
 
 
 您在做什麼？|說明
-:------------- | :------------- | 
+:------------- | :------------- |
 [使用行動或辦公室電話登入](#signing-in-with-mobile-or-office-phone) | 這是使用行動或辦公室電話登入時所能預期的情況。
 [使用通知登入 Microsoft 驗證器應用程式](#signing-in-with-the-microsoft-authenticator-app-using-notification) | 這是搭配使用 Microsoft 驗證器應用程式與通知時所能預期的情況。
 [使用驗證碼登入 Microsoft 驗證器應用程式](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|這是搭配使用 Microsoft 驗證器應用程式與驗證碼時所能預期的情況。
@@ -105,6 +105,4 @@
 
 - 選擇替代方法並且登入。
 
- 
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

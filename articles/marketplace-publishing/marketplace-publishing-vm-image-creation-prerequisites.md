@@ -22,7 +22,7 @@
 ## 下載需要的工具和應用程式
 開始程序之前，您應該先準備好下列項目：
 
-- 視您的目標作業系統而定，從 Azure 下載頁面安裝 Azure PowerShell Cmdlet 或 Linux 命令列介面工具。
+- 視您的目標作業系統而定，從 [Azure 下載](https://azure.microsoft.com/downloads/)頁面安裝 [Azure PowerShell Cmdlet](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) 或 [Linux 命令列介面工具](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409)。
 - 從 CodePlex 安裝 Azure 儲存體總管。
 - 下載並安裝適用於 Azure 認證的認證測試工具：
   - [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913)。您需要 Windows 架構的電腦才能執行認證工具。如果您沒有 Windows 電腦，可以在 Azure 中使用 Windows 架構的 VM 執行工具。
@@ -48,9 +48,9 @@
 
 ## 另請參閱
 - [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
-- [在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](../virtual-machines-windows-hero-tutorial/)
+- [在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

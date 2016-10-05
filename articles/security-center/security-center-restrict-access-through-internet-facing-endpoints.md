@@ -34,7 +34,7 @@
 
 4. 在 [輸入安全性規則] 刀鋒視窗中選取要編輯的輸入規則。在此範例中，我們選取 [允許 Web]。![輸入安全性規則][4]
 
-  注意，您也可以選取 [預設規則] 以查看所有 NSG 包含的預設規則集。預設規則無法刪除，但因為其會指派為較低優先權，因此可以由您所建立的規則覆寫預設規則。深入了解 [預設規則] (../virtual-network/ virtual-networks-nsg.md#default-rules)。![預設規則][5]
+  注意，您也可以選取 [預設規則] 以查看所有 NSG 包含的預設規則集。預設規則無法刪除，但因為其會指派為較低優先權，因此可以由您所建立的規則覆寫預設規則。深入了解 [預設規則](../virtual-network/ virtual-networks-nsg.md#default-rules)。![預設規則][5]
 
 5. 在 [允許 Web] 刀鋒視窗中編輯輸入規則的內容，讓**來源**是 IP 位址或 IP 位址區塊。若要深入了解輸入規則的內容，請參閱 [NSG 規則](../virtual-network/virtual-networks-nsg.md#nsg-rules)。
 

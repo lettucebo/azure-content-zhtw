@@ -280,7 +280,7 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 
 * [Azure Mobile Apps 中的離線資料同步處理]
 
-* [雲端報導︰Azure Mobile Services 中的離線同步處理] (注意︰影片位於 Mobile Services 上，但離線同步處理的運作方式類似在 Azure Mobile Apps 中的方式)
+* [雲端報導︰Azure Mobile Services 中的離線同步處理] \(注意︰影片位於 Mobile Services 上，但離線同步處理的運作方式類似在 Azure Mobile Apps 中的方式)
 
 <!-- URLs. -->
 

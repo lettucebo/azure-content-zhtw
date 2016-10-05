@@ -5,7 +5,7 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -24,7 +24,7 @@
 
 ## 執行 Azure PowerShell Cmdlet 進行串流分析的必要條件
 
- - 在您的訂閱中建立 Azure 資源群組。下列是 PowerShell 指令碼範例。如需 Azure PowerShell 資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
+ - 在您的訂用帳戶中建立「Azure 資源群組」。下列是 PowerShell 指令碼範例。如需 Azure PowerShell 資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
 
 Azure PowerShell 0.9.8：
 
@@ -62,7 +62,7 @@ Azure PowerShell 1.0：
 下表列出可用來監視和管理 Azure 串流分析工作的 Azure PowerShell Cmdlet。請注意，Azure PowerShell 有不同的版本。**下列範例中所列出的第一個命令是針對 Azure PowerShell 0.9.8，第二個命令是針對 Azure PowerShell 1.0。** Azure PowerShell 1.0 命令永遠會在命令中使用 "AzureRM"。
 
 ### Get-AzureStreamAnalyticsJob | Get-AzureRMStreamAnalyticsJob
-列出 Azure 訂用帳戶或指定的資源群組中定義的所有串流分析工作，或取得資源群組內與特定作業相關的工作資訊。
+列出 Azure 訂用帳戶或指定的資源群組中定義的所有「串流分析」工作，或取得與資源群組內特定工作相關的工作資訊。
 
 **範例 1**
 
@@ -74,7 +74,7 @@ Azure PowerShell 1.0：
 
 	Get-AzureRMStreamAnalyticsJob
 
-此 PowerShell 命令會傳回 Azure 訂用帳戶中所有串流分析工作的相關資訊。
+此 PowerShell 命令會傳回 Azure 訂用帳戶中所有「串流分析」工作的相關資訊。
 
 **範例 2**
 
@@ -398,7 +398,7 @@ Azure PowerShell 1.0：
 
 
 ### Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
-以非同步方式停止在 Microsoft Azure 中執行 Stream Analytics 作業，並取消配置正在使用的資源。透過 Azure 入口網站和管理 API 仍可在訂用帳戶內使用工作定義與中繼資料，也因此可以編輯和重新啟動工作。您將不需要對處於已停止狀態的工作支付費用。
+以非同步方式停止在 Microsoft Azure 中執行 Stream Analytics 作業，並取消配置正在使用的資源。透過 Azure 入口網站和管理 API 仍可使用訂用帳戶內的該工作定義與中繼資料，也因此可以編輯和重新啟動工作。您將不需要對處於已停止狀態的工作支付費用。
 
 **範例 1**
 
@@ -472,4 +472,4 @@ Azure PowerShell 1.0：
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

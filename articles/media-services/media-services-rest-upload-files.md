@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 REST 將檔案上傳至媒體服務帳戶" 
+	pageTitle="使用 REST 將檔案上傳至媒體服務帳戶 | Microsoft Azure" 
 	description="了解如何建立並上傳資產，以將媒體內容移至媒體服務中。" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 
@@ -26,8 +26,11 @@
 
 在媒體服務中，您會將數位檔案上傳到到資產。[資產](https://msdn.microsoft.com/library/azure/hh974277.aspx)實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式字幕檔案 (以及這些檔案的相關中繼資料)。 一旦檔案會上傳到資產，您的內容會安全地儲存在雲端，以便進行進一步的處理和串流。
 
-
->[AZURE.NOTE]媒體服務在建置串流內容的 URL 時使用 IAssetFile.Name 屬性的值 (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) 基於這個理由，不允許 percent-encoding。**Name** 屬性的值不能有下列任何 [percent-encoding-reserved 字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#"。而且，副檔名只能有一個 ‘.’。
+>[AZURE.NOTE]當您選擇資產檔案名稱時適用下列考量︰
+>
+>- 媒體服務在建置串流內容的 URL 時使用 IAssetFile.Name 屬性的值 (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) 基於這個理由，不允許 percent-encoding。**Name** 屬性的值不能有下列任何 [percent-encoding-reserved 字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#"。而且，副檔名只能有一個 '.'。
+>
+>- 名稱長度不應超過 260 個字元。
 
 上傳資產的基本工作流程分成下列各節：
 
@@ -326,7 +329,8 @@ SAS URL 具有下列格式：
 
 **HTTP 回應**
 
-如果成功，會傳回下列訊息：HTTP/1.1 204 沒有內容
+如果成功，會傳回下列訊息：
+	HTTP/1.1 204 沒有內容
 
 ### 刪除 Locator 和 AccessPolicy 
 
@@ -518,7 +522,9 @@ ProtectionKeyType | 這是適用於保護金鑰的加密類型，可用來將內
 
 
 
-##媒體服務學習路徑
+##後續步驟
+
+檢閱媒體服務學習路徑。
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -532,4 +538,4 @@ ProtectionKeyType | 這是適用於保護金鑰的加密類型，可用來將內
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

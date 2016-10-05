@@ -141,7 +141,7 @@ HackerOne 與 Azure AD 整合提供下列優點：
 
 	![設定單一登入](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png)
 
-1. 瀏覽至 [驗證] 並按一下 [Add SAML settings] (加入 SAML 設定)。
+1. 瀏覽至 [驗證] 並按一下 [Add SAML settings] \(加入 SAML 設定)。
 
 	![設定單一登入](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png)
 

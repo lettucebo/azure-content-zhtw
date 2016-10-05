@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="09/20/2016" 
 	ms.author="arramac"/>
 
 # Azure DocumentDB 的資料分割與調整規模
@@ -261,7 +261,7 @@ DocumentDB SDK 1.9.0 和更新版本支援平行查詢執行選項，可讓您�
 
 若要管理平行執行查詢，您可以調整下列參數︰
 
-- 藉由設定 `MaxDegreeOfParallelism`，您可以控制平行處理原則的程度，亦即與集合的資料分割同時的網路連線數上限。如果您將此設定為 -1，平行處理原則的程度是由 SDK 管理。
+- 藉由設定 `MaxDegreeOfParallelism`，您可以控制平行處理原則的程度，亦即與集合的資料分割同時的網路連線數上限。如果您將此設定為 -1，平行處理原則的程度是由 SDK 管理。如果 `MaxDegreeOfParallelism` 未指定或設為 0 (這是預設值)，將會有連往集合資料分割的單一網路連線。
 - 藉由設定 `MaxBufferedItemCount`，您可以平衡查詢延遲和用戶端端記憶體使用量。如果您省略這個參數或將此設定為 -1，平行查詢執行期間緩衝處理的項目數是由 SDK 管理。
 
 在相同的集合狀態下，平行查詢會以和序列執行相同的順序傳回結果。執行包含排序 (ORDER BY 和/或 TOP) 的跨資料分割查詢時，DocumentDB SDK 會跨資料分割發出平行查詢，並合併用戶端中已部分排序的結果來產生全域排序的結果。
@@ -340,4 +340,4 @@ DocumentDB 最常見的其中一個使用案例是用在記錄與遙測。您可
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

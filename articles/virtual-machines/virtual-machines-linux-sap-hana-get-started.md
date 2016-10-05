@@ -1,20 +1,20 @@
 <properties
    pageTitle="在 Azure VM 上手動安裝 SAP HANA 的快速入門指南 | Microsoft Azure"
    description="在 Azure VM 上手動安裝 SAP HANA 的快速入門指南"
-   services="virtual-machines,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-linux"
+   documentationCenter=""
    authors="hermanndms"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
-   ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.service="virtual-machines-linux"
+   ms.devlang="na"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="na"
-   ms.date="09/07/2016"
+   ms.workload="infrastructure-services"
+   ms.date="09/15/2016"
    ms.author="hermannd"/>
 
 # 在 Azure VM 上手動安裝單一執行個體 SAP HANA 的快速入門指南
@@ -484,4 +484,4 @@ ASCS 執行個體安裝於應用程式伺服器 VM 且在 SAP MC 中設定為「
 
 * 從 SAP Service Marketplace 下載 HANA SP12 平台版本︰![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

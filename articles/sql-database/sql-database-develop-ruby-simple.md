@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="09/16/2016"
 	ms.author="andrela"/>
 
 
@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-本主題說明如何使用 Ruby 連接及查詢 Azure SQL Database。您可以從 Windows、Ubuntu Linux 或 Mac 平台執行這個範例。
+本主題說明如何使用 Ruby 來連接及查詢 Azure SQL Database。您可以從 Windows、Ubuntu Linux 或 Mac 平台執行這個範例。
 
 ## 步驟 1︰設定開發環境
 
@@ -50,4 +50,4 @@
 * [多租用戶 SaaS 應用程式與 Azure SQL Database 的設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * 瀏覽所有 [SQL Database 的能力](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -962,7 +962,7 @@ __範本__
 #### VM 映像的部署
 若要從內部部署網路上傳現有的 VM 或 VHD 以作為 Azure VM 映像，這類 VM 或 VHD 必須符合本文件的[準備使用客戶特定的映像為 SAP 部署 VM][planning-guide-5.2.2] 一章中所列的需求。
 
-* 在 Windows 上使用 _sysprep_ 或在 Linux 上使用 _waagent -deprovision_ 以將您的 VM 一般化 - 請參閱 [Sysprep 技術參考](https://technet.microsoft.com/library/cc766049.aspx) (適用於 Windows) 或[如何擷取 Linux 虛擬機器作為 Resource Manager 範本使用][virtual-machines-linux-capture-image-resource-manager-capture] (適用於 Linux)
+* 在 Windows 上使用 _sysprep_ 或在 Linux 上使用 _waagent -deprovision_ 以將您的 VM 一般化 - 請參閱 [Sysprep 技術參考](https://technet.microsoft.com/library/cc766049.aspx) (適用於 Windows) 或[如何擷取 Linux 虛擬機器作為 Resource Manager 範本使用][virtual-machines-linux-capture-image-resource-manager-capture] \(適用於 Linux)
 * 使用 _Login-AzureRmAccount_ 來登入您的訂用帳戶
 * 使用 _Set-AzureRmContext_ 和參數 SubscriptionId 或 SubscriptionName 來設定您內容的訂用帳戶 - 請參閱 <https://msdn.microsoft.com/library/mt619263.aspx>
 * 使用 _Add-AzureRmVhd_ 將 VHD 上傳至「Azure 儲存體帳戶」- 請參閱 <https://msdn.microsoft.com/library/mt603554.aspx>
@@ -971,7 +971,7 @@ __範本__
 
 __Azure CLI__
 
-* 在 Windows 上使用 _sysprep_ 或在 Linux 上使用 _waagent -deprovision_ 以將您的 VM 一般化 - 請參閱 [Sysprep 技術參考](https://technet.microsoft.com/library/cc766049.aspx) (適用於 Windows) 或[如何擷取 Linux 虛擬機器作為 Resource Manager 範本使用][virtual-machines-linux-capture-image-resource-manager-capture] (適用於 Linux)
+* 在 Windows 上使用 _sysprep_ 或在 Linux 上使用 _waagent -deprovision_ 以將您的 VM 一般化 - 請參閱 [Sysprep 技術參考](https://technet.microsoft.com/library/cc766049.aspx) (適用於 Windows) 或[如何擷取 Linux 虛擬機器作為 Resource Manager 範本使用][virtual-machines-linux-capture-image-resource-manager-capture] \(適用於 Linux)
 * 使用 _azure config mode arm_ 來切換至 Azure Resource Manager 模式
 * 使用 _azure login_ 來登入您的訂用帳戶
 * 使用 _azure account set `<subscription name or id`>_ 來選取您的訂用帳戶
@@ -980,7 +980,7 @@ __Azure CLI__
 
 __範本__
 
-* 在 Windows 上使用 _sysprep_ 或在 Linux 上使用 _waagent -deprovision_ 以將您的 VM 一般化 - 請參閱 [Sysprep 技術參考](https://technet.microsoft.com/library/cc766049.aspx) (適用於 Windows) 或[如何擷取 Linux 虛擬機器作為 Resource Manager 範本使用][virtual-machines-linux-capture-image-resource-manager-capture] (適用於 Linux)
+* 在 Windows 上使用 _sysprep_ 或在 Linux 上使用 _waagent -deprovision_ 以將您的 VM 一般化 - 請參閱 [Sysprep 技術參考](https://technet.microsoft.com/library/cc766049.aspx) (適用於 Windows) 或[如何擷取 Linux 虛擬機器作為 Resource Manager 範本使用][virtual-machines-linux-capture-image-resource-manager-capture] \(適用於 Linux)
 * 使用 Powershell 或 Azure CLI 上傳 VHD
 * 使用參考映像 VHD 的 JSON 範本來部署 VM，如[此 JSON 範本範例](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json)所示。
 

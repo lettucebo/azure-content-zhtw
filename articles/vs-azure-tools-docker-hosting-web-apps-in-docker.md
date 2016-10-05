@@ -3,7 +3,7 @@
    description="了解如何使用 Visual Studio Tools for Docker，將 ASP.NET Core Web 應用程式部署到在 Azure Docker Host Linux VM 上執行的 Docker 容器"   
    services="azure-container-service"
    documentationCenter=".net"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="06/08/2016"
-   ms.author="allclark;stevelas"/>
+   ms.author="mlearned"/>
 
 # 將 ASP.NET 容器部署到遠端 Docker 主機
 
@@ -25,11 +25,12 @@ Docker 是輕量級容器引擎，與虛擬機器在某些方面類似，您可�
 需要下列項目，才能完成本教學課程：
 
 - 按照[如何使用 Docker 電腦搭配 Azure](./virtual-machines/virtual-machines-linux-docker-machine.md) 中所述，建立 Azure Docker 主機 VM
-- 安裝 [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
+- 安裝 [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+- [Microsoft ASP.NET 核心 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 - [Visual Studio 2015 RC Tools for Docker - 預覽](http://aka.ms/DockerToolsForVS)
 
-## 1\.建立 ASP.NET 5 Web 應用程式
-下列步驟將逐步引導您建立將在本教學課程中使用的基本 ASP.NET 5 應用程式。
+## 1\.建立 ASP.NET 核心 Web 應用程式
+下列步驟將逐步引導您建立將在本教學課程中使用的基本 ASP.NET 核心應用程式。
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
@@ -89,4 +90,4 @@ Docker 是輕量級容器引擎，與虛擬機器在某些方面類似，您可�
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

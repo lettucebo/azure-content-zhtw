@@ -1,21 +1,21 @@
 
-<properties 
-	pageTitle="搭配 Azure Multi-factor Authentication 使用驗證碼登入行動應用程式" 
-	description="此頁面將會說明使用者如何搭配 Azure MFA 使用行動應用程式驗證碼進行登入。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="搭配 Azure Multi-factor Authentication 使用驗證碼登入行動應用程式"
+	description="此頁面將會說明使用者如何搭配 Azure MFA 使用行動應用程式驗證碼進行登入。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # 搭配 Azure Multi-factor Authentication 使用驗證碼登入行動應用程式
 
@@ -39,7 +39,4 @@
 
 <li>您現在應已登入。</li>
 
-
- 
-
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->

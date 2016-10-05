@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/02/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
 # 在 Windows Server 或 Linux 上建立獨立的 Service Fabric 叢集
@@ -24,19 +24,19 @@ Azure Service Fabric 可允許在執行 Windows Server 或 Linux 的任何 VM �
 Service Fabric 會提供安裝套件，讓您在內部部署建立這些獨立 Service Fabric 叢集。這樣做的主要優點在於當您使用 Service Fabric 來建置應用程式時，不會受到廠商限制，因為是您選擇這些應用程式的執行位置。這樣做也能增加您拓展客戶群的能力，因為客戶對於要用來執行您應用程式的環境可能會有各種不同的需求。例如，醫療保健和金融業客戶的需求可能與汽車製造或旅遊業客戶的需求不同。
 
 ## 受支援的作業系統
-您將可以在執行下列作業系統的 VM 或電腦上建立叢集：
+您可以在執行下列作業系統的 VM 或電腦上建立叢集：
 
 * Windows Server 2012 R2
-* Windows Server 2016
-* Linux
+* Windows Server 2016 (在宣佈正式推出之後)
+* Linux (近期)
 
 如需 Windows Server 的詳細資訊，請參閱[建立適用 Windows Server 的 Service Fabric 叢集](service-fabric-cluster-creation-for-windows-server.md)
 
 ## 叢集的建立與設定
-Service Fabric 會提供可下載的安裝套件。下載此套件之後，您將必須變更 JSON 組態檔來指定您叢集的設定。編輯叢集設定之後，您會執行一個安裝指令碼，此指令碼可建立涵蓋您在叢集設定中所指定之電腦的叢集。您也能執行指令碼以從一組電腦移除叢集。
+Service Fabric 會提供可下載的安裝套件。下載此套件之後，您必須變更 JSON 組態檔來指定叢集的設定。編輯叢集設定之後，您會執行一個安裝指令碼，此指令碼可建立涵蓋您在叢集設定中所指定之電腦的叢集。您也能執行指令碼以從一組電腦移除叢集。
 
 ## 任何雲端部署與內部部署之比較
-在內部部署環境建立 Service Fabric 叢集的程序會與在您所選擇、具有一組 VM 的任何雲端建立叢集的程序類似。佈建 VM 的初始步驟將取決於您要使用的雲端提供者或內部部署環境。在您有一組彼此之間已啟用網路連線的 VM 之後，則安裝 Service Fabric 封裝、編輯叢集設定，以及執行叢集建立與管理指令碼的步驟將會相同。這可確保當您選擇以新裝載環境做為目標時，可將您操作和管理 Service Fabric 叢集方面的知識與經驗轉移過去。
+在內部部署環境建立 Service Fabric 叢集的程序會與在您所選擇、具有一組 VM 的任何雲端建立叢集的程序類似。佈建 VM 的初始步驟取決於您要使用的雲端提供者或內部部署環境。在您有一組彼此之間已啟用網路連線的 VM 之後，則安裝 Service Fabric 封裝、編輯叢集設定，以及執行叢集建立與管理指令碼的步驟將會相同。這可確保當您選擇以新裝載環境做為目標時，可將您操作和管理 Service Fabric 叢集方面的知識與經驗轉移過去。
 
 ## 建立獨立 Service Fabric 叢集的優點
 * 因為不會受到廠商限制，您可以選擇建立叢集的位置。
@@ -55,11 +55,11 @@ Service Fabric 會提供可下載的安裝套件。下載此套件之後，您�
 * **Service Fabric 叢集做為 Azure 資源** Service Fabric 叢集是 ARM 資源，因此可以像其他 Azure 中的 ARM 資源進行模型化。
 * **與 Azure 基礎結構整合** Service Fabric 會協調作業系統的 Azure 基礎結構、網路和其他升級，以改善應用程式的可用性和可靠性。
 * **診斷：**在 Azure 上，我們提供與 Azure 診斷及 Log Analytics 的整合。
-* **自動調整：**對於 Azure 上的叢集，我們會提供虛擬機器調整集產生的內建自動調整功能。在內部部署與其他雲端環境中，您將必須建置您自己的自動調整規模功能，或使用 Service Fabric 針對調整叢集規模顯示的 API 來手動調整規模。
+* **自動調整：**對於 Azure 上的叢集，我們會提供虛擬機器調整集產生的內建自動調整功能。在內部部署與其他雲端環境中，您必須建置您自己的自動調整規模功能，或使用 Service Fabric 針對調整叢集規模顯示的 API 來手動調整規模。
 
 ## 後續步驟
 在執行 Windows Server 的 VM 或電腦上建立叢集：[建立適用於 Windows Server 的 Service Fabric 叢集](service-fabric-cluster-creation-for-windows-server.md)
 
 在執行 Linux 的 VM 或電腦上建立叢集︰[Linux 上的 Service Fabric](service-fabric-linux-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

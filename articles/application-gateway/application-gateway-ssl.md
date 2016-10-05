@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
 
 # 使用傳統部署模型設定適用於 SSL 卸載的應用程式閘道
@@ -33,7 +33,7 @@ Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) �
 
 若要在應用程式閘道上設定 SSL 卸載，請依列出的順序執行下列步驟：
 
-1. [建立新的應用程式閘道](#create-a-new-application-gateway)
+1. [建立應用程式閘道](#create-an-application-gateway)
 2. [上傳 SSL 憑證](#upload-ssl-certificates)
 3. [設定閘道](#configure-the-gateway)
 4. [設定閘道組態](#set-the-gateway-configuration)
@@ -45,57 +45,27 @@ Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) �
 
 若要建立閘道，請使用 **New-AzureApplicationGateway** Cmdlet，並將值取代為您自己的值。此時還不會開始對閘道計費。會在稍後的步驟中於成功啟動閘道之後開始計費。
 
-這個範例的第一行顯示 Cmdlet，後面接著輸出。
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+若要驗證是否已建立閘道，您可以使用 **Get-AzureApplicationGateway** Cmdlet。
 
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
+在範例中，*Description*、*InstanceCount* 和 *GatewaySize* 是選用參數。*InstanceCount* 的預設值是 2，且最大值是 10。*GatewaySize* 的預設值是 Medium。Small 和 Large 也是可用的值。因為尚未啟動閘道，所以 *VirtualIPs* 和 *DnsName* 會顯示為空白。閘道處於執行中狀態之後，就會建立這些值。
 
-若要驗證已建立閘道，您可以使用 **Get-AzureApplicationGateway** Cmdlet。
-
-在範例中，*Description*、*InstanceCount* 和 *GatewaySize* 是選用參數。*InstanceCount* 的預設值是 2，且最大值是 10。*GatewaySize* 的預設值是 Medium。Small 和 Large 也是可用的值。因為尚未啟動閘道，所以 *VirtualIPs* 和 *DnsName* 會顯示為空白。閘道處於執行中狀態之後，就會建立這些項目。
-
-這個範例的第一行顯示 Cmdlet，後面接著輸出。
-
-	PS C:\> Get-AzureApplicationGateway AppGwTest
-
-	VERBOSE: 4:39:39 PM - Begin Operation:
-	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed
-	Operation: Get-AzureApplicationGateway
-	Name: AppGwTest
-	Description:
-	VnetName: testvnet1
-	Subnets: {Subnet-1}
-	InstanceCount: 2
-	GatewaySize: Medium
-	State: Stopped
-	VirtualIPs:
-	DnsName:
-
+	Get-AzureApplicationGateway AppGwTest
 
 ## 上傳 SSL 憑證
 
 使用 **Add-AzureApplicationGatewaySslCertificate** 將伺服器憑證以 *pfx* 格式上傳至應用程式閘道。憑證名稱是使用者選擇的名稱，而且必須在應用程式閘道中是唯一的。應用程式閘道上的所有憑證管理作業會使用此名稱參考該憑證。
 
-這個範例的第一行顯示 Cmdlet，後面接著輸出。將範例中的值取代為您自己的值。
+下列範例會顯示 Cmdlet，請將範例中的值取代為您自己的值。
 
-	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
-
-	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
-	VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   21fdc5a0-3bf7-2c12-ad98-192e0dd078ef
+	Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
 
 接下來，驗證憑證上傳。使用 **Get-AzureApplicationGatewayCertificate** Cmdlet。
 
 這個範例的第一行顯示 Cmdlet，後面接著輸出。
 
-	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest
+	Get-AzureApplicationGatewaySslCertificate AppGwTest
 
 	VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
 	VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -116,21 +86,20 @@ Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) �
 - **後端伺服器集區：**後端伺服器的 IP 位址清單。列出的 IP 位址應屬於虛擬網路子網路或是公用 IP/VIP。
 - **後端伺服器集區設定：**每個集區都包括一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。這些設定會繫結至集區，並套用至集區內所有伺服器。
 - **前端連接埠：**此連接埠是在應用程式閘道上開啟的公用連接埠。流量會到達此連接埠，然後重新導向至其中一個後端伺服器。
-- **接聽程式：**接聽程式具有前端連接埠、通訊協定 (Http 或 Https，都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。
+- **接聽程式：**接聽程式具有前端連接埠、通訊協定 (Http 或 Https，這些值都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。
 - **規則：**規則會繫結接聽程式和後端伺服器集區，並定義當流量到達特定接聽程式時，應該導向到哪個後端伺服器集區。目前只支援*基本*規則。*基本*規則是循環配置資源的負載分配。
 
 **其他組態注意事項**
 
-針對 SSL 憑證組態，**HttpListener** 中的通訊協定應該變更為 Https (區分大小寫)。**SslCert** 元素會新增到 **HttpListener** 中，其中值會設定為與上述上傳 SSL 憑證一節中所使用的名稱相同。前端連接埠應該更新為 443。
+針對 SSL 憑證組態，**HttpListener** 中的通訊協定應該變更為 Https (區分大小寫)。**SslCert** 元素會新增到 **HttpListener** 中，其中值會設定為與上傳先前的 SSL 憑證一節中所使用的名稱相同。前端連接埠應該更新為 443。
 
-**啟用以 Cookie 為基礎的同質性**：您可以設定應用程式閘道，以確保來自用戶端工作階段的要求一律會導向至 Web 伺服陣列中的相同 VM。這是透過插入允許閘道適當導向流量的工作階段 Cookie 來完成。若要啟用以 Cookie 為基礎的同質性，請在 **BackendHttpSettings** 元素中將 **CookieBasedAffinity** 設定為 *Enabled*。
+**啟用以 Cookie 為基礎的同質性**：您可以設定應用程式閘道，以確保來自用戶端工作階段的要求一律會導向至 Web 伺服陣列中的相同 VM。此案例透過插入允許閘道適當導向流量的工作階段 Cookie 來完成。若要啟用以 Cookie 為基礎的同質性，請在 **BackendHttpSettings** 元素中將 **CookieBasedAffinity** 設定為 *Enabled*。
 
 
 
-建立組態物件或使用組態 XML 檔案，即可建構組態。若要使用組態 XML 檔案以建構組態，請使用下列範例。
+建立組態物件或使用組態 XML 檔案，即可建構組態。若要使用組態 XML 檔案以建構組態，請使用下列範例：
 
 **組態 XML 範例**
-
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -180,16 +149,9 @@ Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) �
 
 ## 設定閘道組態
 
-接下來，您將設定應用程式閘道。您可以將 **Set-AzureApplicationGatewayConfig** Cmdlet 與組態物件或組態 XML 檔案搭配使用。
+接下來，您需要設定應用程式閘道。您可以將 **Set-AzureApplicationGatewayConfig** Cmdlet 與組態物件或組態 XML 檔案搭配使用。
 
-
-	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
-
-	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
-	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
+	Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 ## 啟動閘道
 
@@ -198,15 +160,7 @@ Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) �
 
 **注意：** **Start-AzureApplicationGateway** Cmdlet 最多可能需要 15-20 分鐘才能完成。
 
-
-	PS C:\> Start-AzureApplicationGateway AppGwTest
-
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
-	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
-
+	Start-AzureApplicationGateway AppGwTest
 
 ## 確認閘道狀態
 
@@ -214,7 +168,7 @@ Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) �
 
 這個範例所示範的應用程式閘道已啟動、執行中並準備好要接受流量。
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 
 	Name          : AppGwTest2
 	Description   :
@@ -235,4 +189,4 @@ Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) �
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

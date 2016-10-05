@@ -68,6 +68,29 @@
 	    document.text = "This has changed.";
 	}
 
+#### F# 佇列觸發程序的 Azure DocumentDB 輸入程式碼範例
+
+使用上述的 function.json 範例，DocumentDB 輸入繫結會擷取文件 (包含符合佇列訊息字串的識別碼)，並將它傳遞至 'document' 參數。如果找不到該文件，則 'document' 參數是 null。當函式結束時，文件隨後會以新的文字值更新。
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- "This has changed."
+
+您會需要 `project.json` 檔案，以使用 NuGet 指定 `FSharp.Interop.Dynamic` 和 `Dynamitey` 封裝做為封裝相依性，例如︰
+
+	{
+	  "frameworks": {
+	    "net46": {
+	      "dependencies": {
+	        "Dynamitey": "1.0.2",
+	        "FSharp.Interop.Dynamic": "3.0.0"
+	      }
+	    }
+	  }
+	}
+
+這會使用 NuGet 來擷取相依性，並會在指令碼中加以參考。
+
 #### Node.js 佇列觸發程序的 Azure DocumentDB 輸入程式碼範例
  
 使用上述範例 function.json 時，DocumentDB 輸入繫結會擷取識別碼與佇列訊息字串相符的文件，然後將它傳遞給 `documentIn` 繫結屬性。在 Node.js 函式中，更新的文件不會傳回至集合。不過，您可以將輸入繫結直接傳遞給名為 `documentOut` 的 DocumentDB 輸出繫結以支援更新。這個程式碼範例會更新輸入文件的 text 屬性，並將它設定為輸出文件。
@@ -131,6 +154,12 @@ function.json 範例：
 	}
  
 
+#### F# 佇列觸發程序的 Azure DocumentDB 輸出程式碼範例
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- (sprintf "I'm running in an F# function! %s" myQueueItem)
+
 #### C# 佇列觸發程序的 Azure DocumentDB 輸出程式碼範例
 
 
@@ -178,6 +207,27 @@ function.json 範例：
 	    };
 	}
 
+或對等的 F# 程式碼︰
+
+	open FSharp.Interop.Dynamic
+	open Newtonsoft.Json
+
+	type Employee = {
+	    id: string
+	    name: string
+	    employeeId: string
+	    address: string
+	}
+
+	let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+	    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+	    let employee = JObject.Parse(myQueueItem)
+	    employeeDocument <-
+	        { id = sprintf "%s-%s" employee?name employee?employeeId
+	          name = employee?name
+	          employeeId = employee?id
+	          address = employee?address }
+
 範例輸出︰
 
 	{
@@ -191,4 +241,4 @@ function.json 範例：
 
 [AZURE.INCLUDE [後續步驟](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

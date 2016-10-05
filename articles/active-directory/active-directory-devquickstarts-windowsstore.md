@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -75,7 +75,7 @@ redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCur
 ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/
 ```
 
-- 回到 Azure 管理入口網站中應用程式的 [**設定**] 索引標籤上，使用這個值取代 **RedirectUri** 的值。  
+- 回到 Azure 管理入口網站中應用程式的 [**設定**] 索引標籤上，使用這個值取代 **RedirectUri** 的值。
 
 ## *3.使用 ADAL 來取得 AAD 的權杖*
 ADAL 的基本原則是每當您的應用程式需要存取權杖時，它只需呼叫 `authContext.AcquireToken(…)`，ADAL 就會進行其餘工作。
@@ -150,4 +150,4 @@ ADAL 可讓您輕鬆地將這些常見的身分識別功能全部納入您的應
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -14,28 +14,29 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/27/2016"
+	ms.author="Markvi"/>
 
 # 開始使用 Azure Active Directory 裝置註冊
 
 Azure Active Directory 裝置註冊是裝置型條件式存取案例的基礎。當裝置已註冊時，Azure Active Directory 裝置註冊會在使用者登入時對裝置提供用來驗證裝置的身分識別。然後已驗證的裝置和裝置的屬性即可用來對裝載於雲端和內部部署的應用程式，強制執行條件式存取原則。
 
-與 Intune 這類的行動裝置管理 (MDM) 解決方案結合時，將會以裝置的其他相關資訊更新 Azure Active Directory 中的裝置屬性。這可讓您建立條件式存取規則，強制讓裝置的存取符合您的安全性和相容性標準。
-
-Azure Active Directory 裝置註冊可用於您的 Azure Active Directory。此服務包含 iOS、Android 和 Windows 裝置的支援。利用 Azure Active Directory 裝置註冊的個別案例可能會有更明確的需求和平台支援。
+與 Microsoft Intune 這類的行動裝置管理 (MDM) 解決方案結合時，將會以裝置的其他相關資訊更新 Azure Active Directory 中的裝置屬性。這可讓您建立條件式存取規則，強制讓裝置的存取符合您的安全性和相容性標準。如需如何在 Microsoft Intune 中註冊裝置的詳細資訊，請參閱[在 Intune 中註冊要管理的裝置](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)。
 
 ## Azure Active Directory 裝置註冊所啟用的案例
 
 Azure Active Directory 裝置註冊可支援 iOS、Android 和 Windows 裝置。利用 Azure AD 裝置註冊的個別案例可能會有更明確的需求和平台支援。這些案例如下所示︰
 
-- **內部部署裝載之應用程式的條件式存取**：您可以使用已註冊的裝置搭配適用於已設定為使用 AD FS with Windows Server 2012 R2 之應用程式的存取原則。如需有關設定內部部署之條件式存取的詳細資訊，請參閱[使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](active-directory-conditional-access-on-premises-setup.md)。
+- **內部部署託管之應用程式的條件式存取**：您可以使用已註冊的裝置，搭配適用於已設定為使用 AD FS with Windows Server 2012 R2 之應用程式的存取原則。如需有關設定內部部署之條件式存取的詳細資訊，請參閱[使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](active-directory-conditional-access-on-premises-setup.md)。
 
-- **適用於包含 Microsoft Intune 之 Office 365 應用程式的條件式存取**︰IT 管理員可以佈建條件式存取裝置原則來保護公司資源，同時允許相容裝置上的資訊工作者存取服務。如需詳細資訊，請參閱 Office 365 服務的條件式存取裝置原則。
+- **適用於包含 Microsoft Intune 的 Office 365 應用程式條件式存取**︰IT 管理員可以佈建條件式存取裝置原則來保護公司資源，同時允許相容裝置上的資訊工作者存取服務。如需詳細資訊，請參閱 [Office 365 服務的條件式存取裝置原則](active-directory-conditional-access-device-policies.md)。
 
 ##設定 Azure Active Directory 裝置註冊
 
 您必須在 Azure 入口網站啟用 Azure AD 裝置註冊，讓行動裝置可以透過尋找知名的 DNS 記錄來探索服務。您必須設定公司 DNS，讓 Windows 10、Windows 8.1、Windows 7、Android 和 iOS 裝置可以探索和使用服務。您可以使用 Azure Active Directory 中的系統管理員入口網站，檢視並啟用/停用已註冊的裝置。
+
+>[AZURE.NOTE]
+ 如需有關如何設定自動裝置註冊的最新指示，請參閱[如何設定讓已加入網域的 Windows 裝置自動向 Azure Active Directory 註冊](active-directory-conditional-access-automatic-device-registration-setup.md)。
 
 ### 啟用 Azure Active Directory 裝置註冊服務
 
@@ -52,9 +53,9 @@ Microsoft Intune 註冊或 Office 365 的行動裝置管理需要加入工作場
 
 根據預設，服務未啟用雙因素驗證。不過，建議在註冊裝置時使用雙因素驗證。
 
-- 在要求此服務的雙因素驗證之前，您必須先在 Azure Active Directory 中設定雙因素驗證提供者以及針對 Multi-Factor Authentication 設定您的使用者帳戶，請參閱[將 Multi-Factor Authentication 新增至 Azure Active Directory](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)。
+- 在要求此服務的雙因素驗證之前，您必須先在 Azure Active Directory 中設定雙因素驗證提供者，並針對 Multi-Factor Authentication 設定您的使用者帳戶，請參閱[將 Multi-Factor Authentication 新增至 Azure Active Directory](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 
-- 如果您搭配使用 AD FS 與 Windows Server 2012 R2，您必須在 AD FS 中設定雙因素驗證模組，請參閱[搭配使用 Multi-Factor Authentication 與 Active Directory Federation Services](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)。
+- 如果您搭配使用 AD FS 與 Windows Server 2012 R2，則必須在 AD FS 中設定雙因素驗證模組，請參閱[搭配使用 Multi-Factor Authentication 與 Active Directory Federation Services](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)。
 
 ## 設定 Azure Active Directory 裝置註冊探索
 Windows 7 和 Windows 8.1 裝置會藉由結合使用者帳戶名稱與知名裝置註冊伺服器名稱，探索裝置註冊服務。
@@ -87,4 +88,4 @@ Windows 7 和 Windows 8.1 裝置會藉由結合使用者帳戶名稱與知名裝
 - [為加入網域的 Windows 8.1 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [自動向 Azure Active Directory 註冊加入網域的 Windows 10 裝置](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

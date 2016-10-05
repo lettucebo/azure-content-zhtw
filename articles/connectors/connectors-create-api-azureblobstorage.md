@@ -57,7 +57,7 @@ Azure Blob 儲存體是用來儲存大量非結構化資料的服務。請在 Az
 
 	![](./media/connectors-create-api-azureblobstorage/actions.png)
 
-4. 在我們的範例中，選擇 [AzureBlob - 使用路徑取得檔案中繼資料]。如果連線已存在，請選取 [...] (顯示選擇器) 按鈕來選取檔案。
+4. 在我們的範例中，選擇 [AzureBlob - 使用路徑取得檔案中繼資料]。如果連線已存在，請選取 [...] \(顯示選擇器) 按鈕來選取檔案。
 
 	![](./media/connectors-create-api-azureblobstorage/sample-file.png)
 

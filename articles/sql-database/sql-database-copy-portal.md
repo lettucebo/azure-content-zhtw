@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/16/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -36,24 +36,25 @@
 
 ## 複製您的 SQL Database
 
-針對您要複製的資料庫開啟 SQL Database 刀鋒視窗：
+針對您要複製的資料庫開啟 SQL Database 頁面：
 
 1.	移至 [Azure 入口網站](https://portal.azure.com)。
-2.	移至您要複製的資料庫：瀏覽 > SQL Database
-3.	在 SQL Database 刀鋒視窗中，按一下 [複製] 以開啟 [複製] 刀鋒視窗：
+2.	按一下 [更多服務] > [SQL Database]，然後按一下想要的資料庫。
+3.	在 [SQL Database] 頁面上，按一下 [複製]：
 
-    ![複製資料庫][1]
+    ![SQL Database](./media/sql-database-copy-portal/sql-database-copy.png)
 
-1.  輸入資料庫副本的名稱。系統會提供預設名稱，但您可視需要加以變更。
-2.  選取 [目標伺服器]。目標伺服器就是要建立資料庫副本的位置。您可以建立新的伺服器，或從清單中選取現有的伺服器。
+1.  在 [複製] 頁面上，系統會提供預設的資料庫名稱。視需要輸入不同的名稱 (伺服器上所有的資料庫都必須有一個唯一的名稱)。
+2.  選取 [目標伺服器]。目標伺服器就是要建立資料庫副本的位置。您可以將資料庫複製到相同的伺服器或不同的伺服器。您可以建立伺服器，或從清單中選取現有的伺服器。
+3.  選取 [目標伺服器] 之後，將會啟用 [彈性資料庫集區] 和 [定價層] 選項。如果伺服器有集區，您便可以將資料庫複製到該集區。
 3.  按一下 [確定] 開始複製程序。
 
-    ![資料庫名稱和伺服器][2]
+    ![SQL Database](./media/sql-database-copy-portal/copy-page.png)
 
 
 ## 監視複製作業的進度
 
-- 開始複製後，按一下入口網站通知以取得詳細資訊。
+- 開始複製之後，按一下入口網站通知以取得詳細資訊。
 
     ![通知][3]
  
@@ -62,7 +63,7 @@
 
 ## 確認伺服器上的資料庫為線上狀態
 
-- 按一下 [瀏覽] > [SQL Database]，並確認新的資料庫為 [線上] 狀態。
+- 按一下 [更多服務] > [SQL Database]，然後確認新資料庫為 [線上] 狀態。
 
 
 ## 解析登入
@@ -96,4 +97,4 @@
 [3]: ./media/sql-database-copy-portal/copy-notification.png
 [4]: ./media/sql-database-copy-portal/monitor-copy.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

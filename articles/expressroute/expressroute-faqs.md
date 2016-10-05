@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2016"
+   ms.date="09/19/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute 常見問題集
@@ -53,6 +53,7 @@ ExpressRoute 支援大多數的 Azure 雲端服務。
 
 - 私人對等互連路徑支援與虛擬網路中所部署虛擬機器和雲端服務的連線能力。
 - 公用對等互連路徑支援 Azure 網站。
+- 公用對等互連路徑支援 IoT 中樞。
 - Microsoft 對等互連路徑支援 Office 365。
 - 您可透過公用對等互連路徑存取所有其他服務。例外狀況如下。
 
@@ -240,4 +241,4 @@ ExpressRoute Premium 是下面所列功能的集合。
 ### 可以透過 ExpressRoute 連線存取 Dynamics AX Online 嗎？
 不，不支援此做法。
 
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->

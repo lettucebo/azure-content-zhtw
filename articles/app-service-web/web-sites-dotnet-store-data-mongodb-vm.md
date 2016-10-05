@@ -20,7 +20,7 @@
 
 # 在連線至在虛擬機器上執行之 MongoDB 的 Azure 中建立 Web 應用程式
 
-使用 Git，即可將 ASP.NET 應用程式部署至 Azure App Service Web Apps。在本教學課程中，您將建置簡易的前端 ASP.NET MVC 工作清單應用程式，以連接至在 Azure 的虛擬機器上執行的 MongoDB 資料庫。[MongoDB][MongoDB] (英文) 是受歡迎的高效能開放原始碼 NoSQL 資料庫。在部署電腦上執行和測試 ASP.NET 應用程式之後，您將使用 Git 將此應用程式上傳至 App Service Web Apps。
+使用 Git，即可將 ASP.NET 應用程式部署至 Azure App Service Web Apps。在本教學課程中，您將建置簡易的前端 ASP.NET MVC 工作清單應用程式，以連接至在 Azure 的虛擬機器上執行的 MongoDB 資料庫。[MongoDB][MongoDB] \(英文) 是受歡迎的高效能開放原始碼 NoSQL 資料庫。在部署電腦上執行和測試 ASP.NET 應用程式之後，您將使用 Git 將此應用程式上傳至 App Service Web Apps。
 
 >[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 

@@ -185,7 +185,7 @@ Azure 自動化 DSC 組態和 Runbook 中的資產參考是相同的。如需詳
 - [變數](automation-variables.md)
 
 ###認證資產###
-雖然 Azure 自動化中的 DSC 組態可以使用 **Get-AutomationPSCredential** 參考認證資產，但如有需要，也可以透過參數傳入認證資產。如果組態採用屬於 **PSCredential** 類型的參數，您必須將 Azure 自動化認證資產的字串名稱傳遞為該參數的值，而不是 PSCredential 物件。具有該名稱的 Azure 自動化認證資產會在背景中被擷取，並傳遞至組態。
+雖然 Azure 自動化中的 DSC 組態可以使用 **Get-AzureRmAutomationCredential** 參考認證資產，但如有需要，也可以透過參數傳入認證資產。如果組態採用屬於 **PSCredential** 類型的參數，您必須將 Azure 自動化認證資產的字串名稱傳遞為該參數的值，而不是 PSCredential 物件。具有該名稱的 Azure 自動化認證資產會在背景中被擷取，並傳遞至組態。
 
 要在節點組態 (MOF 組態文件) 中保持認證的安全性，需要在節點組態 MOF 檔案中為認證加密。Azure 自動化會進一步執行此步驟，而加密整個 MOF 檔案。不過，目前您必須告知 PowerShell DSC 在節點組態 MOF 產生期間以純文字形式輸出認證是可行的，因為 PowerShell DSC 並不知道在透過編譯工作產生 MOF 檔案之後 Azure 自動化會加密整個檔案。
 
@@ -195,7 +195,7 @@ Azure 自動化 DSC 組態和 Runbook 中的資產參考是相同的。如需詳
 
     Configuration CredentialSample
     {
-       $Cred = Get-AutomationPSCredential -Name "SomeCredentialAsset"
+       $Cred = Get-AzureRmAutomationCredential -Name "SomeCredentialAsset"
     
     	Node $AllNodes.NodeName
     	{ 
@@ -228,4 +228,4 @@ Azure 自動化 DSC 組態和 Runbook 中的資產參考是相同的。如需詳
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

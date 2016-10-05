@@ -14,16 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/01/2016"
+   ms.date="09/14/2016"
    ms.author="larryfr"/>
 
 #使用 HDInsight 上的 Apache Storm 和 Maven 開發基本字數統計應用程式的 Java 型拓撲
 
-了解使用 Maven 為 Apache Storm on HDInsight 建立 Java 型拓撲的基本程序。您將逐步進行如何使用 Maven 和 Java 建立基本字數統計應用程式的程序。雖然有提供 Eclipse 的使用指示，但您還是可以使用所選擇的文字編輯器。
+了解如何使用 Maven 為 Apache Storm on HDInsight 建立 Java 型拓撲。您將逐步進行使用 Maven 和 Java 建立基本字數統計應用程式的程序，其中拓撲是以 Java 定義。然後，您將了解如何使用 Flux 架構定義拓撲。
+
+> [AZURE.NOTE] Flux 架構可在 Storm 0.10.0 或更新版本中使用。Storm 0.10.0 則可在 HDInsight 3.3 及 3.4 中使用。
 
 完成這份文件中的步驟之後，就會有可部署到 Apache Storm on HDInsight 的基本拓撲。
 
-> [AZURE.NOTE] [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) 有提供此拓撲的完整版本。
+> [AZURE.NOTE] [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) 有提供本文件中建立之拓撲的完整版本。
 
 ##必要條件
 
@@ -73,6 +75,22 @@
 
 *  **src\\main\\java\\com\\microsoft\\example\\App.java**
 
+##加入屬性
+
+Maven 可讓您定義稱為屬性的專案層級值。將以下內容加到 `<url>http://maven.apache.org</url>` 行之後：
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--
+        Storm 0.10.0 is for HDInsight 3.3 and 3.4.
+        To find the version information for earlier HDInsight cluster
+        versions, see https://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/
+        -->
+        <storm.version>0.10.0</storm.version>
+    </properties>
+
+現在，我們可以在其他區段中使用這些值。例如，在指定 Storm 元件的版本時，我們可以使用 `${storm.version}` 而不是將值硬式編碼。
+
 ##新增相依性
 
 因為這是 Storm 拓撲，所以您必須新增 Storm 元件的相依性。開啟 **pom.xml** 檔案並在 **&lt;dependencies>** 區段中加入下列程式碼：
@@ -80,10 +98,7 @@
 	<dependency>
 	  <groupId>org.apache.storm</groupId>
 	  <artifactId>storm-core</artifactId>
-      <!-- Storm 0.10.0 is for HDInsight 3.3 and 3.4.
-           To find the version information for earlier HDInsight cluster
-           versions, see https://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/ -->
-	  <version>0.10.0</version>
+      <version>${storm.version}</version>
 	  <!-- keep storm out of the jar-with-dependencies -->
 	  <scope>provided</scope>
 	</dependency>
@@ -129,6 +144,8 @@ Maven 外掛程式可讓您自訂專案的建置階段 (例如，如何編譯專
       </configuration>
     </plugin>
 
+> [AZURE.NOTE] 請注意，`<mainClass>` 項目會使用 `${storm.topology}`。我們先前並未在 [屬性] 區段中定義此屬性 (但我們可以定義)。 相反地，我們會在稍後的步驟中，於開發環境執行拓撲時從命令列設定此值。
+
 另一個有用的外掛程式是 <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">Apache Maven 編譯器外掛程式</a>，其可用來變更編譯選項。我們需要此外掛程式的主要原因是要變更 Maven 用於您應用程式之來源和目標的 Java 版本。我們需要 1.7 版。
 
 在 **pom.xml** 的 `<plugins>` 區段中加入下列內容，以包括 Apache Maven 編譯器外掛程式並將來源和目標版本設定為 1.7。
@@ -169,7 +186,7 @@ Java 型 Storm 拓撲包含三個您必須編寫 (或參考) 為相依性的元�
 
 ###建立 Spout
 
-若要減少設定外部資料來源的需求，下列 Spout 只會發出隨機的句子。它是隨附於 ([Storm-Starter 範例](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)) 的 Spout 修正版。
+若要減少設定外部資料來源的需求，下列 Spout 只會發出隨機的句子。它是隨附於 [Storm-Starter 範例](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)的 Spout 修正版。
 
 > [AZURE.NOTE] 如需從外部資料來源讀取之 Spout 的範例，請參閱下列其中一個範例：
 >
@@ -330,13 +347,16 @@ Bolt 會處理資料的處理。針對此拓撲，我們有兩個 Bolt：
 
     import java.util.HashMap;
     import java.util.Map;
+    import java.util.Iterator;
 
+    import backtype.storm.Constants;
     import backtype.storm.topology.BasicOutputCollector;
     import backtype.storm.topology.OutputFieldsDeclarer;
     import backtype.storm.topology.base.BaseBasicBolt;
     import backtype.storm.tuple.Fields;
     import backtype.storm.tuple.Tuple;
     import backtype.storm.tuple.Values;
+    import backtype.storm.Config;
 
     // For logging
     import org.apache.logging.log4j.Logger;
@@ -344,36 +364,63 @@ Bolt 會處理資料的處理。針對此拓撲，我們有兩個 Bolt：
 
     //There are a variety of bolt types. In this case, we use BaseBasicBolt
     public class WordCount extends BaseBasicBolt {
-      //Create logger for this class
-      private static final Logger logger = LogManager.getLogger(WordCount.class);
-      
-      //For holding words and counts
+        //Create logger for this class
+        private static final Logger logger = LogManager.getLogger(WordCount.class);
+        //For holding words and counts
         Map<String, Integer> counts = new HashMap<String, Integer>();
+        //How often we emit a count of words
+        private Integer emitFrequency;
+
+        // Default constructor
+        public WordCount() {
+            emitFrequency=5; // Default to 60 seconds
+        }
+
+        // Constructor that sets emit frequency
+        public WordCount(Integer frequency) {
+            emitFrequency=frequency;
+        }
+
+        //Configure frequency of tick tuples for this bolt
+        //This delivers a 'tick' tuple on a specific interval,
+        //which is used to trigger certain actions
+        @Override
+        public Map<String, Object> getComponentConfiguration() {
+            Config conf = new Config();
+            conf.put(Config.TOPOLOGY_TICK_TUPLE_FREQ_SECS, emitFrequency);
+            return conf;
+        }
 
         //execute is called to process tuples
         @Override
         public void execute(Tuple tuple, BasicOutputCollector collector) {
-          //Get the word contents from the tuple
-          String word = tuple.getString(0);
-          //Have we counted any already?
-          Integer count = counts.get(word);
-          if (count == null)
-            count = 0;
-          //Increment the count and store it
-          count++;
-          counts.put(word, count);
-          //Emit the word and the current count
-          collector.emit(new Values(word, count));
-          //Log information
-          logger.info("Emitting a count of " + count + " for word " + word);
+            //If it's a tick tuple, emit all words and counts
+            if(tuple.getSourceComponent().equals(Constants.SYSTEM_COMPONENT_ID)
+                    && tuple.getSourceStreamId().equals(Constants.SYSTEM_TICK_STREAM_ID)) {
+                for(String word : counts.keySet()) {
+                    Integer count = counts.get(word);
+                    collector.emit(new Values(word, count));
+                    logger.info("Emitting a count of " + count + " for word " + word);
+                }
+            } else {
+                //Get the word contents from the tuple
+                String word = tuple.getString(0);
+                //Have we counted any already?
+                Integer count = counts.get(word);
+                if (count == null)
+                    count = 0;
+                //Increment the count and store it
+                count++;
+                counts.put(word, count);
+            }
         }
 
         //Declare that we will emit a tuple containing two fields; word and count
         @Override
         public void declareOutputFields(OutputFieldsDeclarer declarer) {
-          declarer.declare(new Fields("word", "count"));
+            declarer.declare(new Fields("word", "count"));
         }
-      }
+    }
 
 請用一些時間閱讀程式碼註解，以了解每個 Bolt 的運作方式。
 
@@ -495,22 +542,184 @@ Storm 使用 Apache Log4j 來記錄資訊。如果未設定記錄，拓撲就會
     17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
     17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word white
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word seven
-    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word i
-    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word at
-    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word with
-    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word nature
-    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word two
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word am
 
-查看 WordCount Bolt 所發出的記錄，我們可以得知 'apple' 已發出 53 次。只要拓撲執行，計數就會持續增加，因為會隨機反覆發出相同的句子，而且永不會重設計數。
+查看 WordCount Bolt 所發出的記錄，我們可以得知 'and' 已發出 113 次。只要拓撲還在執行，次數就會繼續增加，因為 Spout 會持續發出相同的句子。
+
+另外，在發出單字和計算次數之間有 5 秒的間隔。這是因為 __WordCount__ 元件設定為只在計時 Tuple 抵達時發出資訊，而且它預設會要求這類 Tuple 每隔 5 秒才傳送。
+
+## 將拓撲轉換為 Flux
+
+Flux 是可在 Storm 0.10.0 中使用的新架構，可讓您區隔組態與實作。您的元件 (Bolt 和 Spout) 仍會以 Java 定義，但拓撲則會使用 YAML 檔案來定義。
+
+YAML 檔案會定義要用於拓撲的元件、兩者間的資料流動方式，以及在初始化元件時要使用的值。您可以在部署 YAML 檔案時將它包含在含有專案的 jar 檔案中成為其一部分，或是在啟動拓撲時使用外部 YAML 檔案。
+
+1. 將 __WordCountTopology.java__ 檔案移出專案。先前是以此檔案定義拓撲，但在 Flux 中我們不使用它。
+
+2. 在 __resources__ 目錄中，建立名為 __topology.yaml__ 的新檔案。使用下列程式碼做為此檔案的內容。
+
+        # topology definition
+
+        # name to be used when submitting. This is what shows up...
+        # in the Storm UI/storm command-line tool as the topology name
+        # when submitted to Storm
+        name: "wordcount"
+
+        # Topology configuration
+        config:
+        # Hint for the number of workers to create
+        topology.workers: 1
+
+        # Spout definitions
+        spouts:
+        - id: "sentence-spout"
+            className: "com.microsoft.example.RandomSentenceSpout"
+            # parallelism hint
+            parallelism: 1
+
+        # Bolt definitions
+        bolts:
+        - id: "splitter-bolt"
+            className: "com.microsoft.example.SplitSentence"
+            parallelism: 1
+
+        - id: "counter-bolt"
+            className: "com.microsoft.example.WordCount"
+            constructorArgs:
+            - 10
+            parallelism: 1
+
+        # Stream definitions
+        streams:
+        - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+            # The stream emitter
+            from: "sentence-spout"
+            # The stream consumer
+            to: "splitter-bolt"
+            # Grouping type
+            grouping:
+            type: SHUFFLE
+
+        - name: "Splitter -> Counter"
+            from: "splitter-bolt"
+            to: "counter-bolt"
+            grouping:
+            type: FIELDS
+            # field(s) to group on
+            args: ["word"]
+
+    請花一點時間看過並了解每個區段的用途，以及它與 __WordCountTopology.java__ 檔案中的 Java 型定義的關係。
+
+3. 對 __pom.xml__ 檔案進行下列變更。
+
+    * 在 `<dependencies>` 區段新增下列新的相依性︰
+
+            <!-- Add a dependency on the Flux framework -->
+            <dependency>
+                <groupId>org.apache.storm</groupId>
+                <artifactId>flux-core</artifactId>
+                <version>${storm.version}</version>
+            </dependency>
+
+    * 對 `<plugins>` 區段新增下列外掛程式。此外掛程式會負責建立專案的封裝 (jar 檔案)，並在建立封裝時套用一些 Flux 特定的轉換。
+
+            <!-- build an uber jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <transformers>
+                        <!-- Keep us from getting a "can't overwrite file error" -->
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                        <!-- We're using Flux, so refer to it as main -->
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <mainClass>org.apache.storm.flux.Flux</mainClass>
+                        </transformer>
+                    </transformers>
+                    <!-- Keep us from getting a bad signature error -->
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/*.SF</exclude>
+                                <exclude>META-INF/*.DSA</exclude>
+                                <exclude>META-INF/*.RSA</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+    * 在 __exec-maven-plugin__ `<configuration>` 區段中，將 `<mainClass>` 的值變更為 `org.apache.storm.flux.Flux`。這可讓 Flux 負責執行我們在開發時於本機執行的拓撲。
+
+    * 在 `<resources>` 區段中，對 `<includes>` 新增下列內容。這包括會將拓撲定義為專案一部分的 YAML 檔案。
+    
+            <include>topology.yaml</include>
+
+## 在本機測試 Flux 拓撲
+
+1. 請使用下列命令，以 Maven 編譯和執行 Flux 拓撲。
+
+        mvn compile exec:java -Dexec.args="--local -R /topology.yaml"
+    
+    如果您要使用 PowerShell，請使用下列命令︰
+    
+        mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
+
+    如果您是在 Linux/Unix/OS X 系統上，而且[已在開發環境中安裝 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，您可以改用下列命令︰
+
+        mvn compile package
+        storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
+
+    `--local` 參數會在開發環境上以本機模式執行拓撲。`-R /topology.yaml` 參數會使用 jar 檔案中的 `topology.yaml` 檔案資源來定義拓撲。
+
+    它執行時，拓撲將顯示啟動資訊。然後在從 Spout 發出句子並由 Bolt 處理時，開始顯示類似如下的內容。
+
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+        17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+    
+    每一批記錄資訊之間會有 10 秒的延遲，因為 `topology.yaml` 檔案會在 WordCount 元件建立時傳遞 `10` 的值。這會將計時 Tuple 的延遲間隔設定為 10 秒。
+
+2.  從專案複製 `topology.yaml` 檔案。將它命名為 `newtopology.yaml` 之類的名稱。在檔案中找到下列區段，然後將 `10` 的值變更為 `5`。這會將發出單字計算的批次之間的間隔從 10 秒變更為 5 秒。
+
+          - id: "counter-bolt"
+            className: "com.microsoft.example.WordCount"
+            constructorArgs:
+            - 5
+            parallelism: 1
+
+3. 若要執行拓撲，請使用下列命令：
+
+        mvn exec:java -Dexec.args="--local /path/to/newtopology.yaml"
+
+    或者，如果您有位於 Linux/Unix/OS X 開發環境的 Storm︰
+
+        storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local /path/to/newtopology.yaml
+
+    將 `/path/to/newtopology.yaml` 變更為您在上一個步驟中建立的 newtopology.yaml 檔案的路徑。此命令會使用 newtopology.yaml 做為拓撲定義。因為我們並未包含 `compile` 參數，Maven 會重複使用先前步驟中建置的專案版本。
+
+    拓撲啟動後，您應該會注意到批次發出間隔時間已變更，反映了 newtopology.yaml 中的值。因此您可以看到，您可以透過 YAML 檔案變更組態，而不需要重新編譯拓撲。
+
+Flux 還提供其他許多未在本文中討論到的功能，例如根據執行階段所傳遞的參數替代 YAML 檔案中的變數，或從環境變數來替代。如需Flux 架構的這些功能和其他功能的詳細資訊，請參閱 [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html)。
 
 ##Trident
 
 Trident 是 Storm 提供的高層級抽象。它支援具狀態的處理。Trident 的主要優點是它可以保證進入拓撲的每則訊息都只處理一次。這在原始 Java 拓撲中很難達到，而原始 Java 拓撲保證訊息將至少處理一次。還有其他差異，例如可供使用的內建元件，而不是建立 Bolt。事實上，較不一般的元件 (例如篩選、投影和函數) 會完全取代 Bolt。
 
-可以使用 Maven 專案來建立 Trident 應用程式。您使用與本文稍早所呈現的相同基本步驟—只有程式碼不同。
+可以使用 Maven 專案來建立 Trident 應用程式。您使用與本文稍早所呈現的相同基本步驟—只有程式碼不同。Trident (目前) 也無法與 Flux 架構搭配使用。
 
 如需 Trident 的詳細資訊，請參閱 <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Trident API 概觀</a>。
 
@@ -526,4 +735,4 @@ Trident 是 Storm 提供的高層級抽象。它支援具狀態的處理。Tride
 
 您可透過瀏覽 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)找到更多範例 Storm 拓撲。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

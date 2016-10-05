@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # 使用 Azure AD 進行 Web 應用程式登入與登出
@@ -59,7 +59,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 -	將 OWIN 啟動類別加入名為 `Startup.cs` 的專案。以滑鼠右鍵按一下專案 --> [**新增**] --> [ **新增項目**] --> 搜尋 "OWIN"。OWIN 中介軟體將會在應用程式啟動時叫用 `Configuration(...)` 方法。
--	將類別宣告變更為 `public partial class Startup`，我們已為您在另一個檔案中實作了此類別的一部分。在 `Configuration(...)` 方法中，請呼叫 ConfgureAuth(...) 以設定您的 Web 應用程式驗證。  
+-	將類別宣告變更為 `public partial class Startup`，我們已為您在另一個檔案中實作了此類別的一部分。在 `Configuration(...)` 方法中，請呼叫 ConfgureAuth(...) 以設定您的 Web 應用程式驗證。
 
 ```C#
 public partial class Startup
@@ -178,4 +178,4 @@ public ActionResult About()
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

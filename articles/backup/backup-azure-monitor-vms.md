@@ -74,10 +74,16 @@ ms.author="trinadhk; giridham;"/>
 5. 在 [嚴重性] 對話方塊中，選擇您要觸發電子郵件通知的一或多個層級。
 
 6. 按一下 [儲存]。
+### 有哪些警示類型可供 Azure IaaS VM 備份使用？
+| 警示層級 | 傳送的警示 |
+| ------------- | ------------- |
+| 重要 | 備份失敗、復原失敗 |
+| 警告 | None |
+| 資訊 | None | 
 
 ### 會有即使已設定通知卻不寄送電子郵件的情況嗎？
 
-即使已正確設定通知，仍會有不寄送警示的情況。在下列情況下，將不會寄送電子郵件通知︰
+即使已正確設定通知，仍會有不寄送警示的情況。在下列情況下將不會寄送電子郵件通知，以避免警示雜訊︰
 
 - 如果通知設定為 [每小時摘要]，而且在一小時內引發警示並加以解決，
 - 作業便會取消。
@@ -231,4 +237,4 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 如需從復原點重新建立虛擬機器的詳細資訊，請參閱[還原 Azure VM](backup-azure-restore-vms.md)。如需保護虛擬機器的詳細資訊，請參閱[搶先目睹︰將 VM 備份至復原服務保存庫](backup-azure-vms-first-look-arm.md)。深入了解[管理 Azure 虛擬機器備份](backup-azure-manage-vms.md)一文中 VM 備份的管理工作。
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

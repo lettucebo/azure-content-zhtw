@@ -34,7 +34,7 @@
 
 查看 [GitHub 儲存機制](https://github.com/Azure-Samples/azure-servicebus-messaging-samples][github-samples)，其中的範例會展示一些更進階的 Azure 服務匯流排訊息功能。
 
-[create-namespace-using-arm]: ./service-bus-resource-manager-overview.md
+[create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/25/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # Azure 資訊安全中心的偵測功能
@@ -83,9 +83,10 @@ Azure 資訊安全中心設有資訊安全研究和資料科學小組，負責�
 
 - [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md)
 - [管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)
+- [Azure 資訊安全中心不同類型的安全性警示](security-center-alerts-type.md)
 - [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) — 了解如何監視 Azure 資源的健全狀況。
 - [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md) — 了解如何監視合作夥伴解決方案的健全狀況。
 - [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題。
 - [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) — 尋找有關 Azure 安全性與相容性的部落格文章。
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

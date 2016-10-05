@@ -20,6 +20,25 @@
 
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。推出這些更新的特定[系列][family-explain]皆會包含這些更新。
 
+## 九月客體 OS 
+
+| 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-104 | [3183038] | Internet Explorer 的累積安全性更新 | 4\.36, 3.43, 2.55 | 2016 年 9 月 13 日 |
+| MS16-106 | [3185848] | Microsoft 圖形元件的安全性更新 | 4\.36, 3.43, 2.55 | 2016 年 9 月 13 日 |
+| MS16-110 | [3178467] | Windows 的安全性更新 | 4\.36, 3.43, 2.55 | 2016 年 9 月 13 日 |
+| MS16-111 | [3186973] | Windows Kernel 的安全性更新 | 4\.36, 3.43, 2.55 | 2016 年 9 月 13 日 |
+| MS16-112 | [3178469] | Windows 鎖定畫面的安全性更新 | 4\.36 | 2016 年 9 月 13 日 |
+| MS16-114 | [3185879] | Windows SMB Server 的安全性更新 | 4\.36, 3.43, 2.55 | 2016 年 9 月 13 日 |
+| MS16-115 | [3188733] | PDF 的安全性更新 | 4\.35, 3.43 | 2016 年 9 月 13 日 |
+| MS16-116 | [3188724] | VBScript 指令碼引擎的 OLE 自動化中的安全性更新 | 4\.36, 3.43, 2.55 | 2016 年 9 月 13 日 |
+| | [3174644] | 更新 Diffie-hellman 金鑰交換的支援 | 4\.36, 3.43, 2.55 | 2016 年 9 月 13 日 |
+| | [3177723] | 時區更新 - 埃及取消 DST | 4\.36, 3.43, 2.55 | 2016 年 9 月 13 日 |
+| | [3179573] | 適用於 Windows 7 SP1 和 Windows Server 2008 R2 SP1 的 2016 年 8 月更新彙總套件 | 2\.55 | 2016 年 9 月 13 日 |
+| | [3179575] | 適用於 Windows Server 2012 的 2016 年 8 月更新彙總套件 | 3\.43 | 2016 年 9 月 13 日 |
+| | [3179574] | 適用於 Windows RT 8.1、Windows 8.1 和 Windows Server 2012 R2 的 2016 年 8 月更新彙總套件 | 4\.36 | 2016 年 9 月 13 日 |
+
+
 ## 8 月客體作業系統 
 
 | 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
@@ -349,6 +368,19 @@
 | N/A | [2999802][2999802] | 在 Windows 中列印虛線時會變成實線 | 4\.15、3.22,、2.34 | 2015 年 1 月 13 日 |
 | N/A | [2896881][2896881] | 在 Windows 中於登入程序期間使用 AddPrinterConnection VBScript 命令對應使用者印表機時，登入時間過長 | 4\.15、3.22,、2.34 | 2015 年 1 月 13 日 |
 
+[3183038]: http://support.microsoft.com/kb/3183038
+[3185848]: http://support.microsoft.com/kb/3185848
+[3178467]: http://support.microsoft.com/kb/3178467
+[3186973]: http://support.microsoft.com/kb/3186973
+[3178469]: http://support.microsoft.com/kb/3178469
+[3185879]: http://support.microsoft.com/kb/3185879
+[3188733]: http://support.microsoft.com/kb/3188733
+[3188724]: http://support.microsoft.com/kb/3188724
+[3174644]: http://support.microsoft.com/kb/3174644
+[3177723]: http://support.microsoft.com/kb/3177723
+[3179573]: http://support.microsoft.com/kb/3179573
+[3179575]: http://support.microsoft.com/kb/3179575
+[3179574]: http://support.microsoft.com/kb/3179574
 
 [3177356]: http://support.microsoft.com/kb/3177356
 [3177393]: http://support.microsoft.com/kb/3177393
@@ -602,4 +634,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

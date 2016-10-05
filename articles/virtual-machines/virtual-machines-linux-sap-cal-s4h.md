@@ -1,20 +1,20 @@
 <properties 
 pageTitle="在 Microsoft Azure 上部署 S/4 HANA 或 BW/4 HANA | Microsoft Azure" 
 description="在 Microsoft Azure 上部署 S/4 HANA 或 BW/4 HANA" 
-services="virtual-machines,virtual-network,storage" 
-documentationCenter="saponazure" 
+services="virtual-machines-linux" 
+documentationCenter="" 
 authors="hermanndms" 
-manager="juergent" 
+manager="timlt" 
 editor="" 
 tags="azure-resource-manager" 
   keywords=""/>
 <tags  
-  ms.service="virtual-machines" 
-  ms.devlang="NA" 
-  ms.topic="campaign-page" 
+  ms.service="virtual-machines-linux" 
+  ms.devlang="na" 
+  ms.topic="article" 
   ms.tgt_pltfrm="vm-linux" 
-  ms.workload="na" 
-  ms.date="09/12/2016" 
+  ms.workload="infrastructure-services" 
+  ms.date="09/15/2016" 
   ms.author="hermannd"/>
 
 
@@ -88,4 +88,4 @@ tags="azure-resource-manager"
 
 另一個選項是登入用戶端 Windows VM，並啟動預先設定的 SAP GUI (舉例來說)。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

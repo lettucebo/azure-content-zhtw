@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 高階層簡介
@@ -24,9 +24,9 @@ Azure Redis Cache 是一種分散式受管理快取，可提供超快速的資�
 ## 效能優於標準或基本層。
 **效能優於標準或基本層。** 高階層中的快取是部署在擁有較快處理器的硬體上，因此效能優於基本或標準層。高階層快取的輸送量較高，延遲較低。
 
-**相較於標準層，高階層中相同大小的快取，其輸送量較高。** 例如：53 GB 的快取，其 P4 (高階層) 的輸送量是每秒 250K 個要求，相較之下，C6 (標準層) 則只有 150K。
+**相較於標準層，高階層中相同大小的快取，其輸送量較高。** 例如：53 GB P4 (高階層) 快取的輸送量是每秒 250K 個要求，相較之下，C6 (標準層) 則只有 150K 個。
 
-如需高階快取的大小、輸送量和頻寬等方面的詳細資訊，請參閱 [Azure Redis Cache 常見問題集](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)。
+如需高階快取的大小、輸送量和頻寬的詳細資訊，請參閱 [Azure Redis 快取常見問題集](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 ## Redis 資料永續性
 高階層可讓您將快取資料保存在 Azure 儲存體帳戶中。在基本/標準快取中，所有資料都只儲存在記憶體中。如果基礎結構發生問題，資料可能會遺失。建議您使用高階層中的 Redis 資料永續性功能，以提高資料遺失時的復原能力。Azure Redis Cache 在 [Redis 永續性](http://redis.io/topics/persistence)中提供 RDB 和 AOF (即將推出) 選項。
@@ -90,4 +90,4 @@ Azure Redis Cache 是一種分散式受管理快取，可提供超快速的資�
 -	[如何管理 Azure Redis 快取](cache-administration.md)
   
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

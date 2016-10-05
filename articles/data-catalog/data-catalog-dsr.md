@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/13/2016"
+   ms.date="09/15/2016"
    ms.author="trhabe"/>
 
 # Azure 資料目錄支援的資料來源
@@ -269,7 +269,7 @@ Azure 資料目錄的使用者可以使用公用 API、Click Once 註冊工具�
       <td>✓</td>
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
-      <td><font size=2></font></td>
+      <td><font size=2>僅限計算檢視和分析檢視；不支援屬性檢視。</font></td>
     </tr>
 
     <tr>
@@ -1166,4 +1166,4 @@ Azure 資料目錄的使用者可以使用公用 API、Click Once 註冊工具�
     </tr>
 </table>
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,7 +3,7 @@
 	description="Spark MLlib 工具組將可觀的機器學習模型化功能引進分散式 HDInsight 環境中。"
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun"  />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # 在 Azure HDInsight 上使用 Spark 的資料科學概觀
 
@@ -37,7 +37,11 @@
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
+<!-- -->
+
 > [AZURE.NOTE] 如需示範如何使用 Scala 而非 Python 完成端對端資料科學程序工作的主題，請參閱[在 Azure 上使用 Spark 與 Spark 的資料科學](machine-learning-data-science-process-scala-walkthrough.md)。
+
+<!-- -->
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -146,4 +150,4 @@
 
 **交叉驗證和超參數清除**：請參閱[使用 Spark 進階資料探索和模型化](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)有關如何使用交叉驗證和超參數清除訓練模型
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

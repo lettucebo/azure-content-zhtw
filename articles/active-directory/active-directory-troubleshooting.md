@@ -1,5 +1,5 @@
 <properties
-   pageTitle="疑難排解：'Active Directory' 項目遺失或無法使用 | Microsoft Azure"
+   pageTitle="疑難排解：'Active Directory' 項目遺失或無法使用 | Microsoft Azure "
    description="若 Active Directory 功能表項目未出現在 Azure 管理入口網站中，該怎麼做。"
    services="active-directory"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/31/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # 疑難排解：'Active Directory' 項目遺失或無法使用
@@ -54,4 +54,4 @@
 
 ![螢幕擷取畫面：Active Directory 無法使用](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -29,14 +29,14 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸入**：
 
-| Make | Time | Weight |
+| Make | 時間 | Weight |
 | --- | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z | "1000" |
 | Honda | 2015-01-01T00:00:02.0000000Z | "2000" |
 
 **輸出**：
 
-| Make | Weight |
+| Make | 重量 |
 | --- | --- |
 | Honda | 3000 |
 
@@ -59,7 +59,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸入**：
 
-| Make | LicensePlate | Time |
+| Make | LicensePlate | 時間 |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -67,7 +67,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸出**：
 
-| Make | LicensePlate | Time |
+| Make | LicensePlate | 時間 |
 | --- | --- | --- |
 | Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
 | Nissan | ABC-369 | 2015-01-01T00:00:03.0000000Z |
@@ -88,7 +88,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸入**：
 
-| Make | Time |
+| Make | 時間 |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
@@ -96,7 +96,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸出**：
 
-| CarsPassed | Time |
+| CarsPassed | 時間 |
 | --- | --- | --- |
 | 1 Honda | 2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas | 2015-01-01T00:00:10.0000000Z |
@@ -122,7 +122,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸入**：
 
-| Make | Time |
+| Make | 時間 |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Honda | 2015-01-01T00:00:02.0000000Z |
@@ -132,7 +132,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **Output1**：
 
-| Make | Time |
+| Make | 時間 |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Honda | 2015-01-01T00:00:02.0000000Z |
@@ -142,7 +142,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **Output2**：
 
-| Make | Time | Count |
+| Make | 時間 | Count |
 | --- | --- | --- |
 | Toyota | 2015-01-01T00:00:10.0000000Z | 3 |
 
@@ -187,7 +187,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸入**：
 
-| Make | Time |
+| Make | 時間 |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Honda | 2015-01-01T00:00:02.0000000Z |
@@ -197,7 +197,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸出：**
 
-| Count | Time |
+| Count | 時間 |
 | --- | --- |
 | 2 | 2015-01-01T00:00:02.000Z |
 | 1 | 2015-01-01T00:00:04.000Z |
@@ -230,14 +230,14 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸入**：
 
-| Make | Time |
+| Make | 時間 |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 
 **輸出**：
 
-| Make | Time |
+| Make | 時間 |
 | --- | --- |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 
@@ -258,7 +258,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸入**：
 
-| LicensePlate | Make | Time |
+| LicensePlate | Make | 時間 |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
@@ -270,7 +270,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸出**：
 
-| LicensePlate | Make | Time |
+| LicensePlate | Make | 時間 |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
@@ -288,7 +288,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 現在讓我們來變更問題，每隔 10 分鐘尋找特定品牌的第一輛車。
 
-| LicensePlate | Make | Time |
+| LicensePlate | Make | 時間 |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
@@ -312,7 +312,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸入**：
 
-| LicensePlate | Make | Time |
+| LicensePlate | Make | 時間 |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
@@ -324,7 +324,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸出**：
 
-| LicensePlate | Make | Time |
+| LicensePlate | Make | 時間 |
 | --- | --- | --- |
 | VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
 | MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
@@ -357,7 +357,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸入**：
 
-| Make | LicensePlate | Time |
+| Make | LicensePlate | 時間 |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Honda | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -366,7 +366,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸出**：
 
-| Make | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Make | 時間 | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda | 2015-01-01T00:00:02.0000000Z | AAA-999 | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 
@@ -390,7 +390,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸入**：
   
-| User | Feature | Event | Time |
+| User | 功能 | Event | Time |
 | --- | --- | --- | --- |
 | user@location.com | RightMenu | Start | 2015-01-01T00:00:01.0000000Z |
 | user@location.com | RightMenu | End | 2015-01-01T00:00:08.0000000Z |
@@ -419,7 +419,7 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 
 **輸入**：
 
-| Make | Time | Weight |
+| Make | 時間 | Weight |
 | --- | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z | 2000 |
 | Toyota | 2015-01-01T00:00:02.0000000Z | 25000 |
@@ -514,4 +514,4 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

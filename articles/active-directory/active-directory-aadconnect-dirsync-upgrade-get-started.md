@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -173,7 +173,7 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼會
 解除安裝或停用 DirSync 之後，沒有任何作用中的伺服器會匯出至 Azure AD。在內部部署 Active Directory 中的任何變更繼續同步至 Azure AD 之前，您必須完成啟用 Azure AD Connect 的下一個步驟。
 
 ### 啟用 Azure AD Connect (新伺服器)
-安裝之後，重新開啟 Azure AD Connect 時，您可以進行其他設定變更。從 [開始] 功能表或桌面上的捷徑啟動 **Azure AD Connect** 。請確定您未嘗試重新執行安裝 MSI。
+安裝之後，重新開啟 Azure AD Connect 時，您可以進行其他設定變更。從 [開始] 功能表或桌面上的捷徑啟動 **Azure AD Connect**。請確定您未嘗試重新執行安裝 MSI。
 
 您應該會看見下列內容：
 
@@ -208,4 +208,4 @@ Azure AD Connect 概觀 | [整合內部部署身分識別與 Azure Active Direct
 使用自訂設定進行安裝 | [自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)
 用於安裝的帳戶 | [Azure AD Connect 帳戶與權限的詳細資訊](active-directory-aadconnect-accounts-permissions.md)
 
-<!----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

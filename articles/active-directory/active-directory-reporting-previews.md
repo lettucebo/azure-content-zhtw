@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="09/16/2016"
    ms.author="dhanyahk"/>
 
 # Azure Active Directory 報告預覽
@@ -54,4 +54,4 @@ RMS 裝置使用量 | 公開預覽
 **私人預覽報告** |
 所有使用者登入活動 | 私人預覽
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0921_2016-->

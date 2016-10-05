@@ -1,5 +1,5 @@
 <properties
-	pageTitle="動態封裝概觀"
+	pageTitle="動態封裝概觀 | Microsoft Azure"
 	description="本主題提供動態封裝的概觀。"
 	authors="Juliako"
 	manager="erikre"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
 #動態封裝
 
-##概觀
+##Overview
 
 Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS、XBOX、Silverlight、Windows 8) 提供許多媒體來源檔案格式、媒體串流格式和內容保護格式。這些用戶端各自使用不同的通訊協定，例如 iOS 需要 HTTP 即時串流 (HLS) V4 格式，而 Silverlight 與 Xbox 需要 Smooth Streaming。如果您有一組自動調整位元速率 (多位元速率) MP4 (ISO Base Media 14496-12) 檔案或一組自動調整位元速率 Smooth Streaming 檔案，想要傳遞給了解 MPEG DASH、HLS 或 Smooth Streaming 的用戶端，應該利用媒體服務動態封裝。
 
@@ -34,7 +34,7 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 ![動態編碼](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 
->[AZURE.NOTE]若要利用動態封裝，您必須先取得至少一個串流端點的隨選串流單位，您打算從中傳遞您的內容。如需詳細資訊，請參閱[如何調整媒體服務](media-services-manage-origins.md#scale_streaming_endpoints)。
+>[AZURE.NOTE]若要利用動態封裝，您必須先取得至少一個串流端點的隨選串流單位，您打算從中傳遞您的內容。如需詳細資訊，請參閱[如何調整媒體服務](media-services-portal-manage-streaming-endpoints.md)。
 
 ##常見的案例
 
@@ -56,11 +56,11 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 3. [串流處理內容](media-services-deliver-content-overview.md)。
 
 -或-
- 
+
 1. 上傳預先編碼的 MP4 檔案。
 
-	>[AZURE.NOTE] 但不建議您這樣做。
-	
+>[AZURE.NOTE] 但不建議您這樣做。
+
 2. [驗證預先編碼的檔案](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders)。
 3. [串流處理內容](media-services-deliver-content-overview.md)。
 
@@ -80,4 +80,4 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

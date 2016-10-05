@@ -42,4 +42,4 @@
 
 4. 按一下核取圖示 ![核取圖示](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png)。使用指定的設定來建立磁碟區。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016---->

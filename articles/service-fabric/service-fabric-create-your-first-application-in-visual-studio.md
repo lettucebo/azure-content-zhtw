@@ -13,10 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2016"
+   ms.date="09/28/2016"
    ms.author="ryanwi"/>
 
-# 在 Visual Studio 中建立第一個 Azure Service Fabric 應用程式
+
+# 建立第一個 Azure Service Fabric 應用程式
+
+> [AZURE.SELECTOR]
+- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java](service-fabric-create-your-first-linux-application-with-java.md)
 
 Service Fabric SDK 包含的 Visual Studio 增益集提供用來建立、部署和偵錯 Service Fabric 應用程式的範本和工具。本主題逐步解說在 Visual Studio 中建立第一個應用程式的程序。
 
@@ -94,15 +99,15 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 
 5. 以滑鼠右鍵按一下 [本機叢集管理員] 系統匣應用程式並選擇 [管理本機叢集]，以啟動 Service Fabric Explorer。
 
-    ![從本機叢集管理員啟動 Service Fabric 總管][systray-launch-sfx]
+    ![從本機叢集管理員啟動 Service Fabric Explorer][systray-launch-sfx]
 
-    Service Fabric Explorer 提供了叢集的視覺表示法，包括部署至叢集的應用程式集以及構成叢集的實體節點集合。若要了解 Service Fabric 總管，請參閱[視覺化叢集](service-fabric-visualizing-your-cluster.md)。
+    Service Fabric Explorer 提供了叢集的視覺表示法，包括部署至叢集的應用程式集以及構成叢集的實體節點集合。若要了解 Service Fabric Explorer，請參閱[視覺化叢集](service-fabric-visualizing-your-cluster.md)。
 
 6. 在左窗格中展開 [叢集] > [節點]，並尋找您的程式碼執行所在的節點。
 
 7. 按一下 [動作] > [停用 (重新啟動)] 來模擬電腦重新啟動。(請注意，您也可以從左窗格之節點清單檢視中的內容功能表停用)。
 
-	![在 Service Fabric 總管中停止節點][sfx-stop-node]
+	![在 Service Fabric Explorer 中停止節點][sfx-stop-node]
 
 	您應該會在 Visual Studio 中短暫看見達到您的中斷點，因為您一個節點上所做的計算完美地容錯移轉至另一個節點。
 
@@ -148,4 +153,4 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

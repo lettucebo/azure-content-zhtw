@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/15/2016"
 	ms.author="casoper"/>
 
 # 開始使用 Azure CDN 開發
 
 > [AZURE.SELECTOR]
-- [.NET](cdn-app-dev-net.md)
 - [Node.js](cdn-app-dev-node.md)
+- [.NET](cdn-app-dev-net.md)
 
 您可以使用 [Azure CDN SDK for Node.js](https://www.npmjs.com/package/azure-arm-cdn)，自動建立和管理 CDN 設定檔與端點。本教學課程會逐步建立簡單的 Node.js 主控台應用程式，示範數個可用的作業。本教學課程的目的不是詳細說明 Azure CDN SDK for Node.js 的所有層面。
 
@@ -369,4 +369,4 @@ function cdnDelete() {
 
 使用 [PowerShell](./cdn-manage-powershell.md) 管理 CDN 資源。
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

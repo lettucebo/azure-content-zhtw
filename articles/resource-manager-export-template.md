@@ -144,6 +144,8 @@ Resource Manager 可讓您從您的訂用帳戶中現有的資源匯出 Resource
 
 雖然每個部署只會顯示您對資源群組所做的變更，您隨時可以匯出範本，以顯示整個資源群組的屬性。
 
+> [AZURE.NOTE] 您無法針對具有超過 200 個資源的資源群組匯出範本。
+
 1. 若要檢視資源群組的範本，請選取 [自動化指令碼]。
 
       ![匯出資源群組](./media/resource-manager-export-template/export-resource-group.png)
@@ -343,4 +345,4 @@ Resource Manager 可讓您從您的訂用帳戶中現有的資源匯出 Resource
 - 若要查看如何透過 PowerShell 匯出範本，請參閱[搭配使用 Azure PowerShell 與 Azure Resource Manager](powershell-azure-resource-manager.md)。
 - 若要查看如何透過 Azure CLI 匯出範本，請參閱[搭配使用 Mac、Linux 和 Windows 適用的 Azure CLI 與 Azure Resource Manager](xplat-cli-azure-resource-manager.md)。
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

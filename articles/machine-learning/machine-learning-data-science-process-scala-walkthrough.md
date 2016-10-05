@@ -3,7 +3,7 @@
 	description="如何使用 Scala 搭配 Spark 可調整 MLlib 和 Azure HDInsight Spark 叢集上的 SparkML 封裝，處理受監督的機器學習工作。"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/01/2016"
-	ms.author="bradsev;"/>
+	ms.author="bradsev;deguhath"/>
 
 
 # 在 Azure 上使用 Scala 與 Spark 的資料科學
@@ -1164,4 +1164,4 @@ ROC 曲線夏的領域 = 0.9846895479241554
 
 [評分 Spark 建置的機器學習模型](machine-learning-data-science-spark-model-consumption.md)示範如何利用 Spark 內建並儲存於 Azure Blob 儲存體的機器學習模型，使用 Scala 程式碼來自動載入及評分新資料集。您可以遵循此處提供的指示，只要將本文中的 Python 程式碼取代為 Scala 程式碼，即可自動取用。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

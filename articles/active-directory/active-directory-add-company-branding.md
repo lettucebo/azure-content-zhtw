@@ -3,7 +3,7 @@
 	description="了解如何將公司商標新增至 Azure 登入頁面和存取面板頁面"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="curtand"
 	manager="femila"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/13/2016"
-	ms.author="MarkVi"/>
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
 # 在登入和存取面板頁面加上公司商標
 
@@ -29,7 +29,7 @@
 
 > [AZURE.NOTE]
 >
-- 公司商標是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+- 公司商標是您升級至 Premium 或 Basic 版本的 Azure Active Directory 後，或是 Office 365 使用者時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 - Azure Active Directory Premium 和 Basic 版本適用於使用全球 Azure Active Directory 執行個體的中國客戶。由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure Active Directory Premium 和 Basic 版本。如需詳細資訊，請透過 [Azure Active Directory 論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)與我們連絡。
 
 
@@ -40,7 +40,7 @@
 
 如果您已對登入頁面套用變更，最多需要一小時變更才會出現。
 
-當您使用租用戶特定 URL (例如 https://outlook.com/**contoso**.com 或 https://mail.**contoso**.com) 造訪服務時，才會出現加上商標的登入頁面。
+只有當您使用租用戶特定 URL (例如 https://outlook.com/**contoso**.com 或 https://mail.**contoso**.com) 來造訪服務時，才會顯示加上商標的登入頁面。
 
 當您使用非租用戶特定 URL (例如 https://mail.office365.com) 造訪服務時，則會出現沒有商標的登入頁面。在此情況下，在您輸入使用者識別碼或選取使用者圖格之後，您的商標就會出現。
 
@@ -52,11 +52,11 @@
 
 如果您想要在此頁面上顯示您的公司商標、色彩和其他可自訂的元素，請參閱下列影像以了解這兩種做法的差異。
 
-下列螢幕擷取畫面顯示自訂**前**在桌上型電腦上的 Office 365 登入頁面範例︰
+下列螢幕擷取畫面顯示桌上型電腦上 Office 365 登入頁面的自訂「前」範例︰
 
 ![自訂前的 Office 365 登入頁面][1]
 
-下列螢幕擷取畫面顯示自訂**後**在桌上型電腦上的 Office 365 登入頁面範例︰
+下列螢幕擷取畫面顯示桌上型電腦上 Office 365 登入頁面的自訂「後」範例︰
 
 ![自訂後的 Office 365 登入頁面][2]
 
@@ -219,4 +219,4 @@ Azure AD 中的部分可自訂元素有多個使用案例。您可以在每個�
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

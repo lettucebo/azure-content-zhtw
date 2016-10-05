@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="設定 NewTek TriCaster 編碼器來傳送單一位元速率的即時串流" 
+	pageTitle="設定 NewTek TriCaster 編碼器來傳送單一位元速率的即時串流 | Microsoft Azure" 
 	description="本主題示範如何設定 Tricaster 即時編碼器，藉此將單一位元速率的串流傳送到已啟用即時編碼的 AMS 通道。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
+	authors="cenkdin" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="juliako"/>
+	ms.date="09/15/2016" 
+	ms.author="juliako;cenkd;anilmur"/>
 
 #使用 NewTek TriCaster 編碼器來傳送單一位元速率的即時串流
 
@@ -34,7 +34,7 @@
 ##必要條件
 
 - [建立 Azure 媒體服務帳戶](media-services-create-account.md)
-- 請確定執行的串流端點至少有一個配置的串流單位。如需詳細資訊，請參閱[在媒體服務帳戶中管理串流端點](media-services-manage-origins.md)
+- 請確定執行的串流端點至少有一個配置的串流單位。如需詳細資訊，請參閱[在媒體服務帳戶中管理串流端點](media-services-portal-manage-streaming-endpoints.md)
 - 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 - 啟動工具並連接到您的 AMS 帳戶。
 
@@ -66,7 +66,7 @@
 
 ##<a id=configure_tricaster_rtmp></a>設定 NewTek TriCaster 編碼器
 
-在本教學課程中，我們會使用下列輸出設定。本章節的其餘部分將詳細說明組態步驟。
+在本教學課程中會使用下列輸出設定。本章節的其餘部分將詳細說明組態步驟。
 
 **視訊**：
  
@@ -148,7 +148,7 @@
 	注意：建立程式時所使用的時間會比建立通道時更少。
  
 5. 一旦程式開始執行，請在程式上按一下滑鼠右鍵，並瀏覽至 [播放程式]，然後選取 [使用 Azure 媒體播放器] 確認播放。
-6. 一經確認後，再次於該程式上按一下滑鼠右鍵，並選取 \[複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
+6. 一經確認後，再次於該程式上按一下滑鼠右鍵，並選取 [複製輸出 URL 到剪貼簿] \(或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
 
 串流現在已經可以內嵌於播放程式中，或散發給某個對象，以供即時檢視。
 
@@ -158,7 +158,9 @@
 請參閱[疑難排解](media-services-troubleshooting-live-streaming.md)主題中的指引。
 
 
-##媒體服務學習路徑
+##後續步驟
+
+檢閱媒體服務學習路徑。
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -166,4 +168,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

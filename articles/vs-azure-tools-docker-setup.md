@@ -3,7 +3,7 @@
    description="使用 Docker 機器和 VirtualBox 來設定預設 Docker 執行個體的逐步指示。"
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="06/08/2016"
-   ms.author="allclark" />
+   ms.author="mlearned" />
 
 # 使用 VirtualBox 設定 Docker 主機
 
-## 概觀
+## Overview
 本文會逐步引導您使用 Docker 機器和 VirtualBox 來設定預設 Docker 執行個體。如果您是使用 [Docker for Windows Beta 版](http://beta.docker.com/)，則不需要此組態。
 
 ## 必要條件
@@ -62,4 +62,4 @@
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

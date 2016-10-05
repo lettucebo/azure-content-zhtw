@@ -101,7 +101,7 @@ Azure 自動化 DSC 中的編譯工作是組態編譯的執行個體，以建立
 
 - 升級至 WMF 5 RTM 時，如果機器已註冊為 Azure Automation DSC 的節點，請從 Azure Automation DSC 將其取消註冊，並且在 WMF 5 RTM 升級之後重新註冊。
 
-- Azure 自動化 DSC 目前不支援進行部分或複合 DSC 組態。不過，DSC 複合資源可以匯入及使用，就像在本機 PowerShell 中，讓組態重複使用。
+- Azure 自動化 DSC 目前不支援進行部分或複合 DSC 組態。不過，DSC 複合資源可以在 Azure 自動化 DSC 組態中匯入及使用，就像在本機 PowerShell 中，讓組態重複使用。
 
 - 必須安裝 WMF 5 的最新版本，Windows 適用的 PowerShell DSC 代理程式才能與 Azure 自動化通訊。必須安裝 Linux 適用之 PowerShell DSC 代理程式的最新版本，Linux 才能與 Azure 自動化通訊。
 
@@ -128,4 +128,4 @@ Azure 自動化 DSC 中的編譯工作是組態編譯的執行個體，以建立
 - [Azure 自動化 DSC 價格](https://azure.microsoft.com/pricing/details/automation/)
 - [使用 Azure 自動化 DSC 和 Chocolatey 的 IaaS VM 持續部署](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

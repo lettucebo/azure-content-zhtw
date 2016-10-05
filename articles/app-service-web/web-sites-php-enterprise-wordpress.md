@@ -49,7 +49,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 
 在每個區域內，您仍然可以在多個 Web 應用程式執行個體中調整 WordPress 網站，但此調整會是區域特定；高流量區域和低流量區域的調整可能會有所不同。
 
-您可以使用 ClearDB 的 [CDBR 高可用性路由器][cleardbscale] (如左側所示) 或 [MySQL 叢集 CGE][cge]，進行複寫和路由傳送至多個 MySQL 資料庫。
+您可以使用 ClearDB 的 [CDBR 高可用性路由器][cleardbscale] \(如左側所示) 或 [MySQL 叢集 CGE][cge]，進行複寫和路由傳送至多個 MySQL 資料庫。
 
 ### 包含媒體儲存體和快取的多重區域部署
 
@@ -88,7 +88,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 ------------------------|-----------
 **了解 App Service 執行個體功能** | [定價詳細資料，包括 App Service 層的功能][websitepricing]
 **快取資源** | [Redis cache][rediscache]、[Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/)、[MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) 或 [Azure 市集](/gallery/store/)中的其中一個快取產品。
-**調整您的應用程式** | [調整 Azure App Service 中的 Web 應用程式][websitescale]及 [ClearDB 高可用性路由][cleardbscale]。如果您選擇主控與管理自己的 MySQL 安裝，您應考量可相應放大的 [MySQL 叢集 CGE][cge] (英文)。
+**調整您的應用程式** | [調整 Azure App Service 中的 Web 應用程式][websitescale]及 [ClearDB 高可用性路由][cleardbscale]。如果您選擇主控與管理自己的 MySQL 安裝，您應考量可相應放大的 [MySQL 叢集 CGE][cge] \(英文)。
 
 #### 移轉
 
@@ -98,7 +98,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 
 	> [AZURE.NOTE] 此程序可讓您移轉內容，但它無法移轉任何外掛程式、主題或其他自訂。您必須手動重新安裝這些項目。
 
-* **手動移轉** - [備份您的網站][wordpressbackup]和[資料庫][wordpressdbbackup] (英文)，然後手動將它還原成 Azure App Service 中的 Web 應用程式和相關聯 MySQL 資料庫，以移轉高度自訂的網站，並避免冗長的手動外掛程式、佈景主題或其他自訂。
+* **手動移轉** - [備份您的網站][wordpressbackup]和[資料庫][wordpressdbbackup] \(英文)，然後手動將它還原成 Azure App Service 中的 Web 應用程式和相關聯 MySQL 資料庫，以移轉高度自訂的網站，並避免冗長的手動外掛程式、佈景主題或其他自訂。
 
 ## 逐步指示
 
@@ -141,7 +141,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 如果使用... | 執行此動作...
 ------------------ | ----------
 **固定連結** | 從新網站的 WordPress 儀表板中，依序按一下 [設定] -> [固定連結]，然後更新固定連結結構
-**影像/媒體連結** | 若要將連結更新到新位置，請使用 [Velvet Blues Update URLs 外掛程式][velvet] (搜尋和取代工具)，或手動在資料庫中更新
+**影像/媒體連結** | 若要將連結更新到新位置，請使用 [Velvet Blues Update URLs 外掛程式][velvet] \(搜尋和取代工具)，或手動在資料庫中更新
 **佈景主題** | 移至 [外觀] -> [佈景主題]，然後視需要更新網站佈景主題
 **功能表** | 如果您的主題支援功能表，前往首頁的連結可能仍然內嵌舊的子目錄。移至 [外觀] -> [功能表]，然後進行更新
 
@@ -157,7 +157,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 
 	2. 使用 MySQL 用戶端 (如 [MySQL Workbench][workbench]) 連線到新的資料庫，並匯入您的 WordPress 資料庫。
 
-	3. 更新資料庫，將網域項目變更成新的 Azure App Service 網域。例如，mywordpress.azurewebsites.net。使用[搜尋與取代 WordPress 資料庫指令碼][searchandreplace] (英文) 以安全的方式變更所有執行個體。
+	3. 更新資料庫，將網域項目變更成新的 Azure App Service 網域。例如，mywordpress.azurewebsites.net。使用[搜尋與取代 WordPress 資料庫指令碼][searchandreplace] \(英文) 以安全的方式變更所有執行個體。
 
 4. 在 Azure 入口網站中建立新的 Web 應用程式，並發佈 WordPress 備份。
 
@@ -190,7 +190,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 **啟用電子郵件** | <ol><li><p>[使用 Azure 市集啟用 SendGrid ](/gallery/store/sendgrid/sendgrid-azure/)</p></li><li><p>[安裝適用於 WordPress 的 SendGrid 外掛程式](http://wordpress.org/plugins/sendgrid-email-delivery-simplified/)</p></li></ol>
 **設定自訂網域名稱** | [在 Azure App Service 中設定自訂網域名稱][customdomain]
 **啟用自訂網域名稱的 HTTPS** | [針對 Azure App Service 中的 Web 應用程式啟用 HTTPS][httpscustomdomain]
-**負載平衡或異地發佈您的網站** | [使用 Azure 流量管理員路由傳送流量][trafficmanager] (英文)。如果您打算使用自訂網域，請參閱[在 Azure App Service 中設定自訂網域名稱][customdomain]，以取得搭配自訂網域名稱使用流量管理員的相關資訊
+**負載平衡或異地發佈您的網站** | [使用 Azure 流量管理員路由傳送流量][trafficmanager] \(英文)。如果您打算使用自訂網域，請參閱[在 Azure App Service 中設定自訂網域名稱][customdomain]，以取得搭配自訂網域名稱使用流量管理員的相關資訊
 **啟用自動備份** | [在 Azure App Service 中備份 Web 應用程式][backup]
 **啟用診斷記錄** | [在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能][log]
 

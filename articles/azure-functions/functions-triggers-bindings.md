@@ -20,7 +20,7 @@
 
 # Azure Functions 觸發程序和繫結開發人員參考
 
-下列文章說明如何在 Azure Functions 中為觸發程序和繫結進行設定及撰寫程式碼。這些文章假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)及 [C#](functions-reference-csharp.md) 或 [Node.js](functions-reference-node.md) 開發人員參考文章。
+下列文章說明如何在 Azure Functions 中為觸發程序和繫結進行設定及撰寫程式碼。這些文章假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)及 [C#](functions-reference-csharp.md) 或 [F#](functions-reference-fsharp.md) 或 [Node.js](functions-reference-node.md) 開發人員參考文章。
 
 ## 觸發程序和繫結文章
 
@@ -35,4 +35,4 @@
 * [測試函數](functions-test-a-function.md)
 * [調整函數](functions-scale.md)
 
-<!----HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

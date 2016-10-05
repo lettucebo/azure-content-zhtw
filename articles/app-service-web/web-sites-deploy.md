@@ -194,7 +194,7 @@ Microsoft 可讓您透過[適用於 Eclipse 的 Azure 工具組](../azure-toolki
 * [佈建 Web 應用程式與 SQL Database](app-service-web-arm-with-sql-database-provision.md)
 * [透過可預測方式在 Azure 中佈建和部署微服務](app-service-deploy-complex-application-predictably.md)
 * [使用 Azure 建置真實世界的雲端應用程式 - 自動化各個項目](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything)。這是電子書的其中一章，說明電子書中的範例應用程式如何使用 Windows PowerShell 指令碼建立 Azure 測試環境，並加以部署。如需其他 Azure PowerShell 文件的連結，請參閱[資源](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources)一節。
-* [使用 Windows PowerShell 指令碼來發行至開發和測試環境](http://msdn.microsoft.com/library/dn642480.aspx)。如何使用 Visual Studio 產生的 Windows PowerShell 部署指令碼。
+* [使用 Windows PowerShell 指令碼來發行至開發和測試環境](../vs-azure-tools-publishing-using-powershell-scripts.md)。如何使用 Visual Studio 產生的 Windows PowerShell 部署指令碼。
 
 ###<a name="api"></a>使用 .NET 管理 API 自動化部署
 
@@ -234,4 +234,4 @@ Microsoft 可讓您透過[適用於 Eclipse 的 Azure 工具組](../azure-toolki
 
  
 
-<!----HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

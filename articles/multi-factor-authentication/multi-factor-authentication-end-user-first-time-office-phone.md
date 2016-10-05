@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="搭配 Azure MFA 使用辦公室電話做為連絡方式" 
-	description="此頁面會顯示使用者如何使用辦公室電話做為 Azure MFA 的主要連絡方式。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
+<properties
+	pageTitle="搭配 Azure MFA 使用辦公室電話做為連絡方式"
+	description="此頁面會顯示使用者如何使用辦公室電話做為 Azure MFA 的主要連絡方式。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # 搭配 Azure Multi-Factor Authentication 使用辦公室電話做為連絡方式
 
@@ -42,6 +42,5 @@
 
 
 <center>![Setup](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
- 
 
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->

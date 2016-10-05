@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 MySQL 移動資料
@@ -22,7 +22,7 @@
 
 Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 來源。請參閱[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文來了解資料管理閘道和設定閘道的逐步指示。
 
-> [AZURE.NOTE] 即使 MySQL 是裝載在 Azure IaaS VM 中，您還是需要使用閘道與其連接。如果您正嘗試連接到裝載於雲端中的 MySQL 執行個體，您也可以在 IaaS VM 中安裝閘道器執行個體。
+> [AZURE.NOTE] 即使 MySQL 資料庫裝載於 Azure IaaS 虛擬機器 (VM) 中，也必須要有閘道。您可以將閘道安裝在與資料存放區相同或相異的 VM 上，只要閘道可以連線到資料庫即可。
 
 資料處理站目前只支援將資料從 MySQL 移動到其他資料存放區，而不支援將資料從其他資料存放區移動到 MySQL。
 
@@ -34,7 +34,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 ## 複製資料精靈
 若要建立管線以將資料從 MySQL 資料庫複製到任何支援的接收資料存放區，最簡單的方式是使用複製資料精靈。如需使用複製資料精靈建立管線的快速逐步解說，請參閱[教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)。
 
-下列範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。這些範例示範如何將資料從 MySQL 資料庫複製到 Azure Blob 儲存體。不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到[這裡](data-factory-data-movement-activities.md#supported-data-stores)所說的任何接收器。
+下列範例提供可用來建立管線的範例 JSON 定義。如需具有逐步指示的完整逐步解說，請參閱[在內部部署位置和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文。您可以在 Azure Data Factory 中使用複製活動，將資料複製到[這裡](data-factory-data-movement-activities.md#supported-data-stores)所說的任何接收器。
 
 ## 範例：從 MySQL 複製資料到 Azure Blob
 此範例示範如何將資料從內部部署 MySQL 資料庫複製到 Azure Blob 儲存體。不過，您可以在 Azure Data Factory 中使用複製活動，**直接**將資料複製到[這裡](data-factory-data-movement-activities.md#supported-data-stores)所說的任何接收器。
@@ -51,7 +51,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 
 此範例會每個小時將資料從 MySQL 資料庫中的查詢結果複製到 Blob。範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
-在第一個步驟中，根據[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文中的指示，設定資料管理閘道器。
+第一步是設定資料管理閘道。如需相關指示，請參閱[在內部部署位置和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)。
 
 **MySQL 連結服務**
 
@@ -323,4 +323,4 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 ## 效能和微調  
 請參閱[複製活動的效能及微調指南](data-factory-copy-activity-performance.md)一文，以了解在 Azure Data Factory 中會影響資料移動 (複製活動) 效能的重要因素，以及各種最佳化的方法。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

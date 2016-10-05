@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
+	ms.date="09/13/2016" 
 	ms.author="nitinme"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Hue
@@ -68,15 +68,24 @@ Hue 是一組 Web 應用程式，用來與 Hadoop 叢集互動。您可以使用
 
 1. 請以[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md) 中的資訊，建立用戶端系統至 HDInsight 叢集的 SSH 通道，然後設定網頁瀏覽器以便將 SSH 通道當做 Proxy 使用。
 
-2. 一旦您建立了 SSH 通道，並設定您的瀏覽器將流量以 Proxy 通過該通道傳送後，您必須找到前端節點的主機名稱。使用下列步驟從 Ambari 取得這項資訊：
+2. 一旦您建立了 SSH 通道，並設定您的瀏覽器將流量以 Proxy 通過該通道傳送後，您必須找到主要前端節點的主機名稱。若要這麼做，您可以使用 SSH 在連接埠 22 上連線到叢集。例如，`ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`，其中 __USERNAME__ 是您的 SSH 使用者名稱，__CLUSTERNAME__ 是您的叢集名稱。
 
-    1. 在瀏覽器中，移至 https://CLUSTERNAME.azurehdinsight.net。出現提示時，使用系統管理員使用者名稱和密碼來向網站進行驗證。
-    
-    2. 在頁面頂端的功能表中，選取 [主機]。
-    
-    3. 選取以 __hn0__ 開頭的項目。當頁面開啟時，主機名稱會顯示在頂端。主機名稱的格式為 __hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__。這是您連接到 Hue 時必須使用的主機名稱。
+    如需使用 SSH 的詳細資訊，請參閱下列文件：
 
-2. 一旦您建立了 SSH 通道，並設定您的瀏覽器透過該通道代理流量，即可使用此瀏覽器來開啟 Hue 入口網站，網址為 http://HOSTNAME:8888。以您在先前步驟從 Ambari 取得的名稱取代 HOSTNAME：
+    * [從 Linux、Unix 或 Mac OS X 用戶端搭配使用 SSH 與以 Linux 為基礎的 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [從 Windows 用戶端搭配使用 SSH 與以 Linux 為基礎的 HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+3. 連線之後，請使用下列命令來取得主要前端節點的完整網域名稱︰
+
+        hostname -f
+
+    此命令會傳回類似以下的名稱：
+
+        hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    
+    這是 Hue 網站所在之主要前端節點的主機名稱。
+
+2. 使用瀏覽器在 http://HOSTNAME:8888 開啟 Hue 入口網站。以您在先前步驟取得的名稱取代 HOSTNAME。
 
     > [AZURE.NOTE] 當您第一次登入時，系統會提示您建立帳戶來登入 Hue 入口網站。您在此處指定的認證會限制為入口網站，並且與佈建叢集時您指定的系統管理員或 SSH 使用者認證不相關。
 
@@ -108,7 +117,7 @@ Hue 是一組 Web 應用程式，用來與 Hadoop 叢集互動。您可以使用
 
 ## 重要考量︰
 
-1. 用來安裝 Hue 的指令碼只會在叢集的前端節點 0 上安裝它。
+1. 用來安裝 Hue 的指令碼只會將它安裝在叢集的主要前端節點上。
 
 2. 在安裝期間，會重新啟動多個 Hadoop 服務 (HDFS、YARN、MR2、Oozie) 以更新與設定。指令碼完成安裝 Hue 之後，可能需要一些時間讓其他 Hadoop 服務啟動。一開始可能會影響 Hue 的效能。所有服務啟動之後，Hue 就可以完全正常運作。
 
@@ -116,11 +125,11 @@ Hue 是一組 Web 應用程式，用來與 Hadoop 叢集互動。您可以使用
 
 		set hive.execution.engine=mr;
 
-4.	使用 Linux 叢集，您就可以在前端節點 0 上執行服務，同時在前端節點 1 上執行資源管理員。使用 Hue 以檢視叢集上「執行中」工作的詳細資料時，此類案例可能會導致錯誤 (如下所示)。不過，您可以在工作完成時檢視工作詳細資料。
+4.	使用 Linux 叢集，您就可以擁有在主要前端節點上執行服務，在次要前端節點上執行 Resource Manager 的案例。使用 Hue 以檢視叢集上「執行中」工作的詳細資料時，此類案例可能會導致錯誤 (如下所示)。不過，您可以在工作完成時檢視工作詳細資料。
 
 	![Hue 入口網站錯誤](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Hue 入口網站錯誤")
 
-	這是由已知問題造成的。因應措施是修改 Ambari，讓作用中的資源管理員也在前端節點 0 上執行。
+	這是由已知問題造成的。因應措施是修改 Ambari，讓作用中的 Resource Manager 也在主要前端節點上執行。
 
 5.	當 HDInsight 叢集使用 Azure 儲存體 (使用 `wasbs://`) 時，色調能了解 WebHDFS。因此，搭配指令碼動作使用的自訂指令碼會安裝 WebWasb，這是針對與 WASB 通訊的 WebHDFS 相容服務。所以，即使在 Hue 入口網站顯示有 HDFS (例如將滑鼠移至 [檔案瀏覽器] 時)，應將它解讀成 WASB。
 
@@ -137,4 +146,4 @@ Hue 是一組 Web 應用程式，用來與 Hadoop 叢集互動。您可以使用
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

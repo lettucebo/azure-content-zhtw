@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # V2.0 端點有哪些差異？
@@ -21,7 +21,7 @@
 如果您熟悉 Azure Active Directory 或過去已整合 app 與 Azure AD，v2.0 端點中可能會有一些您預期不到的差異。本文件集結了這些差異，讓您得以瞭解。
 
 > [AZURE.NOTE]
-	v2.0 端點並未支援所有的 Azure Active Directory 案例和功能。若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
+	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
 
 
 ## Microsoft 帳戶和 Azure AD 帳戶
@@ -132,4 +132,4 @@ V2.0 端點所簽發的權杖中的宣告與公開上市 Azure AD 端點所簽�
 ## 限制
 使用 v2.0 端點時有一些要注意的限制。請參閱 [v2.0 限制文件](active-directory-v2-limitations.md)，以了解是否有任何限制適用於您特定的案例。
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -29,7 +29,7 @@
 有一個新聞媒體網站提供與讀者立即有關的內容，試圖打敗競爭對手。他們透過對 Twitter 資料執行即時情感分析，來針對與讀者相關的主題使用社交媒體分析。具體來說，為了在 Twitter 上即時找出熱門話題，他們需要即時分析熱門話題的推文數量和感受度。因此基本上，他們需要以該社交媒體摘要為基礎的情感分析分析引擎。
 
 ## 必要條件
-1.	Twitter 帳戶和 [OAuth 存取權杖](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
+1.	Twitter 帳戶和 [OAuth 存取權杖](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) 
 2.	從 Microsoft 下載中心下載 [TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)。
 3.	選擇性：[Github](https://aka.ms/azure-stream-analytics-twitterclient) 中的 Twitter 用戶端的原始程式碼
 
@@ -238,4 +238,4 @@
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

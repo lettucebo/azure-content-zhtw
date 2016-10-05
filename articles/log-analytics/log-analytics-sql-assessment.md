@@ -69,7 +69,7 @@ OMS 中的 Log Analytics 會使用 Operations Manager 代理程式及管理群�
 
 1. 在 Operations Manager 中開啟 Operations 主控台，然後按一下 [管理]。
 
-2. 在 [執行身分組態] 下，按一下 [設定檔]，並開啟 [OMS SQL Assessment Run As Profile] (OMS SQL 評估執行身分設定檔)。
+2. 在 [執行身分組態] 下，按一下 [設定檔]，並開啟 [OMS SQL Assessment Run As Profile] \(OMS SQL 評估執行身分設定檔)。
 
 3. 在 [執行身分帳戶] 頁面上，按一下 [新增]。
 

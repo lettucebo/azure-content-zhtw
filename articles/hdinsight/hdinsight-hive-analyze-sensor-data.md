@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016" 
+	ms.date="09/20/2016" 
 	ms.author="larryfr"/>
 
 #在 HDInsight 的 Hadoop 上使用 Hive 查詢主控台分析感應器資料
@@ -52,6 +52,8 @@
 
 2. 從開啟的網頁中，按一下 [Getting Started Gallery] 索引標籤，然後在 [搭配範例資料的方案] 類別下，按一下 [感應器資料分析] 範例。
 
+    ![開始使用資源庫映像](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
+
 3. 依照網頁上提供的指示完成範例。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

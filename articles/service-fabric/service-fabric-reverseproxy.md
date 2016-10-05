@@ -56,11 +56,11 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
  - **http(s)：** 反向 Proxy 可設定為接受 HTTP 或 HTTPS 流量。如果是 HTTPS 流量，SSL 終止會發生在反向 Proxy。反向 Proxy 是透過 HTTP 轉送要求到叢集中的服務。
- - **閘道 FQDN | 內部 IP：**如果是外部用戶端，可以設定反向 Proxy 讓其可透過叢集網域設定 (例如 mycluster.eastus.cloudapp.azure.com)。依預設，反向 Proxy 會在每個節點上執行，因此可以在 localhost 或任何內部節點 IP (例如 10.0.0.1) 上達到內部流量。
+ - **叢集的 FQDN| internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
  - **連接埠︰**為反向 Proxy 指定的連接埠。例如 19008。
- - **ServiceInstanceName：**這是您嘗試連線到 "fabric: /" 配置的 SANS 的服務的完整部署服務執行個體名稱 。例如，若要連線到服務 *fabric: / myapp/myservice/*，可以使用 *myapp/myservice*。
- - **尾碼路徑︰**這是要連線的服務的實際 URL 路徑。例如，*myapi/values/add/3*
- - **PartitionKey：**若為分割服務，這是您想要連線的資料分割的計算資料分割索引鍵。請注意，這*不是*資料分割識別碼 GUID。使用單一資料分割配置的服務不需要這個參數。
+ - **ServiceInstanceName：**這是您嘗試連線到 "fabric: /" 配置的 SANS 服務的完整部署服務執行個體名稱 。例如，若要連線到服務 fabric: / myapp/myservice/，可以使用 myapp/myservice。
+ - **尾碼路徑︰**這是要連線服務的實際 URL 路徑。例如，myapi/values/add/3
+ - **PartitionKey：**若為資料分割服務，這是您想要連線的資料分割計算資料分割金鑰。請注意，這不是資料分割識別碼 GUID。使用單一資料分割配置的服務不需要這個參數。
  - **PartitionKind：**服務資料分割配置。這可以是 'Int64Range' 或 'Named'。使用單一資料分割配置的服務不需要這個參數。
  - **逾時︰**這會指定反向 Proxy 建立的 http 要求代替用戶端要求傳送到服務的逾時。預設值為 60 秒。這是選擇性參數。
 
@@ -77,12 +77,12 @@ http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
  - `/index.html`
  - `/api/users/<userId>`
 
-如果服務使用單一資料分割配置，則不需要 *PartitionKey* 和 *PartitionKind* 查詢字串參數，可透過閘道以下列方式連線到服務︰
+如果服務使用單一資料分割配置，則不需要 PartitionKey 和 PartitionKind 查詢字串參數，可透過閘道以下列方式連線到服務︰
 
  - 外部：`http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService`
  - 內部：`http://localhost:19008/MyApp/MyService`
 
-如果服務使用統一 Int64 資料分割配置，則必須使用 *PartitionKey* 和 *PartitionKind* 查詢字串參數來連線到服務的資料分割︰
+如果服務使用統一 Int64 資料分割配置，則必須使用 PartitionKey 和 PartitionKind 查詢字串參數來連線到服務的資料分割︰
 
  - 外部：`http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
  - 內部：`http://localhost:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
@@ -241,4 +241,4 @@ http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

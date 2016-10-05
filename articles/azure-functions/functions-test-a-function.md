@@ -172,7 +172,7 @@
 
 您可以使用 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)來測試 blob 觸發程序函數。
 
-1. 在您的 Functions 應用程式的 [Azure 入口網站]中，建立新的 C# 或 Node blob 觸發程序函數。將要監視的路徑設定為您的 blob 容器名稱。例如：
+1. 在您的 Functions 應用程式的 [Azure 入口網站]中，建立新的 C#、F# 或 Node blob 觸發程序函式。將要監視的路徑設定為您的 blob 容器名稱。例如：
 
 		files
 
@@ -439,4 +439,4 @@
 
 [Azure 入口網站]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

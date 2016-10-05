@@ -56,7 +56,7 @@
 
 	![新增查詢。連接到 SQL Database 伺服器：SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
 
-7. 按一下 [在 Visual Studio 中開啟] (如果您需要 Visual Studio，請按一下下載連結)︰
+7. 按一下 [在 Visual Studio 中開啟] \(如果您需要 Visual Studio，請按一下下載連結)︰
 
 	![新增查詢。連接到 SQL Database 伺服器：SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
 
@@ -102,4 +102,4 @@
 - 在 Visual Studio 中開啟 SQL Database 以使用 SQL Server Data Tools。如需詳細資訊，請參閱 [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx)。
 - 若要使用程式碼連接到 SQL Database，請參閱[使用 .NET (C#) 連接到 SQL Database](sql-database-develop-dotnet-simple.md)。
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0824_2016--->

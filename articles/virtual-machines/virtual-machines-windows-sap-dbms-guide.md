@@ -449,7 +449,7 @@ ___
 >
 > 只支援使用 MDADM 和 LVM (邏輯磁碟區管理員) 在 Linux 上建立軟體 RAID。如需詳細資訊，請參閱下列文章：
 >
-> * [在 Linux 上設定軟體 RAID][virtual-machines-linux-configure-raid] (適用於 MDADM)
+> * [在 Linux 上設定軟體 RAID][virtual-machines-linux-configure-raid] \(適用於 MDADM)
 > * [設定 Azure 中 Linux VM 的 LVM][virtual-machines-linux-configure-lvm]
 
 

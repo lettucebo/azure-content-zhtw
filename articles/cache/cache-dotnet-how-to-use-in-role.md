@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 
@@ -58,7 +58,7 @@ In-Role Cache 會使用託管 Azure 雲端服務 (又稱託管服務) 中的角�
 -	選擇性地對個別快取設定高可用性。
 -	使用擴充的快取功能，例如區域、標記和通知。
 
-本指南提供開始使用角色中快取的概觀。如需本入門指南涵蓋範圍外之功能的詳細資訊，請參閱[角色中快取概觀][] (英文)。
+本指南提供開始使用角色中快取的概觀。如需本入門指南涵蓋範圍外之功能的詳細資訊，請參閱[角色中快取概觀][] \(英文)。
 
 <a name="getting-started-cache-role-instance"></a>
 ## 開始使用角色中快取
@@ -309,7 +309,7 @@ NuGet 套件也會新增下列組件的參考：
       </sessionState>
     </system.web>-->
 
->在安裝 Caching NuGet 套件之後，如果 web.config 未包含這個已標成註解的區段，請確實從 [NuGet Package Manager 安裝][] (英文) 中安裝最新的 NuGet Package Manager，然後解除安裝並重新安裝套件。
+>在安裝 Caching NuGet 套件之後，如果 web.config 未包含這個已標成註解的區段，請確實從 [NuGet Package Manager 安裝][] \(英文) 中安裝最新的 NuGet Package Manager，然後解除安裝並重新安裝套件。
 
 若要對角色中快取啟用工作階段狀態提供者，請將指定的區段取消註解。預設快取是在提供的片段中指定。若要使用不同快取，請在 **cacheName** 屬性中指定所需的快取。
 
@@ -333,7 +333,7 @@ NuGet 套件也會新增下列組件的參考：
       </outputCache>
     </caching>-->
 
->在安裝 Caching NuGet 套件之後，如果 web.config 未包含這個已標成註解的區段，請確實從 [NuGet Package Manager 安裝][] (英文) 中安裝最新的 NuGet Package Manager，然後解除安裝並重新安裝套件。
+>在安裝 Caching NuGet 套件之後，如果 web.config 未包含這個已標成註解的區段，請確實從 [NuGet Package Manager 安裝][] \(英文) 中安裝最新的 NuGet Package Manager，然後解除安裝並重新安裝套件。
 
 若要對角色中快取啟用輸出快取提供者，請將指定的區段取消註解。預設快取是在提供的片段中指定。若要使用不同快取，請在 **cacheName** 屬性中指定所需的快取。
 
@@ -350,7 +350,7 @@ NuGet 套件也會新增下列組件的參考：
 
 了解角色中快取的基礎概念之後，請參考下列連結以了解如何執行更複雜的快取工作。
 
--   請參閱 MSDN 參考資料：[In-Role Cache][] (英文)
+-   請參閱 MSDN 參考資料：[In-Role Cache][] \(英文)
 -   了解如何移轉至 In-Role Cache：[移轉至 In-Role Cache][]
 -   查看範例：[In-Role Cache 範例][]
 -	觀看 TechEd 2013 針對 In-Role Cache 的主題演講「[最大效能：利用 Azure 快取加速雲端服務應用程式][]」(英文)
@@ -411,4 +411,4 @@ NuGet 套件也會新增下列組件的參考：
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

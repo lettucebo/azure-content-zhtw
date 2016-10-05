@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 媒體服務概念" 
+	pageTitle="Azure 媒體服務概念 | Microsoft Azure" 
 	description="本主題提供 Azure 媒體服務概念的概觀" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 #Azure 媒體服務概念 
@@ -26,7 +26,7 @@
 
 [資產](https://msdn.microsoft.com/library/azure/hh974277.aspx)包含數位檔案 (包括視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式輔助字幕檔案)，以及這些檔案的相關中繼資料。將數位檔案上傳到資產之後，可以用於媒體服務編碼和串流工作流程。
 
-資產會對應至 Azure 儲存體帳戶中的 blob 容器，資產中的檔案則儲存為該容器中的 blob。
+資產會對應到 Azure 儲存體帳戶中的 blob 容器，且資產中的檔案會儲存為該容器中的 blob。
 
 決定要在資產中上傳及儲存何種媒體內容時，適用下列考量：
 
@@ -85,7 +85,7 @@ Blob 容器提供一組 blob。Blob 容器在媒體服務中是做為存取控�
 
 工作包含要進行之處理的相關中繼資料。每個工作 (Job) 包含一或多個[工作 (Task)](https://msdn.microsoft.com/library/azure/hh974286.aspx)，該工作 (Task) 指定不可部分完成的處理工作、該處理工作的輸入資產、輸出資產、媒體處理器和其相關設定。工作 (Job) 中的工作 (Task) 可以鏈結在一起，其中一項工作 (Task) 的輸出資產指定為下一個工作 (Task) 的輸入資產。透過這種方式，一項工作 (Job) 可以包含一個媒體簡報所需的所有處理。
 
-##<a id="encoding"></a>編碼 
+##<a id="encoding"></a>編碼
 
 Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 
@@ -96,7 +96,7 @@ Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 若要利用[動態封裝](media-services-dynamic-packaging-overview.md)，您需要執行下列動作：
 
 - 將您的夾層 (來源) 檔編碼為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (編碼步驟稍後示範於本教學課程中)。
-- 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](media-services-manage-origins.md#scale_streaming_endpoints/)。
+- 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](media-services-portal-manage-streaming-endpoints.md)。
 
 媒體服務支援本文中所描述的下列隨選編碼器：
 
@@ -123,15 +123,15 @@ Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 每個媒體服務帳戶可以包含多個通道、多個程式和多個 StreamingEndpoints。根據頻寬和安全性需求，StreamingEndpoint 服務可以專屬於一或多個通道。任何 StreamingEndpoint 可以從任何通道中提取。
 
 
-###程式 
+###程式
 
 [程式](https://msdn.microsoft.com/library/azure/dn783463.aspx)可讓您控制即時資料流區段的發佈和儲存體。通道會管理程式。通道和程式的關聯性非常類似於傳統媒體，此處的通道有常數內容資料流，而程式的範圍是該通道上的某些計時事件。您可以透過設定 **ArchiveWindowLength** 屬性，指定您想要保留已記錄程式內容的時數。此值最小可以設定為 5 分鐘，最大可以設定為 25 個小時。
 
 ArchiveWindowLength 也指定用戶端可從目前即時位置往回搜尋的最大時間量。程式可以執行超過指定的時間量，但是超過此時間長度的內容會被持續捨棄。此屬性的這個值也會決定用戶端資訊清單可以成長多長的時間。
 
-每個程式都與一個資產相關聯。若要發佈程式，您必須建立相關資產的定位器。擁有此定位器，可讓您建立可以提供給用戶端的串流 URL。
+每個程式都是與「資產」相關聯。若要發佈程式，您必須建立相關資產的定位器。擁有此定位器，可讓您建置可提供給用戶端的串流 URL。
 
-通道支援最多三個同時執行的程式，因此您可以建立相同內送串流的多個封存。這可讓您視需要發佈和封存事件的不同部分。例如，您的商務需求是封存 6 小時的程式，但只廣播最後 10 分鐘。為了達成此目的，您必須建立兩個同時執行的程式。其中一個程式設定為封存 6 小時的事件，但是未發行該程式。另一個程式則設定為封存 10 分鐘，並發行程式。
+通道支援最多三個同時執行的程式，因此您可以建立相同內送串流的多個封存。這可讓您視需要發行和封存事件的不同部分。例如，您的商務需求是封存 6 小時的程式，但只廣播最後 10 分鐘。為了達成此目的，您必須建立兩個同時執行的程式。其中一個程式設定為封存 6 小時的事件，但是未發行該程式。另一個程式則設定為封存 10 分鐘，並發行程式。
 
 
 如需詳細資訊，請參閱：
@@ -176,7 +176,7 @@ Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存、處理�
 
 StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給內容傳遞網路 (CDN) 進行進一步發佈的串流服務 (Azure 媒體服務現在提供 Azure CDN 整合)。 來自 StreamingEndpoint 服務的輸出資料流可以是即時資料流，也可以是媒體服務帳戶中的隨選視訊資產。此外，您可以藉由調整縮放單元 (也稱為串流單元)，控制 StreamingEndpoint 服務處理成長頻寬需求的產能。建議您為生產環境中的應用程式配置一個或多個縮放單位。縮放單位提供您可以以 200 Mbps 為增量購買的專用流出容量和目前包含動態封裝的其他功能。
 
-建議您使用動態封裝和/或動態加密。若要使用這些功能，負責傳送資料流的端點至少要有一個資料流單位。如需詳細資訊，請參閱「[調整資料流單位](media-services-manage-origins.md#scale_streaming_endpoints)」。
+建議您使用動態封裝和/或動態加密。若要使用這些功能，負責傳送資料流的端點至少要有一個資料流單位。如需詳細資訊，請參閱「[調整資料流單位](media-services-portal-manage-streaming-endpoints.md)」。
 
 依預設，您最多可以在媒體服務帳戶中加入 2 個串流端點。如欲要求放寬限制，請參閱「[配額和限制](media-services-quotas-and-limitations.md)」。
 
@@ -188,7 +188,7 @@ StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應�
 
 如果您有儲存體加密的資產，在可以串流處理資產之前，串流伺服器會先移除儲存體加密，並使用指定的傳遞原則來串流您的內容。例如，若要傳遞使用進階加密標準 (AES) 加密金鑰加密的資產，請將原則類型設定為 DynamicEnvelopeEncryption。如果您要移除儲存體加密，並且不受阻礙地串流資產，請將原則類型設定為 NoDynamicEncryption。
 
-###漸進式下載 
+###漸進式下載
 
 漸進式下載可以在下載完整檔案前就開始播放媒體。只能漸進式下載 MP4 檔案。
 
@@ -196,7 +196,7 @@ StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應�
 
 若要提供漸進式下載 URL 給使用者，您必須先建立 OnDemandOrigin 定位器。建立定位器會提供資產的基底路徑。接著您必須附加上 MP4 檔案的名稱。例如：
 
-	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
+http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
 ###串流 URL
 
@@ -210,40 +210,40 @@ StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應�
 
 - Smooth Streaming
 
-	{串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest
-		
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+{串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest
+
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
 
 - MPEG DASH
 
-	{串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=mpd-time-csf)
- 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+{串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=mpd-time-csf)
+
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 
 
 - Apple HTTP 即時資料流 (HLS) V4
 
-	{串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=m3u8-aapl)
+{串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=m3u8-aapl)
 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 
 
 - Apple HTTP 即時資料流 (HLS) V3
 
-	{串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=m3u8-aapl-v3)
+{串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=m3u8-aapl-v3)
 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 - HDS (僅適用於 Adobe PrimeTime/Access 使用人)
 
-	{串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=f4m-f4f)
+{串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=f4m-f4f)
 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f) 
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
- 
+
 ##媒體服務學習路徑
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -252,4 +252,4 @@ StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

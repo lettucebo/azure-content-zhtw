@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/16/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -86,7 +86,7 @@
 ## 後續步驟
 
 - 如需複製 Azure SQL Database 的概觀，請參閱[複製 Azure SQL Database](sql-database-copy.md)。
-- 若要使用 Azure 入口網站複製資料庫，請參閱[使用 Azure 入口網站複製 Azure SQL Database](sql-database-copy-portal.md)。
+- 若要使用 Azure 入口網站來複製資料庫，請參閱[使用 Azure 入口網站複製 Azure SQL Database](sql-database-copy-portal.md)。
 - 若要使用 PowerShell 複製資料庫，請參閱[使用 PowerShell 複製 Azure SQL Database](sql-database-copy-powershell.md)。
 - 請參閱[如何管理災害復原後的 Azure SQL Database 安全性](sql-database-geo-replication-security-config.md)，以了解如何在將資料庫複製到不同的邏輯伺服器時管理使用者與登入。
 
@@ -100,4 +100,4 @@
 - [商務持續性概觀](sql-database-business-continuity.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

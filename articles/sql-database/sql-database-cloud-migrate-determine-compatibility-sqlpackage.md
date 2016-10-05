@@ -29,7 +29,7 @@
 
 ## 使用 SqlPackage.exe
 
-1. 開啟命令提示字元並變更包含最新版 sqlpackage.exe 的目錄。此公用程式隨附於 Visual Studio 和 SQL Server。下載[最新版本 Visual Studio 的 SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) 以取得最新版本的 SqlPackage 公用程式。
+1. 開啟命令提示字元並變更包含最新版 sqlpackage.exe 的目錄。此公用程式隨附於最新版的 [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 和 [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx)，或者您也可以直接從 Microsoft 下載中心下載最新版的 [SqlPackage](https://www.microsoft.com/zh-TW/download/details.aspx?id=53876)。
 2. 以環境的下列引數執行下列 SqlPackage 命令：
 
 	'sqlpackage.exe /Action:Export /ssn:< server\_name > /sdn:< database\_name > /tf:< target\_file > /p:TableData=< schema\_name.table\_name > > < output\_file > 2>&1'
@@ -42,7 +42,7 @@
 	| < schema\_name.table\_name > | 其資料要輸出到目標檔案的資料表 |
 	| < output\_file > | 具有錯誤的輸出檔案的檔案名稱和位置 (若有的話) |
 
-	之所以使用 /P:TableName 引數，是因為我們只想要測試資料庫相容性來了解是否能夠匯出到 Azure SQL DB V12，而不想要從所有資料表匯出資料。遺憾的是，sqlpackage.exe 的匯出引數不支援不擷取任何資料表。您必須指定至少一個資料表，例如單一的小型資料表。< output\_file > 將包含任何錯誤的報告。"> 2>&1" 字串會將從命令執行產生的標準輸出和標準錯誤輸送到指定的輸出檔。
+	之所以使用 /P:TableName 引數，是因為我們只想要測試資料庫相容性來了解是否能夠匯出到 Azure SQL DB V12，而不想要從所有資料表匯出資料。遺憾的是，sqlpackage.exe 的匯出引數不支援不擷取任何資料表。您必須指定至少一個資料表，例如單一的小型資料表。< output\_file > 包含任何錯誤的報告。"> 2>&1" 字串會將從命令執行產生的標準輸出和標準錯誤輸送到指定的輸出檔。
 
 	![從 [工作] 功能表匯出資料層應用程式](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
@@ -62,4 +62,4 @@
 - [Transact-SQL 部分支援或不支援的函數](sql-database-transact-sql-information.md)
 - [使用 SQL Server 移轉小幫手來移轉非 SQL Server 資料庫](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

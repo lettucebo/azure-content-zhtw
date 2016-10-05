@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/19/2016"
+   ms.date="09/20/2016"
    ms.author="larryfr"/>
 
 # 使用查詢主控台執行 Hive 查詢
@@ -23,7 +23,7 @@
 
 在本文中，您將學習如何使用 HDInsight 查詢主控台，透過瀏覽器在 HDInsight Hadoop 叢集上執行 Hive 查詢。
 
-> [AZURE.NOTE] 只有在 Windows 型 HDInsight 叢集上才能使用查詢主控台。
+> [AZURE.IMPORTANT] 只有在 Windows 型 HDInsight 叢集上才能使用 HDInsight 查詢主控台。如果您使用 Linux 型 HDInsight 叢集，請參閱[使用 Hive 檢視執行 Hive 查詢](hdinsight-hadoop-use-hive-ambari-view.md)。
 
 
 ##<a id="prereq"></a>必要條件
@@ -128,4 +128,4 @@
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

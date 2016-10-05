@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # 在 Azure Redis 快取中匯入與匯出資料
 
-匯入/匯出是 Azure Redis 快取資料管理作業，可讓您將資料匯入 Azure Redis 快取或將資料從 Azure Redis 快取匯出，方法是從進階快取將 Redis 快取資料庫 (RDB) 快照匯入和匯出至 Azure 儲存體帳戶中的分頁 blob。這可讓您在不同的 Azure Redis 快取執行個體之間移轉，或在使用前將資料填入快取。
+匯入/匯出是 Azure Redis 快取資料管理作業，可讓您將資料匯入 Azure Redis 快取或將資料從 Azure Redis 快取匯出，方法是從進階快取將 Redis 快取資料庫 (RDB) 快照匯入和匯出至 Azure 儲存體帳戶中的分頁 blob。匯入/匯出可讓您在不同的 Azure Redis 快取執行個體之間移轉，或在使用前將資料填入快取。
 
 本文提供使用 Azure Redis 快取匯入和匯出資料的指南，並提供常見問題的解答。
 
@@ -83,7 +83,7 @@
 
     ![][cache-export-data-export-complete]
 
-    請注意，在匯出程序期間快取隨時可供使用。
+    在匯出程序期間快取隨時可供使用。
 
 
 ## 匯入/匯出常見問題集
@@ -153,7 +153,11 @@ Azure Redis 快取永續性讓您將儲存在 Redis 快取中的資料存留至 
 
 匯入/匯出只能使用儲存為分頁 blob 的 RDB 檔案。這個階段不支援其他 blob 類型，包括具有經常存取及不常存取層的 blob 儲存體帳戶。
 
-    
+
+## 後續步驟
+了解如何使用更多進階快取功能。
+
+-	[Azure Redis Cache 高階層簡介](cache-premium-tier-intro.md)
 
   
 <!-- IMAGES -->
@@ -170,4 +174,4 @@ Azure Redis 快取永續性讓您將儲存在 Redis 快取中的資料存留至 
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

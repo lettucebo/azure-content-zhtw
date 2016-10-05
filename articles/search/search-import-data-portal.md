@@ -34,7 +34,7 @@ Azure 入口網站在 Azure 搜尋服務儀表板上提供 [匯入資料] 精靈
 
 ## 匯入資料精靈所支援的資料來源
 
-自動化編製索引及工具可用於下列資料來源︰
+匯入資料精靈支援下列資料來源︰
 
 - Azure SQL Database
 - Azure VM 上的 SQL Server 關聯式資料
@@ -119,4 +119,4 @@ Azure 入口網站在 Azure 搜尋服務儀表板上提供 [匯入資料] 精靈
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

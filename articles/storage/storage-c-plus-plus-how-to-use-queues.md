@@ -3,8 +3,8 @@
     description="了解如何在 Azure 中使用佇列儲存體服務。範例是以 C++ 撰寫的。"
     services="storage"
     documentationCenter=".net"
-    authors="robinsh"
-    manager="carmonm"
+    authors="dineshmurthy"
+    manager=jahogg""
     editor="tysonn"/>
 
 <tags
@@ -13,12 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/03/2016"
-    ms.author="dineshm"/>
+    ms.date="09/20/2016"
+    ms.author="dineshm;robinsh"/>
 
 # 如何使用 C++ 的佇列儲存體  
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
 本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。
@@ -228,6 +230,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	queue.delete_queue_if_exists();  
 
 ## 後續步驟
+
 了解佇列儲存體的基礎概念之後，請依照下列連結深入了解 Azure 儲存體。
 
 -	[如何使用 C++ 的 Blob 儲存體](storage-c-plus-plus-how-to-use-blobs.md)
@@ -236,4 +239,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 -	[Storage Client Library for C++ 參考資料](http://azure.github.io/azure-storage-cpp)
 -	[Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->

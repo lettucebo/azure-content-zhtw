@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/12/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
 
 #利用 Beeline 搭配使用 Hive 與 HDInsight 中的 Hadoop
@@ -59,7 +59,7 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
 
-    這將會啟動 Beeline 用戶端及連接 JDBC URL。在這裡我們使用 `localhost` ，因為 HiveServer2 會在叢集中的兩個前端節點上執行，而且我們要在前端節點 0 上直接執行 Beeline。
+    這將會啟動 Beeline 用戶端及連接 JDBC URL。在這裡我們使用 `localhost` ，因為 HiveServer2 會在叢集中的兩個前端節點上執行，而且我們要在主要前端節點上直接執行 Beeline。
     
     命令完成之後，您將會看見 `jdbc:hive2://localhost:10001/>` 提示字元。
 
@@ -235,4 +235,4 @@ Beeline 也可以用來執行包含 HiveQL 陳述式的檔案。使用下列步�
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

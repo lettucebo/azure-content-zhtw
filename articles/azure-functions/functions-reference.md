@@ -72,7 +72,7 @@
 
 設定專案以將函式部署至 Azure App Service 中的函式應用程式時，您可以將此資料夾結構視為您的網站程式碼。您可以使用現有工具 (如持續整合和部署) 或自訂部署指令碼來執行部署時間封裝安裝或程式碼 Transpilation。
 
-## <a id="fileupdate"></a> 如何更新函式的應用程式檔案
+## <a id="fileupdate"></a> 如何更新函式應用程式檔案
 
 Azure 入口網站內建的函式編輯器可讓您更新「function.json」檔案和函式的程式碼檔案。若要上傳或更新其他檔案，例如「package.json」或「project.json」或相依性，您必須使用其他部署方法。
 
@@ -145,8 +145,9 @@ Azure Functions 的程式碼是開放原始碼，儲存於 GitHub 儲存機制�
 如需詳細資訊，請參閱下列資源：
 
 * [Azure Functions C# 開發人員參考](functions-reference-csharp.md)
+* [Azure Functions F# 開發人員參考](functions-reference-fsharp.md)
 * [Azure Functions NodeJS 開發人員參考](functions-reference-node.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 * [Azure Functions︰Azure App Service 團隊部落格上的旅程](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/)。Azure Functions 的開發歷史。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

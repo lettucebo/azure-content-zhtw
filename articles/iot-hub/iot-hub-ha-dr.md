@@ -18,7 +18,7 @@
 
 # IoT 中樞高可用性和災害復原
 
-作為 Azure 服務，IoT 中心提供高可用性 (HA)，在 Azure 區域層級使用備援，且解決方案不需任何額外的工作。此外，Azure 會提供一些可協助建立解決方案的功能，必要時也提供災害復原 (DR) 功能或跨區域的可用性。若要提供全域、跨區域的高可用性給裝置或使用者，必須設計及準備解決方案以善用這些 DR 功能。《Azure 業務持續性技術指引》一文描述業務持續性和 DR 的 Azure 內建功能。[Azure 應用程式的災害復原與高可用性][]一文針對 Azure 應用程式的策略提供架構指引以達到 HA 和 DR。
+作為 Azure 服務，IoT 中心提供高可用性 (HA)，在 Azure 區域層級使用備援，且解決方案不需任何額外的工作。此外，Azure 會提供一些可協助建立解決方案的功能，必要時也提供災害復原 (DR) 功能或跨區域的可用性。若要提供全域、跨區域的高可用性給裝置或使用者，必須設計及準備解決方案以善用這些 DR 功能。[Azure 業務持續性技術指引](../resiliency/resiliency-technical-guidance.md)一文描述業務持續性和 DR 的 Azure 內建功能。[Azure 應用程式的災害復原與高可用性][]一文針對 Azure 應用程式的策略提供架構指引以達到 HA 和 DR。
 
 ## Azure IoT 中樞 DR
 除了內部區域 HA，IoT 中樞會實作不需要使用者介入的災害復原容錯移轉機制。IoT 中樞 DR 會自行起動，其復原時間目標 (RTO) 為 2 到 26 小時，以及下列復原點目標 (RPO)。
@@ -60,4 +60,4 @@ IoT 解決方案中部署拓撲的完整處理已超出本文的範圍，但是�
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [何謂 Azure IoT 中心？]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

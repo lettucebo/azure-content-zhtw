@@ -20,7 +20,7 @@
 
 本文說明如何使用 Azure Resource Manager 範本，建立含有事件中樞的事件中樞命名空間，並在您的事件中樞啟用封存。您將學習如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求
 
-如需建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本][]。
+如需關於建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本][]。
 
 如需 Azure 資源命名慣例相關模式和實務的詳細資訊，請參閱 [Azure 資源命名慣例][]。
 
@@ -29,9 +29,9 @@
 >[AZURE.NOTE]
 若要檢查最新的範本，請造訪 [Azure 快速入門範本][]資源庫並搜尋事件中樞。
 
-## 您將部署什麼？
+## 您會部署什麼？
 
-您將使用此範本來部署含有事件中樞的事件中樞命名空間，並將啟用封存。
+您會使用此範本來部署含有事件中樞的事件中樞命名空間，並啟用封存。
 
 [事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)是事件處理服務，用於提供大規模進入 Azure 的事件和遙測入口，並具備低延遲和高可靠性等特性。事件中樞封存讓您能夠在所選擇的指定時間或大小間隔內，自動將事件中樞的串流資料傳遞到您選擇的 Azure Blob 儲存體。
 
@@ -169,7 +169,7 @@
 
 ### destinationStorageAccountResourceId
 
-封存將需要儲存體帳戶資源識別碼，以便為您所需的 Azure 儲存體啟用封存。
+封存需要有儲存體帳戶資源識別碼，以便為您所需的 Azure 儲存體啟用封存。
 
 ```
  "destinationStorageAccountResourceId":{
@@ -287,6 +287,6 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
   [Azure 資源命名慣例]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
-  [事件中樞和啟用封存範本]: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive]
+  [事件中樞和啟用封存範本]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

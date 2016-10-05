@@ -3,8 +3,8 @@
 	description="本文說明如何使用行動裝置應用程式作為 Azure Multi-Factor Authentication 的主要連絡方式。"
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenp"
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # 搭配 Azure Multi-Factor Authentication 使用行動裝置應用程式作為連絡方式
 
@@ -78,4 +78,4 @@ Microsoft Authenticator 應用程式適用於 [Windows Phone](http://go.microsof
 
 3. 當啟用完成時，請選取 [連絡我]。此步驟會將通知或驗證碼傳送到您的手機。請選取 [驗證]。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

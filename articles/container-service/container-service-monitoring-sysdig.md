@@ -54,4 +54,4 @@ Sysdig 是一項監視服務，可讓您在叢集內監視您的容器。Sysdig 
 
 安裝套件之後回到 Sysdig UI，您就可以瀏覽叢集內不同的容器使用情況計量。
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0810_2016--->

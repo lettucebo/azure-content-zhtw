@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
+   ms.date="09/16/2016"
    ms.author="gwallace"/>
 
 # URL 路徑型路由概觀
@@ -25,7 +25,7 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 
 ## UrlPathMap 組態元素
 
-UrlPathMap 元素是用來指定與後端伺服器集區對應的路徑模式。以下是範本檔案中 urlPathMap 元素的程式碼片段。
+UrlPathMap 元素是用來指定與後端伺服器集區對應的路徑模式。下列程式碼範例是來自範本檔案的 urlPathMap 元素程式碼片段。
 
 	"urlPathMaps": [
 	{
@@ -82,8 +82,8 @@ UrlPathMap 元素是用來指定與後端伺服器集區對應的路徑模式。
 
     }
 	
-## 後續步驟 
+## 後續步驟
 
 了解 URL 型內容路由之後，請移至[使用 URL 型路由建立應用程式閘道](application-gateway-create-url-route-portal.md)，利用 URL 路由規則來建立應用程式閘道。
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

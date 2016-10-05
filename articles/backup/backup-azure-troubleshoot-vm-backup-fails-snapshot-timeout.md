@@ -67,7 +67,7 @@
 ### 方案
 針對 Linux VM，與代理程式或擴充功能相關的多數失敗是由於會影響舊 VM 代理程式的問題所造成。一般來說，針對此問題進行疑難排解的首要步驟如下所示︰
 
-1. [安裝最新版的 Azure VM 代理程式](https://acom-swtest-2.azurewebsites.net/documentation/articles/virtual-machines-linux-update-agent/)。
+1. [安裝最新版的 Azure VM 代理程式](https://github.com/Azure/WALinuxAgent)。
 2. 確定 Azure 代理程式在 VM 上執行。若要這樣做，請執行下列命令：```ps -e```
 
     如果此程序未執行，請使用下列命令來重新啟動它。
@@ -136,4 +136,4 @@ VM 備份仰賴發給底層儲存體的快照命令。備份可能會失敗，�
 | VM 正在以高 CPU 或記憶體使用量執行。 | 如果 VM 正在以高 CPU 使用量 (超過 90%) 或高記憶體使用量執行，快照集工作會排入佇列並延遲，而最終會逾時。在此情況下，請嘗試隨選備份。 |
 |VM 無法從 DHCP 取得主機/網狀架構位址。|必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。如果 VM 無法從 DHCP 回應 245 取得主機/網狀架構位址，則無法下載或執行任何擴充功能。如果您需要靜態私人 IP 位址，您應該透過平台來進行設定。VM 內的 DHCP 選項應保持啟用。請參閱有關[設定靜態內部私人 IP 位址](../virtual-network/virtual-networks-reserved-private-ip.md)的詳細資訊。|
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

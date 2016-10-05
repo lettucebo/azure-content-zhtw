@@ -1,10 +1,10 @@
 <properties
-	pageTitle="開始使用適用於 iOS (Swift) 的 Azure Mobile Engagement"
+	pageTitle="開始使用適用於 iOS (Swift) 的 Azure Mobile Engagement | Microsoft Azure"
 	description="了解如何使用 iOS 應用程式的 Azure Mobile Engagement 與分析和推播通知。"
 	services="mobile-engagement"
-	documentationCenter="ios"
+	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
 	ms.topic="hero-article"
-	ms.date="08/19/2016"
+	ms.date="09/20/2016"
 	ms.author="piyushjo" />
 
 # 開始使用適用於 iOS 應用程式 (Swift) 的 Azure Mobile Engagement
@@ -24,11 +24,11 @@
 
 本教學課程需要下列各項：
 
-+ Xcode 6 或 XCode 7，可以從您的 MAC App Store 安裝
++ Xcode 8，可以從您的 MAC App Store 安裝
 + [Mobile Engagement iOS SDK]
 + 推播通知憑證 (.p12)，您可以在 Apple Dev Center 取得
 
-> [AZURE.NOTE] 本教學課程使用 Swift 2.0 版。
+> [AZURE.NOTE] 本教學課程使用 Swift 3.0 版。
 
 完成本教學課程是所有其他 iOS 應用程式 Mobile Engagement 教學課程的先決條件。
 
@@ -60,17 +60,15 @@
 
 	![][2]
 
-5. 開啟 `Build Phases` 索引標籤，並在 `Link Binary With Libraries` 功能表中新增框架，如下所示。**注意** 您必須包含 `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration`：
+5. 開啟 `Build Phases` 索引標籤，並在 `Link Binary With Libraries` 功能表中新增框架，如下所示：
 
 	![][3]
 
-6. 針對 **XCode 7** - 新增 `libxml2.tbd` 而不是 `libxml2.dylib`。
-
-7. 選擇 [File] > [New] > [File] > [iOS] > [Source] > [Header File] 來建立「橋接」標頭，以使用 SDK 的 Objective C API。
+8. 選擇 [File] > [New] > [File] > [iOS] > [Source] > [Header File] 來建立「橋接」標頭，以使用 SDK 的 Objective C API。
 
 	![][4]
 
-8. 編輯橋接標頭檔案來將 Mobile Engagement Objective-C 程式碼公開至 Swift 程式碼，並新增以下匯入：
+9. 編輯橋接標頭檔案來將 Mobile Engagement Objective-C 程式碼公開至 Swift 程式碼，並新增以下匯入：
 
 		/* Mobile Engagement Agent */
 		#import "AEModule.h"
@@ -79,19 +77,20 @@
 		#import "EngagementAgent.h"
 		#import "EngagementTableViewController.h"
 		#import "EngagementViewController.h"
+		#import "AEUserNotificationHandler.h"
 		#import "AEIdfaProvider.h"
 
-9. 在 [Build Settings]，請確定在 [Swift Compiler - Code Generation] 下的 [Objective-C Bridging Header] 組件設定有指向此標頭的路徑。路徑的範例：**$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (依路徑而定)**
+10. 在 [Build Settings]，請確定在 [Swift Compiler - Code Generation] 下的 [Objective-C Bridging Header] 組件設定有指向此標頭的路徑。路徑的範例：**$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (依路徑而定)**
 
 	![][6]
 
-10. 回到 Azure 入口網站中您應用程式的 [連線資訊] 頁面，並複製 [連線字串]。
+11. 回到 Azure 入口網站中您應用程式的 [連線資訊] 頁面，並複製 [連線字串]。
 
 	![][5]
 
-11. 現在 `didFinishLaunchingWithOptions` 代理人中貼上連接字串。
+12. 現在 `didFinishLaunchingWithOptions` 代理人中貼上連接字串。
 
-		func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
 		{
   			[...]
 				EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
@@ -154,9 +153,10 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 
 1. 在 `didFinishLaunchingWithOptions` 內建立觸達模組並將它傳遞到您現有的 Engagement 初始化行：
 
-		func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-			let reach = AEReachModule.moduleWithNotificationIcon(UIImage(named:"icon.png")) as! AEReachModule
-			EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}", modulesArray:[reach])
+		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool 
+		{
+			let reach = AEReachModule.module(withNotificationIcon: UIImage(named:"icon.png")) as! AEReachModule
+    		EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}", modulesArray:[reach])
 			[...]
 			return true
 		}
@@ -164,29 +164,32 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 ###讓您的應用程式能接收 APNS 推播通知
 1. 將下行新增至 `didFinishLaunchingWithOptions` 方法：
 
-		/* Ask user to receive push notifications */
 		if #available(iOS 8.0, *)
 		{
-		   let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
-		   application.registerUserNotificationSettings(settings)
-		   application.registerForRemoteNotifications()
+			if #available(iOS 10.0, *)
+			{
+				UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in }
+			}else
+			{
+				let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+				application.registerUserNotificationSettings(settings)
+			}
+			application.registerForRemoteNotifications()
 		}
 		else
 		{
-		   application.registerForRemoteNotificationTypes([UIRemoteNotificationType.Alert, UIRemoteNotificationType.Badge, UIRemoteNotificationType.Sound])
+			application.registerForRemoteNotifications(matching: [.alert, .badge, .sound])
 		}
 
 2. 新增 `didRegisterForRemoteNotificationsWithDeviceToken` 方法，如下所示：
 
-		func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
-		{
+		func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 			EngagementAgent.shared().registerDeviceToken(deviceToken)
 		}
 
 3. 新增 `didReceiveRemoteNotification:fetchCompletionHandler:` 方法，如下所示：
 
-		func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
-		{
+		func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
 		}
 
@@ -203,4 +206,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -18,13 +18,11 @@
 
 # Azure Active Directory 中的簽署金鑰變換
 
-本主題討論 Azure Active Directory (Azure AD) 中用來簽署安全性權杖的公開金鑰須知事項。請務必注意這些金鑰會定期變換，且在緊急狀況下可以立即變換。所有使用 Azure AD 的應用程式都應該能夠以程式設計方式處理金鑰變換程序。請繼續閱讀以了解金鑰的運作方式、如何評估變換對應用程式的影響，以及必要時如何更新應用程式來處理金鑰變換。
-
-> [AZURE.IMPORTANT] 下一次的簽署金鑰變換是排定在 2016 年 8 月 15 日，將**不會**影響從 Azure AD 應用程式資源庫新增的應用程式 (包括自訂)、透過應用程式 Proxy 發佈的內部部署應用程式、Azure Ad B2C 租用戶中的應用程式、與 ACS 或 ADFS 整合的應用程式。
+本主題討論 Azure Active Directory (Azure AD) 中用來簽署安全性權杖的公開金鑰須知事項。請務必注意這些金鑰會定期變換，且在緊急狀況下可以立即變換。所有使用 Azure AD 的應用程式都應該能夠以程式設計方式處理金鑰變換程序或建立定期手動變換程序。請繼續閱讀以了解金鑰的運作方式、如何評估變換對應用程式的影響，以及必要時如何更新應用程式或建立定期手動變換程序來處理金鑰變換。
 
 ## Azure AD 中簽署金鑰的概觀
 
-Azure AD 會使用根據業界標準所建置的公開金鑰加密技術，建立 Azure AD 本身和使用 Azure AD 的應用程式之間的信任。實際上，其運作方式如下：Azure AD 使用由公開和私密金鑰組所組成的簽署金鑰。當使用者登入使用 Azure AD 來進行驗證的應用程式時，Azure AD 會建立包含使用者相關資訊的安全性權杖。此權杖會先由 Azure AD 使用其私密金鑰進行簽署，再傳送回到應用程式。若要確認該權杖有效且確實來自 Azure AD，應用程式必須使用由 Azure AD 公開，且包含在租用戶的 [OpenID Connect 探索文件](http://openid.net/specs/openid-connect-discovery-1_0.html) 或 SAML/WS-Fed [同盟中繼資料文件](active-directory-federation-metadata.md)中的公開金鑰來驗證權杖的簽章。
+Azure AD 會使用根據業界標準所建置的公開金鑰加密技術，建立 Azure AD 本身和使用 Azure AD 的應用程式之間的信任。實際上，其運作方式如下：Azure AD 使用由公開和私密金鑰組所組成的簽署金鑰。當使用者登入使用 Azure AD 來進行驗證的應用程式時，Azure AD 會建立包含使用者相關資訊的安全性權杖。此權杖會先由 Azure AD 使用其私密金鑰進行簽署，再傳送回到應用程式。若要確認該權杖有效且確實來自 Azure AD，應用程式必須使用由 Azure AD 公開，且包含在租用戶的 [OpenID Connect 探索文件](http://openid.net/specs/openid-connect-discovery-1_0.html)或 SAML/WS-Fed [同盟中繼資料文件](active-directory-federation-metadata.md)中的公開金鑰來驗證權杖的簽章。
 
 基於安全考量，Azure AD 的簽署金鑰會定期變換，且在緊急情況下可以立即變換。任何與 Azure AD 整合的應用程式均應準備好處理金鑰變換事件，不論其可能發生頻率為何。如果沒有，應用程式又嘗試使用過期的金鑰來驗證權杖上的簽章，登入要求便會失敗。
 
@@ -46,6 +44,11 @@ OpenID Connect 探索文件和同盟中繼資料文件中永遠有一個以上�
 * [保護資源且使用 Visual Studio 2012 建立的 Web 應用程式](#vs2012)
 * [保護資源且使用 Visual Studio 2010、2008 或使用 Windows Identity Foundation 建立的 Web 應用程式](#vs2010)
 * [保護資源且使用任何其他程式庫或手動實作任何支援的通訊協定的 Web 應用程式 / API](#other)
+
+本指南**不**適用於︰
+
+* 從 Azure AD 應用程式資源庫 (包括自訂) 新增的應用程式有個別的簽署金鑰指引。[相關資訊。](active-directory-sso-certs.md)
+* 透過應用程式 proxy 發佈的內部部署應用程式不需要擔心簽署金鑰。
 
 ### <a name="nativeclient"></a>存取資源的原生用戶端應用程式
 
@@ -140,17 +143,19 @@ passport.use(new OIDCStrategy({
 
 下列步驟將協助您確認應用程式中的邏輯能正常運作。
 
-1. 在 Visual Studio 2013 中開啟方案，然後按一下右側視窗上的 [伺服器總管] 索引標籤。
+1. 在 Visual Studio 2013 中開啟方案，然後按一下右側視窗上的 [伺服器 Explorer] 索引標籤。
 2. 依序展開 [資料連線]、[DefaultConnection] 和 [資料表]。找出 [IssuingAuthorityKeys] 資料表並以滑鼠右鍵按一下，然後按一下 [顯示資料表資料]。
 3. [IssuingAuthorityKeys] 資料表中會有至少一個對應至金鑰指紋值的資料列。刪除資料表中的任何資料列。
 4. 以滑鼠右鍵按一下 [租用戶] 資料表，然後按一下 [顯示資料表資料]。
 5. [租用戶] 資料表中會有至少一個對應至唯一目錄租用戶識別碼的資料列。刪除資料表中的任何資料列。如果您未刪除 [租用戶] 資料表和 [IssuingAuthorityKeys] 資料表中的資料列，您會在執行階段收到錯誤。
 6. 建置並執行應用程式。在登入帳戶之後，即可停止應用程式。
-7. 返回 [伺服器總管]，並查看 [IssuingAuthorityKeys] 和 [租用戶] 資料表中的值。您將會發現，它們已自動重新填入同盟中繼資料文件中的適當資訊。
+7. 返回 [伺服器 Explorer]，並查看 [IssuingAuthorityKeys] 和 [租用戶] 資料表中的值。您將會發現，它們已自動重新填入同盟中繼資料文件中的適當資訊。
 
 ### <a name="vs2013"></a>保護資源且使用 Visual Studio 2013 建立的 Web API
 
-如果您使用 Web API 範本在 Visual Studio 2013 中建置了 Web API 應用程式，然後選取了 [變更驗證] 功能表中的 [組織帳戶]，則應用程式已擁有所需的邏輯。如果您以手動方式設定了驗證，請依照下列指示來了解如何設定 Web API 以自動更新其金鑰資訊。
+如果您使用 Web API 範本在 Visual Studio 2013 中建置了 Web API 應用程式，然後選取了 [變更驗證] 功能表中的 [組織帳戶]，則應用程式已擁有所需的邏輯。
+
+如果您以手動方式設定了驗證，請依照下列指示來了解如何設定 Web API 以自動更新其金鑰資訊。
 
 下列程式碼片段示範如何從同盟中繼資料文件取得最新的金鑰，然後使用 [JWT 權杖處理常式](https://msdn.microsoft.com/library/dn205065.aspx)來驗證權杖。此程式碼片段假設您將會使用自己的快取機制來保留金鑰，以驗證日後來自 Azure AD 的權杖，不論它位於資料庫、組態檔或其他位置。
 
@@ -248,7 +253,7 @@ namespace JWTValidation
 
 如果您是使用 Microsoft 所提供的任何程式碼範例或逐步解說文件建立應用程式，則專案中已含有金鑰變換邏輯。您會發現專案中已存在下列程式碼。如果應用程式還沒有此邏輯，請遵循下列步驟，以新增此邏輯並確認它能正常運作。
 
-1. 在 [方案總管] 中，新增適當專案的 **System.IdentityModel** 組件參考。
+1. 在 [方案 Explorer] 中，新增適當專案的 **System.IdentityModel** 組件參考。
 2. 開啟 **Global.asax.cs** 檔案，並新增下列 using 指示詞：
 ```
 using System.Configuration;
@@ -293,11 +298,13 @@ protected void Application_Start()
 
 ### <a name="vs2010"></a>保護資源且使用 Visual Studio 2008 或 2010 和 Windows Identity Foundation (WIF) v1.0 for .NET 3.5 建立的 Web 應用程式
 
-如果您在 WIF v1.0 上建置應用程式，則沒有提供相關機制來將應用程式的組態自動重新整理為使用新的金鑰。若要更新金鑰，最簡單的方法是使用 WIF SDK 中內含的 FedUtil 工具，它可以擷取最新的中繼資料文件並更新組態。以下包含其相關指示。或者，您可以執行下列其中一項︰
+如果您在 WIF v1.0 上建置應用程式，則沒有提供相關機制來將應用程式的組態自動重新整理為使用新的金鑰。
 
-- 遵循下面的＜手動擷取最新的金鑰並更新應用程式＞一節中的指示進行，並撰寫邏輯以程式設計方式執行步驟。
+- 「最簡單的方法」使用 WIF SDK 中內含的 FedUtil 工具，它可以擷取最新的中繼資料文件並更新組態。
 - 將應用程式更新至 .NET 4.5，其包含位於「系統」命名空間中的 WIF 的最新版本。然後，您可以使用[驗證簽發者名稱登錄 (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) 來執行應用程式組態的自動更新。
+- 根據本指導文件結尾的指示執行手動變換。
 
+使用 FedUtil 來更新組態的指示︰
 
 1. 確認 Visual Studio 2008 或 2010 的開發電腦上已安裝 WIF v1.0 SDK。如果您還未安裝，則可以[從這裡下載](https://www.microsoft.com/zh-TW/download/details.aspx?id=4451)。
 2. 在 Visual Studio 中開啟方案，然後以滑鼠右鍵按一下適用的專案，並選取 [更新同盟中繼資料]。如果無法使用此選項，則表示尚未安裝 FedUtil 和/或 WIF v1.0 SDK。
@@ -308,47 +315,14 @@ protected void Application_Start()
 
 如果您使用其他程式庫，或手動實作任何支援的通訊協定，您必須檢閱文件庫或您的實作，以確保從 OpenID Connect 探索文件或同盟中繼資料文件擷取金鑰。檢查的方法之一是在您的程式碼或程式庫的程式碼中，搜尋是否有任何呼叫 OpenID 探索文件或同盟中繼資料文件的情況。
 
-如果金鑰儲存在某處或硬式編碼在應用程式中，您可以手動擷取金鑰，並視情況來更新。**強烈建議您增強應用程式來支援自動變換**時使用本文描述的任何方法，以免未來如果 Azure AD 提高變換頻率或臨時需要緊急變換時，造成運作中斷和超出負荷。
-
-若要手動從 OpenID 探索文件中擷取最新的金鑰︰
-
-1. 在 Web 瀏覽器中，前往 `https://login.microsoftonline.com/your_directory_name/.well-known/openid-configuration`。您會看到 OpenID Connect 探索文件的內容。如需這份文件的詳細資訊，請參閱 [OpenID 探索文件規格](http://openid.net/specs/openid-connect-discovery-1_0.html)。
-2. 複製 jwks\_uri 值中的連結
-3. 在瀏覽器中開啟新索引標籤，並移至您剛才複製的 URL。您會看到 JSON Web 金鑰集文件的內容。
-4. 為了將應用程式更新為使用新的金鑰，請找出每個 **x5x** 項目，然後複製每個項目的值。例如：
-```
-keys: [
-	{
-		kty: "RSA",
-		use: "sig",
-		kid: "MnC_VZcATfM5pOYiJHMba9goEKY",
-		x5t: "MnC_VZcATfM5pOYiJHMba9goEKY",
-		n: "vIqz-4-ER_vNW...ixLUQ",
-		e: "AQAB",
-		x5c: [
-			"MIIC4jCCAcqgAw...dhXsIIKvJQ=="
-		]
-	},
-```
-5. 在複製 **<X509Certificate>** 項目值之後，開啟純文字編輯器，然後貼上值。務必要移除任何尾端空白字元，然後以 **.cer** 副檔名儲存檔案。
-
-若要手動從同盟中繼資料文件中擷取最新的金鑰︰
-
-1. 在 Web 瀏覽器中，前往 `https://login.microsoftonline.com/your_directory_name/federationmetadata/2007-06/federationmetadata.xml`。您將會看到同盟中繼資料 XML 文件的內容。如需這份文件的詳細資訊，請參閱[同盟中繼資料](active-directory-federation-metadata.md)主題。
-2. 為了將應用程式更新為使用新的金鑰，請找出每個 **<RoleDescriptor>** 區塊，然後複製每個區塊的 **<X509Certificate>** 項目值。例如：
-```
-<RoleDescriptor xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType">
-      <KeyDescriptor use="signing">
-            <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
-                <X509Data>
-                    <X509Certificate>MIIDPjC…BcXWLAIarZ</X509Certificate>
-```
-3. 在複製 **<X509Certificate>** 項目值之後，開啟純文字編輯器，然後貼上值。務必要移除任何尾端空白字元，然後以 **.cer** 副檔名儲存檔案。
-
-您剛剛建立了 X509 憑證以做為 Azure AD 的公開金鑰。透過使用憑證的詳細資料，例如其指紋和到期日，您可以使用手動方式或以程式設計方式檢查應用程式目前使用的憑證和指紋是否有效。
+如果金鑰儲存在某處或硬式編碼在您的應用程式中，您可以手動擷取金鑰並根據本指導文件結尾的指示執行手動變換來更新金鑰。**強烈建議您增強應用程式來支援自動變換**時使用本文描述的任何方法，以免未來如果 Azure AD 提高變換頻率或臨時需要緊急變換時，造成運作中斷和超出負荷。
 
 ## 如何測試您的應用程式，以判斷其是否會受影響
 
 下載指令碼並依照[此 GitHub 儲存機制](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)中的指示執行，即可驗證您的應用程式是否支援支援自動金鑰變換。
 
-<!---HONumber=AcomDC_0720_2016-->
+## 如果應用程式不支援自動變換，如何執行手動變換
+
+如果您的應用程式**不**支援自動變換，您必須先建立程序，該程序會定期監視 Azure AD 的簽署金鑰，並據此執行手動變換。[此 GitHub 儲存機制](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)包含指令碼和如何執行這項操作的指示。
+
+<!---HONumber=AcomDC_0921_2016-->

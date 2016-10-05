@@ -58,4 +58,4 @@
 ## 工作 3 - 啟用 Azure AD 網域服務
 下一個設定工作是[啟用 Azure AD 網域服務](active-directory-ds-getting-started-enableaadds.md)。
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0921_2016--->

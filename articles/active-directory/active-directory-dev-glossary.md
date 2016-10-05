@@ -132,7 +132,7 @@
 命名慣例的最佳作法是使用「resource.operation.constraint」格式。如需 Azure AD 圖形 API 所公開之範圍的詳細討論，請參閱[圖形 API 權限範圍][AAD-Graph-Perm-Scopes]。如需 Office 365 服務所公開的範圍，請參閱 [Office 365 API 權限參考][O365-Perm-Ref]。
 
 ## 安全性權杖
-包含 OAuth2 權杖或 SAML 2.0 判斷提示等宣告的已簽署文件。對於 OAuth2 [授權授與](#authorization-grant)而言，[存取權杖](#access-token) (OAuth2) 和 [識別碼權杖] (OpenID Connect) 皆為安全性權杖類型，而且這兩種類型都會實作為 [JSON Web 權杖 (JWT)][JWT]。
+包含 OAuth2 權杖或 SAML 2.0 判斷提示等宣告的已簽署文件。對於 OAuth2 [授權授與](#authorization-grant)而言，[存取權杖](#access-token) (OAuth2) 和 [識別碼權杖] \(OpenID Connect) 皆為安全性權杖類型，而且這兩種類型都會實作為 [JSON Web 權杖 (JWT)][JWT]。
 
 ## 服務主體物件
 當您在 [Azure 傳統入口網站][AZURE-classic-portal]註冊/更新應用程式時，入口網站會為租用戶同時建立/更新應用程式物件和對應的[服務主體物件](#application-object)。應用程式物件可全域 (在相關聯的應用程式已獲授與存取權的所有租用戶中)「定義」應用程式的身分識別組態，並可做為範本來「衍生」出其對應的服務主體物件，以在執行階段於本機 (在特定租用戶) 使用。

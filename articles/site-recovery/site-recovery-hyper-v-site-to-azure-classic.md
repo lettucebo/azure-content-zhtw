@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/03/2016"
+	ms.date="09/19/2016"
 	ms.author="raynew"/>
 
 
@@ -300,4 +300,4 @@ Site Recovery 可以用在許多案例中，並可保護許多工作負載。深
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!----HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

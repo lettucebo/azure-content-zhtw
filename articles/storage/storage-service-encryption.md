@@ -29,11 +29,11 @@ Azure 儲存體提供一組完整的安全性功能，讓開發人員能夠共�
 
 SSE 運作方式是在資料寫入 Azure 儲存體時進行加密，並可使用於區塊 Blob、分頁 Blob 和附加 Blob。它也適用於下列各項︰
 
-	- General purpose storage accounts and Blob storage accounts
-	- Standard storage and Primary storage 
-	- All redundancy levels (LRS, ZRS, GRS, RA-GRS)
-	- Azure Resource Manager storage accounts (but not classic) 
-	- All regions
+-   一般用途儲存體帳戶和 Blob 儲存體帳戶
+-   「標準」儲存體和「進階」儲存體
+-   所有備援層級 (LRS、ZRS、GRS、RA-GRS)
+-   Azure Resource Manager 儲存體帳戶 (但不是傳統帳戶)
+-   所有區域
 
 這個螢幕擷取畫面顯示如何使用 [Azure 入口網站](https://azure.portal.com)來尋找「儲存體服務加密」設定。在此畫面上，按一下 [加密] 以繼續。
 
@@ -195,4 +195,4 @@ AzCopy 是個 Windows 命令列公用程式，專為使用簡單命令高效率�
 
 Azure 儲存體提供一組完整的安全性功能，讓開發人員能夠共同建置安全應用程式。如需詳細資訊，請參閱[儲存體安全性指南](storage-security-guide.md)。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

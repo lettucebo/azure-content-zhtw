@@ -154,4 +154,4 @@ Azure 入口網站會提供使用者介面，可將範例資料檔案複製到�
 - 若要使用其他工具檢視同一個教學課程，請按一下頁面最上方的索引標籤選取器。
 - 若要記錄診斷資訊，請參閱[為 Azure Data Lake Analytics 存取診斷記錄檔](data-lake-analytics-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0921_2016--->

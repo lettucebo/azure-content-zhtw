@@ -20,16 +20,16 @@
 
 [AZURE.INCLUDE [索引標籤](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-本教學課程顯示如何建立簡單的 [Node.js][NODEJS] 應用程式，並透過 cmd.exe 或 bash 之類的命令列環境將其部署至 [Azure App Service] 中的 [Web 應用程式]。本教學課程中的指示可運用在任何足以執行 Node.js 應用程式的作業系統上。
+本教學課程示範如何建立簡單的 [Node.js] 應用程式，並透過 cmd.exe 或 bash 之類的命令列環境將其部署至 [Azure App Service]。本教學課程中的指示可運用在任何能夠執行 Node.js 應用程式的作業系統上。
 
 <a name="prereq"></a>
 ## 必要條件
 
-- **Node.js** ([按一下此處進行安裝][NODEJS])
-- **Bower** ([按一下此處進行安裝][BOWER])
-- **Yeoman** ([按一下此處進行安裝][YEOMAN])
-- **Git** ([按一下此處進行安裝][GIT])
-- **Azure CLI** ([按一下此處進行安裝][Azure CLI])
+- [Node.js]
+- [Bower]
+- [Yeoman]
+- [Git]
+- [Azure CLI]
 - Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[申請免費試用]，或是[啟用自己的 Visual Studio 訂閱者權益]。
 
 ## 建立和部署簡單的 Node.js Web 應用程式
@@ -52,20 +52,20 @@
 
     在瀏覽器中瀏覽至 <http://localhost:3000> 以確定您可以看到 Express 首頁。一旦您確認應用程式正確執行，請使用 `Ctrl-C` 來停止它。
     
-1. 變更為 ASM 模式並登入 Azure (為此您需要 [Azure CLI](#prereq))：
+1. 變更為 ASM 模式並登入 Azure (您需要 [Azure CLI](#prereq))：
 
         azure config mode asm
         azure login
 
     依照提示，在瀏覽器中繼續使用具有 Azure 訂用帳戶的 Microsoft 帳戶進行登入。
 
-2. 確定您仍在應用程式的根目錄中，然後使用下一個命令，以唯一的應用程式名稱在 Azure 中建立 App Service 應用程式資源；例如︰http://{appname}.azurewebsites.net
+2. 確定您仍在應用程式的根目錄中，然後使用下一個命令，以唯一的應用程式名稱在 Azure 中建立 App Service 應用程式資源。例如：http://{appname}.azurewebsites.net
 
         azure site create --git {appname}
 
     依照提示來選取要部署的目標 Azure 區域。如果您從未針對 Azure 訂用帳戶設定 Git/FTP 部署認證，則系統也會提示您加以建立。
 
-3. 從應用程式根目錄開啟 ./config/config.js 檔案，並將生產連接埠變更為 `process.env.port`；`config` 物件中的 `production` 屬性看起來應該會像下列範例。
+3. 從應用程式根目錄開啟 ./config/config.js 檔案，並將生產連接埠變更為 `process.env.port`；`config` 物件中的 `production` 屬性看起來應該會像下列範例：
 
         production: {
             root: rootPath,
@@ -77,13 +77,19 @@
 
     這可讓您的 Node.js 應用程式在 iisnode 所接聽的預設連接埠上回應 Web 要求。
     
+4. 開啟 ./package.json，並新增 `engines` 屬性以[指定所需的 Node.js 版本](#version)。
+
+        "engines": {
+            "node": "6.6.0"
+        }, 
+
 4. 儲存變更，然後使用 git 將您的應用程式部署至 Azure：
 
         git add .
         git commit -m "{your commit message}"
         git push azure master
 
-    Express 產生器已提供 .gitignore 檔案，因此您的 `git push` 不會使用頻寬來嘗試上傳 node\_modules/ 目錄。
+    Express 產生器已提供 .gitignore 檔案，因此您的 `git push` 不會取用頻寬來嘗試上傳 node\_modules/ 目錄。
 
 5. 最後，在瀏覽器中啟動即時 Azure 應用程式︰
 
@@ -118,12 +124,13 @@ Azure App Service 使用 [iisnode] 來執行 Node.js 應用程式。Azure CLI �
 - [在 Azure App Service 中使用 Socket.IO 建立 Node.js 聊天應用程式]
 - [如何搭配使用 io.js 和 Azure App Service Web Apps]
 
+<a name="version"></a>
 ## 使用特定的 Node.js 引擎
 
 和平常在 package.json 中的方式一樣，您可以在一般工作流程中告知 App Service 使用特定的 Node.js 引擎。例如：
 
     "engines": {
-        "node": "5.5.0"
+        "node": "6.6.0"
     }, 
 
 Kudu 部署引擎會依下列順序決定要使用哪個 Node.js 引擎︰
@@ -132,10 +139,12 @@ Kudu 部署引擎會依下列順序決定要使用哪個 Node.js 引擎︰
 - 接下來，查看 package.json 以確認是否已在 `engines` 物件中指定 `"node": "..."`。如果是，則使用它。
 - 依預設選擇預設的 Node.js 版本。
 
+>[AZURE.NOTE] 建議您明確定義想要的 Node.js 引擎。預設的 Node.js 版本可以變更，但因為預設的 Node.js 版本不適用於您的 Azure Web 應用程式，您可能會在應用程式中收到錯誤。
+
 <a name="iisnodelog"></a>
 ## 從 iisnode 取得 stdout 和 stderr 記錄
 
-若要讀取 iisnode 記錄檔，請使用下列步驟。
+若要讀取 iisnode 記錄，請遵循下列步驟。
 
 > [AZURE.NOTE] 在完成這些步驟之後，可能要等到發生錯誤時才會有記錄檔。
 
@@ -154,13 +163,13 @@ Kudu 部署引擎會依下列順序決定要使用哪個 Node.js 引擎︰
         git commit -m "{your commit message}"
         git push azure master
    
-   iisnode 現在已設定好。接下來的步驟會示範如何存取這些記錄。
+    iisnode 現在已設定好。接下來的步驟會示範如何存取這些記錄。
      
 4. 在瀏覽器中存取應用程式的 Kudu 偵錯主控台，其位於︰
 
         https://{appname}.scm.azurewebsites.net/DebugConsole 
 
-    請注意，此 URL 不同於 Web 應用程式 URL，因為前者在 DNS 名稱中加入了 ".scm."。如果您未在 URL 中加入此項目，就會收到 404 錯誤。
+    此 URL 不同於 Web 應用程式 URL，因為前者在 DNS 名稱中加入了「.scm.」。如果您未在 URL 中加入此項目，就會收到 404 錯誤。
 
 5. 瀏覽至 D:\\home\\site\\wwwroot\\iisnode
 
@@ -215,20 +224,20 @@ Kudu 部署引擎會依下列順序決定要使用哪個 Node.js 引擎︰
 [Azure CLI]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [啟用自己的 Visual Studio 訂閱者權益]: http://go.microsoft.com/fwlink/?LinkId=623901
-[BOWER]: http://bower.io/
+[Bower]: http://bower.io/
 [在 Azure App Service 中使用 Socket.IO 建立 Node.js 聊天應用程式]: ./web-sites-nodejs-chat-app-socketio.md
 [將 Sails.js Web 應用程式部署至 Azure App Service]: ./app-service-web-nodejs-sails.md
 [探索神秘無比的 Kudu 偵錯主控台]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [適用於 Yeoman 的 Express 產生器]: https://github.com/petecoop/generator-express
-[GIT]: http://www.git-scm.com/downloads
+[Git]: http://www.git-scm.com/downloads
 [如何搭配使用 io.js 和 Azure App Service Web Apps]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
-[NODEJS]: http://nodejs.org
+[Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [申請免費試用]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Web 應用程式]: ./app-service-web-overview.md
-[YEOMAN]: http://yeoman.io/
+[web app]: ./app-service-web-overview.md
+[Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
 
@@ -237,4 +246,4 @@ Kudu 部署引擎會依下列順序決定要使用哪個 Node.js 引擎︰
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 
@@ -21,11 +21,11 @@
 
 前置處理和清除資料是很重要的工作，必須先執行這些工作，才能有效地將資料集用於機器學習服務。未經處理的資料通常會有雜訊且不可靠，還可能會有遺漏值。使用這類資料進行模型化可能會產生誤導的結果。這些工作屬於 Team Data Science Process (TDSP)，通常會遵循用來探索及計劃所需預先處理的資料集初始探索。如需更多關於 TDSP 程序的詳細指示，請參閱 [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中概述的步驟。
 
-前置處理和清除工作，例如資料探索工作，可以在各種不同環境中實行，例如 SQL 或 Hive 或 Azure Machine Learning Studio，並使用各種工具與語言，例如 R 或 Python，取決於您的資料的儲存位置和格式。由於 CAP 本質上是反覆的，所以這些工作可以在程序工作流程中的各個步驟進行。
+前置處理和清除工作，例如資料探索工作，可以在各種不同環境中實行，例如 SQL 或 Hive 或 Azure Machine Learning Studio，並使用各種工具與語言，例如 R 或 Python，取決於您的資料的儲存位置和格式。由於 TDSP 本質上是反覆的，所以這些工作可以在程序工作流程中的各個步驟進行。
 
 本文將介紹各種不同的資料處理概念和工作，讓您可以在將資料擷取到 Azure Machine Learning 前後執行這些工作。
 
-如需在 Azure Machine Learning Studio 內執行資料探索和前置處理的範例，請參閱[在 Azure ML Studio 中前置處理資料](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)影片。
+如需在 Azure Machine Learning Studio 內執行資料探索和前置處理的範例，請參閱[在 Azure Machine Learning Studio 中前置處理資料](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)影片。
 
 
 ## 為何要前置處理和清除資料？
@@ -54,7 +54,7 @@
 
 當您找到資料問題時，**處理步驟**是必需的，這通常包含清除遺漏值、資料正規化、離散化、可移除和 (或) 取代可能影響資料對齊之內嵌字元的文字處理、共通欄位的混合資料類型，以及其他項目。
 
-**Azure Machine Learning 會取用正確格式的表格式資料**。如果資料已是表格形式，則可在 ML Studio 中使用 Azure Machine Learning 直接執行資料前置處理。如果資料的格式不是表格式，假設是 XML，就可能需要進行剖析，才能將資料的格式轉換成表格式。
+**Azure Machine Learning 會取用正確格式的表格式資料**。如果資料已是表格形式，則可在 Machine Learning Studio 中使用 Azure Machine Learning 直接執行資料前置處理。如果資料的格式不是表格式，假設是 XML，就可能需要進行剖析，才能將資料的格式轉換成表格式。
 
 ## 資料前置處理中有哪些主要工作？
 
@@ -109,4 +109,4 @@
 
 >*Data Mining: Concepts and Techniques* (資料採礦：觀念與技術)，第三版，Morgan Kaufmann，2011，Jiawei Han、Micheline Kamber 及 Jian Pei
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

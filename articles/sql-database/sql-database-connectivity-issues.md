@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/20/2016"
 	ms.author="daleche"/>
 
 
@@ -28,7 +28,8 @@
 
 暫時性錯誤 (又稱暫時性故障) 具有很快就會自行解決的根本原因。當 Azure 系統快速地將硬體資源轉移到負載平衡更好的各種工作負載時，偶爾會發生暫時性錯誤。其中大部分重新設定事件通常會在不到 60 秒內完成。在此重新設定時間範圍期間，與 Azure SQL Database 的連接可能會有問題。建置連接到 Azure SQL Database 的應用程式時，應該預期這些暫時性錯誤，並實作重試邏輯來處理它們，而不是當做應用程式錯誤呈現給使用者。
 
-如果用戶端程式使用 ADO.NET，系統會擲回 **SqlException**，告知您的程式發生暫時性錯誤。**數目**屬性可以與主題頂端附近的暫時性錯誤清單進行比較：[SQL Database 用戶端應用程式的 SQL 錯誤碼](sql-database-develop-error-messages.md)。
+如果用戶端程式使用 ADO.NET，系統會擲回 **SqlException**，告知您的程式發生暫時性錯誤。**Number** 屬性可以與下列主題中靠近上半部的暫時性錯誤清單進行比較：
+[SQL Database 用戶端應用程式的 SQL 錯誤碼](sql-database-develop-error-messages.md)。
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -410,7 +411,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲端服務的健全用戶端，其中之一就是 Azure SQL Database 服務。您可以找出 EntLib60 可以協助的每個領域的專用主題，請先造訪：
+Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲端服務的健全用戶端，其中之一就是 Azure SQL Database 服務。您可以先造訪下列網址來找出 EntLib60 所能協助之每個領域的專用主題：
 
 - [Enterprise Library 6 – 2013 年 4 月](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
@@ -563,4 +564,4 @@ public bool IsTransient(Exception ex)
 
 - [*重試*是 Apache 2.0 授權的一般用途重試文件庫，以 **Python** 撰寫，幾乎可對任何案例加入重試作業。](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

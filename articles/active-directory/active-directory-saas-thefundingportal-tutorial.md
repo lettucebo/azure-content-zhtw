@@ -72,7 +72,7 @@
 
 	![應用程式][3]
 
-5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫新增應用程式]。
+5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫加入應用程式]。
 
 	![應用程式][4]
 
@@ -219,7 +219,7 @@ The Funding Portal 應用程式預期 SAML 判斷提示會包含名為 "external
 
 ### 建立 The Funding Portal 測試使用者
 
-在本節中，您要在 The Funding Portal 中建立名為 Britta Simon 的使用者。在本節中，您要在 The Funding Portal 中建立名為 Britta Simon 的使用者。如果您不知道如何在 The Funding Portal 中新增 Britta Simon，請與 The Funding Portal 支援小組合作，以新增測試使用者並啟用 SSO。請透過 info@regenteducation.com 與他們連絡。
+在本節中，您要在 The Funding Portal 中建立名為 Britta Simon 的使用者。如果您不知道如何在 The Funding Portal 中新增 Britta Simon，請與 The Funding Portal 支援小組合作，以新增測試使用者並啟用 SSO。請透過 info@regenteducation.com 與他們連絡。
 
 ### 指派 Azure AD 測試使用者
 
@@ -282,4 +282,4 @@ The Funding Portal 應用程式預期 SAML 判斷提示會包含名為 "external
 [204]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_205.png
 
-<!----HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

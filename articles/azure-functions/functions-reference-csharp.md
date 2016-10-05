@@ -22,19 +22,20 @@
 
 > [AZURE.SELECTOR]
 - [C# 指令碼](../articles/azure-functions/functions-reference-csharp.md)
+- [F# 指令碼](../articles/azure-functions/functions-reference-fsharp.md)
 - [Node.js](../articles/azure-functions/functions-reference-node.md)
  
-Azure Functions 的 C# 體驗是以 Azure WebJobs SDK 為基礎。資料會透過方法引數流入您的 C# 函式。引數名稱會指定於 `function.json` 中，而且有預先定義的名稱可用來存取函數記錄器和取消權杖等項目。
+Azure Functions 的 C# 體驗是以 Azure WebJobs SDK 為基礎。資料會透過方法引數流入您的 C# 函式。引數名稱會指定於 `function.json` 中，而且有預先定義的名稱可用來存取函式記錄器和取消權杖等項目。
 
 本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。
 
 ## .csx 的運作方式
 
-`.csx` 格式允許撰寫較少「重複使用」文字，只專注於撰寫 C# 函數。在 Azure Functions 中，您只要如往常般包含您所需的組件參考和命名空間，而不是在命名空間和類別中包裝所有項目，您可以只定義您的 `Run` 方法。如果您需要包含任何類別，例如若要定義 POCO 物件，您可以包含相同檔案內的類別。
+`.csx` 格式允許撰寫較少「重複使用」文字，只專注於撰寫 C# 函式。在 Azure Functions 中，您只要如往常般包含您所需的組件參考和命名空間，而不是在命名空間和類別中包裝所有項目，您可以只定義您的 `Run` 方法。如果您需要包含任何類別，例如若要定義 POCO 物件，您可以包含相同檔案內的類別。
 
 ## 繫結至引數
 
-各種繫結會透過 function.json 組態中的 `name` 屬性繫結至 C# 函數。每個繫結都有自己支援的類型 (已依照繫結記載)；例如，Blob 觸發程序可以支援字串、POCO 或數個其他類型。您可以使用最符合您需求的類型。
+各種繫結會透過 function.json 組態中的 `name` 屬性繫結至 C# 函式。每個繫結都有自己支援的類型 (已依照繫結記載)；例如，Blob 觸發程序可以支援字串、POCO 或數個其他類型。您可以使用最符合您需求的類型。
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -62,7 +63,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 ## 非同步處理
 
-若要讓函數變成非同步，請使用 `async` 關鍵字並傳回 `Task` 物件。
+若要讓函式變成非同步，請使用 `async` 關鍵字並傳回 `Task` 物件。
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -146,11 +147,11 @@ Azure Functions 裝載環境會自動加入下列組件︰
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`。
 
-如果您需要參考私用組件，可以將組件檔案上傳至相對於您函數的 `bin` 資料夾並使用檔案名稱 (例如 `#r "MyAssembly.dll"`) 來參考它。如需如何將檔案上傳至函數資料夾的資訊，請參閱以下的＜封裝管理＞小節。
+如果您需要參考私用組件，可以將組件檔案上傳至相對於您函式的 `bin` 資料夾並使用檔案名稱 (例如 `#r "MyAssembly.dll"`) 來參考它。如需如何將檔案上傳至函數資料夾的資訊，請參閱以下的＜封裝管理＞小節。
 
 ## 封裝管理
 
-若要在 C# 函數中使用 NuGet 封裝，請將 project.json 檔案上傳至函數應用程式檔案系統中的函數資料夾。以下是範例 project.json 檔案，該檔案會加入對 Microsoft.ProjectOxford.Face 1.1.0 版的參考：
+若要在 C# 函式中使用 NuGet 封裝，請將 project.json 檔案上傳至函式應用程式檔案系統中的函式資料夾。以下是範例 project.json 檔案，該檔案會加入對 Microsoft.ProjectOxford.Face 1.1.0 版的參考：
 
 ```json
 {
@@ -171,13 +172,13 @@ Azure Functions 裝載環境會自動加入下列組件︰
 
 ### 如何上傳 project.json 檔案
 
-1. 首先，在 Azure 入口網站中開啟您的函式，以確定函式應用程式正在執行中。 
+1. 首先，在 Azure 入口網站中開啟您的函式，以確定函式應用程式正在執行中。
 
 	這也可供存取將要顯示封裝安裝輸出的串流記錄檔。
 
-2. 若要上傳 project.json 檔案，請使用 [Azure Functions 開發人員參考主題](functions-reference.md#fileupdate)中**如何更新函數應用程式檔案**一節所述的其中一個方法。
+2. 若要上傳 project.json 檔案，請使用 [Azure Functions 開發人員參考主題](functions-reference.md#fileupdate)中**如何更新函式應用程式檔案**一節所述的其中一個方法。
 
-3. 上傳 project.json 檔案之後，您會在函數的串流記錄檔中看到如下列範例所示的輸出：
+3. 上傳 project.json 檔案之後，您會在函式的串流記錄檔中看到如下列範例所示的輸出：
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -242,11 +243,11 @@ public static void MyLogger(TraceWriter log, string logtext)
 
 您可以使用包含 `#load` 指示詞的相對路徑：
 
-* `#load "mylogger.csx"` 會載入位於函數資料夾中的檔案。
+* `#load "mylogger.csx"` 會載入位於函式資料夾中的檔案。
 
-* `#load "loadedfiles\mylogger.csx"` 會載入位於函數資料夾的資料夾中的檔案。
+* `#load "loadedfiles\mylogger.csx"` 會載入位於函式資料夾的資料夾中的檔案。
 
-* `#load "..\shared\mylogger.csx"` 會載入位於與函數資料夾相同層級的資料夾中的檔案 (也就是在 wwwroot 的正下方)。
+* `#load "..\shared\mylogger.csx"` 會載入位於與函式資料夾相同層級的資料夾中的檔案 (也就是在 wwwroot 的正下方)。
  
 `#load` 指示詞只適用於 .csx (C# 指令碼) 檔案，不適用於 .cs 檔案。
 
@@ -255,7 +256,8 @@ public static void MyLogger(TraceWriter log, string logtext)
 如需詳細資訊，請參閱下列資源：
 
 * [Azure Functions 開發人員參考](functions-reference.md)
+* [Azure Functions NodeJS 開發人員參考](functions-reference-fsharp.md)
 * [Azure Functions NodeJS 開發人員參考](functions-reference-node.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App 註冊入口網站說明主題 |Microsoft Azure"
+	pageTitle="應用程式註冊入口網站說明主題 | Microsoft Azure"
 	description="Microsoft App 註冊入口網站中各種功能的說明。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # App 註冊參考
@@ -42,4 +42,4 @@ App 註冊入口網站的設定檔區段可以用來自訂您應用程式的登�
 
 如果您只打算使用 Azure AD v2.0 端點，您可以安全地停用 Live SDK 支援。
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

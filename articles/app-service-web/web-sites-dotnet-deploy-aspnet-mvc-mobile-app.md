@@ -50,7 +50,7 @@
 您還需要一個行動瀏覽器模擬器。下列任一項目都可使用：
 
 -   [Internet Explorer 11 F12 開發人員工具][EmulatorIE11]中的瀏覽器模擬器 (使用於所有行動瀏覽器螢幕擷取畫面中)。它具有 Windows Phone 8、Windows Phone 7 和 Apple iPad 的使用者代理程式字串預設項目。
--	[Google Chrome DevTools][EmulatorChrome] (英文) 中的瀏覽器模擬器。它包含許多 Android 裝置，以及 Apple iPhone、Apple iPad 和 Amazon Kindle Fire 的預設項目。它也會模擬觸控事件。
+-	[Google Chrome DevTools][EmulatorChrome] \(英文) 中的瀏覽器模擬器。它包含許多 Android 裝置，以及 Apple iPhone、Apple iPad 和 Amazon Kindle Fire 的預設項目。它也會模擬觸控事件。
 -   [Opera Mobile 模擬器][EmulatorOpera]
 
 此處提供具有 C# 原始程式碼的 Visual Studio 專案來幫助您完成本主題：
@@ -60,7 +60,7 @@
 
 ##<a name="bkmk_DeployStarterProject"></a>將入門專案部署至 Azure Web 應用程式
 
-1.	下載會議清單應用程式[入門專案][StarterProject] (英文)。
+1.	下載會議清單應用程式[入門專案][StarterProject] \(英文)。
 
 2. 	接著在 Windows 檔案總管中，以滑鼠右鍵按一下以下載的 ZIP 檔案並選擇 [內容]。
 
@@ -266,7 +266,7 @@ Bootstrap 並非專屬於 ASP.NET MVC 5，您也可以在所有 Web 應用程式
 
 ![][AllSpeakersFixed]
 
-Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊都可以點選，以提供更好的使用者體驗。切換成桌面檢視，會發現此檢視也有一致的外觀與風格。
+Bootstrap [連結清單群組][] \(英文) 樣式讓每個連結的整個方塊都可以點選，以提供更好的使用者體驗。切換成桌面檢視，會發現此檢視也有一致的外觀與風格。
 
 ![][AllSpeakersFixedDesktop]
 
@@ -369,7 +369,7 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 
 ![][AllDatesFixed]
 
-您可以依照日期，組織時間日期值，以進一步改善 [*日期*] 檢視。這可以透過 Bootstrap [面板][] (英文) 樣式來完成。以下列程式碼取代 *Views\Home\AllDates.cshtml* 檔案的內容：
+您可以依照日期，組織時間日期值，以進一步改善 [*日期*] 檢視。這可以透過 Bootstrap [面板][] \(英文) 樣式來完成。以下列程式碼取代 *Views\Home\AllDates.cshtml* 檔案的內容：
 
     @model IEnumerable<DateTime>
 
@@ -397,7 +397,7 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
         </div>
     }
 
-此程式碼會為清單中每個不同的日期建立個別 `<div class="panel panel-primary">` 標籤，並分別為連結使用如上所述的[連結清單群組][] (英文)。以下是此程式碼執行時行動瀏覽器的樣貌：
+此程式碼會為清單中每個不同的日期建立個別 `<div class="panel panel-primary">` 標籤，並分別為連結使用如上所述的[連結清單群組][] \(英文)。以下是此程式碼執行時行動瀏覽器的樣貌：
 
 ![][AllDatesFixed2]
 
@@ -452,8 +452,8 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 
 此程式碼會執行 3 個動作：
 
--   使用 Bootstrap [自訂連結清單群組][] (英文)，以垂直方式格式化工作階段資訊，使您可以在行動瀏覽器上閱讀所有資訊 (使用 list-group-item-text 之類的類別)
--   將[方格系統][] (英文) 套用至配置，讓工作階段項目能在桌面瀏覽器中水平流動，並在行動瀏覽器中垂直流動 (使用 col-md-4 類別)。
+-   使用 Bootstrap [自訂連結清單群組][] \(英文)，以垂直方式格式化工作階段資訊，使您可以在行動瀏覽器上閱讀所有資訊 (使用 list-group-item-text 之類的類別)
+-   將[方格系統][] \(英文) 套用至配置，讓工作階段項目能在桌面瀏覽器中水平流動，並在行動瀏覽器中垂直流動 (使用 col-md-4 類別)。
 -   使用[回應靈敏的公用程式][]，於行動瀏覽器中檢視時，隱藏工作階段標籤 (使用 hidden-xs 類別)
 
 您也可以點選標題連結，以進入個別工作階段。下圖反映了程式碼變更。

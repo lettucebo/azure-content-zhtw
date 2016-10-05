@@ -32,7 +32,7 @@
 安全的叢集是會防止未經授權存取管理作業的叢集，那些作業包括部署、升級，及刪除應用程式、服務和它們包含的資料。不安全的叢集是任何人都可以隨時連線並執行管理作業的叢集。雖然可以建立不安全的叢集，但**強烈建議您建立安全的叢集**。不安全的叢集**無法在事後保護其安全** - 必須建立新的叢集。
 
 ## 登入 Azure
-本指南使用 [Azure PowerShell][azure-powershell]。開始新的 PowerShell 工作階段時，請先登入您的 Azure 帳戶並選取您的訂用帳務，然後再執行 Azure 命令。
+本指南使用 [Azure PowerShell][azure-powershell]。開始新的 PowerShell 工作階段時，請先登入您的 Azure 帳戶並選取您的訂用帳戶，然後再執行 Azure 命令。
 
 登入您的 Azure 帳戶：
 
@@ -63,7 +63,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集，並提供應用程式的�
 
 ```powershell
 
-	PS C:\Users\vturecek> New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
+	New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
 	WARNING: The output object type of this cmdlet will be modified in a future release.
 	
 	ResourceGroupName : mycluster-keyvault
@@ -80,7 +80,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集，並提供應用程式的�
 
 ```powershell
 
-	PS C:\Users\vturecek> New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
+	New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
 	
 	
 	Vault Name                       : myvault
@@ -124,7 +124,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集，並提供應用程式的�
 
 需要此憑證來保護叢集安全及防止未經授權存取叢集。它會透過幾種方式提供叢集安全性：
  
- - **叢集驗證：**驗證叢集同盟的節點對節點通訊。只有可使用此憑證提供其身份識別的節點可以加入叢集。
+ - **叢集驗證：**驗證叢集同盟的節點對節點通訊。只有可使用此憑證提供其身分識別的節點可以加入叢集。
  - **伺服器驗證：**向管理用戶端驗證叢集管理端點，管理用戶端就能知道它正在交談的對象是真正的叢集。此憑證也會為 HTTPS 管理 API，以及為透過 HTTPS 使用的 Service Fabric Explorer 提供 SSL。
 
 為用於這些用途，憑證必須符合下列要求：
@@ -156,7 +156,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集，並提供應用程式的�
 此 PowerShell 模組中的 `Invoke-AddCertToKeyVault` 命令會自動將憑證私密金鑰的格式設定為 JSON 字串，並將它上傳到金鑰保存庫。請用它來將叢集憑證與任何其他應用程式憑證新增到金鑰保存庫。請為您想在叢集中安裝的任何其他憑證重複這個步驟。
 
 ```powershell
-PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+ Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 	
 	Switching context to SubscriptionId <guid>
 	Ensuring ResourceGroup mycluster-keyvault in West US
@@ -488,4 +488,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 [assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
 [assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

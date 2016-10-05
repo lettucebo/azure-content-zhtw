@@ -26,7 +26,7 @@
 
 若要完成本教學課程，您需要下列項目。
 
--	。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或<a href="/pricing/free-account/" target="_blank">[註冊免費帳戶](https://azure.microsoft.com/free/)。
+-	Azure 訂用帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或<a href="/pricing/free-account/" target="_blank">[註冊免費帳戶](https://azure.microsoft.com/free/)。
 -	[Azure 執行身分帳戶](automation-sec-configure-azure-runas-account.md)，用來保存 Runbook 以及向 Azure 資源驗證。此帳戶必須擁有啟動和停止虛擬機器的權限。
 -	Azure 虛擬機器。我們將會停止並啟動這台電腦，因此它不應該是生產環境。
 
@@ -70,7 +70,7 @@
 
 我們剛剛建立的 Runbook 仍處於草稿模式。我們需要將它發佈，才能在生產環境中執行它。當您發佈 Runbook 時，您會使用草稿版本覆寫現有的已發佈版本。在我們的情況中，因為我們剛剛建立 Runbook，因此還沒有已發佈版本。
 
-1.	按一下 [**發佈**] 來發佈 Runbook，然後出現提示時按一下 [**是**]。<br> ![Publish](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
+1.	按一下 [**發佈**] 來發佈 Runbook，然後出現提示時按一下 [**是**]。<br> ![發佈](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
 2.	如果您向左捲動以檢視 [Runbook] 刀鋒視窗中的 Runbook，它會顯示**已發佈**的**撰寫狀態**。
 3.	捲動回右方以檢視 **MyFirstRunbook** 的刀鋒視窗。在頂端的選項可讓我們啟動 Runbook、排程它在未來的某個時間點啟動，或建立 [webhook](automation-webhooks.md)，使得可以透過 HTTP 呼叫啟動它。
 4.	我們只想要啟動 Runbook，因此按一下 [**開始**] 然後出現提示時按一下 [**是**]。<br> ![啟動 Runbook](media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
@@ -127,10 +127,10 @@
 
 ## 步驟 7 - 加入活動以啟動虛擬機器
 
-現在我們要加入 **Start-AzureRmVM** 活動，以啟動虛擬機器。您可以在您的 Azure 訂用帳戶中挑選任何虛擬機器，而現在我們會將該名稱硬式編碼成 Cmdlet。
+現在我們要加入 **Start-AzureRmVM** 活動，以啟動虛擬機器。您可以在 Azure 訂用帳戶中挑選任何虛擬機器，而現在我們會將該名稱硬式編碼成 Cmdlet。
 
 1. 在 [程式庫] 控制項中，於搜尋文字方塊中輸入 **Start-AzureRm**。
-2. 將 **Start-AzureRmVM** 加入至畫布，然後按一下並拖曳到 [連接到 Azure] 下方。
+2. 將 [Start-AzureRmVM] 新增至畫布，然後對它按一下並拖曳到 [指定訂用帳戶識別碼] 底下。
 3. 將滑鼠停留在 [指定訂用帳戶識別碼]，直到圖形的底端出現圓形。按一下圓形，並將箭頭拖曳到 [Start-AzureRmVM]。
 4.	選取 [Start-AzureRmVM]。按一下 [參數] 然後按一下 [參數集] 以檢視 [Start-AzureRmVM] 的參數集。選取 [ResourceGroupNameParameterSetName] 參數集。請注意，[ResourceGroupName] 和 [名稱] 旁邊具有驚嘆號。這表示它們是必要的參數。也請注意這兩者應該是字串值。
 5.	選取 [**名稱**]。在 [資料來源] 中選取 [PowerShell 運算式]，並輸入用雙引號括住的虛擬機器名稱，此為我們要用此 Runbook 啟動的虛擬機器。按一下 [確定]。<br>![Start-AzureRmVM 名稱參數值](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -163,7 +163,7 @@
 我們現在將修改 Runbook，讓它只會在未啟動時嘗試啟動虛擬機器。我們透過將 **Get-AzureRmVM** Cmdlet 加入到將取得虛擬機器之執行個體層級狀態的 Runbook，來執行此動作。然後，我們將加入名為**取得狀態**的 PowerShell 工作流程程式碼模組與 PowerShell 程式碼片段來判斷虛擬機器的狀態是正在執行還是已停止。只有當目前的執行狀態為已停止時，**取得狀態**模組中的條件式連結才會執行 **Start-AzureRmVM**。最後我們會輸出訊息，以通知您 VM 已成功啟動或未使用 PowerShell Write-Output Cmdlet。
 
 1. 在圖形化編輯器中開啟 **MyFirstRunbook**。
-2. 移除 [指定訂用帳戶識別碼] 和 [Start-AzureRmVM] 之間的連結，方法是按一下該連結，然後按 [Delete] 鍵。
+2. 移除 [指定訂用帳戶識別碼] 和 [Start-AzureRmVM] 之間的連結，方法是按一下該連結，然後按 [刪除] 鍵。
 3. 在 [程式庫] 控制項中，於搜尋文字方塊中輸入 **Get-AzureRm**。
 4. 將 [Get-AzureRmVM] 加入至畫布。
 5. 選取 [Get-AzureRmVM] 然後選取 [參數集] 以檢視 [Get-AzureRmVM] 的參數集。選取 [GetVirtualMachineInResourceGroupNameParamSet] 參數集。請注意，[ResourceGroupName] 和 [名稱] 旁邊具有驚嘆號。這表示它們是必要的參數。也請注意這兩者應該是字串值。
@@ -211,4 +211,4 @@
 -	若要開始使用 PowerShell Runbook，請參閱[我的第一個 PowerShell Runbook](automation-first-runbook-textual-powershell.md)
 -	若要開始使用 PowerShell 工作流程 Runbook，請參閱[我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

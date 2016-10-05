@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # 與 Azure Active Directory 整合
@@ -90,4 +90,4 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 [使用 Azure AD 登入使用者](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

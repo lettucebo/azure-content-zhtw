@@ -219,7 +219,8 @@ API 金鑰儲存在 WebJobs.Script.WebHost 專案之 [App\_Data/secrets](https:/
 
 * [Azure Functions 開發人員參考](functions-reference.md)
 * [Azure Functions C# 開發人員參考](functions-reference-csharp.md)
+* [Azure Functions F# 開發人員參考](functions-reference-fsharp.md)
 * [Azure Functions NodeJS 開發人員參考](functions-reference-node.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

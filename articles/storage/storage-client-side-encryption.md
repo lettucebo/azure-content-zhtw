@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="lakasa;robinsh"/>
 
 
 # Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault 金鑰保存庫
@@ -251,4 +251,4 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 - 下載 Azure 金鑰保存庫 NuGet 的 [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 和 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 封裝
 - 請瀏覽 [Azure 金鑰保存庫文件](../key-vault/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->

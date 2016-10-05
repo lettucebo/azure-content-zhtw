@@ -67,4 +67,4 @@
 - [XML 轉換](./app-service-logic-enterprise-integration-transform.md "了解企業整合對應")
 - [企業整合連接器](../connectors/apis-list.md "了解企業整合套件連接器")
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

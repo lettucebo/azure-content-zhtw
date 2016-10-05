@@ -25,7 +25,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-了解如何使用 C# 透過 [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) 建立 Azure SQL Database。本文說明如何使用 SQL 和 C# 建立單一資料庫。若要建立彈性資料庫集區，請參閱[建立彈性資料庫集區](sql-database-elastic-pool-create-portal.md)。
+了解如何使用 C# 透過 [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) 建立 Azure SQL Database。本文說明如何使用 SQL 和 C# 建立單一資料庫。若要建立彈性資料庫集區，請參閱[建立彈性資料庫集區](sql-database-elastic-pool-create-csharp.md)。
 
 Azure SQL Database Library for .NET 提供 [Azure 資源管理員](../resource-group-overview.md)式 API，它會包裝[資源管理員式 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)。
 
@@ -291,4 +291,4 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](../resource-g
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

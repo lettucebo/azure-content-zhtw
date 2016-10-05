@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -37,11 +37,11 @@
 </tr>
 <tr>
 <td>儲存體帳戶</td>
-<td>您的 blob 檔案所在的儲存體帳戶名稱。如果它和您的串流分析工作位於相同的訂用帳戶中，您可以從下拉式清單加以選取。</td>
+<td>您的 blob 檔案所在的儲存體帳戶名稱。如果它與您的「串流分析工作」位於相同的訂用帳戶，您就可以從下拉式清單中選取它。</td>
 </tr>
 <tr>
 <td>儲存體帳戶金鑰</td>
-<td>與儲存體帳戶相關聯的密碼金鑰。如果儲存體帳戶和您的串流分析工作位於相同的訂用帳戶中，則會自動填入。</td>
+<td>與儲存體帳戶相關聯的密碼金鑰。如果儲存體帳戶與您的「串流分析」工作位於相同的訂用帳戶，就會自動填入此資訊。</td>
 </tr>
 <tr>
 <td>儲存體容器</td>
@@ -110,4 +110,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

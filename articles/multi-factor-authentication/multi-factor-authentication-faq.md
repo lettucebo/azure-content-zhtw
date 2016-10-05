@@ -3,8 +3,8 @@
 	description="提供與 Azure Multi-Factor Authentication 相關的常見問題與答案清單。Multi-Factor Authentication 是一種驗證使用者身分識別的方法。它除了需要使用者名稱與密碼之外，還需要其他驗證方式。它可以為使用者登入和交易提供一層額外的安全性。"
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication 常見問題集
 
@@ -38,7 +38,7 @@
   如果您是舊版 PhoneFactor 的客戶且有問題或需要協助重設密碼，請使用[重設密碼](mailto:phonefactorsupport@microsoft.com)連結來建立支援案例。
 
 - [Azure Multi-Factor Authentication Server (PhoneFactor) 支援](https://support.microsoft.com/oas/default.aspx?prid=14947)
-  
+
   使用此連結可連絡 Microsoft 支援專業人員。他們會詢問您一些問題，以協助您決定您的支援選項，可能的選項有電子郵件、線上提交或電話支援。
 
 
@@ -185,4 +185,4 @@ Windows Server 2012 R2 中的安全性變更已改變 Azure Multi-Factor Authent
 
 此種情況的因應措施是使用不同的使用者帳戶，進行系統管理和非系統管理作業。您稍後可以連結系統管理帳戶與非系統管理帳戶之間的信箱，以便使用非系統管理帳戶登入 Outlook。如需詳細資訊，請了解如何[讓系統管理員能夠開啟及檢視使用者信箱的內容](http://help.outlook.com/141/gg709759.aspx?sl=1)。
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

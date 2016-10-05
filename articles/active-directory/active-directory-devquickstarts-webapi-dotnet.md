@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -95,7 +95,7 @@ public class TodoListController : ApiController
 {
 ```
 
-- 當授權的呼叫者成功叫用其中一個 `TodoListController` API 時，此動作可能需要存取呼叫者的相關資訊。OWIN 可讓您透過 `ClaimsPrincpal` 物件存取持有人權杖內部的宣告。  
+- 當授權的呼叫者成功叫用其中一個 `TodoListController` API 時，此動作可能需要存取呼叫者的相關資訊。OWIN 可讓您透過 `ClaimsPrincpal` 物件存取持有人權杖內部的宣告。
 - Web API 的一個常見需求是驗證權杖中是否有「範圍」存在，這可確保使用者已經取得存取 Todo 清單服務所需權限的同意：
 
 ```C#
@@ -139,4 +139,4 @@ public IEnumerable<TodoItem> Get()
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

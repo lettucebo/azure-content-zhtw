@@ -145,7 +145,7 @@ Apache Storm 會執行**拓撲**，而不是您在 HDInsight 或 Hadoop 中可�
 
 	* **Nimbus** 是一種 Thrift 服務，而**拓撲**是 Thrift 定義，因此可利用各種程式設計語言來開發拓撲。
 
-如需關於 Storm 元件的詳細資訊，請參閱 apache.org 上的 [Storm 教學課程][apachetutorial] (英文)。
+如需關於 Storm 元件的詳細資訊，請參閱 apache.org 上的 [Storm 教學課程][apachetutorial] \(英文)。
 
 
 ##我可以使用哪些程式設計語言？

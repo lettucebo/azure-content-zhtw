@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2016"
+   ms.date="09/26/2016"
    ms.author="nitinme"/>
 
 # 使用 .NET SDK 開始使用 Azure 資料湖存放區
@@ -37,13 +37,7 @@
 
 * **Azure Data Lake Store 帳戶**。如需有關如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
-* 如果您希望您的應用程式自動向 Azure Active Directory 進行驗證，請**建立 Azure Active Directory 應用程式**。
-
-	* **針對非互動式、服務主題驗證** - 在 Azure Active Directory 中，您必須建立 **Web 應用程式**。一旦您建立應用程式，請擷取與下列應用程式相關的值。
-		- 取得應用程式的**用戶端識別碼**和**用戶端密碼**
-		- 將 Azure Active Directory 應用程式指派給角色。角色可以在您要授與權限給 Azure Active Directory 應用程式的範圍層級。例如，您可以在訂用帳戶層級或資源群組的層級指派應用程式。
-
-	如需有關如何擷取這些值、設定權限和指派角色的指示，請參閱[使用入口網站建立 Active Directory 應用程式和服務主體](../resource-group-create-service-principal-portal.md)。
+* **建立 Azure Active Directory 應用程式**。您必須使用 Azure AD 應用程式來向 Azure AD 驗證 Data Lake Store 應用程式。有不同的方法可向 Azure AD 進行驗證：**使用者驗證**或**服務對服務驗證**。如需如何驗證的指示和詳細資訊，請參閱[使用 Azure Active Directory 向 Data Lake Store 進行驗證](data-lake-store-authenticate-using-active-directory.md)。
 
 ## 建立 .NET 應用程式
 
@@ -96,12 +90,15 @@
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
+				private static string _subId;
+
                 
                 private static void Main(string[] args)
                 {
                     _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
                     _location = "East US 2";
+					_subId = "<SUBSCRIPTION-ID>";
                     
                     string localFolderPath = @"C:\local_path"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
@@ -115,31 +112,41 @@
 
 ## 驗證
 
-下列程式碼片段可用於互動式登入體驗。
+### 如果您要使用使用者驗證
+
+請將此方法用於現有的 Azure AD「原生用戶端」應用程式；下面會提供一個範例應用程式。
 
     // User login via interactive popup
-    //    Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD "Native Client" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
-    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"))
+    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-此外，下列程式碼片段可供使用應用程式 / 服務主體的用戶端密碼 / 金鑰，以非互動方式驗證您的應用程式。
+在上述程式碼片段中，我們使用所有 Azure 訂用帳戶預設可用的 Azure AD 網域和用戶端識別碼。如果您想要使用您自己的 Azure AD 網域和應用程式用戶端識別碼，則必須建立 Azure AD 原生應用程式。如需相關指示，請參閱[建立 Active Directory 應用程式](../resource-group-create-service-principal-portal.md#create-an-active-directory-application)。
+
+>[AZURE.NOTE] 上述連結中的指示適用於 Azure AD Web 應用程式。不過，即使您選擇改為建立原生用戶端應用程式，步驟也完全相同。
+
+### 如果您要使用服務對服務驗證與用戶端密碼 
+
+下列程式碼片段可供使用應用程式/服務主體的用戶端密碼/金鑰，以非互動方式驗證您的應用程式。請將此方法用於現有的 [Azure AD「Web 應用程式」應用程式](../resource-group-create-service-principal-portal.md)。
 
     // Service principal / appplication authentication with client secret / key
-    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
-    var clientSecret = "<AAD-application-clientid>";
+    var clientSecret = "<AAD-application-client-secret>";
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-第三個選項，下列程式碼片段可供使用應用程式 / 服務主體的憑證，以非互動方式驗證您的應用程式。
+### 如果您要使用服務對服務驗證與憑證
+
+第三個選項，下列程式碼片段可供使用應用程式 / 服務主體的憑證，以非互動方式驗證您的應用程式。請將此方法用於現有的 [Azure AD「Web 應用程式」應用程式](../resource-group-create-service-principal-portal.md)。
 
     // Service principal / application authentication with certificate
-    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -151,8 +158,11 @@
 
 下列程式碼片段會建立 Data Lake Store 帳戶和檔案系統用戶端物件，以便對服務發出要求。
 
-    // Create client objects
-    var fileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    // Create client objects and set the subscription ID
+    _adlsClient = new DataLakeStoreAccountManagementClient(creds);
+    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+
+	_adlsClient.SubscriptionId = _subId;
 
 ## 列出訂用帳戶內的所有 Data Lake Store 帳戶
 
@@ -161,7 +171,7 @@
     // List all ADLS accounts within the subscription
     public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
     {
-        var response = _adlsClient.Account.List(_adlsAccountName);
+        var response = _adlsClient.Account.List();
         var accounts = new List<DataLakeStoreAccount>(response);
         
         while (response.NextPageLink != null)
@@ -196,7 +206,7 @@
         uploader.Execute();
     }
 
-DataLakeStoreUploader 支援本機檔案 (或資料夾) 路徑與 Data Lake Store 之間的遞迴上傳和下載。
+`DataLakeStoreUploader` 支援在本機檔案路徑與 Data Lake Store 檔案路徑之間進行遞迴上傳和下載。
 
 ## 取得檔案或目錄資訊
 
@@ -263,4 +273,4 @@ DataLakeStoreUploader 支援本機檔案 (或資料夾) 路徑與 Data Lake Stor
 - [Data Lake Store .NET SDK 參考](https://msdn.microsoft.com/library/mt581387.aspx)
 - [Data Lake Store REST 參考](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

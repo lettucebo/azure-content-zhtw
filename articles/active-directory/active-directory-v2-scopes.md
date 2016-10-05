@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # v2.0 端點的範圍、權限和同意
@@ -21,7 +21,7 @@
 與 Azure AD 整合的應用程式會遵循可讓使用者控制應用程式如何存取其資料的特定授權模型。這個授權模型的 v2.0 實作已更新，並變更 app 必須與 Azure AD 互動的方式。本主題涵蓋此授權模型的基本概念，包括範圍、權限及同意。
 
 > [AZURE.NOTE]
-	v2.0 端點並未支援所有的 Azure Active Directory 案例和功能。若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
+	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
 
 ## 範圍和權限
 
@@ -120,4 +120,4 @@ OpenID Connect 的 v2.0 實作有一些定義妥善但不會套用至任何特�
 
 如需如何取得及使用重新整理權杖的詳細資訊，請參閱 [v2.0 通訊協定參考](active-directory-v2-protocols.md)。
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

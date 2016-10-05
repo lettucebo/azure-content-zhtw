@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="常見問題集" 
+	pageTitle="常見問題集 | Microsoft Azure" 
 	description="常見問題集 (FAQ)" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
-#常見問題集  
+#常見問題集
 
-##一般 AMS 常見問題集 
+##一般 AMS 常見問題集
 
 問：如何調整索引？
 
-答：編碼與編製索引工作的保留單位都相同。請依照[如何調整編碼保留單位](media-services-how-to-scale.md)的指示進行。**請注意**，Indexer 效能不受保留單元類型影響。
+答：編碼與編製索引工作的保留單位都相同。請依照[如何調整編碼保留單位](media-services-scale-media-processing-overview.md)的指示進行。**請注意**，Indexer 效能不受保留單元類型影響。
 
 問：我已上傳、編碼以及發佈視訊。當我試著串流處理視頻時，為什麼不會播放視頻？
 
-答：最常見的原因之一是您未在負責播放視頻的串流端點上設定任何保留串流單位。請依照[如何調整串流保留單元](media-services-how-to-scale.md)的指示進行。
+答：最常見的原因之一是您未在負責播放視頻的串流端點上設定任何保留串流單位。請依照[如何調整串流保留單元](media-services-portal-scale-streaming-endpoints.md)的指示進行。
 
 問：我可以編輯即時資料流？
 
@@ -35,7 +35,7 @@
 
 問：Azure CDN 可以搭配即時資料流使用？
 
-答：媒體服務支援 Azure CDN 整合 (如需詳細資訊，請參閱[如何在媒體服務帳戶中管理串流端點](media-services-manage-origins.md#enable_cdn))。即時資料流可以搭配 CDN 使用。Azure 媒體服務提供 Smooth Streaming、HLS 和 MPEG-DASH 輸出。所有這些格式都使用 HTTP 來傳送資料以及獲得 HTTP 快取的優點。在即時資料流實際視訊/音訊資料是分割成片段，而且這個獨立片段會快取到 CDN。唯一要重新整理的資料是資訊清單資料。CDN 會定期重新整理資訊清單資料。
+答：媒體服務支援 Azure CDN 整合 (如需詳細資訊，請參閱[如何在媒體服務帳戶中管理串流端點](media-services-portal-manage-streaming-endpoints.md))。即時資料流可以搭配 CDN 使用。Azure 媒體服務提供 Smooth Streaming、HLS 和 MPEG-DASH 輸出。所有這些格式都使用 HTTP 來傳送資料以及獲得 HTTP 快取的優點。在即時資料流實際視訊/音訊資料是分割成片段，而且這個獨立片段會快取到 CDN。唯一要重新整理的資料是資訊清單資料。CDN 會定期重新整理資訊清單資料。
 
 問：Azure 媒體服務支援儲存影像？
 
@@ -83,4 +83,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

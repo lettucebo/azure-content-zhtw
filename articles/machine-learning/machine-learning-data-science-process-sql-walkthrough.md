@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="fashah;bradsev"/>
 
 
@@ -76,7 +76,7 @@
 
 1. [建立儲存體帳戶](../storage/storage-create-storage-account.md)
 
-2. [建立 Azure ML 工作區](machine-learning-create-workspace.md)
+2. [建立 Azure Machine Learning 工作區](machine-learning-create-workspace.md)
 
 3. [佈建資料科學虛擬機器](machine-learning-data-science-setup-sql-server-virtual-machine.md)，這將做為 SQL Server 和 IPython Notebook 伺服器使用。
 
@@ -609,7 +609,7 @@
 
 ## <a name="mlmodel"></a>在 Azure Machine Learning 中建置模型
 
-若要開始進行模型化練習，請登入 Azure Machine Learning 工作區。如果您尚未建立機器學習服務工作區，請參閱「[建立 Azure ML 工作區](machine-learning-create-workspace.md)」。
+若要開始進行模型化練習，請登入 Azure Machine Learning 工作區。如果您尚未建立機器學習服務工作區，請參閱[建立 Azure Machine Learning 工作區](machine-learning-create-workspace.md)。
 
 1. 若要開始使用 Azure Machine Learning，請參閱「[什麼是 Azure Machine Learning Studio？](machine-learning-what-is-ml-studio.md)」
 
@@ -620,7 +620,7 @@
 典型的訓練體驗包含下列各項：
 
 1. 建立 **+NEW** 實驗。
-2. 取得 Azure ML 的資料。
+2. 將資料放到 Azure Machine Learning。
 3. 視需要前置處理、轉換和操作資料。
 4. 視需要產生功能。
 5. 將資料分割為訓練/驗證/測試資料集 (或讓每一個擁有個別的資料集)。
@@ -630,11 +630,11 @@
 9. 評估模型來計算適用於學習問題的相關度量。
 10. 微調模型，並選取要部署的最佳模型。
 
-在這個練習中，我們已經探索了 SQL Server 中的資料並進行工程 (步驟 1-4)，並且決定了要在 Azure ML 中擷取的取樣大小。建置一或多個我們所決定的預測模型：
+在這個練習中，我們已經探索了 SQL Server 中的資料並進行工程 (步驟 1-4)，並且決定了要在 Azure Machine Learning 中內嵌的取樣大小。建置一或多個我們所決定的預測模型：
 
-1. 使用[匯入資料][import-data]模組 (可從**資料輸入和輸出**一節取得)，將資料匯入 Azure ML。如需詳細資訊，請參閱[匯入資料][import-data]模組參考頁面。
+1. 使用[匯入資料][import-data]模組 (可從**資料輸入和輸出**一節取得)，將資料匯入 Azure Machine Learning。如需詳細資訊，請參閱[匯入資料][import-data]模組參考頁面。
 
-	![Azure ML 匯入資料][17]
+	![Azure Machine Learning 匯入資料][17]
 
 2. 在 [**屬性**] 面板中，選取 [**Azure SQL Database**] 做為**資料來源**。
 
@@ -650,7 +650,7 @@
 
 下圖顯示從 SQL Server 資料庫中直接讀取資料的二進位分類實驗範例。您可以針對多類別分類和迴歸問題建構類似的實驗。
 
-![Azure ML 訓練][10]
+![Azure Machine Learning 訓練][10]
 
 > [AZURE.IMPORTANT] 在前幾節中提供的模型化資料擷取和取樣查詢範例中，**這三個模型化練習的所有標籤都包含於此查詢中**。每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。例如，使用二進位分類時，請用 **tipped** 標籤，並排除 [**tip\_class**]、[**tip\_amount**] 和 [**total\_amount**] 欄位。後者為目標流失，因為它們意指支付的小費。
 >
@@ -658,7 +658,7 @@
 
 ## <a name="mldeploy"></a>在 Azure Machine Learning 中部署模型
 
-當您備妥模型時，可以輕鬆地直接從實驗中將它部署為 Web 服務。如需關於部署 Azure ML Web 服務的詳細資訊，請參閱[部署 Azure 機器學習 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)。
+當您備妥模型時，可以輕鬆地直接從實驗中將它部署為 Web 服務。如需關於部署 Azure Machine Learning Web 服務的詳細資訊，請參閱[部署 Azure 機器學習 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)。
 
 若要部署新的 Web 服務，您需要：
 
@@ -679,7 +679,7 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。特
 
 下圖為計分實驗範例。準備部署時，請按下方動作列中的 [發佈 Web 服務] 按鈕。
 
-![Azure ML 發佈][11]
+![Azure Machine Learning 發佈][11]
 
 總言之，在此逐步解說教學課程中，您已經建立 Azure 資料科學環境，從資料擷取到 Azure 機器學習 Web 服務的模型訓練和部署，這整個過程中都會使用大型公用資料集。
 
@@ -719,4 +719,4 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。特
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

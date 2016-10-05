@@ -5,7 +5,7 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -58,7 +58,7 @@
     	<add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
     </appSettings>
 	```
-以您的 Azure 訂用帳戶與租用戶識別碼取代 *SubscriptionId* 和 *ActiveDirectoryTenantId* 的值。您可以藉由執行下列 PowerShell Cmdlet 來取得這些值：
+以您的 Azure 訂用帳戶 ID 及租用戶識別碼取代 *SubscriptionId* 和 *ActiveDirectoryTenantId* 的值。您可以藉由執行下列 PowerShell Cmdlet 來取得這些值：
 
     ```
     Get-AzureAccount
@@ -146,7 +146,7 @@
 > 
 > 相同區域中的所有串流分析工作 (以及其他所有 Azure 資源) 都共用此儲存體帳戶儲存監視資料。如果您提供不同的儲存體帳戶，可能會對其他串流分析工作和 (或) 其他 Azure 資源的監視產生非預期的副作用。
 > 
-> 用來取代以下 ```“<YOUR STORAGE ACCOUNT NAME>”``` 的儲存體帳戶名稱應該是與您為其啟用監視的串流分析工作的相同訂用帳戶中的儲存體帳戶。
+> 用來取代下方 ```“<YOUR STORAGE ACCOUNT NAME>”``` 的儲存體帳戶名稱應該是與您為其啟用監視功能的「串流分析」工作屬於相同訂用帳戶的儲存體帳戶。
 
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
@@ -180,4 +180,4 @@
 - [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

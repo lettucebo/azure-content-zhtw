@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 Azure 媒體服務之即時串流的概觀" 
-	description="本主題提供了使用 Azure 媒體服務之即時串流的概觀" 
+	pageTitle="使用 Azure 媒體服務之即時串流的概觀 | Microsoft Azure" 
+	description="本主題提供了使用 Azure 媒體服務之即時串流的概觀。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 #使用 Azure 媒體服務之即時串流的概觀
 
-##概觀
+##Overview
 
 使用 Azure 媒體服務傳遞即時串流時，通常涉及下列元件：
 
@@ -43,7 +43,7 @@
 
 在 Azure 媒體服務中，**通道**代表處理即時串流內容的管線。通道可以用下列方式接收即時輸入串流：
 
-- 內部部署即時編碼器會傳送多位元速率 **RTMP** 或 **Smooth Streaming** (分散的 MP4) 到針對**傳遞**遞送所設定的通道。**傳遞**遞送就是擷取的串流會通過**通道**，無需進一步的處理。您可以使用下列輸出多位元速率 Smooth Streaming 的即時編碼器：Elemental、Envivio、Cisco。下列即時編碼器會輸出 RTMP：Adobe Flash Media Live Encoder (FMLE)、Telestream Wirecast 和 Tricaster 轉錄器。即時編碼器也會將單一位元速率串流傳送至無法用於即時編碼的通道，但是不建議您使用此方法。接到要求時，媒體服務會傳遞串流給客戶。
+- 內部部署即時編碼器會傳送多位元速率 **RTMP** 或 **Smooth Streaming** (分散的 MP4) 到針對**即時通行**傳遞所設定的通道。**即時通行**傳遞就是擷取的串流會通過**通道**，無需進一步的處理。您可以使用下列輸出多位元速率 Smooth Streaming 的即時編碼器：Elemental、Envivio、Cisco。下列即時編碼器會輸出 RTMP：Adobe Flash Media Live Encoder (FMLE)、Telestream Wirecast 和 Tricaster 轉錄器。即時編碼器也會將單一位元速率串流傳送至無法用於即時編碼的通道，但是不建議您使用此方法。接到要求時，媒體服務會傳遞串流給客戶。
 
 	>[AZURE.NOTE] 如果您在很長一段時間內進行多個事件，而且已投資內部部署編碼器時，使用傳遞方法是進行即時串流的最經濟實惠方式。請參閱[價格](/pricing/details/media-services/)詳細資料。
 	
@@ -78,7 +78,7 @@
 
 ##使用可從內部部署編碼器接收多位元速率即時串流的通道 (傳遞)
 
-下圖顯示**傳遞**工作流程中涉及的 AMS 平台主要部分。
+下圖顯示**即時通行**工作流程中涉及的 AMS 平台主要部分。
 
 ![即時工作流程](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
@@ -109,9 +109,9 @@
 
 ArchiveWindowLength 也指定用戶端可從目前即時位置往回搜尋的最大時間量。程式可以執行超過指定的時間量，但是超過此時間長度的內容會被持續捨棄。此屬性的這個值也會決定用戶端資訊清單可以成長多長的時間。
 
-每個程式都與一個資產相關聯。若要發佈程式，您必須建立相關資產的定位器。擁有此定位器，可讓您建立可以提供給用戶端的串流 URL。
+每個程式都是與「資產」相關聯。若要發佈程式，您必須建立相關資產的定位器。擁有此定位器，可讓您建置可提供給用戶端的串流 URL。
 
-通道支援最多三個同時執行的程式，因此您可以建立相同內送串流的多個封存。這可讓您視需要發佈和封存事件的不同部分。例如，您的商務需求是封存 6 小時的程式，但只廣播最後 10 分鐘。為了達成此目的，您必須建立兩個同時執行的程式。其中一個程式設定為封存 6 小時的事件，但是未發行該程式。另一個程式則設定為封存 10 分鐘，並發行程式。
+通道支援最多三個同時執行的程式，因此您可以建立相同內送串流的多個封存。這可讓您視需要發行和封存事件的不同部分。例如，您的商務需求是封存 6 小時的程式，但只廣播最後 10 分鐘。為了達成此目的，您必須建立兩個同時執行的程式。其中一個程式設定為封存 6 小時的事件，但是未發行該程式。另一個程式則設定為封存 10 分鐘，並發行程式。
 
 
 ##計費影響
@@ -166,4 +166,4 @@ ArchiveWindowLength 也指定用戶端可從目前即時位置往回搜尋的最
 
 [媒體服務概念](media-services-concepts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

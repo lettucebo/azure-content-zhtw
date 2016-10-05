@@ -26,7 +26,7 @@ App Service 使用同盟身分識別，由第三方識別提供者儲存帳戶�
 
 如果您想要立即開始，請參閱下列其中一個教學課程︰
 
-- [將驗證新增至 iOS 應用程式][iOS] (或 [Android]、[Windows]、[Xamarin.iOS]、[Xamarin.Android]、[Xamarin.Forms] 或 [Cordova])
+- [將驗證新增至 iOS 應用程式][iOS] \(或 [Android]、[Windows]、[Xamarin.iOS]、[Xamarin.Android]、[Xamarin.Forms] 或 [Cordova])
 - [Azure App Service 中 API Apps 的使用者驗證][apia-user]
 - [開始使用 Azure App Service - 第 2 部分][web-getstarted]
 

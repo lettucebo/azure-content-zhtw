@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="bradsev;gopitk" />
+	ms.date="09/19/2016" 
+	ms.author="bradsev" />
 
 
 # 何謂 Team Data Science Process (TDSP)？
 
-Team Data Science Process (TDSP) 提供系統化的方式建置智慧型應用程式，讓資料科學家小組可在將這些應用程式轉換為產品所需的完整活動生命週期內，有效率地共同作業。TDSP 將概述定義開發週期的一系列步驟，以提供如何定義問題、設定所需的工具和環境、分析相關資料、建置及評估預測模型，然後在企業應用程式中部署這些模型的**指引**。
+[Team Data Science Process (TDSP)](data-science-process-overview.md) 提供系統化的方式建置智慧型應用程式，讓資料科學家小組可在將這些應用程式轉換為產品所需的完整活動生命週期內，有效率地共同作業。TDSP 將概述定義開發週期的一系列步驟，以提供如何定義問題、設定所需的工具和環境、分析相關資料、建置及評估預測模型，然後在企業應用程式中部署這些模型的**指引**。
 
 以下是 **Team Data Science Process** 中的步驟：
 
@@ -96,4 +96,4 @@ Team Data Science Process 的分析環境包含數個元件：
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

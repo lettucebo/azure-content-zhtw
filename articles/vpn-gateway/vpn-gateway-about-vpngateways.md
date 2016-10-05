@@ -36,8 +36,6 @@
 
 [AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-###  <a name="skugw"></a>依 SKU 和閘道類型列出的估計彙總輸送量
-
 下表顯示閘道類型和預估的彙總輸送量。此資料表適用於資源管理員與傳統部署模型。
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
@@ -95,7 +93,7 @@ Azure 目前有兩種部署模型：傳統和 Resource Manager。如果您已使
 
 #### VNet 對等互連
 
-只要您的虛擬網路符合特定需求，您就能夠使用 VNet 對等互連來建立連線。VNet 對等互連不會使用虛擬網路閘道。[VNET 對等互連](../virtual-network/virtual-network-peering-overview.md)目前處於預覽狀態。
+只要您的虛擬網路符合特定需求，您就能夠使用 VNet 對等互連來建立連線。VNet 對等互連不會使用虛擬網路閘道。如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。
 
 
 ### VNet 對 VNet 的部署模型和方法
@@ -150,4 +148,4 @@ ExpressRoute 是從 WAN (不透過公用網際網路) 至 Microsoft 服務 (包�
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

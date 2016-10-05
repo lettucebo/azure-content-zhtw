@@ -418,7 +418,7 @@ writeBatchTimeout | 在達到 WriteBatchSize 或 writeBatchTimeout 時將資料�
 		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
 	} 
 
-EmpID 被指定為分割區索引鍵。
+DivisionID 被指定為分割區索引鍵。
 
 	"sink": {
 		"type": "AzureTableSink",
@@ -531,4 +531,4 @@ lastlogindate | Edm.DateTime
 ## 效能和微調  
 若要了解會影響 Azure Data Factory 中資料移動 (複製活動) 效能的重要因素，以及各種最佳化的方法，請參閱[複製活動的效能及微調指南](data-factory-copy-activity-performance.md)。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

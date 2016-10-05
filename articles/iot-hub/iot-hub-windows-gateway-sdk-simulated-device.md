@@ -26,7 +26,7 @@
 開始之前，您必須：
 
 - [設定開發環境][lnk-setupdevbox]以在 Windows 上使用 SDK。
-- [建立 IoT 中樞][lnk-create-hub] (於 Azure 訂用帳戶中) 時，您將需要中樞名稱才能完成此逐步解說。如果您還沒有 Azure 訂用帳戶，則可以取得[免費帳戶][lnk-free-trial]。
+- [建立 IoT 中樞][lnk-create-hub] \(於 Azure 訂用帳戶中) 時，您將需要中樞名稱才能完成此逐步解說。如果您還沒有 Azure 訂用帳戶，則可以取得[免費帳戶][lnk-free-trial]。
 - 將兩個裝置加入 IoT 中樞中，並記下其識別碼和裝置金鑰。您可以使用[裝置總管或 iothub-explorer][lnk-explorer-tools] 工具將您的裝置加入您在上一個步驟中建立的 IoT 中樞，並擷取其金鑰。
 
 建置範例：

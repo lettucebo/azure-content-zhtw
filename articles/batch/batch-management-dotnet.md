@@ -134,13 +134,13 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 ## Batch Management .NET、Azure AD 和資源管理員
 
-使用 Batch Management .NET 程式庫時，您通常會利用 [Azure Active Directory][aad_about] (Azure AD) 和 [Azure Resource Manager][resman_overview] 兩者的功能。下面討論的範例專案，在示範 Batch Management .NET API 時同時運用 Azure Active Directory 和資源管理員。
+使用 Batch Management .NET 程式庫時，您通常會利用 [Azure Active Directory][aad_about] \(Azure AD) 和 [Azure Resource Manager][resman_overview] 兩者的功能。下面討論的範例專案，在示範 Batch Management .NET API 時同時運用 Azure Active Directory 和資源管理員。
 
 ### Azure Active Directory
 
 Azure 本身會使用 Azure AD 來驗證其客戶、服務管理員和組織的使用者。在 Batch Management .NET 內容中，您將使用它來驗證的訂用帳戶管理員或共同管理員。如此將允許管理程式庫查詢 Batch 服務並執行本文中所述的作業。
 
-在以下討論的範例專案中，Azure [Active Directory 驗證程式庫][aad_adal] (ADAL) 用來提示使用者輸入他們的 Microsoft 認證。提供服務管理員或共同管理員認證時，讓應用程式查詢 Azure 訂用帳戶的清單，以及建立和刪除資源群組和 Batch 帳戶。
+在以下討論的範例專案中，Azure [Active Directory 驗證程式庫][aad_adal] \(ADAL) 用來提示使用者輸入他們的 Microsoft 認證。提供服務管理員或共同管理員認證時，讓應用程式查詢 Azure 訂用帳戶的清單，以及建立和刪除資源群組和 Batch 帳戶。
 
 ### Resource Manager
 
@@ -148,7 +148,7 @@ Azure 本身會使用 Azure AD 來驗證其客戶、服務管理員和組織的�
 
 ## GitHub 上的範例專案
 
-查看 GitHub 上的 [AccountManagment][acct_mgmt_sample] 範例專案，以查看 Batch Management .NET 程式庫實務。此主控台應用程式顯示 [BatchManagementClient][net_mgmt_client] 和 [ResourceManagementClient][resman_client] 的建立與使用方式。它也會示範兩個用戶端所需的 Azure [Active Directory 驗證程式庫][aad_adal] (ADAL) 使用方式。
+查看 GitHub 上的 [AccountManagment][acct_mgmt_sample] 範例專案，以查看 Batch Management .NET 程式庫實務。此主控台應用程式顯示 [BatchManagementClient][net_mgmt_client] 和 [ResourceManagementClient][resman_client] 的建立與使用方式。它也會示範兩個用戶端所需的 Azure [Active Directory 驗證程式庫][aad_adal] \(ADAL) 使用方式。
 
 若要成功執行範例應用程式，您必須先使用 Azure 入口網站向 Azure AD 登錄它。遵循[整合應用程式與 Azure Active Directory](../active-directory/active-directory-integrating-applications.md#adding-an-application)之[加入應用程式][aad_integrate]一節中的步驟，在您自己帳戶的預設目錄內註冊範例應用程式。請務必針對應用程式的類型選取**原生用戶端應用程式**，且您可以針對**重新導向 URI**指定任何有效的 URI (例如 `http://myaccountmanagementsample`) - 不需要是實際的端點。
 

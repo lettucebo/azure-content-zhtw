@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="09/21/2016" 
 	ms.author="stefsch"/>
 
 # 如何使用 Azure Resource Manager 範本建立 ILB ASE範本建立 ILB ASE
 
-## 概觀 ##
+## Overview ##
 使用虛擬網路內部位址 (而不是公用 VIP) 可以建立 App Service 環境。此內部位址是由稱為內部負載平衡器 (ILB) 的 Azure 元件提供。使用 Azure 入口網站可以建立 ILB ASE。也可以透過 Azure Resource Manager 範本使用自動化建立。本文逐步解說使用 Azure Resource Manager 範本建立 ILB ASE 所需的步驟和語法。
 
 自動建立 ILB ASE 涉及三個步驟︰
@@ -29,7 +29,7 @@
 ## 建立基底 ILB ASE ##
 在 GitHub 上 ([這裡][quickstartilbasecreate]) 可以取得範例 Azure Resource Manager 範本及其相關聯的參數檔案。
 
-azuredeploy.parameters.json 檔案中的大部分參數通用於建立 ILB ASE 以及繫結至公用 VIP 的 ASE。建立 ILB ASE 時，以下清單會呼叫特殊附註或唯一的參數︰
+「azuredeploy.parameters.json」檔案中的大部分參數通用於建立 ILB ASE 以及繫結至公用 VIP 的 ASE。建立 ILB ASE 時，以下清單會呼叫特殊附註或唯一的參數︰
 
 
 - interalLoadBalancingMode︰在大多數情況下，此屬性設定為 3，這表示連接埠 80/443 上的 HTTP/HTTPS 流量，以及 ASE 上的 FTP 服務所接聽的控制項/資料通道連接埠將會繫結至 ILB 配置的虛擬網路內部位址。如果此屬性改為設定為 2，則只有 FTP 服務相關的連接埠 (控制和資料通道) 會繫結至 ILB 位址，而 HTTP/HTTPS 流量將保留在公用 VIP 上。
@@ -74,17 +74,17 @@ azuredeploy.parameters.json 檔案中的大部分參數通用於建立 ILB ASE �
     
 成功產生 SSL 憑證並轉換成 base64 編碼字串後，GitHub 上的範例 Azure Resource Manager 範本即可用於[設定預設 SSL 憑證][configuringDefaultSSLCertificate]。
 
-azuredeploy.parameters.json 檔案中的參數如下所列︰
+「azuredeploy.parameters.json」檔案中的參數如下所列︰
 
 - appServiceEnvironmentName︰設定 ILB ASE 的名稱。
 - existingAseLocation︰包含 ILB ASE 部署所在的 Azure 區域的文字字串。例如："South Central US (美國中南部)"。
 - pfxBlobString：.pfx 檔案的 based64 編碼字串表示法。使用稍早所示的程式碼片段，您會複製 "exportedcert.pfx.b64" 中包含的字串並貼入做為 *pfxBlobString* 屬性的值。
 - password︰用來保護 .pfx 檔案的密碼。
 - certificateThumbprint︰憑證的指紋。如果您從 Powershell 擷取此值 (例如先前程式碼片段中的 $certificate.Thumbprint)，您可以使用現況值。不過，如果您從 Windows 憑證對話方塊複製此值，請記得去除多餘的空格。CertificateThumbprint 應如下所示︰AF3143EB61D43F6727842115BB7F17BBCECAECAE
-- certificateName︰您自己選擇的好記字串識別碼，可用來識別憑證。此名稱做為 Microsoft.Web/certificates 實體 (表示 SSL 憑證) 的唯一 Azure Resource Manager 識別碼的一部分。
+- certificateName︰您自己選擇的好記字串識別碼，可用來識別憑證。此名稱做為 Microsoft.Web/certificates 實體 (表示 SSL 憑證) 的唯一 Azure Resource Manager 識別碼的一部分。名稱**必須**以下列尾碼結尾︰\_yourASENameHere\_InternalLoadBalancingASE。入口網站會使用這個尾碼做為憑證要用於保護啟用 ILB 之 ASE 的指示器。
 
 
-azuredeploy.parameters.json 的縮寫範例如下所示︰
+「azuredeploy.parameters.json」的縮寫範例如下所示︰
 
 
     {
@@ -107,12 +107,12 @@ azuredeploy.parameters.json 的縮寫範例如下所示︰
                    "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
               },
               "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere"
+                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
               }
          }
     }
 
-一旦填入 azuredeploy.parameters.json 檔案，就可以使用下列 Powershell 程式碼片段設定 SSL 憑證。變更檔案 PATH，以符合 Azure Resource Manager 範本檔案位於您電腦上的位置。也請記得提供您自己的 Azure Resource Manager 部署名稱和資源群組名稱的值。
+一旦填入「azuredeploy.parameters.json」檔案，就可以使用下列 Powershell 程式碼片段設定 SSL 憑證。變更檔案 PATH，以符合 Azure Resource Manager 範本檔案位於您電腦上的位置。也請記得提供您自己的 Azure Resource Manager 部署名稱和資源群組名稱的值。
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
@@ -142,4 +142,4 @@ azuredeploy.parameters.json 的縮寫範例如下所示︰
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

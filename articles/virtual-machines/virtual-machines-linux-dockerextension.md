@@ -46,7 +46,7 @@ azure group create --name myDockerResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-回應為儲存體帳戶命名、DNS 名稱、使用者名稱等的提示，然後稍待幾分鐘的時間完成部署。您應該會看到如下所示的輸出：
+請回答提示來指定您的儲存體帳戶、使用者名稱和密碼，以及 DNS 名稱。您應該會看到類似於以下範例的輸出：
 
 ```
 info:    Executing command group create
@@ -71,6 +71,66 @@ info:    group create command OK
 
 ```
 
+Azure CLI 只在幾秒之後就會讓您回到提示，但會在背景中將範本部署到您所建立的資源群組。請等候幾分鐘讓部署完成，然後再嘗試透過 SSH 連線到 VM。
+
+您可以使用 `azure vm show` 命令來取得部署的相關詳細資料，以及 VM 的 DNS 名稱。在下列範例中，請以您在前一個步驟中指定的名稱取代 `myDockerResourceGroup`：
+
+```bash
+azure vm show -g myDockerResourceGroup -n myDockerVM
+info:    Executing command vm show
++ Looking up the VM "myDockerVM"
++ Looking up the NIC "myVMNicD"
++ Looking up the public ip "myPublicIPD"
+data:    Id                              :/subscriptions/guid/resourceGroups/mydockerresourcegroup/providers/Microsoft.Compute/virtualMachines/MyDockerVM
+data:    ProvisioningState               :Succeeded
+data:    Name                            :MyDockerVM
+data:    Location                        :westus
+data:    Type                            :Microsoft.Compute/virtualMachines
+data:
+data:    Hardware Profile:
+data:      Size                          :Standard_F1
+data:
+data:    Storage Profile:
+data:      Image reference:
+data:        Publisher                   :Canonical
+data:        Offer                       :UbuntuServer
+data:        Sku                         :14.04.4-LTS
+data:        Version                     :latest
+data:
+data:      OS Disk:
+data:        OSType                      :Linux
+data:        Name                        :osdisk1
+data:        Caching                     :ReadWrite
+data:        CreateOption                :FromImage
+data:        Vhd:
+data:          Uri                       :http://mydockerstorage.blob.core.windows.net/vhds/osdiskfordockersimple.vhd
+data:
+data:    OS Profile:
+data:      Computer Name                 :MyDockerVM
+data:      User Name                     :ops
+data:      Linux Configuration:
+data:        Disable Password Auth       :false
+data:
+data:    Network Profile:
+data:      Network Interfaces:
+data:        Network Interface #1:
+data:          Primary                   :true
+data:          MAC Address               :00-0D-3A-33-D3-95
+data:          Provisioning State        :Succeeded
+data:          Name                      :myVMNicD
+data:          Location                  :westus
+data:            Public IP address       :13.91.107.235
+data:            FQDN                    :mydockergroup.westus.cloudapp.azure.com
+data:
+data:    Diagnostics Instance View:
+info:    vm show command OK
+```
+
+在接近輸出頂端的地方，您會看到 VM 的 `ProvisioningState`。當這顯示為 `Succeeded` 時，即表示部署已完成，您可以透過 SSH 連線到 VM。
+
+在接近輸出結尾的地方，`FQDN` 會根據您所提供的 DNS 名稱和所選取的位置，顯示完整的網域名稱。此 FQDN 就是您在剩餘的步驟中透過 SSH 連線到 VM 時所使用的 FQDN。
+
+
 ## 部署您的第一個 nginx 容器
 部署完成之後，使用在部署期間提供的 DNS 名稱透過 SSH 連接新 Docker 主機。讓我們嘗試執行 nginx 容器︰
 
@@ -78,7 +138,7 @@ info:    group create command OK
 sudo docker run -d -p 80:80 nginx
 ```
 
-您應該會看到如下所示的輸出：
+您應該會看到類似於以下範例的輸出：
 
 ```
 Unable to find image 'nginx:latest' locally
@@ -107,7 +167,7 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 
 ## Docker VM 擴充功能 JSON 範本參考
 
-此範例使用快速啟動範本。若要使用您自己的 Resource Manager 範本來部署 Azure Docker VM 擴充功能，請新增下列內容：
+此範例使用快速啟動範本。若要使用您自己的 Resource Manager 範本來部署 Azure Docker VM 擴充功能，請新增下列 JSON：
 
 ```
 {
@@ -140,4 +200,4 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 3. [在 Azure 虛擬機器上開始使用 Docker 和 Compose 定義並執行多容器應用程式](virtual-machines-linux-docker-compose-quickstart.md)。
 3. [部署 Azure 容器服務叢集](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

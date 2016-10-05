@@ -10,7 +10,7 @@
 
 1. 在 [名稱] 中，輸入 MONGOLAB\_URI。
 1. 在 [值] 中，貼上我們在上一節取得的連接字串。
-1. 在 [類型] 下拉式清單中選取 [自訂] (取代預設的 **SQLAzure**)。
+1. 在 [類型] 下拉式清單中選取 [自訂] \(取代預設的 **SQLAzure**)。
 1. 按一下工具列的 [儲存]。![SaveWebApp][button-website-save]
 
 **注意：** Azure 會此變數前面加上 **CUSTOMCONNSTR\_**，這就是為什麼上述程式碼會參考 **CUSTOMCONNSTR\_MONGOLAB\_URI** 的原因。

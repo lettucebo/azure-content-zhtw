@@ -461,6 +461,21 @@ public class Person
 }
 ```
 
+下列 F# 程式碼範例也使用上述「function.json」檔案以讀取單一資料表實體。
+
+```fsharp
+[<CLIMutable>]
+type Person = {
+  PartitionKey: string
+  RowKey: string
+  Name: string
+}
+
+let Run(myQueueItem: string, personEntity: Person) =
+    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
+```
+
 下列 Node 程式碼範例也使用上述「function.json」檔案以讀取單一資料表實體。
 
 ```javascript
@@ -567,6 +582,47 @@ public class Person
 
 ```
 
+#### 儲存體資料表範例︰在 F 中建立資料表實體#
+
+下列「function.json」和「run.fsx」範例示範如何在 F# 中撰寫資料表實體。
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnection",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```fsharp
+[<CLIMutable>]
+type Person = {
+  PartitionKey: string
+  RowKey: string
+  Name: string
+}
+
+let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
+    for i = 1 to 10 do
+        log.Info(sprintf "Adding Person entity %d" i)
+        tableBinding.Add(
+            { PartitionKey = "Test"
+              RowKey = i.ToString()
+              Name = "Name" + i.ToString() })
+```
+
 #### 儲存體資料表範例︰在 Node 中建立資料表實體
 
 下列「function.json」和「run.csx」範例示範如何在 Node 中撰寫資料表實體。
@@ -607,4 +663,4 @@ module.exports = function (context, myQueueItem) {
 
 [AZURE.INCLUDE [後續步驟](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

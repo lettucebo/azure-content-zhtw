@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2016"
+   ms.date="09/16/2016"
    ms.author="kgremban"/>
 
 # 如何在 Azure AD Privileged Identity Management 中執行存取權檢閱
@@ -30,11 +30,8 @@ Azure Active Directory (AD) Privileged Identity Management 簡化了企業管理
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 選取 Azure 入口網站右上角的使用者名稱，然後選取您要操作的目錄。
-3. 選取 [新增] > [安全性 + 身分識別] > [Azure AD Privileged Identity Management]。
-
-	![在入口網站中啟用 PIM][1]
-
-4. 選取 [釘選到儀表板] 選項，然後按一下 [建立] 按鈕。Privileged Identity Management 儀表板隨即開啟。
+3. 選取 [更多服務] 並使用 [篩選器] 文字方塊來搜尋 [Azure AD Privileged Identity Management]。
+4. 選取 [釘選到儀表板]，然後按一下 [建立]。Privileged Identity Management 應用程式隨即開啟。
 
 
 ## 核准或拒絕存取
@@ -56,4 +53,4 @@ Azure Active Directory (AD) Privileged Identity Management 簡化了企業管理
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 
-<!----HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

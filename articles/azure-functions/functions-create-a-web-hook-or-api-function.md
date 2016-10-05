@@ -36,13 +36,13 @@ Azure Functions 是事件驅動、依需求計算的體驗，可讓您建立以�
 
 1. 移至 [Azure Functions 入口網站](https://functions.azure.com/signin)，然後以您的 Azure 帳戶登入。
 
-2. 如果您要使用現有的函式應用程式，請從 [Your function apps] \(函式應用程式) 中選取，然後按一下 [開啟]。若要建立新的函式應用程式，請輸入新函式應用程式的唯一 [名稱] 或接受所產生的名稱，選取您偏好的 [區域]，然後按一下 [Create + get started] \(建立 + 開始)。
+2. 如果您要使用現有的函式應用程式，請從 [Your function apps] (函式應用程式) 中選取，然後按一下 [開啟]。若要建立新的函式應用程式，請輸入新函式應用程式的唯一 [名稱] 或接受所產生的名稱，選取您偏好的 [區域]，然後按一下 [Create + get started] (建立 + 開始)。
 
-3. 在函式應用程式中，依序按一下 [+ New Function] \(+ 新增函式) > [GitHub Webhook - Node] \(GitHub Webhook - 節點) > [建立]。這會根據指定的範本以預設名稱建立函式。
+3. 在函式應用程式中，依序按一下 [+ New Function] (+ 新增函式) > [GitHub Webhook - Node] (GitHub Webhook - 節點) > [建立]。這會根據指定的範本以預設名稱建立函式。
 
 	![建立新的 GitHub Webhook 函式](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png)
 
-4. 在 [開發] 索引標籤上，注意 [程式碼] 視窗中的範例 express.js 函式。這個函式從問題註解 Webhook 接收 GitHub 要求、記錄問題文字，將回應傳送到 Webhook 當做 `New GitHub comment: <Your issue comment text>`。
+4. 在 [開發] 中，注意 [程式碼] 視窗中的範例 express.js 函式。這個函式從問題註解 Webhook 接收 GitHub 要求、記錄問題文字，將回應傳送到 Webhook 當做 `New GitHub comment: <Your issue comment text>`。
 
 
 	![建立新的 GitHub Webhook 函式](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png)
@@ -59,11 +59,11 @@ Azure Functions 是事件驅動、依需求計算的體驗，可讓您建立以�
 
 1. 在 GitHub 中，瀏覽至您擁有的儲存機制，這包括您分岔的任何儲存機制。
  
-2. 按一下 [設定] > [Webhooks & services] \(Webhooks 和服務) > [Add Webhook] \(加入 Webhook)。
+2. 按一下 [設定] > [Webhooks & services] (Webhooks 和服務) > [Add Webhook] (加入 Webhook)。
 
 	![建立新的 GitHub Webhook 函式](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-2.png)
 
-3. 將您的函式 URL 和密碼貼入 [Payload URL] \(承載 URL) 和 [密碼]，然後按一下 [Let me select individual events] \(讓我選擇個別事件)，選取 [問題註解] 並按一下 [Add Webhook] \(加入 Webhook)。
+3. 將您的函式 URL 和密碼貼入 [Payload URL] (承載 URL) 和 [密碼]，然後按一下 [Let me select individual events] (讓我選擇個別事件)，選取 [問題註解] 並按一下 [Add Webhook] (加入 Webhook)。
 
 	![建立新的 GitHub Webhook 函式](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png)
 
@@ -71,9 +71,9 @@ Azure Functions 是事件驅動、依需求計算的體驗，可讓您建立以�
 
 ##測試函式
 
-1. 在 GitHub 儲存機制中的新瀏覽器視窗中開啟 [問題] 索引標籤，按一下 [新增問題]，輸入標題，然後按一下 [Submit new issue] \(提交新問題)。您也可以開啟現有的問題。
+1. 在 GitHub 儲存機制中的新瀏覽器視窗中開啟 [問題] 索引標籤，按一下 [新增問題]，輸入標題，然後按一下 [Submit new issue] (提交新問題)。您也可以開啟現有的問題。
 
-2. 在問題中輸入註解，然後按一下 [註解]。此時，您可以回到 GitHub 的新 Webhook，在 [Recent Deliveries] \(最近的傳遞) 下查看已傳送的 Webhook 要求及 `New GitHub comment: <Your issue comment text>` 回應本文。
+2. 在問題中輸入註解，然後按一下 [註解]。此時，您可以回到 GitHub 的新 Webhook，在 [Recent Deliveries] (最近的傳遞) 下查看已傳送的 Webhook 要求及 `New GitHub comment: <Your issue comment text>` 回應本文。
 
 3. 回到 Functions 入口網站，向下捲動至記錄檔，查看已觸發的函式和已寫入資料流記錄檔的值 `New GitHub comment: <Your issue comment text>`。
 
@@ -89,4 +89,4 @@ Azure Functions 是事件驅動、依需求計算的體驗，可讓您建立以�
 
 [AZURE.INCLUDE [開始使用注意事項](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="09/13/2016"
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Solr
@@ -166,13 +166,25 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 
 一旦您建立 SSH 通道，請使用下列步驟以使用 Solr 儀表板：
 
-1. 決定前端節點的主機名稱：
+1. 決定主要前端節點的主機名稱：
 
-    1. 在瀏覽器中，移至 https://CLUSTERNAME.azurehdinsight.net。出現提示時，使用系統管理員使用者名稱和密碼來向網站進行驗證。
+    1. 在連接埠 22 上使用 SSH 連接到叢集。例如，`ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`，其中 __USERNAME__ 是您的 SSH 使用者名稱，__CLUSTERNAME__ 是您的叢集名稱。
+
+        如需使用 SSH 的詳細資訊，請參閱下列文件：
+
+        * [從 Linux、Unix 或 Mac OS X 用戶端搭配使用 SSH 與以 Linux 為基礎的 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+        * [從 Windows 用戶端搭配使用 SSH 與以 Linux 為基礎的 HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md)
     
-    2. 在頁面頂端的功能表中，選取 [主機]。
+    3. 使用下列命令以取得完整主機名稱︰
+
+            hostname -f
+
+        此命令會傳回類似以下的名稱：
+
+            hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
     
-    3. 選取以 __hn0__ 開頭的項目。當頁面開啟時，主機名稱會顯示在頂端。主機名稱的格式為 __hn0-PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__。這是您連接到 Solr 儀表板時必須使用的主機名稱。
+        這是應該用於下列步驟中的主機名稱。
     
 1. 在瀏覽器中，連接到 __http://HOSTNAME:8983/solr/#/__，其中 __HOSTNAME\_\_ 是您在先前步驟中決定的名稱。
 
@@ -311,4 +323,4 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

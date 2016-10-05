@@ -20,7 +20,7 @@
 
 在與企業、系統整合者 (SI)、雲端服務廠商 (CSV) 和開放原始碼軟體 (OSS) 專案小組合作時，經常需要快速部署環境、工作負載或縮放單位。這些部署需要受到支援、依照經過實證的做法執行，並遵循所識別的原則。在 Azure Resource Manager 範本上使用彈性的做法，您可以快速且一致地部署複雜的拓撲。您可以輕鬆調整這些部署，以因應核心供應項目的發展或是適應極端案例或客戶的變化。
 
-本主題是較大本白皮書的一部分。若要閱讀完整的文件，請下載「世界級 Azure Resource Manager 範本注意事項和證明可行的作法」(http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/WorldClass ARM Templates - Considerations and Proven Practices.pdf)。
+本主題是較大本白皮書的一部分。若要閱讀完整的文件，請下載「世界級 [Azure Resource Manager 範本注意事項和證明可行的作法」](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/WorldClass ARM Templates - Considerations and Proven Practices.pdf)。
 
 範本會結合基礎 Azure 資源管理員的優點，以及 JavaScript 物件標記法 (JSON) 的適應性和可讀性。使用範本，您可以：
 
@@ -380,4 +380,4 @@ Redis 只會使用單一節點類型，因此您將建立名為 node-resources.j
 - 如需如何在 Azure 資源管理員中處理安全性的建議，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)。
 - 若要了解進出範本的共用狀態，請參閱〈[Azure 資源管理員範本中的共用狀態](best-practices-resource-manager-state.md)〉。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="09/14/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"/>
 
 
@@ -78,7 +78,7 @@
 若要檢視、建立或更新防火牆規則，請按一下 [SQL Database] 刀鋒視窗上的 [設定伺服器防火牆]。如需詳細資訊，請參閱[使用 Azure 入口網站設定 Azure SQL Database 伺服器層級防火牆規則](sql-database-configure-firewall-settings.md)。
 
 
-![防火牆規則](./media/sql-database-manage-portal/commands.png)
+![防火牆規則](./media/sql-database-manage-portal/sql-database-firewall.png)
 
 
 ## 如何變更 SQL Database 服務層或效能等級？
@@ -128,14 +128,14 @@
 若要複製 SQL Database，請按一下 [SQL Database] 刀鋒視窗上的 [複製]。如需詳細資訊，請參閱[使用 Azure 入口網站複製 Azure SQL Database](sql-database-copy-portal.md)。
 
 
-![SQL database settings](./media/sql-database-manage-portal/commands.png)
+![SQL database settings](./media/sql-database-manage-portal/sql-database-copy.png)
 
 ## 如何將 Azure SQL Database 封存到 BACPAC 檔案？
 
 若要建立 SQL Database 的 BACPAC，請按一下 [SQL Database] 刀鋒視窗上的 [匯出]。如需詳細資訊，請參閱[使用 Azure 入口網站將 Azure SQL Database 封存到 BACPAC 檔案](sql-database-export.md)。
 
 
-![SQL Database 匯出](./media/sql-database-manage-portal/commands.png)
+![SQL Database 匯出](./media/sql-database-manage-portal/sql-database-export.png)
 
 
 
@@ -144,7 +144,7 @@
 若要還原 SQL Database，請按一下 [SQL Database] 刀鋒視窗上的 [還原]。如需詳細資訊，請參閱[使用 Azure 入口網站將 Azure SQL Database 還原至先前的時間點](sql-database-point-in-time-restore-portal.md)。
 
 
-![SQL database settings](./media/sql-database-manage-portal/commands.png)
+![SQL database settings](./media/sql-database-manage-portal/sql-database-restore.png)
 
 
 ## 如何從 BACPAC 檔案建立 Azure SQL Database？
@@ -163,7 +163,7 @@
 
 若要刪除 SQL Database，請按一下 [SQL Database] 刀鋒視窗上的 [刪除]。
 
-![SQL database settings](./media/sql-database-manage-portal/commands.png)
+![SQL database settings](./media/sql-database-manage-portal/sql-database-delete.png)
 
 
 
@@ -172,4 +172,4 @@
 - [SQL Database](sql-database-technical-overview.md)
 - [使用 Azure 入口網站監視和管理彈性資料庫集區](sql-database-elastic-pool-manage-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

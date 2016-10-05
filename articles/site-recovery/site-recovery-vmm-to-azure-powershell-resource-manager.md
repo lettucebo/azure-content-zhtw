@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="09/16/2016"
 	ms.author="rajanaki"/>
 
 # 使用 PowerShell 和 Azure Resource Manager 將 Hyper-V 虛擬機器 (位於 VMM 雲端中) 複寫至 Azure
@@ -26,7 +26,7 @@
 
 
 
-## 概觀
+## Overview
 
 Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容錯移轉及復原，為您的商務持續性與災害復原 (BCDR) 做出貢獻。如需完整的部署案例清單，請參閱 [Azure Site Recovery 概觀](site-recovery-overview.md)。
 
@@ -35,11 +35,11 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 本文包含案例的必要條件，並對您示範
 
 - 如何設定復原服務保存庫
-- 您會在來源 VMM 伺服器上安裝 Azure Site Recovery 提供者。 
+- 您會在來源 VMM 伺服器上安裝 Azure Site Recovery 提供者。
 - 在保存庫中註冊伺服器、新增 Azure 儲存體帳戶
 - 在 Hyper-V 主機伺服器上安裝 Azure 復原服務代理程式
-- 設定將套用到所有受保護虛擬機器之 VMM 雲端的保護設定 
-- 為那些虛擬機器啟用保護。 
+- 設定將套用到所有受保護虛擬機器之 VMM 雲端的保護設定
+- 為那些虛擬機器啟用保護。
 - 測試容錯移轉，確認一切如預期般運作。
 
 您在設定此案例如有任何問題，可將問題張貼到 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)。
@@ -53,13 +53,13 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 ### Azure 必要條件
 
 - 您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。如果您沒有此帳戶，請先前往[免費帳戶](https://azure.microsoft.com/free)。此外，您可以參閱 [Azure Site Recovery 管理員價格](https://azure.microsoft.com/pricing/details/site-recovery/)。
-- 如果您正在嘗試複寫至 CSP 訂用帳戶案例，您將需要 CSP 訂用帳戶。若要深入了解 CSP 程式，請參閱[如何註冊 CSP 程式](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx)。
-- 您將需要 Azure v2 儲存體 (ARM) 帳戶才能將複寫的資料儲存至 Azure。此帳戶必須啟用異地複寫。應該與 Azure Site Recovery 服務位於相同的區或，且與相同的訂用帳戶或 CSP 訂用帳戶相關聯。若要深入了解設定 Azure 儲存體，請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)。
+- 如果您正在嘗試複寫至 CSP 訂用帳戶的案例，您將需要 CSP 訂用帳戶。若要深入了解 CSP 程式，請參閱[如何註冊 CSP 程式](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx)。
+- 您將需要 Azure v2 儲存體 (ARM) 帳戶才能將複寫的資料儲存至 Azure。此帳戶必須啟用異地複寫。它應該與 Azure Site Recovery 服務位於相同的區或，且與相同的訂用帳戶或 CSP 訂用帳戶關聯。若要深入了解設定 Azure 儲存體，請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)。
 - 您必須確定您要保護的虛擬機器符合 [Azure 虛擬機器必要條件](site-recovery-best-practices.md#azure-virtual-machine-requirements)。
 
 > [AZURE.NOTE] 目前，只有 VM 層級作業可以通過 Powershell。即將推出對復原計劃層級作業的支援。現在，您僅限在「受保護 VM」資料粒度才能執行容錯移轉，而不能在復原計劃層級。
 
-### VMM 先決條件
+### VMM 必要條件
 - 您將需要在在 System Center 2012 R2 上執行的 VMM 伺服器。
 - 任何包含您想要保護之虛擬機器的 VMM 伺服器都必須執行 Azure Site Recovery 提供者。它會在部署 Azure Site Recovery 期間安裝。
 - 在您想要保護的 VMM 伺服器上，您至少需要一個雲端。這個雲端應該包含：
@@ -75,7 +75,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 ### Hyper-V 的必要條件
 
 - 主機 Hyper-V 伺服器至少必須執行附帶 Hyper-V 角色的 Windows Server 2012，並且已安裝最新更新。
-- 如果您在叢集中執行 Hyper-V，請注意，如果您具有靜態 IP 位址叢集，並不會自動建立叢集代理。您必須手動設定叢集代理。如需 
+- 如果您在叢集中執行 Hyper-V，請注意，如果您具有靜態 IP 位址叢集，並不會自動建立叢集代理。您必須手動設定叢集代理。如需
 - 如需指示，請參閱[如何設定 Hyper-V 複本代理人](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx)。
 - 您想要管理保護的任何 Hyper-V 主機伺服計或叢集都必須包含在 VMM 雲端中。
 
@@ -99,9 +99,9 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 
 ###PowerShell 必要條件
-確定 Azure PowerShell 已經準備就緒。如果您已經使用 PowerShell，您必須升級至 0.8.10 版或更新版本。如需設定 PowerShell 的詳細資訊，請參閱[安裝和設定 Azure PowerShell 指南](../powershell-install-configure.md)。一旦已安裝並設定 PowerShell，您可以檢視[這裡](https://msdn.microsoft.com/library/dn850420.aspx)之服務的所有可用的 Cmdlet。
+確定 Azure PowerShell 已經準備就緒。如果您已經使用 PowerShell，您必須升級至 0.8.10 版或更新版本。如需設定 PowerShell 的資訊，請參閱[安裝和設定 Azure PowerShell 指南](../powershell-install-configure.md)。一旦已安裝並設定 PowerShell，您可以檢視[這裡](https://msdn.microsoft.com/library/dn850420.aspx)之服務的所有可用的 Cmdlet。
 
-如需深入了解可協助您使用這些 Cmdlet 的提示 (例如參數值、輸入及輸出在 Azure PowerShell 中的處理方式)，請參閱 [Azure Cmdlet 使用者入門指南](https://msdn.microsoft.com/library/azure/jj554332.aspx)。
+如需了解可協助您使用這些 Cmdlet 的提示 (例如參數值、輸入及輸出在 Azure PowerShell 中的處理方式)，請參閱 [Azure Cmdlet 使用者入門](https://msdn.microsoft.com/library/azure/jj554332.aspx)。
 
 ## 步驟 1：設定訂用帳戶 
 
@@ -182,7 +182,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 		$ResourceGroupName =  “myRG” 			#ResourceGroupName 
 		$RecoveryStorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Type “StandardGRS” -Location $StorageAccountGeo
 
-請注意，儲存體帳戶必須與 Azure Site Recovery 服務位於相同的區或，且與相同的訂用帳戶相關聯。
+請注意，儲存體帳戶必須與 Azure Site Recovery 服務位於相同的區或，且與相同的訂用帳戶關聯。
 
 ## 步驟 6：安裝 Azure 復原服務代理程式
 
@@ -345,4 +345,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 [閱讀更多](https://msdn.microsoft.com/library/azure/mt637930.aspx) Azure Site Recovery PowerShell Cmdlet 的相關資訊。
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

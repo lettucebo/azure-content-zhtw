@@ -1,5 +1,5 @@
 <properties
-   pageTitle="刪除叢集和其資源 | Microsoft Azure"
+   pageTitle="刪除 Azure 叢集和其資源 | Microsoft Azure"
    description="了解如何透過刪除內含叢集的資源群組，或選擇性地刪除資源，完全刪除 Service Fabric 叢集。"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
-# 刪除 Service Fabric 叢集和其使用的資源
+# 刪除 Azure 上的 Service Fabric 叢集和其使用的資源
 
-Service Fabric 叢集是由叢集資源本身和許多其他 Azure 資源所構成。因此，若要完全刪除 Service Fabric 叢集，您也需要刪除構成它的所有資源。做法有兩種︰刪除叢集所在的資源群組 (這會刪除叢集資源和資源群組中的任何其他資源)，或明確刪除叢集資源和其相關聯資源 (而不是資源群組中的其他資源)。
+Service Fabric 叢集是由叢集資源本身和許多其他 Azure 資源所構成。因此，若要完全刪除 Service Fabric 叢集，您也必須刪除組成叢集的所有資源。做法有兩種︰刪除叢集所在的資源群組 (這會刪除叢集資源和資源群組中的任何其他資源)，或明確刪除叢集資源和其相關聯資源 (而不是資源群組中的其他資源)。
 
 >[AZURE.NOTE] 刪除叢集資源並「不」會刪除組成 Service Fabric 叢集的所有其他資源。
 
@@ -38,14 +38,14 @@ Login-AzureRmAccount
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
 
-如果您未使用 *-Force* 選項，則系統會提示您確認刪除。確認時，將刪除 RG 和其所包含的所有資源。
+如果您未使用 *-Force* 選項，則系統會提示您確認刪除。一旦確認，就會刪除 RG 和其所包含的所有資源。
 
 ### 在 Azure 入口網站中刪除資源群組  
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至您想要刪除的 Service Fabric 叢集。
 3. 按一下叢集基本功能頁面上的 [資源群組] 名稱。
-4. 這會顯示 [Resource Group Essentials] \(資源群組基本功能) 頁面。
+4. 這會顯示 [資源群組基本功能] 頁面。
 5. 按一下 [刪除]。
 6. 遵循該頁面上的指示，以完成資源群組的刪除。
 
@@ -56,7 +56,7 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 如果您的資源群組只有您想要刪除之 Service Fabric 叢集相關的資源，則很容易就可以刪除整個資源群組。如果您想要選擇性地逐一刪除資源群組中的資源，請遵循這些步驟。
 
-如果您已使用入口網站或使用範本庫中的其中一個 Service Fabric ARM 範本來部署叢集，則叢集所使用的所有資源都會標上下列兩個標記。您可以使用它們來決定您想要刪除的資源。
+如果您已使用入口網站或使用範本庫中的其中一個 Service Fabric Resource Manager 範本來部署叢集，則叢集所使用的所有資源都會標上下列兩個標記。您可以使用它們來決定您想要刪除的資源。
 
 ***Tag#1：***索引鍵 = clusterName，值 = '叢集的名稱'
 
@@ -111,4 +111,4 @@ Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Mic
 
 [TaggedResources]: ./media/service-fabric-cluster-delete/TaggedResources.PNG
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

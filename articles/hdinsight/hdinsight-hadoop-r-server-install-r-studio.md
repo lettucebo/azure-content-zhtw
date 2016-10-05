@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/22/2016"
+   ms.date="09/16/2016"
    ms.author="jeffstok"/>
 
 
@@ -28,7 +28,7 @@
 ## 必要條件
 
 * 具有 R 伺服器的 Azure HDInsight 叢集已安裝。如需相關指示，請參閱[開始在 HDInsight 叢集上使用 R 伺服器](hdinsight-hadoop-r-server-get-started.md)。
-* SSH 用戶端。若為 Linux 和 Unix 發佈或 Macintosh OS X，`ssh` 命令會隨作業系統提供。若為 Windows，我們建議使用 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
+* SSH 用戶端。若為 Linux 和 Unix 發佈或 Macintosh OS X，`ssh` 命令會隨作業系統提供。對於 Windows，我們建議使用 [Cygwin](http://www.redhat.com/services/custom/cygwin/) 與 [OpenSSH 選項](https://www.youtube.com/watch?v=CwYSvvGaiWU)，或 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
 
 
 ## 使用自訂指令碼在叢集上安裝 RStudio
@@ -73,13 +73,13 @@
 
 7. 建立到叢集的 SSH 通道，方法是將 HDInsight 叢集上的 `localhost:8787` 對應至用戶端電腦。您必須在開啟新的瀏覽器工作階段之前，建立 SSH 通道。
 
-	* 在 Linux 用戶端或 Windows 用戶端上 (使用 [Cygwin](http://www.redhat.com/services/custom/cygwin/))，開啟終端機工作階段並且使用下列命令。
+	* 在使用 [Cygwin](http://www.redhat.com/services/custom/cygwin/) 的 Linux 用戶端或 Windows 用戶端上，開啟終端機工作階段並且使用下列命令。
 
 			ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net
 			
 		以您的 HDInsight 叢集的 SSH 使用者取代 **USERNAME**，並以您的 HDInsight 叢集的名稱取代 **CLUSTERNAME**。您也可以新增 `-i id_rsa_key` 以使用 SSH 金鑰而非密碼。
 
-	* 在 Windows 用戶端上建立 SSH 通道 PuTTY。
+	* 如果使用 Windows 用戶端與 PuTTY，則
 
 		1.  開啟 PuTTY，並輸入連線資訊。如果您不熟悉 PuTTY，請參閱[從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)，以取得如何搭配 HDInsight 使用 PuTTY 的資訊。
 		2.  在對話方塊左側的 [**類別**] 區段中，依序展開 [**連接**] 和 [**SSH**]，最後選取 [**通道**]。
@@ -126,4 +126,4 @@
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

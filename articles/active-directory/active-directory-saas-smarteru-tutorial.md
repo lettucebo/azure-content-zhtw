@@ -11,14 +11,14 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/19/2016" 
     ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 SmarterU 整合
   
 本教學課程的目的是要示範 Azure 與 SmarterU 的整合。本教學課程中說明的案例假設您已經具有下列項目：
 
--   有效的 Azure 訂閱
+-   有效的 Azure 訂用帳戶
 -   SmarterU 租用戶
   
 完成本教學課程之後，您指派給 SmarterU 的 Azure AD 使用者就能夠從您的 SmarterU 公司網站 (服務提供者起始登入)，或使用[存取面板](active-directory-saas-access-panel-introduction.md)來單一登入應用程式。
@@ -54,7 +54,7 @@
 
 5.  在 [欲執行動作] 對話方塊中，按一下 [從資源庫加入應用程式]。
 
-    ![從組件庫新增應用程式](./media/active-directory-saas-smarteru-tutorial/IC749322.png "從組件庫新增應用程式")
+    ![從資源庫新增應用程式](./media/active-directory-saas-smarteru-tutorial/IC749322.png "從資源庫新增應用程式")
 
 6.  在 [搜尋方塊]中，輸入 **SmarterU**。
 
@@ -115,7 +115,7 @@
 
 3.  在 [使用者] 區段中，執行下列步驟：
 
-    ![新增使用者](./media/active-directory-saas-smarteru-tutorial/IC777329.png "新增使用者")
+    ![新增使用者](./media/active-directory-saas-smarteru-tutorial/IC777329.png "新使用者")
 
     1.  按一下 [新增使用者]。
     2.  在下列文字方塊中輸入該 Azure AD 使用者帳戶的相關屬性值：**主要電子郵件地**、**員工識別碼**、**密碼**、**確認密碼**、**名字**、**姓氏**。
@@ -142,4 +142,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

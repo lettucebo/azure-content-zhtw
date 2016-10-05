@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/08/2016"
+   ms.date="09/16/2016"
    ms.author="terrylan"/>
 
 # Azure 儲存體安全性概觀
@@ -101,4 +101,4 @@ Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應�
 - [什麼是 Azure 金鑰保存庫？](../key-vault/key-vault-whatis.md)
 - [開始使用 Azure 金鑰保存庫](../key-vault/key-vault-get-started.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

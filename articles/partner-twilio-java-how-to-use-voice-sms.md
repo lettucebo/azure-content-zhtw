@@ -26,7 +26,7 @@ Twilio 是一種電話語音 Web 服務 API，能夠讓您使用現有的 Web �
 **Twilio 語音**可讓應用程式撥打和接聽電話。**Twilio SMS** 可以讓您的應用程式撰寫和接收 SMS 訊息。**Twilio Client** 可以讓您的應用程式在現有網際網路連線 (包括行動連線) 中啟用語音通訊。
 
 ## <a id="Pricing"></a>Twilio 定價和特別優惠
-[Twilio 定價][twilio_pricing] (英文) 提供 Twilio 的定價資訊。Azure 客戶享有[特殊優惠][special_offer]：免費1000 則文字簡訊或接聽1000 分鐘電話。若要註冊獲得這項優惠或取得詳細資訊，請造訪 [http://ahoy.twilio.com/azure][special_offer] (英文)。
+[Twilio 定價][twilio_pricing] \(英文) 提供 Twilio 的定價資訊。Azure 客戶享有[特殊優惠][special_offer]：免費1000 則文字簡訊或接聽1000 分鐘電話。若要註冊獲得這項優惠或取得詳細資訊，請造訪 [http://ahoy.twilio.com/azure][special_offer] \(英文)。
 
 ## <a id="Concepts"></a>概念
 Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱＜[Twilio API 程式庫][twilio_libraries]＞(英文)。
@@ -66,10 +66,10 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 ## <a id="CreateAccount"></a>建立 Twilio 帳戶
 準備取得 Twilio 帳戶時，請至[試用 Twilio][try_twilio] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
 
-註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][twilio_account] (英文) 的 **ACCOUNT SID** 和 **AUTH TOKEN** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
+註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][twilio_account] \(英文) 的 **ACCOUNT SID** 和 **AUTH TOKEN** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
 
 ## <a id="create_app"></a>建立 Java 應用程式
-1. 取得 Twilio JAR 並將它加到您的 Java 組建路徑和 WAR 部署組件。在 [https://github.com/twilio/twilio-java][twilio_java] (英文)，您可以下載 GitHub 原始檔並建立自己的 JAR，也可以下載預先建置的 JAR (含或不含相依性)。
+1. 取得 Twilio JAR 並將它加到您的 Java 組建路徑和 WAR 部署組件。在 [https://github.com/twilio/twilio-java][twilio_java] \(英文)，您可以下載 GitHub 原始檔並建立自己的 JAR，也可以下載預先建置的 JAR (含或不含相依性)。
 2. 確定 JDK 的 **cacerts** 金鑰存放區包含 MD5 指紋為 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (序號為 35:DE:F4:CF 且 SHA1 指紋為 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A) 的 Equifax 安全憑證授權單位憑證。這是 [https://api.twilio.com][twilio_api_service] 服務的憑證授權單位 (CA) 憑證，會在您使用 Twilio API 時受到呼叫。如需關於確定 JDK 的 **cacerts** 金鑰存放區包含正確 CA 憑證的詳細資訊，請參閱[新增憑證至 Java CA 憑證存放區][add_ca_cert]。
 
 [如何從 Azure 中的 Java 應用程式使用 Twilio 撥打電話][howto_phonecall_java]中提供使用 Java 版 Twilio 用戶端程式庫的詳細指示。
@@ -123,7 +123,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
     // Make the call.
     Call call = callFactory.create(params);
 
-如需 **CallFactory.create** 方法中傳遞之參數的詳細資訊，請參閱 [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls] (英文)。
+如需 **CallFactory.create** 方法中傳遞之參數的詳細資訊，請參閱 [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls] \(英文)。
 
 如上所述，這段程式碼使用 Twilio 提供的網站傳回 TwiML 回應。您可以改用自己的網站提供 TwiML 回應；如需詳細資訊，請參閱[如何在 Azure 上的 Java 應用程式中提供 TwiML 回應](#howto_provide_twiml_responses)。
 
@@ -152,7 +152,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
     
     Message sms = messageFactory.create(params);
         
-如需 **SmsFactory.create** 方法中傳遞之參數的詳細資訊，請參閱 [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms] (英文)。
+如需 **SmsFactory.create** 方法中傳遞之參數的詳細資訊，請參閱 [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms] \(英文)。
 
 ## <a id="howto_provide_twiml_responses"></a>作法：從您自己的網站提供 TwiML 回應
 當您的應用程式呼叫 Twilio API 時 (例如透過 **CallFactory.create** 方法)，Twilio 將傳送您的要求到應該傳送 TwiML 回應的 URL。以上範例使用 Twilio 提供的 URL [http://twimlets.com/message][twimlet_message_url]。(雖然 TwiML 是針對供 Web 服務使用而設計，但您可以在瀏覽器中檢視 TwiML。例如，按一下 [http://twimlets.com/message][twimlet_message_url] 可查看空白 **&lt;Response&gt;** 元素，又例如，按一下 [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] 可查看包含 **&lt;Say&gt;** 元素的 **&lt;Response&gt;** 元素。

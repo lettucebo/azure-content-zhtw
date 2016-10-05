@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory 網域服務預覽：管理指南 | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services：管理指南 | Microsoft Azure"
 	description="使用 Azure PowerShell 與傳統部署模型將 Windows 虛擬機器加入受管理的網域。"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
 
-# 以 PowerShell 以及傳統部署模型建立 Windows 虛擬機器
+# 使用 PowerShell 將 Windows Server 虛擬機器加入受管理的網域
 
 > [AZURE.SELECTOR]
 - [Azure 傳統入口網站 - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
@@ -29,14 +29,14 @@
 
 下列步驟將示範如何使用建置組塊自訂一組 Azure PowerShell 命令，建立和預先設定以 Windows 為基礎的 Azure 虛擬機器。這些步驟可協助您建置 Windows 型 Azure 虛擬機器，並將它加入 Azure AD 網域服務受管理的網域。
 
-這些步驟遵循建立 Azure PowerShell 命令集合的填空方法。如果您剛使用 PowerShell 或只想知道可指定哪些值來成功設定組態，這個方法相當實用。進階的 PowerShell 使用者可以使用命令並取代本身的變數值 (以「$」為開頭的行)。
+這些步驟遵循建立 Azure PowerShell 命令集合的填空方法。如果您是 PowerShell 的新手或想知道可指定哪些值來成功設定組態，這個方法相當實用。進階的 PowerShell 使用者可以使用命令並取代本身的變數值 (以「$」為開頭的行)。
 
 如果您尚未這樣做，請按照[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 中的操作方法，在本機電腦安裝 Azure PowerShell。然後，開啟 Windows PowerShell 命令提示字元。
 
 ## 步驟 1︰加入您的帳戶
 
 1. 在 PowerShell 提示字元處，輸入 **Add-AzureAccount**，然後按一下 **Enter** 鍵。
-2. 輸入與您 Azure 訂用帳戶相關聯的電子郵件地址，並按一下 [**繼續**]。
+2. 輸入與您 Azure 訂用帳戶相關聯的電子郵件地址，並按一下 [繼續]。
 3. 輸入您帳戶的密碼。
 4. 按一下 [**登入**]。
 
@@ -147,4 +147,11 @@
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
-<!---HONumber=AcomDC_0706_2016-->
+<br>
+
+## 相關內容
+- [Azure AD 網域服務 - 開始使用](./active-directory-ds-getting-started.md)
+
+- [Administer an Azure AD Domain Services managed domain (管理 Azure AD 網域服務受管理的網域)](./active-directory-ds-admin-guide-administer-domain.md)
+
+<!---HONumber=AcomDC_0921_2016-->

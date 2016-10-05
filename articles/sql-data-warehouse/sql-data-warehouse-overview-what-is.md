@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="09/27/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -49,7 +49,7 @@ SQL 資料倉儲是大量平行處理 (MPP) 分散式資料庫系統。將資料
 
 **計算節點︰**計算節點是 SQL 資料倉儲背後的動力。它們是儲存資料和處理查詢的 SQL Database。當您新增資料時，SQL 資料倉儲會將資料列分散到各個計算節點。計算節點是會對您的資料執行平行查詢的背景工作角色。經過處理後，它們會將結果傳回控制節點。為了完成查詢，控制節點會彙總結果並傳回最終的結果。
 
-**儲存體：**您的資料會儲存在 Azure Blob 儲存體中。當計算節點與您的資料互動時，它們會直接從 Blob 儲存體來回寫入和讀取。由於 Azure 儲存體可不受限地明確擴充，SQL 資料倉儲同樣也可以。計算和儲存體各自獨立，所以 SQL 資料倉儲可以自動調整儲存體，與計算分開調整，反之亦然。Azure Blob 儲存體也是完全容錯，並可簡化備份和還原程序。
+**儲存體：**您的資料會儲存在 Azure Blob 儲存體中。當計算節點與您的資料互動時，它們會直接從 Blob 儲存體來回寫入和讀取。由於 Azure 儲存體可大幅地明確擴充，SQL 資料倉儲同樣也可以。計算和儲存體各自獨立，所以 SQL 資料倉儲可以自動調整儲存體，與計算分開調整，反之亦然。Azure Blob 儲存體也是完全容錯，並可簡化備份和還原程序。
 
 **資料移動服務︰**資料移動服務 (DMS) 可在節點之間移動資料。DMS 可讓計算節點存取聯結和彙總所需的資料。DMS 不是 Azure 服務。它是一項在所有節點上與 SQL Database 並排執行的 Windows 服務。因為 DMS 會在幕後執行，所以您不會與它直接互動。不過，當您查看查詢計劃時，您會發現這類計劃包含一些 DMS 作業，因為資料移動必須平行執行每項查詢。
 
@@ -110,7 +110,7 @@ SQL 資料倉儲的資源配置是使用資料倉儲單位 (DWU) 測量。DWU �
 
 SQL 資料倉儲以 SQL Server 關聯式資料庫引擎為基礎，且包含企業資料倉儲的許多功能。如果您已經熟悉 T-SQL，則可輕鬆地將您的知識傳輸到 SQL 資料倉儲。無論您是進階或新手使用者，文件範例都能夠協助您開始著手。整體來說，您可以考慮我們建構 SQL 資料倉儲的語言元素的方式，如下所示：
 
-- SQL 資料倉儲會將 T-SQL 語法用於許多作業。並且支援一組廣泛的傳統 SQL 建構，例如預存程序、使用者定義函數、資料表資料分割、索引和定序。
+- SQL 資料倉儲會將 T-SQL 語法用於許多作業。並且支援一組廣泛的傳統 SQL 建構，例如預存程序、使用者定義函式、資料表資料分割、索引和定序。
 
 - SQL 資料倉儲也包含一些較新的 SQL Server 功能，包括叢集**資料行存放區**索引、PolyBase 整合和資料稽核 (完整的威脅評估)。
 
@@ -142,16 +142,17 @@ Polybase 可讓您透過使用熟悉的 T-SQL 命令來運用不同來源的資�
 
 - 在其整合中無從得知 Polybase。它會為其支援的所有來源提供相同的功能。Polybase 可讀取各種格式的資料，包括分隔檔案或 ORC 檔案。
 
-- PolyBase 可用來存取 Blob 儲存體，該儲存體也用來做為 HD Insight 叢集的儲存體。這可讓您使用關聯式與非關聯式工具，以最新的方式存取相同的資料。
+- PolyBase 可用來存取 Blob 儲存體，該儲存體也用來做為 HDInsight 叢集的儲存體。這可讓您使用關聯式與非關聯式工具，以最新的方式存取相同的資料。
 
 ## 後續步驟
 
 現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][]和[載入範例資料][]。如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][]在您遇到新術語時很有幫助。或者，也可以看一下其中一些其他 SQL 資料倉儲資源。
 
+- [客戶成功案例]
 - [部落格]
 - [功能要求]
 - [影片]
-- [CAT 小組部落格]
+- [客戶諮詢小組部落格]
 - [建立支援票證]
 - [MSDN 論壇]
 - [Stack Overflow 論壇]
@@ -162,24 +163,25 @@ Polybase 可讓您透過使用熟悉的 T-SQL 命令來運用不同來源的資�
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[建立支援票證]: sql-data-warehouse-get-started-create-support-ticket.md
-[載入範例資料]: sql-data-warehouse-load-sample-databases.md
-[建立 SQL 資料倉儲]: sql-data-warehouse-get-started-provision.md
-[移轉文件]: sql-data-warehouse-overview-migrate.md
-[SQL 資料倉儲解決方案合作夥伴]: sql-data-warehouse-partner-business-intelligence.md
-[整合式工具概觀]: sql-data-warehouse-overview-integrate.md
-[備份與還原概觀]: sql-data-warehouse-restore-database-overview.md
+[建立支援票證]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[載入範例資料]: ./sql-data-warehouse-load-sample-databases.md
+[建立 SQL 資料倉儲]: ./sql-data-warehouse-get-started-provision.md
+[移轉文件]: ./sql-data-warehouse-overview-migrate.md
+[SQL 資料倉儲解決方案合作夥伴]: ./sql-data-warehouse-partner-business-intelligence.md
+[整合式工具概觀]: ./sql-data-warehouse-overview-integrate.md
+[備份與還原概觀]: ./sql-data-warehouse-restore-database-overview.md
 [Azure 詞彙]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
+[客戶成功案例]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
 [部落格]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[CAT 小組部落格]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[客戶諮詢小組部落格]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [功能要求]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN 論壇]: https://social.msdn.microsoft.com/Forums/azure/zh-TW/home?forum=AzureSQLDataWarehouse
 [Stack Overflow 論壇]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [影片]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

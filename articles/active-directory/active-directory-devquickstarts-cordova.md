@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="vittorib"/>
 
 # 整合 Azure AD 與 Apache Cordova 應用程式
@@ -27,7 +27,7 @@ Apache Cordova 可讓您開發 HTML5/JavaScript 應用程式，然後在行動�
 在本教學課程中，我們將使用 Active Directory 驗證程式庫 (ADAL) 的 Apache Cordova 外掛程式，提供下列功能來改善一個簡單的應用程式：
 
 -	短短幾行程式碼，就可驗證 AD 使用者並取得權杖來呼叫 Azure AD Graph API。
--	使用該權杖叫用 Graph API 來查詢目錄，並顯示結果  
+-	使用該權杖叫用 Graph API 來查詢目錄，並顯示結果
 -	運用 ADAL 權杖快取，將使用者的驗證提示減到最少。
 
 若要執行此作業，您需要執行下列動作：
@@ -42,7 +42,7 @@ Apache Cordova 可讓您開發 HTML5/JavaScript 應用程式，然後在行動�
 若要完成本教學課程，您需要：
 
 - Azure AD 租用戶，您在其中有一個帳戶具備應用程式開發權限
-- 為了使用 Apache Cordova 而設定的開發環境  
+- 為了使用 Apache Cordova 而設定的開發環境
 
 如果兩者都已設定，請直接跳到步驟 1。
 
@@ -157,7 +157,7 @@ Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶�
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user cridentials so triggers authentication dialog
+                // We require user credentials so triggers authentication dialog
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
                     app.error("Failed to authenticate: " + err);
@@ -181,7 +181,7 @@ Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶�
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user cridentials so triggers authentication dialog
+                // We require user credentials so triggers authentication dialog
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
                     app.error("Failed to authenticate: " + err);
@@ -270,4 +270,4 @@ Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶�
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

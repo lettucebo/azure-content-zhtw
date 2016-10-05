@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="使用 Azure MFA 的安全性最佳做法" 
-	description="本文件提供搭配 Azure 帳戶使用 Azure MFA 的最佳做法" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="使用 Azure MFA 的安全性最佳做法"
+	description="本文件提供搭配 Azure 帳戶使用 Azure MFA 的最佳做法"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # 搭配 Azure AD 帳戶使用 Azure Multi-Factor Authentication 的安全性最佳做法
 
@@ -31,7 +31,7 @@
 ![EMS](./media/multi-factor-authentication-security-best-practices/ems.png)
 
 使用 Azure AD Premium 或 Enterprise Mobility Suite 在雲端中採用 Azure MFA 的第一個建議步驟，是指派授權給您的使用者。Azure Multi-Factor Authentication 是這些套件的一部分，因此您的組織不需要任何其他項目即可將 Multi-Factor Authentication 功能延伸到所有使用者。
- 
+
 設定 Multi-Factor Authentication 時，請考慮下列項目：
 
 - 您不需要建立 Multi-Factor Auth Provider。Azure AD Premium 和 Enterprise Mobility Suite 隨附於 Azure Multi-Factor Authentication。如果您建立 Auth Provider，可能會向您雙重計費。
@@ -102,7 +102,7 @@ Azure Multi-Factor Authentication Server 可以用於保護由 Azure AD 帳戶�
 使用以下清單以了解內部部署的每個元件的一些考量和最佳做法：
 
 方法|說明
-:------------- | :------------- | 
+:------------- | :------------- |
 [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md)|有關搭配 AD FS 設定 Azure Multi-Factor Authentication 的資訊。
 [RRADIUS 驗證](multi-factor-authentication-get-started-server-radius.md)| 有關搭配 RADIUS 設定 Azure MFA Server 的資訊。
 [IIS 驗證](multi-factor-authentication-get-started-server-iis.md)|有關搭配 IIS 設定 Azure MFA Server 的資訊。
@@ -111,7 +111,7 @@ Azure Multi-Factor Authentication Server 可以用於保護由 Azure AD 帳戶�
 [使用 RADIUS 的遠端桌面閘道器和 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-rdg.md)| 有關使用 RADIUS 搭配遠端桌面閘道器設定 Azure MFA Server 的資訊。
 [與 Windows Server Active Directory 同步處理](multi-factor-authentication-get-started-server-dirint.md)|有關設定 Active Directory 與 Azure MFA Server 之間同步處理的資訊。
 [部署 Azure Multi-Factor Authentication Server 行動應用程式 Web 服務](multi-factor-authentication-get-started-server-webservice.md)|有關設定 Azure MFA 伺服器 Web 服務的資訊。
-[使用 Azure Multi-Factor Authentication 的進階 VPN 組態](multi-factor-authentication-advanced-vpn-configurations.md)|使用 LDAP 或 RADIUS 設定 Cisco ASA、Citrix Netscaler 和 Juniper/Pulse Secure VPN 應用裝置的相關資訊。 
+[使用 Azure Multi-Factor Authentication 的進階 VPN 組態](multi-factor-authentication-advanced-vpn-configurations.md)|使用 LDAP 或 RADIUS 設定 Cisco ASA、Citrix Netscaler 和 Juniper/Pulse Secure VPN 應用裝置的相關資訊。
 
 
 ## 其他資源
@@ -121,4 +121,4 @@ Azure Multi-Factor Authentication Server 可以用於保護由 Azure AD 帳戶�
 - [Azure Multi-factor Authentication 的設定體驗](multi-factor-authentication-end-user-first-time.md)
 - [Azure Multi-Factor Authentication 常見問題集](multi-factor-authentication-faq.md)
 
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->

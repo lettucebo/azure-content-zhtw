@@ -19,13 +19,13 @@
 
 # 使用 Data Factory 將資料從 Blob 儲存體複製到 SQL Database 
 > [AZURE.SELECTOR]
-- [教學課程概觀](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [使用 Data Factory 編輯器](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [使用 PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [使用 Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [使用 REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [使用 .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [使用複製精靈](data-factory-copy-data-wizard-tutorial.md)
+- [概觀和必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [複製精靈](data-factory-copy-data-wizard-tutorial.md)
 
 在本教學課程中，您會建立 Data Factory 與管線，以將資料從 Blob 儲存體複製到 SQL Database。
 
@@ -62,7 +62,7 @@
 5. 按一下 **X**，關閉所有刀鋒視窗。
 
 ## 允許 Azure 服務存取 SQL Server 
-確定**開啟** Azure SQL 伺服器的 [允許存取 Azure 服務] 設定，讓 Data Factory 服務可以存取您的 Azure SQL 伺服器。若要確認並開啟此設定，請執行下列作業：
+確定**開啟** Azure SQL 伺服器的 [允許存取 Azure 服務] 設定，讓 Data Factory 服務可以存取您的 Azure SQL 伺服器。若要確認並開啟此設定，請執行下列步驟：
 
 1. 按一下左邊的 [瀏覽] 中樞，然後按一下 [SQL Server]。
 2. 選取**您的伺服器**，然後按一下 [**SQL Server**] 刀鋒視窗上的 [**設定**]。
@@ -94,20 +94,18 @@
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**如果您的電腦上已安裝 SQL Server 2012/2014：**請依照[使用 SQL Server Management Studio 管理 Azure SQL Database 中的步驟 2：連線到 SQL Database][sql-management-studio] 一文中的指示，連線到您的 Azure SQL Server 並執行 SQL 指令碼。本文使用 [Azure 入口網站](http://manage.windowsazure.com) (而非 [Azure 入口網站](https://portal.azure.com)) 來設定 Azure SQL Server 的防火牆。
+	**如果您的電腦上已安裝 SQL Server 2012/2014：**請依照[使用 SQL Server Management Studio 管理 Azure SQL Database 中的步驟 2：連線到 SQL Database][sql-management-studio] 一文中的指示，連線到您的 Azure SQL Server 並執行 SQL 指令碼。本文使用[傳統 Azure 入口網站](http://manage.windowsazure.com) (而非[新的 Azure 入口網站](https://portal.azure.com)) 來設定 Azure SQL Server 的防火牆。
 
 	如果不允許您的用戶端存取 Azure SQL Server，則必須將 Azure SQL Server 的防火牆設定成允許從您的電腦 (IP 位址) 存取。請參閱[本文](../sql-database/sql-database-configure-firewall-settings.md)的步驟，為 Azure SQL Server 設定防火牆。
 
+您已完成必要條件。按一下頂端的索引標籤，使用其中一個選項執行教學課程︰
 
-執行下列動作：
-
-- 按一下頂端的[使用 Data Factory 編輯器](data-factory-copy-activity-tutorial-using-azure-portal.md)連結，使用 Data Factory 編輯器 (這是 Azure 入口網站的一部分) 執行教學課程。
-- 按一下頂端的[使用 PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 連結，使用 Azure PowerShell 執行教學課程。
-- 按一下頂端的[使用 Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 連結，藉由使用 Visual Studio 2013 來執行教學課程。
-
-## 複製活動
-如需 Azure Data Factory 中複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
-
+- Azure 入口網站
+- Visual Studio
+- PowerShell
+- REST API
+- .NET API
+- 複製精靈
 
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -118,4 +116,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

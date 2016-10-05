@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用媒體編碼器標準為資產編碼" 
+	pageTitle="如何使用 Media Encoder Standard 為資產編碼 | Microsoft Azure" 
 	description="了解如何使用媒體編碼器標準為媒體服務上的媒體內容編碼。程式碼範例會使用 REST API。" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 
@@ -23,9 +23,9 @@
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encode-asset.md)
 - [REST](media-services-rest-encode-asset.md)
-- [入口網站](media-services-manage-content.md#encode)
+- [入口網站](media-services-portal-encode.md)
 
-##概觀
+##Overview
 若要透過網際網路傳遞數位視訊，您必須壓縮媒體。數位視訊檔案十分龐大，而且可能太大而無法透過網際網路傳遞，或是太大而使您客戶的裝置無法正確顯示。編碼是壓縮視訊和音訊，好讓客戶能檢視您的媒體的程序。
 
 編碼工作是媒體服務中最常見的處理作業。您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。編碼時，您可以使用媒體服務內建的編碼器 (媒體編碼器標準)。您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。您可以使用針對您的編碼器定義的預設字串，或使用預設組態檔，指定編碼工作的詳細資料。若要查看可用的預設類型，請參閱[媒體編碼器標準的工作預設](http://msdn.microsoft.com/library/mt269960)。
@@ -34,16 +34,16 @@
 
 - 工作可以透過 Job 實體上的 Tasks 導覽屬性，或
 - 透過 OData 批次處理進行內嵌定義。
-  
 
-建議一律將夾層檔編碼為調適性位元速率 MP4 集，然後使用[動態封裝](media-services-dynamic-packaging-overview.md)將該集合轉換為所要的格式。若要利用動態封裝，您必須先取得至少一個串流端點的隨選串流單位，您打算從中傳遞您的內容。如需詳細資訊，請參閱[如何調整媒體服務](media-services-manage-origins.md#scale_streaming_endpoints)。
+
+建議一律將夾層檔編碼為調適性位元速率 MP4 集，然後使用[動態封裝](media-services-dynamic-packaging-overview.md)將該集合轉換為所要的格式。若要利用動態封裝，您必須先取得至少一個串流端點的隨選串流單位，您打算從中傳遞您的內容。如需詳細資訊，請參閱[如何調整媒體服務](media-services-portal-manage-streaming-endpoints.md)。
 
 如果您的輸出資產是儲存體加密，必須設定資產傳遞原則。如需詳細資訊，請參閱[設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)。
 
 
 >[AZURE.NOTE]開始參考媒體處理器之前，請確認您擁有正確的媒體處理器識別碼。如需詳細資訊，請參閱[取得媒體處理器](media-services-rest-get-media-processor.md)。
 
-##建立具有單一編碼工作的工作 
+##建立具有單一編碼工作的工作
 
 >[AZURE.NOTE] 使用媒體服務 REST API 時，適用下列考量事項：
 >
@@ -54,18 +54,10 @@
 >使用 JSON 並指定在要求中使用 **\_\_metadata** 關鍵字時 (例如，為了參考連結的物件)，您「必須」將 **Accept** 標頭設為 [JSON Verbose 格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)：Accept: application/json;odata=verbose。
 
 下列範例會示範如何建立和張貼工作，並將一個工作設為在特定的解析度與品質將視訊編碼。透過媒體編碼器標準進行編碼時，您可以使用[這裡](http://msdn.microsoft.com/library/mt269960)指定的工作組態預設。
-	
+
 要求：
 
-	POST https://media.windows.net/API/Jobs HTTP/1.1
-	Content-Type: application/json;odata=verbose
-	Accept: application/json;odata=verbose
-	DataServiceVersion: 3.0
-	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.11
-	Authorization: Bearer <token value>
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
-	Host: media.windows.net
+POST https://media.windows.net/API/Jobs HTTP/1.1 Content-Type: application/json;odata=verbose Accept: application/json;odata=verbose DataServiceVersion: 3.0 MaxDataServiceVersion: 3.0 x-ms-version: 2.11 Authorization: Bearer <token value> x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 Host: media.windows.net
 
 	
 	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Multiple Bitrate 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
@@ -82,7 +74,7 @@
 
 	{ "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"}
 
-##注意事項
+##考量
 
 - TaskBody 屬性必須使用 XML 常值來定義工作所使用的輸入或輸出資產數目。工作主題包含 XML 的 XML 結構描述定義。
 - 在 TaskBody 定義中，<inputAsset> 和 <outputAsset> 的每一個內部值必須設定為 JobInputAsset(value) 或 JobOutputAsset(value)。
@@ -135,7 +127,7 @@
 	}
 
 
-###注意事項
+###考量
 
 啟用工作鏈結：
 
@@ -268,11 +260,11 @@
 
 
 ##後續步驟
-您已了解如何建立為資產編碼的工作，現在請移至[如何使用媒體服務檢查工作進度](media-services-rest-check-job-progress.md) (英文) 主題。
+您已了解如何建立為資產編碼的作業，現在請移至[如何使用媒體服務檢查作業進度](media-services-rest-check-job-progress.md) (英文) 主題。
 
 
 ##另請參閱
 
 [取得媒體處理器](media-services-rest-get-media-processor.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

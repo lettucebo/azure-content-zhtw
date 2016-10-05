@@ -25,7 +25,7 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 
 您可以透過 [Log Analytics [設定] 中的 [資料] 功能表](log-analytics-data-sources.md/configuring-data-sources)，來設定效能計數器。
 
-當您第一次為新的 OMS 工作區設定 Windows 或 Linux 效能計數器時，系統會提供選項，讓您快速建立數個常用的計數器。這些計數器旁邊皆會列出核取方塊。確認已核取所有想一開始就建立的計數器，然後按一下 [Add the selected performance counters] (加入選取的效能計數器)。
+當您第一次為新的 OMS 工作區設定 Windows 或 Linux 效能計數器時，系統會提供選項，讓您快速建立數個常用的計數器。這些計數器旁邊皆會列出核取方塊。確認已核取所有想一開始就建立的計數器，然後按一下 [Add the selected performance counters] \(加入選取的效能計數器)。
 
 ![設定 Windows 效能計數器](media/log-analytics-data-sources-performance-counters/configure-windows.png)
 
@@ -40,7 +40,7 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 
 請遵循此程序以加入要收集的新 Linux 效能計數器。
 
-1. 根據預設，所有組態變更都會自動發送給所有代理程式。若是 Linux 代理程式，組態檔會傳送給 Fluentd 資料收集器。如果您想以手動方式在每個 Linux 代理程式上修改這個檔案，只要取消核取 [Apply below configuration to my Linux machines] (將下列組態套用至我的 Linux 機器) 方塊即可。
+1. 根據預設，所有組態變更都會自動發送給所有代理程式。若是 Linux 代理程式，組態檔會傳送給 Fluentd 資料收集器。如果您想以手動方式在每個 Linux 代理程式上修改這個檔案，只要取消核取 [Apply below configuration to my Linux machines] \(將下列組態套用至我的 Linux 機器) 方塊即可。
 2. 在文字方塊中輸入計數器名稱，格式為 *object(instance)\\counter*。開始輸入時，您就會看到符合的常用計數器清單。您可以從清單中選取計數器，或自行輸入。  
 2. 按一下 **+** 或按 **Enter**，將計數器加入物件的其他計數器清單。
 3. 物件的所有計數器都會使用相同的 [取樣間隔時間]。預設值為 10 秒，如果您想要降低所收集之效能資料的儲存需求，可以將此值變更為最多 1800 秒 (30 分鐘)。

@@ -12,11 +12,15 @@
  ms.tgt_pltfrm="na"
  ms.devlang="multiple"
  ms.topic="article"
- ms.date="08/24/2016"
+ ms.date="09/15/2016"
  ms.author="casoper"/>
 
 
 # 在 Azure CDN 中管理 Azure 儲存體 Blob 內容的到期
+
+> [AZURE.SELECTOR]
+- [Azure Web Apps/雲端服務、ASP.NET 或 IIS](cdn-manage-expiration-of-cloud-service-content.md)
+- [Azure 儲存體 Blob 服務](cdn-manage-expiration-of-blob-content.md)
 
 [Azure 儲存體](../storage/storage-introduction.md)中的 [Blob 服務](../storage/storage-introduction.md#blob-storage)是幾個已與 Azure CDN 整合之 Azure 型來源的其中一個。任何可公開存取的 Blob 內容均可在 Azure CDN 中加以快取，直到其存留時間 (TTL) 結束。TTL 是由來自 Azure 儲存體之 HTTP 回應中的 [Cache-Control 標頭](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)所決定。
 
@@ -108,4 +112,4 @@ class Program
 - [深入了解「Cache-Control」標頭](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 - [如何在 Azure CDN 中管理雲端服務內容的到期](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

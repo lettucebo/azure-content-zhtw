@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="09/20/2016"
 	ms.author="luisca"/>
 
 #  組建類型與模型品質 #
@@ -263,4 +263,4 @@ FBT 組建目前不支援冷項目，因為依照定義，它會預期同一筆�
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,7 +3,7 @@
 	description="展示了 Spark MLlib 工具組的資料探索和模型化功能。"
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # 使用 Spark 資料探索和模型化
 
@@ -39,7 +39,7 @@
 
 ## 必要條件
 
-您需要 Azure 帳戶和 HDInsight Spark 叢集。您需要 HDInsight 3.4 Spark 1.6 叢集才能開始這個逐步解說。請參閱[使用 Azure HDInsight 上的 Spark 的資料科學概觀](machine-learning-data-science-spark-overview.md) 以取得這些需求、這裡使用的 NYC 2013 計程車資料的描述，以及如何從 Spark 叢集的 Jupyter Notebook 執行程式碼的指示。您可以在 [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) 上取得 **machine-learning-data-science-spark-data-exploration-modeling.ipynb** Notebook，其中包含本主題中的程式碼範例。
+您需要 Azure 帳戶和 HDInsight Spark 叢集。您需要 HDInsight 3.4 Spark 1.6 叢集才能開始這個逐步解說。請參閱[使用 Azure HDInsight 上的 Spark 的資料科學概觀](machine-learning-data-science-spark-overview.md)以取得這些需求、這裡使用的 NYC 2013 計程車資料的描述，以及如何從 Spark 叢集的 Jupyter Notebook 執行程式碼的指示。您可以在 [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) 上取得 **machine-learning-data-science-spark-data-exploration-modeling.ipynb** Notebook，其中包含本主題中的程式碼範例。
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -190,7 +190,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 此程式碼與後續程式碼片段使用了 SQL magic 來查詢範例及本機 magic 以繪製資料。
 
 - **SQL magic (`%%sql`)** HDInsight PySpark 核心支援針對 sqlContext 進行簡單的內嵌 HiveQL 查詢。「-o VARIABLE\_NAME」引數會將 SQL 查詢的輸出，保存為 Jupyter 伺服器上的 Pandas dataframe。這代表會在本機模式中使用此引數。
-- **`%%local` magic** 是用來在 Jupyter 伺服器 (通常是 HDInsight 叢集的前端節點) 上本機執行程式碼。一般而言，您會使用 `%%local` magic 來搭配含有 -o 參數的 `%%sql` magic。-o 參數會保存本機 SQL 查詢的輸出，然後 %%local magic 會針對已保存在本機上的 SQL 查詢輸出，觸發下一組要在本機上執行的程式碼片段。
+- **`%%local` magic** 是用來在 Jupyter 伺服器本機 (HDInsight 叢集的前端節點) 上執行程式碼。通常您會使用 `%%local` magic 來搭配含有 -o 參數的 `%%sql` magic。-o 參數會保存本機 SQL 查詢的輸出，然後 %%local magic 會針對已保存在本機上的 SQL 查詢輸出，觸發下一組要在本機上執行的程式碼片段。
 
 執行完程式碼後，輸出將會自動以視覺化方式呈現。
 
@@ -205,7 +205,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 	WHERE passenger_count > 0 and passenger_count < 7 
 	GROUP BY passenger_count 
 
-此程式碼從查詢輸出中建立了本機資料框架，以及繪製資料。`%%local` magic 建立了本機資料框架 `sqlResults`，其能用於搭配 Matplotlib 進行繪製。
+此程式碼從查詢輸出中建立了本機資料框架，以及繪製資料。`%%local` magic 建立了本機資料框架「`sqlResults`」，可用於搭配 Matplotlib 進行繪製。
 
 >[AZURE.NOTE] 在本逐步解說中，會多次使用此 PySpark magic。如果資料總量很大，您應該取樣以建立可容納於本機記憶體的資料框架。
 
@@ -492,7 +492,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 
 ### 調整功能
 
-調整功能，也稱為資料正規化，以確保具廣泛分散值的功能在目標函式中沒有過多權重。用於調整特徵的程式碼會使用 [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler)，將特徵調整至單位變異數。這是由 MLlib 提供，用於使用隨機梯度下降 (SGD) 的線性迴歸，為訓練廣泛的其他機器學習模型的常用演算法，例如正則化迴歸或支援向量機器 (SVM)。
+調整功能，也稱為資料正規化，以確保具廣泛分散值的功能在目標函式中沒有過多權重。用於調整功能的程式碼會使用 [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler)，將功能調整至單位變異數。這是由 MLlib 提供，用於使用隨機梯度下降 (SGD) 的線性迴歸，為訓練廣泛的其他機器學習模型的常用演算法，例如正則化迴歸或支援向量機器 (SVM)。
 
 >[AZURE.NOTE] 我們找到了適用於調整功能的 LinearRegressionWithSGD 演算法。
 
@@ -575,7 +575,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 
 每個模型建置程式碼區段會分成步驟︰
 
-1. 使用一個參數集的**模型訓練**資料
+1. 使用一個參數集的**模型定型**資料
 2. 在含計量的測試資料集上的**模型評估**
 3. blob 中供未來取用的**儲存模型**
 
@@ -841,7 +841,7 @@ ROC 下的領域 = 0.985297691373
 
 這些模型將在簡介中說明。每個模型建置程式碼區段會分成步驟︰
 
-1. 使用一個參數集的**模型訓練**資料
+1. 使用一個參數集的**模型定型**資料
 2. 在含計量的測試資料集上的**模型評估**
 3. blob 中供未來取用的**儲存模型**
 
@@ -1105,4 +1105,4 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 
 **交叉驗證和超參數掃掠**：如需如何使用交叉驗證和超參數掃掠訓練模型的相關資訊，請參閱[使用 Spark 進階資料探索和模型化](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

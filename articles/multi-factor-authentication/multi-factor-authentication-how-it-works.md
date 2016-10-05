@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication -它的作用" 
-	description="Azure Multi-Factor Authentication 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。它藉由要求第二種形式的驗證提供額外的安全性，並透過一系列簡單的驗證選項提供增強式驗證。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Azure Multi-Factor Authentication -它的作用"
+	description="Azure Multi-Factor Authentication 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。它藉由要求第二種形式的驗證提供額外的安全性，並透過一系列簡單的驗證選項提供增強式驗證。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 #Azure Multi-Factor Authentication 的作用
 
@@ -39,7 +39,7 @@ Azure Multi-Factor Authentication 有助於保護對資料與應用程式的存�
 ##適用於 Multi-Factor Authentication 的方法
 當使用者登入時，系統會將額外的驗證傳送給使用者。以下是適用於這個第二次驗證的方法清單。
 
-驗證方法 | 說明 
+驗證方法 | 說明
 ------------- | ------------- |
 撥打電話 | 撥打使用者的智慧型手機，要求他們按 # 符號來驗證登入。如此將可完成驗證程序。這是可設定的選項，您可以變更為指定的代碼。
 簡訊 | 傳送含 6 位數代碼的簡訊到使用者智慧型手機。輸入此代碼可完成驗證程序。
@@ -50,7 +50,7 @@ Azure Multi-Factor Authentication 有助於保護對資料與應用程式的存�
 ##可用的 Azure Multi-Factor Authentication 版本
 Azure Multi-Factor Authentication 備有三個不同的版本。下表是每種版本的詳述。
 
-版本 | 說明 
+版本 | 說明
 ------------- | ------------- |
 Multi-Factor Authentication for Office 365 | 這個版本專門搭配 Office 365 應用程式運作，並且可從 Office 365 入口網站管理。系統管理員現在可以使用 Multi-Factor Authentication 來保護其 Office 365 資源的安全。此版本隨附於 Office 365 訂用帳戶。
 適用於 Azure 系統管理員的 Multi-Factor Authentication | 適用於 Office 365 的 Multi-Factor Authentication 功能的相同子集將免費提供給所有 Azure 系統管理員。Azure 訂用帳戶的每個管理帳戶現可透過啟用此 Multi-Factor Authentication 核心功能來取得額外防護。因此想要存取 Azure 入口網站以建立 VM、網站、管理儲存體、行動服務或任何其他 Azure 服務的系統管理員，可在其系統管理員帳戶中新增多因素驗證。
@@ -59,7 +59,7 @@ Azure Multi-Factor Authentication | Azure Multi-Factor Authentication 提供最�
 下表提供 Azure Multi-Factor Authentication 各版本中可用的功能清單。
 
 
-功能 | Multi-Factor Authentication for Office 365 (隨附於 Office 365 SKU 中)|適用於 Azure 系統管理員的 Multi-Factor Authentication (隨附於 Azure 訂用帳戶中) | Azure Multi-Factor Authentication (隨附於 Azure AD Premium 和 Enterprise Mobility Suite 中) 
+功能 | Multi-Factor Authentication for Office 365 (隨附於 Office 365 SKU 中)|適用於 Azure 系統管理員的 Multi-Factor Authentication (隨附於 Azure 訂用帳戶中) | Azure Multi-Factor Authentication (隨附於 Azure AD Premium 和 Enterprise Mobility Suite 中)
 ------------- | :-------------: |:-------------: |:-------------: |
 系統管理員可以透過 MFA 保護帳戶| * | * (僅適用於 Azure 系統管理員帳戶)|*
 以行動應用程式做為第二個因素|* | * | *
@@ -98,8 +98,4 @@ MFA SDK| | | *
 
 選擇最適合您組織的每一基座或消費型模型。接下來，若要開始使用，請參閱[開始使用](multi-factor-authentication-get-started.md)
 
-
-
- 
-
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->

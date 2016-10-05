@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 AES-128 動態加密和金鑰傳遞服務"
+	pageTitle="使用 AES-128 動態加密和金鑰傳遞服務 | Microsoft Azure"
 	description="Microsoft Azure 媒體服務可讓您傳遞您使用 128 位元加密金鑰加密的內容。媒體服務也提供加密金鑰傳遞服務，將加密金鑰傳遞至授權的使用者。本主題展示如何利用 AES-128 動態加密，以及使用金鑰傳遞服務。"
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/27/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 #使用 AES-128 動態加密和金鑰傳遞服務
@@ -23,7 +23,7 @@
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
-##概觀
+##Overview
 
 Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (使用 128 位元加密金鑰) 加密的 Http-Live-Streaming (HLS) 和 Smooth Streaming 。媒體服務也提供加密金鑰傳遞服務，將加密金鑰傳遞至授權的使用者。如果您想要媒體服務加密資產，則需要建立加密金鑰 與資產的關聯，同時設定金鑰的授權原則。播放程式要求串流時，媒體服務便會使用 AES 加密，使用指定的金鑰動態加密您的內容。為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
@@ -33,7 +33,7 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 
 本主題將有助於開發人員開發提供受保護媒體的應用程式。本主題將展示如何利用授權原則設定金鑰傳遞服務，這樣只有授權的用戶端才會收到加密金鑰。它也會展示如何使用動態加密。
 
->[AZURE.NOTE]若要開始使用動態加密，您必須先取得至少一個縮放單位 (也稱為串流單位)。如需詳細資訊，請參閱[如何調整媒體服務](media-services-manage-origins.md#scale_streaming_endpoints)。
+>[AZURE.NOTE]若要開始使用動態加密，您必須先取得至少一個縮放單位 (也稱為串流單位)。如需詳細資訊，請參閱[如何調整媒體服務](media-services-portal-manage-streaming-endpoints.md)。
 
 ##使用 AES-128 動態加密和金鑰傳遞服務工作流程
 
@@ -45,7 +45,7 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 1. [設定內容金鑰的授權原則](media-services-protect-with-aes128.md#configure_key_auth_policy)。內容金鑰授權原則必須由您設定，而且用戶端必須符合條件，才能將內容金鑰傳遞給用戶端。
 1. [設定資產的傳遞原則](media-services-protect-with-aes128.md#configure_asset_delivery_policy)。傳遞原則組態包括：主要取得 URL 和初始化向量 (IV) (AES 128 會在加密和解密時要求提供相同的 IV)、傳送通訊協定 (例如，MPEG DASH、HLS、HDS、Smooth Streaming 或全部)、動態加密的類型 (例如，信封或沒有動態加密)。
 
-	您可以將不同的原則套用至相同資產上的每一個通訊協定。例如，您可以將 PlayReady 加密套用到 Smooth/DASH，以及將 AES 信封加密套用到 HLS。傳遞原則中未定義的任何通訊協定 (例如，您加入單一原則，它只有指定 HLS 做為通訊協定) 將會遭到封鎖無法串流。這個狀況的例外情形是您完全沒有定義資產傳遞原則之時。那麼，將允許所有通訊協定，不受阻礙。
+您可以將不同的原則套用至相同資產上的每一個通訊協定。例如，您可以將 PlayReady 加密套用到 Smooth/DASH，以及將 AES 信封加密套用到 HLS。傳遞原則中未定義的任何通訊協定 (例如，您加入單一原則，它只有指定 HLS 做為通訊協定) 將會遭到封鎖無法串流。這個狀況的例外情形是您完全沒有定義資產傳遞原則之時。那麼，將允許所有通訊協定，不受阻礙。
 
 1. 若要取得串流 URL，請[建立隨選定位器](media-services-protect-with-aes128.md#create_locator)。
 
@@ -629,4 +629,4 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

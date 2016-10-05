@@ -74,4 +74,4 @@ Azure 資料目錄是完全受管理的雲端服務，可讓使用者探索所�
 * [如何設定商務詞彙](data-catalog-how-to-business-glossary.md)
 * [常見問題集](data-catalog-frequently-asked-questions.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0921_2016--->

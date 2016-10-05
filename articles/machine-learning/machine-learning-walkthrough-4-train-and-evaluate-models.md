@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -39,7 +39,8 @@
 
 > [AZURE.TIP] 如需取得說明以決定哪一種機器學習服務演算法最適合您正在嘗試解決的特定問題，請參閱[如何選擇 Microsoft Azure Machine Learning 的演算法](machine-learning-algorithm-choice.md)。
 
-##訓練模型
+## 訓練模型
+
 首先，讓我們設定推進式決策樹模型：
 
 1.	在模組選擇區中找到[二元促進式決策樹][two-class-boosted-decision-tree]模組，並將其拖曳到畫布上。
@@ -82,7 +83,8 @@
 
 ![Training the second model][2]
 
-##計分及評估模型
+## 計分及評估模型
+
 我們將使用由[資料分割][split]模組所分開的測試資料，給我們訓練的模型評分。然後，我們就可以比較兩個模型的結果，了解何者產生的結果較佳。
 
 1.	找出 [評分模型][][score-model] 模組並拖曳到畫布上。
@@ -143,4 +145,4 @@
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

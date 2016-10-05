@@ -200,7 +200,7 @@ One thing which is important to point out: if there are pending changes in the l
 
 * [雲端報導：Azure 行動服務中的離線同步處理]
 
-* [Azure Friday：Azure 行動服務中的離線應用程式] (附註︰示範適用於 Windows，但功能討論適用於所有平台)
+* [Azure Friday：Azure 行動服務中的離線應用程式] \(附註︰示範適用於 Windows，但功能討論適用於所有平台)
 
 
 <!-- URLs. -->

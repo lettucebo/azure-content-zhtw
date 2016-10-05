@@ -61,28 +61,24 @@
 
 	![][3]
 
-6. 針對 **XCode 7** - 新增 `libxml2.tbd` 而不是 `libxml2.dylib`。
-
-7. 回到 Azure 入口網站，在您的應用程式的 [連線資訊] 頁面中複製連接字串。
+6. 回到 Azure 入口網站中您 app 的 [連線資訊] 頁面，複製連接字串。
 
 	![][4]
 
-8. 在 **AppDelegate.m** 檔案中新增以下程式碼行。
+7. 在 **AppDelegate.m** 檔案中新增以下程式碼行。
 
 		#import "EngagementAgent.h"
 
-9. 現在於 `didFinishLaunchingWithOptions` 代理人中貼上連接字串。
+8. 現在於 `didFinishLaunchingWithOptions` 代理人中貼上連接字串。
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
-  			[...]
-			//[EngagementAgent setTestLogEnabled:YES];
-   
+  			[...]   
   			[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
   			[...]
 		}
 
-10. `setTestLogEnabled` 是選擇性的陳述式，可啟用 SDK 記錄檔，供您找出問題。
+9. `setTestLogEnabled` 是選擇性的陳述式，可啟用 SDK 記錄檔，供您找出問題。
 
 ##<a id="monitor"></a>啟用即時監視
 
@@ -121,6 +117,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 1. 回到 **AppDeletegate.m** 檔案，匯入 Engagement Reach 模組。
 
 		#import "AEReachModule.h"
+		#import <UserNotifications/UserNotifications.h>
 
 2. 在 `application:didFinishLaunchingWithOptions` 方法內，建立觸達模組，並將它傳遞到您現有的 Engagement 初始化行：
 
@@ -135,12 +132,19 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 
 1. 將下行新增至 `application:didFinishLaunchingWithOptions` 方法：
 
-		if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-			[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
 			[application registerForRemoteNotifications];
 		}
-		else {
-
+		else
+		{
 			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 		}
 
@@ -178,4 +182,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
 	description="如何使用 Azure Data Lake 在資料集上進行資料探索和二元分類工作。"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,wguo123"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="bradsev;weig;gopitk"/>
+	ms.date="09/19/2016"
+	ms.author="bradsev;weig"/>
 
 
 # Azure Data Lake 中的可調整資料科學︰端對端逐步解說
 
-本逐步解說示範如何使用 Azure Data Lake，在 NYC 計程車車程和車費資料集上執行資料探索和二元分類，以預測一趟車程是否收費。其中，從取得資料開始，經過模型訓練，然後部署 Web 服務來發佈模型，從頭到尾逐步引導您完成[資料科學程序](http://aka.ms/datascienceprocess)。
+本逐步解說示範如何使用 Azure Data Lake，在 NYC 計程車車程和車費資料集上執行資料探索和二元分類，以預測一趟車程是否收費。其中，從取得資料開始，經過模型訓練，然後部署 Web 服務來發佈模型，從頭到尾逐步引導您完成 [Team Data Science Process](http://aka.ms/datascienceprocess)。
 
 
 ### Azure 資料湖分析
@@ -76,10 +76,8 @@ Azure Machine Learning Studio 可用來建置和部署預測模型。這是使�
 - Azure Machine Learning Studio 帳戶
 - Azure Data Lake Tools for Visual Studio (建議)
 
-本節提供如何建立這些資源的指示。如果您選擇搭配 Azure Machine Learning 使用 Hive 資料表 (而不是 Python) 來建置模型，您也必須佈建 HDInsight (Hadoop) 叢集。這個替代程序將於後續的適當小節中加以說明。
-
->AZURE.NOTE **Azure Data Lake Store** 可以個別建立，或者當您建立 **Azure Data Lake Analytics** 做為預設儲存體時加以建立。以下的參考指示會個別建立這其中的每一個資源，但不需要個別建立 Data Lake 儲存體帳戶。
-
+本節提供如何建立這些資源的指示。如果您選擇搭配 Azure Machine Learning 使用 Hive 資料表 (而不是 Python) 來建置模型，您也必須佈建 HDInsight (Hadoop) 叢集。這個替代程序將於後續的適當小節中加以說明。<br/>
+>AZURE.NOTE **Azure Data Lake Store** 可以個別建立，或者當您建立 **Azure Data Lake Analytics** 做為預設儲存體時加以建立。以下的參考指示會個別建立這其中的每一個資源，但不需要個別建立 Data Lake 儲存體帳戶。<br/>
 ### 建立 Azure 資料湖存放區
 
 從 [Azure 入口網站](http://portal.azure.com)建立 ADLS。如需詳細資訊，請參閱[使用 Azure 入口網站建立 HDInsight 叢集與 Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)。請務必依該文件所述，在 [選擇性組態] 刀鋒視窗的 [資料來源] 刀鋒視窗中設定 [叢集 AAD 身分識別]。
@@ -741,4 +739,4 @@ Azure Machine Learning Studio 可以直接從 Azure Data Lake Store 讀取資料
 - [Team Data Science Process：使用 SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [在 Azure HDInsight 上使用 Spark 的資料科學程序概觀](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

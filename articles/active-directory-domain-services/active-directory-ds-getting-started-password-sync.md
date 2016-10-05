@@ -73,4 +73,4 @@ Azure AD 網域服務需要適合於 NTLM 和 Kerberos 驗證之格式的認證�
 
 - [將 Red Hat Enterprise Linux 虛擬機器加入 Azure AD 網域服務受管理的網域](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0921_2016--->

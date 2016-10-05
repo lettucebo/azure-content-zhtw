@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="08/30/2016"
+ms.date="09/13/2016"
 ms.author="larryfr"/>
 
 # HDInsight 所使用的連接埠和 URI
@@ -36,9 +36,9 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 
 | 服務 | 連接埠 | 通訊協定 | 說明 |
 | ---- | ---------- | -------- | ----------- | ----------- |
-| sshd | 22 | SSH | 將用戶端連接至前端節點 0 上的 sshd。請參閱[搭配使用 SSH 與以 Linux 為基礎的 HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) |
+| sshd | 22 | SSH | 將用戶端連接到主要前端節點上的 sshd。請參閱[搭配使用 SSH 與以 Linux 為基礎的 HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) |
 | sshd | 22 | SSH | 將用戶端連接到邊緣節點上的 sshd (僅限 HDInsight Premium)。請參閱[開始使用 HDInsight 中的 R 伺服器](hdinsight-hadoop-r-server-get-started.md) |
-| sshd | 23 | SSH | 將用戶端連接至前端節點 1 上的 sshd。請參閱[搭配使用 SSH 與以 Linux 為基礎的 HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) |
+| sshd | 23 | SSH | 將用戶端連接到次要前端節點上的 sshd。請參閱[搭配使用 SSH 與以 Linux 為基礎的 HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) |
 | Ambari | 443 | HTTPS | Ambari Web UI。請參閱[使用 Ambari Web UI 管理 HDInsight](hdinsight-hadoop-manage-ambari.md) |
 | Ambari | 443 | HTTPS | Ambari REST API。請參閱[使用 Ambari REST API 管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat | 443 | HTTPS | HCatalog REST API。請參閱[搭配使用 Hive 與 Curl](hdinsight-hadoop-use-Pig-curl.md)、[搭配使用 Pig 與 Curl](hdinsight-hadoop-use-Pig-curl.md)、[搭配使用 MapReduce 與 Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
@@ -143,4 +143,4 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 | Broker | 背景工作節點 | 9092 | [Kafka Wire Protocol (Kafka 有線通訊協定)](http://kafka.apache.org/protocol.html) | 用於用戶端通訊 |
 | &nbsp; | Zookeeper 節點 | 2181 | &nbsp; | 用戶端用於連接至 ZooKeeper 的連接埠 |
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

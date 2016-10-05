@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory 程式碼範例
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-您可以使用 Microsoft Azure Active Directory (Azure AD)，將驗證和授權加入 Web 應用程式及 Web API。本節連結的程式碼範例將告訴您如何進行以及您可以在應用程式中使用的程式碼片段。在程式碼範例頁面上，您可以找到詳細的讀我主題，有助於符合需求、安裝及設定。而程式碼加上的註解可協助您了解重要區段。
+您可以使用 Microsoft Azure Active Directory (Azure AD)，將驗證和授權加入 Web 應用程式及 Web API。本節連結的程式碼範例將告訴您如何進行以及您可以在應用程式中使用的程式碼片段。在程式碼範例頁面上，您可以找到詳細的讀我主題，可協助您瞭解需求並進行安裝及設定。而程式碼加上的註解可協助您了解重要區段。
 
 若要了解每個範例類型的基本案例，請參閱「Azure AD 的驗證案例」。
 
@@ -151,4 +151,4 @@ PHP | [Azure AD Graph API 的 PHP 範例應用程式](http://code.msdn.microsoft
 
 [Azure AD Graph API 協助程式程式庫](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

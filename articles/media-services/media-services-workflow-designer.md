@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="使用工作流程設計工具建立進階編碼工作流程" 
+	pageTitle="使用工作流程設計工具建立進階編碼工作流程 | Microsoft Azure" 
 	description="深入了解如何使用工作流程設計工具建立進階編碼工作流程。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,johndeu,anilmur" 
-	manager="dwrede" 
+	authors="anilmur" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;johndeu;anilmur"/>
 
 
 #使用工作流程設計工具建立進階編碼工作流程
 
-##概觀
+##Overview
 
 「工作流程設計工具」是 Windows 傳統型工具，用來設計和建立自訂工作流程，以便用於「媒體編碼器高階工作流程」進行編碼。藉由使用工作流程設計工具的強大功能，您可以設計和建立複雜的工作流程，在 **Media Encoder Premium** 中執行。
 
@@ -74,8 +74,9 @@
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
 
 
+## 後續步驟
 
-##媒體服務學習路徑
+檢閱媒體服務學習路徑。
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -90,4 +91,4 @@
 
 [Azure Premium 編碼器工作流程設計工具訓練影片](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

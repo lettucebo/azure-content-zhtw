@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/21/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # 在執行 CentOS 的 StorSimple 主機上設定 MPIO
@@ -143,7 +143,7 @@ multipath.conf 有五個區段：
 	
 		`chkconfig --list | grep iscsi`
 	
-		範例輸出如下所示。
+		下方顯示一項範例輸出。
 
 			iscsi   0:off   1:off   2:on3:on4:on5:on6:off
 			iscsid  0:off   1:off   2:on3:on4:on5:on6:off
@@ -330,10 +330,10 @@ multipath.conf 有五個區段：
 
 		下列範例顯示目標 IQN 為 `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target` 的輸出。此輸出指出您已順利連接到您的裝置上已啟用 iSCSI 的兩個網路介面。
 
-		    Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] \ (multiple)
-	    	Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] \ (multiple)
-	    	Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] \ (multiple)
-	    	Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] \ (multiple)
+		    Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
+	    	Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
+	    	Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
+	    	Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
 	    	Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
 	    	Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
 	    	Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
@@ -376,17 +376,17 @@ multipath.conf 有五個區段：
 
 問：我未看見 `multipath.conf` 檔案的變更生效。
 
-答：如果您已對 `multipath.conf` 檔案進行任何變更，您必須重新啟動多重路徑服務。輸入以下命令：
+A.如果您已對 `multipath.conf` 檔案進行任何變更，您必須重新啟動多重路徑服務。輸入以下命令：
     
     service multipathd restart
 
 問：我已在 StorSimple 裝置上啟用兩個網路介面以及在主機上啟用兩個網路介面。當我列出可用的路徑時，我只看到兩個路徑。我預計看見四個可用的路徑。
 
-答：確定這兩個路徑位於相同的子網路上並可路由傳送。如果網路介面位於不同的 vLAN 上且不可路由傳送，您只會看到兩個路徑。確認這點的唯一方法就是確定您可以從 StorSimple 裝置上的網路介面存取這兩個主機介面。您必須[連絡 Microsoft 支援](storsimple-contact-microsoft-support.md)，因為這項驗證只能透過支援工作階段完成。
+A.確定這兩個路徑位於相同的子網路上並可路由傳送。如果網路介面位於不同的 vLAN 上且不可路由傳送，您只會看到兩個路徑。確認這點的唯一方法就是確定您可以從 StorSimple 裝置上的網路介面存取這兩個主機介面。您必須[連絡 Microsoft 支援](storsimple-contact-microsoft-support.md)，因為這項驗證只能透過支援工作階段完成。
 
 問：當我列出可用的路徑時，我看不到任何輸出。
 
-答：通常，看不到任何多重路徑的路徑，即暗示多重路徑精靈有問題，而最可能是 `multipath.conf` 檔案有問題。
+A.通常，看不到任何多重路徑的路徑，即暗示多重路徑精靈有問題，而最可能是 `multipath.conf` 檔案有問題。
 
 此外，也值得檢查您可以在連接到目標後實際看到某些磁碟，因為多重路徑清單沒有回應也可能表示您沒有任何磁碟。
 
@@ -421,7 +421,7 @@ multipath.conf 有五個區段：
 
 問：我不確定我的裝置是否已列入允許清單。
 
-答：若要驗證您的裝置是否已列入允許清單，請使用下列疑難排解互動式命令︰
+A.若要驗證您的裝置是否已列入允許清單，請使用下列疑難排解互動式命令︰
 
 	multipathd –k
 	multipathd> show devices
@@ -492,4 +492,4 @@ multipath.conf 有五個區段：
 - [在 CentOS 上設定 MPIO](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Linux 訓練指南](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -124,6 +124,12 @@ $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\ml
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
+另一種擷取現有工作區權杖的方式是使用 Invoke-AzureRmResourceAction 命令。例如，您可以列出所有工作區的主要和次要權杖。
+
+```  
+# List the primary and secondary tokens of all workspaces
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
+```
 佈建工作區之後，您也可以使用[適用於 Azure Machine Learning 的 PowerShell 模組](http://aka.ms/amlps)將許多 Azure Machine Learning Studio 工作自動化。
 
 ## 後續步驟 
@@ -138,4 +144,4 @@ $rgd.Outputs.mlWorkspaceToken.Value
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

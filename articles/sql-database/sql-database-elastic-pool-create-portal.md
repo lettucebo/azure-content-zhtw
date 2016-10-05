@@ -29,7 +29,7 @@
 
 您可以將多個集區新增至伺服器，但無法將來自不同伺服器的資料庫新增到相同的集區。若要建立集區，您至少需要一個位於 V12 伺服器的資料庫。如果沒有這樣的資料庫，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。您可以建立只有一個資料庫的集區，但具有多個資料庫的集區才符合成本效益。請參閱[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。
 
-> [AZURE.NOTE] 彈性集區已在所有 Azure 區域中正式運作 (GA)，但美國中北部和印度西部除外，在這些區域目前是提供預覽版。我們將儘速在這些區域提供彈性集區的 GA。此外，彈性集區目前不支援使用[記憶體內部 OLTP 或記憶體內部分析](sql-database-in-memory.md)的資料庫。
+> [AZURE.NOTE] 彈性集區已在所有 Azure 區域中正式運作 (GA)，但印度西部除外，此區域目前提供預覽版。我們將儘速在此區域提供彈性集區的 GA。
 
 ## 步驟 1：建立新的集區
 
@@ -40,11 +40,11 @@
 1. 在 [Azure 入口網站](http://portal.azure.com/)左側的清單底下，按一下 [瀏覽] **>** [SQL 伺服器]，然後按一下要新增集區之資料庫所在的伺服器。
 2. 按一下 [新增集區]。
 
-    ![將集區加入伺服器](./media/sql-database-elastic-pool-create-portal/new-pool.png)
+    ![將集區新增到伺服器](./media/sql-database-elastic-pool-create-portal/new-pool.png)
 
-	**-或-**
+    **-或-**
 
-	您可能會看到一則訊息，表示伺服器有建議的彈性資料庫集區 (僅限 V12)。按一下訊息以查看系統根據資料庫的歷史使用量遙測資料所推薦的集區，然後按一下定價層以查看更多詳細資料並自訂集區。若要了解系統是如何做出推薦的，請參閱本主題稍後的[了解集區建議](#understand-pool-recommendations)。
+    您可能會看到一則訊息，表示伺服器有建議的彈性資料庫集區 (僅限 V12)。按一下訊息以查看系統根據資料庫的歷史使用量遙測資料所推薦的集區，然後按一下定價層以查看更多詳細資料並自訂集區。若要了解系統是如何做出推薦的，請參閱本主題稍後的[了解集區建議](#understand-pool-recommendations)。
 
     ![建議的集區](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
@@ -92,7 +92,7 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 集區建議包含下列內容︰
 
 - 集區的定價層 (基本、標準或進階)。
-- 適當的 [集區 eDTU] \(也稱為每一集區的最大 eDTU)
+- 適當的 [集區 eDTU] (也稱為每一集區的最大 eDTU)
 - 每一資料庫的 [eDTU 上限] 和 [eDTU 下限]
 - 集區的建議資料庫清單
 
@@ -113,4 +113,4 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 - [使用 C# 管理 SQL Database 彈性集區](sql-database-elastic-pool-manage-csharp.md)
 - [使用 Azure SQL Database 相應放大](sql-database-elastic-scale-introduction.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

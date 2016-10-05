@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/02/2016"
+	ms.date="09/22/2016"
 	ms.author="curtand"/>
 
 # 新增來自 Azure Active Directory 中其他目錄或合作夥伴公司的使用者
 
 > [AZURE.SELECTOR]
-- [Azure 入口網站](active-directory-create-users-external-azure-portal.md)
+- [Azure 入口網站](active-directory-users-create-external-azure-portal.md)
 - [Azure 傳統入口網站](active-directory-create-users-external.md)
 
 本文說明如何新增 Azure Active Directory 中其他目錄的使用者或新增合作夥伴公司的使用者。如需新增您的組織內之使用者以及新增具有 Microsoft 帳戶之使用者的相關資訊，請參閱[將新的使用者新增到 Azure Active Directory](active-directory-create-users.md)。新增的使用者預設不會有系統管理員權限，但是您可以隨時指派角色給他們。
@@ -43,8 +43,8 @@
 
 > [AZURE.IMPORTANT] 如果您的組織使用多個網域，當您新增使用者帳戶時，請注意下列問題：
 >
-> - 若要跨網域新增具有相同使用者主體名稱 (UPN) 的使用者帳戶，請**先**新增 geoffgrisso@contoso.onmicrosoft.com **再**新增 geoffgrisso@contoso.com。
-> - **請勿**先新增 geoffgrisso@contoso.com 再新增 geoffgrisso@contoso.onmicrosoft.com。此順序很重要，事後想要復原會很麻煩。
+> - 若要跨網域新增具有相同使用者主體名稱 (UPN) 的使用者帳戶，請「先」新增 geoffgrisso@contoso.onmicrosoft.com，「再」新增 geoffgrisso@contoso.com。
+> - 請「勿」先新增 geoffgrisso@contoso.com 再新增 geoffgrisso@contoso.onmicrosoft.com。此順序很重要，事後想要復原會很麻煩。
 
 如果您變更其身分識別已與您的內部部署 Active Directory 服務同步處理之使用者的資訊，您就無法在 Azure 傳統入口網站中變更使用者資訊。若要變更此使用者資訊，請使用您的內部部署 Active Directory 管理工具。
 
@@ -70,7 +70,7 @@
 - **Azure 傳統入口網站**：允許身為多個目錄的管理員的外部使用者，管理這些目錄。
 - **SharePoint Online**：如果啟用外部共用，允許外部使用者存取 SharePoint Online 授權資源。
 - **Dynamics CRM**：如果使用者透過 PowerShell 獲得授權，允許外部使用者存取 Dynamics CRM 中的授權資源。
-- **Dynamics AX**：如果使用者透過 PowerShell 獲得授權，允許外部使用者存取 Dynamics AX 中的授權資源。[Azure AD 外部使用者](#known-limitations-of-azure-ad-external-users)和[來賓使用者](#guest-user-management-and-limitations)的限制也適用於 Dynamics AX 中的外部使用者。
+- **Dynamics AX**：如果使用者透過 PowerShell 獲得授權，允許外部使用者存取 Dynamics AX 中的授權資源。[Azure AD 外部使用者](#known-limitations-of-azure-ad-external-users)的限制也適用於 Dynamics AX 中的外部使用者。
 
 ### Azure AD 外部使用者的已知限制
 
@@ -88,4 +88,4 @@
 - [在 Azure AD 中管理密碼](active-directory-manage-passwords.md)
 - [在 Azure AD 中管理群組](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

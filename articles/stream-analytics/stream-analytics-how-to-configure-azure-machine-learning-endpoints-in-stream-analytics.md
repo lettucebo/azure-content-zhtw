@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -52,7 +52,7 @@ Microsoft Azure Machine Learning 提供可共同作業的拖放工具，供您�
 
 下列範例程式碼會建立名為 *newudf* 且繫結至 Azure Machine Learning 端點的純量 UDF，來做為示範。請注意，您可以在 API 說明頁面中找到所選服務的*端點* (服務 URI)，以及在 [服務] 主頁面中找到 *apiKey*。
 
-PUT：/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
+PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
 
 要求本文範例：
 
@@ -76,7 +76,7 @@ PUT：/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/M
 
 一旦建立好基本架構 UDF，就需要 UDF 的完整定義。RetreiveDefaultDefinition 端點可協助您取得繫結至 Azure Machine Learning 端點之純量函式的預設定義。下列內容會要求您取得繫結至 Azure Machine Learning 端點之純量函式的預設 UDF 定義。因為已在 PUT 要求期間提供，因此它不會指定實際的端點。串流分析會呼叫要求中提供的端點 (如果已明確提供)。否則，它會使用原本參考的端點。UDF 在這邊會採用單一字串參數 (一個句子)，並傳回指出該句子的「情緒」標籤的單一類型字串輸出。
 
-POST：/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
+POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
 
 要求本文範例：
 
@@ -131,7 +131,7 @@ POST：/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
 
 現在必須使用先前的回應修補 UDF，如下所示。
 
-PATCH：/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
+PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
 
 要求本文：RetrieveDefaultDefinition 的輸出
 
@@ -160,4 +160,4 @@ PATCH：/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

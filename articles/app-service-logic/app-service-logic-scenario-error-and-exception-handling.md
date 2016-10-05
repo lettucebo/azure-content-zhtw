@@ -428,7 +428,7 @@
 
 DocumentDB 中的每個文件都必須具有唯一識別碼。我們將會使用 `PatientId`，並加入轉換為 Unix 時間戳記值 (雙精確度) 的時間戳記。我們會將此值截斷以移除小數值。
 
-您可以 [從 GitHub] (https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs) 檢視錯誤控制器 API 的原始程式碼。
+您可以 [從 GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs) 檢視錯誤控制器 API 的原始程式碼。
 
 我們使用下列語法從邏輯應用程式呼叫 API。
 

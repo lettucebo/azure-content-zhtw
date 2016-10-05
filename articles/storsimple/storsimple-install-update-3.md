@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/07/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # 在 StorSimple 裝置上安裝 Update 3
@@ -27,7 +27,7 @@ Update 3 包含裝置軟體、LSI 驅動程式和韌體以及 Storport 和 Space
 
 > - 安裝前會執行一組手動和自動預先檢查，以根據硬體狀態和網路連線來判斷裝置健全狀況。這些預先檢查只會在您從 Azure 傳統入口網站套用更新時執行。
 > - 建議您透過 Azure 傳統入口網站安裝軟體和驅動程式更新。如果入口網站中的更新前閘道器檢查失敗，請移至裝置的 Windows PowerShell 介面安裝更新 (勿透過其他方式)。視您從哪一個版本更新而定，可能需要 1.5-2.5 小時來安裝更新。維護模式更新必須透過裝置的 Windows PowerShell 介面安裝。由於維護模式更新是干擾性更新，它們將會導致裝置的停機時間。
-> - 如果執行的是選擇性的 StorSimple Snapshot Manager，更新裝置之前，請先確定您已將 Snapshot Manager 版本升級至 Update 3。
+> - 如果執行選擇性的 StorSimple Snapshot Manager，更新裝置之前，請先將您的 Snapshot Manager 版本升級至 Update 2。
 
 [AZURE.INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
@@ -126,4 +126,4 @@ Hotfix 方法涉及下列三個步驟：
 
 深入了解 [Update 3 版](storsimple-update3-release-notes.md)。
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

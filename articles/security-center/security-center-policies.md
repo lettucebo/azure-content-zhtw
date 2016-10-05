@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # 在 Azure 資訊安全中心設定安全性原則
@@ -64,7 +64,7 @@
 
 9. 在 [安全性原則] 刀鋒視窗中，按一下 [開啟]，啟用您想要在此訂用帳戶使用的安全性建議。按一下 [防止原則] 可看到類似下列螢幕擷取畫面中的選項︰
 
-	![選取安全性原則](./media/security-center-policies/security-center-policies-fig4-ga.png)
+	![選取安全性原則](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
 請使用下表做為參考，以了解每個選項：
 
@@ -77,8 +77,9 @@
 | 網路安全性群組 | 建議設定[網路安全性群組](../virtual-network/virtual-networks-nsg.md)來控制具有公用端點之 VM 的輸入與輸出流量。除非另有指定，否則所有虛擬機器網路介面都會繼承為子網路設定的網路安全性群組。除了檢查是否已設定網路安全性群組之外，此原則還會評估輸入安全性規則來識別可允許連入流量的規則。 |
 | Web 應用程式防火牆 | 建議於下列任一條件成立的情況下，在虛擬機器上佈建 Web 應用程式防火牆：使用</br></br>[執行個體層級公用 IP](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) 並設定相關聯的「NSG 輸入安全性規則」來允許存取連接埠 80/443。</br></br>使用負載平衡 IP 並設定相關聯的負載平衡與輸入網路位址轉譯 NAT 規則，來允許存取連接埠 80/443。如需詳細資料，請參閱 [Azure Resource Manager 的負載平衡器支援](../load-balancer/load-balancer-arm.md)。 |
 | 新一代防火牆 | 提供超越 Azure 內建網路安全性群組的網路保護。資訊安全中心會探索建議使用新一代防火牆的部署，並可讓您佈建虛擬應用裝置。 |
-| SQL 稽核 | 建議針對法規遵循、進階偵測及調查用途，啟用 Azure 資料庫的存取稽核。 |
+| SQL 稽核與威脅偵測 | 建議針對法規遵循、進階威脅偵測及調查用途，啟用 Azure 資料庫的存取稽核。 |
 | SQL 透明資料加密 | 建議為您的 Azure SQL Database、關聯的備份及交易記錄檔啟用待用期加密。您的資料即使遭到入侵，也無法被讀取。 |
+| 弱點評估 | 建議在 VM 上安裝弱點評估解決方案。 |
 
 設定所有選項之後，請在具有建議的 [安全性原則] 刀鋒視窗中按一下 [確定]，然後在具有初始設定的 [安全性原則] 刀鋒視窗中按一下 [儲存]。
 
@@ -106,4 +107,4 @@
 - [Azure 資訊安全中心常見問題集](security-center-faq.md)。尋找有關使用服務的常見問題。
 - [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/)。尋找有關 Azure 安全性與相容性的部落格文章。
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

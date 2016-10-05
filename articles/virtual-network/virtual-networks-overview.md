@@ -95,4 +95,4 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。它是專屬於
 - 了解 [NSG](virtual-networks-nsg.md)。
 - 了解[使用者定義的路由和 IP 轉送](virtual-networks-udr-overview.md)。
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0810_2016--->

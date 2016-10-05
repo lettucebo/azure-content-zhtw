@@ -3,7 +3,7 @@
 	description="遵循此教學課程，以開始使用 Azure 事件中樞；以 C# 傳送事件並使用 EventProcessorHost 以 Java 接收事件。"
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/16/2016"
-	ms.author="jotaub"/>
+	ms.date="09/27/2016"
+	ms.author="jotaub;sethm"/>
 
 # 開始使用事件中心
 
@@ -71,4 +71,4 @@
 [佇列訊息解決方案]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

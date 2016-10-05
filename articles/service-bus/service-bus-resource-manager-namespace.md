@@ -35,7 +35,7 @@
 
 ## 您將部署什麼？
 
-使用此範本，您將部署具有[基本或標準](https://azure.microsoft.com/pricing/details/service-bus/) SKU 的服務匯流排命名空間。
+使用此範本時，您將部署具有[基本、標準或進階](https://azure.microsoft.com/pricing/details/service-bus/) SKU 的「服務匯流排」命名空間。
 
 若要自動執行部署，請按一下下列按鈕：
 
@@ -69,7 +69,8 @@
     "type": "string", 
     "allowedValues": [ 
         "Basic", 
-        "Standard" 
+        "Standard",
+        "Premium" 
     ], 
     "defaultValue": "Standard", 
     "metadata": { 
@@ -78,9 +79,7 @@
 
 ```
 
-此範本定義此參數允許的值 (基本或標準)，並指派未指定任何值時的預設值 (標準)。
-
-每個月有美金 $10 元的標準層基本費用，讓您每個月執行最多 1,250 萬個作業，且不需額外費用。基本層收費為每百萬個作業美金 $0.05 元。
+此範本會定義此參數允許使用的值 (Basic、Standard 或 Premium)，並指派未指定任何值時的預設值 (Standard)。
 
 如需服務匯流排價格的詳細資訊，請參閱[服務匯流排價格與計費][]。
 
@@ -154,4 +153,4 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

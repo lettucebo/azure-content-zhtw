@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="hangzh;bradsev" />
 
 
 # Team Data Science Process 實務：使用 HDInsight Hadoop 叢集
 
-在這個逐步解說中，我們會在採用 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)的端對端案例中使用 Team Data Science Process，以對 [NYC Taxi Trips (NYC 計程車車程)](http://www.andresmh.com/nyctaxitrips/) 資料集內可公開使用的資料進行儲存、探索和特徵工程設計，並縮減取樣資料。資料的模型是使用 Azure Machine Learning 建置，以處理二元和多元分類和迴歸預測工作。
+在這個逐步解說中，我們會在採用 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)的端對端案例中使用 [Team Data Science Process (TDSP)](data-science-process-overview.md)，以對 [NYC Taxi Trips (NYC 計程車車程)](http://www.andresmh.com/nyctaxitrips/) 資料集內可公開使用的資料進行儲存、探索和特徵工程設計，並縮減取樣資料。資料的模型是使用 Azure Machine Learning 建置，以處理二元和多元分類和迴歸預測工作。
 
 如需示範如何使用 HDInsight Hadoop 叢集，針對類似的案例處理更大 (1 TB) 資料集資料的逐步解說，請參閱 [Team Data Science Process - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集](machine-learning-data-science-process-hive-criteo-walkthrough.md)。
 
@@ -111,7 +111,7 @@
 
 在下列 AzCopy 命令中，以建立 Hadoop 叢集和解壓縮資料檔案時指定的實際值取代下列參數。
 
-* ***&#60;path\_to\_data\_folder>***：在包含未解壓縮資料檔案之電腦上的目錄 (以及路徑)  
+* ***&#60;path\_to\_data\_folder>***：在包含未解壓縮資料檔案之電腦上的目錄 (以及路徑)
 * ***&#60;storage account name of Hadoop cluster>***：HDInsight 叢集所關聯的儲存體帳戶
 * ***&#60;default container of Hadoop cluster>***：您的叢集所使用的預設容器。請注意，預設容器的名稱通常與叢集本身的名稱相同。例如，如果叢集稱為 "abc123.azurehdinsight.net"，預設容器即為 abc123。
 * ***&#60;storage account key>***：您的叢集所使用的儲存體帳戶金鑰
@@ -434,10 +434,10 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 
 以下是要檢查之 *sample\_hive\_quality\_assessment.hql* 檔案的內容。
 
-    	SELECT COUNT(*) FROM nyctaxidb.trip
-    	WHERE month=1
-    	AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
-    	OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
+	    SELECT COUNT(*) FROM nyctaxidb.trip
+	    WHERE month=1
+	    AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
+	    OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
 	    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND -30
 	    OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
 
@@ -454,7 +454,7 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 
 對於[預測工作的範例](machine-learning-data-science-process-hive-walkthrough.md#mltasks)一節中所述的二元分類問題而言，了解是否已指定小費會很有幫助。小費是二元分佈：
 
-* 指定小費 (類別 1，tip\_amount > 美金 $0 元)  
+* 指定小費 (類別 1，tip\_amount > 美金 $0 元)
 * 沒有小費 (類別 0、 tip\_amount = 美金 $0 元)。
 
 以下顯示的 *Sample\_hive\_tipped\_frequencies.hql* 檔案會執行這項作業。
@@ -564,10 +564,10 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 
 以下是 *sample\_hive\_prepare\_for\_aml\_full.hql* 檔案的內容，該檔案會準備在 Azure Machine Learning 中建置模型所要使用的資料。
 
-		set R = 3959;
-	    set pi=radians(180);
+        set R = 3959;
+        set pi=radians(180);
 
-		create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
+        create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
 
         medallion string,
         hack_license string,
@@ -622,7 +622,7 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
         t.pickup_latitude,
         t.dropoff_longitude,
         t.dropoff_latitude,
-		t.direct_distance,
+        t.direct_distance,
         f.payment_type,
         f.fare_amount,
         f.surcharge,
@@ -709,7 +709,7 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 
 **Azure 容器名稱**：這是叢集的預設容器名稱，且通常與叢集名稱相同。如果叢集為 "abc123"，即為 abc123。
 
-**重要事項：** **任何我們想要使用 Azure Machine Learning 中的[匯入資料][import-data]模組來查詢的資料表都必須是內部資料表。** 以下是判斷資料庫 D.db 中的資料表 T 是否為內部資料表的秘訣。
+**重要事項：** **任何我們想要使用 Azure Machine Learning 中的[匯入資料][import-data]模組來查詢的資料表都必須是內部資料表** 以下是判斷資料庫 D.db 中的資料表 T 是否為內部資料表的秘訣。
 
 從 Hive 目錄提示字元發出下列命令：
 
@@ -794,8 +794,8 @@ b.對於迴歸問題，我們會藉由查看預測中的平方誤差、決定係
 
 ## 參考
 
-•	[Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) (Andrés Monroy NYC Taxi Trips Download Page)  
-•	[FOIL NYC 的計程車車程資料 (作者為 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/) (FOILing NYC’s Taxi Trip Data by Chris Whong)   
+•	[Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) (Andrés Monroy NYC Taxi Trips Download Page)
+•	[FOIL NYC 的計程車車程資料 (作者為 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/) (FOILing NYC’s Taxi Trip Data by Chris Whong)
 •	[NYC 計程車和禮車委託研究和統計資料](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml) (NYC Taxi and Limousine Commission Research and Statistics)
 
 
@@ -810,4 +810,4 @@ b.對於迴歸問題，我們會藉由查看預測中的平方誤差、決定係
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

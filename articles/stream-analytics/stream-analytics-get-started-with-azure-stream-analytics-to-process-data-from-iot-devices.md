@@ -15,7 +15,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/11/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"
 />
 
@@ -120,4 +120,4 @@ Contoso 是一家工業自動化空間的公司，他們已完全自動化其製
 
 本教學課程的目的在於示範如何撰寫不同的串流分析查詢語言查詢，並在瀏覽器中查看結果。但是，這只是剛開始。您還可以使用串流分析執行更多功能。串流分析支援各種輸入和輸出，並甚至可以運用 Azure Machine Learning 中的函式，因此是分析資料串流的健全工具。您可以使用我們的[學習圖](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)開始探索更多串流分析，如需撰寫查詢的詳細資訊，請閱讀[常見查詢模式](./stream-analytics-stream-analytics-query-patterns.md)上的文章。
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

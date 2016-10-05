@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2016"
+	ms.date="09/21/2016"
 	ms.author="jgao"/>
 
 
@@ -91,12 +91,12 @@ Apache Spark|1\.6.0 (僅限 Linux)|1\.5.2 (僅限 Linux/實驗性組建)|1\.3.1 
 HDInsight 版本|HDP 版本|VM OS|高可用性|發行日期|可在 Azure 入口網站上取得|支援到期日|淘汰日期
 ---|---|---|---|---|---|---|---
 HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|是|03/29/2016|是||
-HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS 或 Windows Server 2012R2|是|12/02/2015|是||
-HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS 或 Windows Server 2012R2|是|2015/2/18|是||
-HDI 3.1|HDP 2.1|Windows Server 2012R2|是|2014/6/24|是||
-HDI 3.0|HDP 2.0|Windows Server 2012R2|是|02/11/2014|是|09/17/2014|06/30/2015
-HDI 2.1|HDP 1.3|Windows Server 2012R2|是|10/28/2013|是|05/12/2014|05/31/2015
-HDI 1.6|HDP 1.1||否|10/28/2013|是|04/26/2014|05/31/2015
+HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS 或 Windows Server 2012R2|是|12/02/2015|是|06/27/2016|07/31/2017
+HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS 或 Windows Server 2012R2|是|2015/2/18|是|3/1/2016|04/01/2017
+HDI 3.1|HDP 2.1|Windows Server 2012R2|是|2014/6/24|否|05/18/2015|06/30/2016
+HDI 3.0|HDP 2.0|Windows Server 2012R2|是|02/11/2014|否|09/17/2014|06/30/2015
+HDI 2.1|HDP 1.3|Windows Server 2012R2|是|10/28/2013|否|05/12/2014|05/31/2015
+HDI 1.6|HDP 1.1||否|10/28/2013|否|04/26/2014|05/31/2015
 
 **非預設叢集的部署**
 
@@ -109,7 +109,7 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [**淘汰日期**] 是指在此日期之後便無法在 HDInsight 上建立叢集版本。
 
-> [AZURE.NOTE] HDInsight 2.1 和 3.0 叢集可在使用 Windows Server 2012 R2 64 位元版本並支援 .NET Framework 4.0、4.5 和 4.5.1 的 Azure 客體 OS [Family 4](../cloud-services/cloud-services-guestos-update-matrix.md) 上執行。
+> [AZURE.NOTE] Windows 型 HDInsight 叢集 (包括 2.1、3.0、3.1、3.2 和 3.3 版) 可在 Azure 客體 OS 系列 4 上執行，此系列使用 64 位元版的 Windows Server 2012 R2 並支援 .NET Framework 4.0、4.5、4.5.1 和 4.5.2。
 
 ## 與 HDInsight 版本相關聯的 Hortonworks 版本資訊##
 
@@ -157,4 +157,4 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

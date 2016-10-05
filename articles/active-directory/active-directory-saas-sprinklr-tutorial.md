@@ -11,14 +11,14 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/19/2016" 
     ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Sprinklr 整合
   
 本教學課程的目的是要示範 Azure 與 Sprinklr 的整合。本教學課程中說明的案例假設您已經具有下列項目：
 
--   有效的 Azure 訂閱
+-   有效的 Azure 訂用帳戶
 -   Sprinklr 租用戶
   
 完成本教學課程之後，您指派給 Sprinklr 的 Azure AD 使用者就能夠單一登入您 Sprinklr 公司網站 (服務提供者起始登入) 的應用程式，或是使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)進行單一登入。
@@ -54,7 +54,7 @@
 
 5.  在 [欲執行動作] 對話方塊中，按一下 [從資源庫加入應用程式]。
 
-    ![從組件庫新增應用程式](./media/active-directory-saas-sprinklr-tutorial/IC749322.png "從組件庫新增應用程式")
+    ![從資源庫新增應用程式](./media/active-directory-saas-sprinklr-tutorial/IC749322.png "從資源庫新增應用程式")
 
 6.  在 [搜尋方塊] 中，輸入 **Sprinklr**。
 
@@ -66,7 +66,7 @@
 
 ##設定單一登入
   
-本節的目的是概述如何依據 SAML 通訊協定來使用同盟，讓使用者能夠以自己的 Azure AD 帳戶在 Sprinklr 中進行驗證。在此程序中，您必須建立 base-64 編碼的憑證檔案。如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+本節的目的是概述如何依據 SAML 通訊協定來使用同盟，讓使用者能夠以自己的 Azure AD 帳戶在 Sprinklr 中進行驗證。在此程序中，您必須建立 Base-64 編碼的憑證檔案。如果您不熟悉此程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
 ###若要設定單一登入，請執行下列步驟：
 
@@ -107,7 +107,7 @@
     1.  在 [名稱] 文字方塊中，輸入您的組態名稱 (例如：*WAADSSOTest*)。
     2.  選取 [啟用]。
     3.  選取 [使用新的 SSO 憑證]。
-    4.  從您下載的憑證建立 **base-64 編碼**檔案。
+    4.  從您下載的憑證建立「Base-64 編碼」檔案。
 
         >[AZURE.TIP] 如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
 
@@ -139,11 +139,11 @@
 
 3.  從左窗格移至 [管理用戶端] > [使用者]。
 
-    ![設定](./media/active-directory-saas-sprinklr-tutorial/IC782914.png "Settings")
+    ![Settings](./media/active-directory-saas-sprinklr-tutorial/IC782914.png "Settings")
 
 4.  按一下 [新增使用者]。
 
-    ![Settings](./media/active-directory-saas-sprinklr-tutorial/IC782915.png "設定")
+    ![Settings](./media/active-directory-saas-sprinklr-tutorial/IC782915.png "Settings")
 
 5.  在 [編輯使用者] 對話方塊上，執行下列步驟：
 
@@ -184,4 +184,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資料，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

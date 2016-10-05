@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/17/2016"
+   ms.date="09/23/2016"
    ms.author="alkohli" />
 
 # 部署和管理 Azure 中的 StorSimple 虛擬裝置
@@ -139,6 +139,8 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 [AZURE.INCLUDE [建立虛擬裝置](../../includes/storsimple-create-virtual-device-u2.md)]
 
+如果此步驟中的虛擬裝置建立失敗，您可能沒有網際網路的連線能力。如需詳細資訊，請在建立虛擬裝置時移至[針對網際網路連線失敗進行疑難排解](#troubleshoot-internet-connectivity-errors)。
+
 
 ### 步驟 2：設定和註冊虛擬裝置
 
@@ -210,8 +212,7 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 由於它是純軟體裝置，相較於實體裝置的維護，虛擬裝置的維護可說是最基本的。您有下列選擇：
 
 - **軟體更新** - 您可以檢視上次更新軟體的日期，以及任何更新狀態訊息。如果想要檢查是否有新的更新，可以使用頁面底部的 [**掃描更新**] 按鈕來執行手動掃描。如果有可用更新，請按一下 [**安裝更新**] 加以安裝。因為虛擬裝置上只有單一介面，這表示在套用更新時將造成服務些微中斷。虛擬裝置將關閉並重新啟動 (如有必要)，以套用任何已發行的更新。如需逐步程序，請移至[更新您的裝置](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal)。
-- **支援封裝** - 您可以建立並上傳支援封裝，以協助 Microsoft 支援服務為您的虛擬裝置問題進行疑難排解。  
-如需逐步程序，請移至[建立和管理支援封裝](storsimple-create-manage-support-package.md)。
+- **支援套件** - 您可以建立並上傳支援套件，以協助 Microsoft 支援服務針對您的虛擬裝置問題進行疑難排解。如需逐步程序，請移至[建立和管理支援套件](storsimple-create-manage-support-package.md)。
 
 ### 虛擬裝置的儲存體帳戶
 
@@ -273,6 +274,19 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 [AZURE.INCLUDE [刪除虛擬裝置](../../includes/storsimple-delete-virtual-device.md)]
 
    
+## 針對網際網路連線錯誤進行疑難排解 
+
+在虛擬裝置建立期間，如果沒無法連線到網際網路，則建立步驟將會失敗。若要針對是否因為網際網路連線而失敗進行疑難排解，請在 Azure 傳統入口網站中執行下列步驟︰
+
+1. 在 Azure 中建立 Windows server 2012 虛擬機器。此虛擬機器應該使用與虛擬裝置使用的相同儲存體帳戶、VNet 和子網路。如果您在 Azure 中已經有使用相同儲存體帳戶、Vnet 和子網路的現有 Windows Server 主機，您也可以使用它來針對網際網路連線進行疑難排解。
+2. 遠端登入在先前步驟中建立的虛擬機器。
+3. 在虛擬機器內開啟命令視窗 (Win + R，然後輸入 `cmd`)。
+4. 在出現提示時執行下列命令。
+
+	`nslookup windows.net`
+
+5. 如果 `nslookup` 失敗，則網際網路連線失敗會導致虛擬裝置無法註冊到 StorSimple Manager 服務。
+6. 對虛擬網路進行必要的變更，確保虛擬裝置能夠存取 Azure 網站，例如 "windows.net"。
 
 ## 後續步驟
 
@@ -280,4 +294,4 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
  
 - 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

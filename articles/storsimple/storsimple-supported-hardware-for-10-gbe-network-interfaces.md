@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # 10 GbE 網路介面在 StorSimple 裝置上支援的硬體
 
-## 概觀
+## Overview
 
 本文章提供補充使用 Microsoft Azure StorSimple 裝置的補充硬體之相關資訊。
 
@@ -27,13 +27,13 @@ Microsoft 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以
 
 ### SFP+ 收發器
 
-|請確定|模型|
+|Make|模型|
 |---|---|
 |Cisco|SFP-10G-SR|
 
 ### 纜線
 
-|序號 |請確定|模型|
+|序編號 |Make|模型|
 |---|---|---|
 | 1\.|Cisco|SFP-H10GB-CU1M|
 | 2\.|Cisco|SFP-H10GB-CU2M|
@@ -42,7 +42,7 @@ Microsoft 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以
 
 ### 交換器
 
-|序號|請確定|模型|
+|序編號|Make|模型|
 |---|---|---|
 | 1\. |Cisco|N3K-C3172PQ-10GE|
 | 2\. |Cisco|N3K-C3048-ZM-F|
@@ -114,7 +114,7 @@ Mellanox 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以�
 
 ### Mellanox 所支援的切換器 
 
-下表列出 Mellanox 所支援的切換器。這些項目尚未經過 Microsoft 測試，但可能使用您的 StorSimple 裝置。
+下表列出 Mellanox 所支援的切換器。這些項目尚未經過 Microsoft 測試，但可能適用您的 StorSimple 裝置。
 
 | 序號 | 速度 | 模型 | 說明 | 請確定 |
 |--------|-------|-------------|---------------------------------------------------------------------|-------------|
@@ -130,4 +130,4 @@ Mellanox 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以�
 
 [深入了解 StorSimple 硬體元件與狀態](storsimple-monitor-hardware-status.md)。
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

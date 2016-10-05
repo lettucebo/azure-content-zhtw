@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="xibingao;bradsev" />
 
 # 將 Azure 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用
@@ -83,11 +83,11 @@
 
 ![建立工作區][19]
 
-您將會看見一則警告，指出「_此網站的安全性憑證有問題_」(Internet Explorer) 或「_您的連線不是私人連線_」(Chrome)，如下圖所示。按一下 [**繼續瀏覽此網站 (不建議)**]\(Internet Explorer)，或者依序按一下 [**進階**] 和 [**前往 &#60;*DNS 名稱*> (不安全)**] \(Chrome)，以便繼續進行。接著，輸入您先前指定的密碼來存取 IPython Notebook。
+您將會看見一則警告，指出「_此網站的安全性憑證有問題_」(Internet Explorer) 或「_您的連線不是私人連線_」(Chrome)，如下圖所示。按一下 [**繼續瀏覽此網站 (不建議)**] \(Internet Explorer)，或者依序按一下 [**進階**] 和 [**前往 &#60;*DNS 名稱*> (不安全)**] \(Chrome)，以便繼續進行。接著，輸入您先前指定的密碼來存取 IPython Notebook。
 
-Internet Explorer：![建立工作區][20]
+**Internet Explorer：**![建立工作區][20]
 
-Chrome：![建立工作區][21]
+**Chrome：**![建立工作區][21]
 
 登入 IPython Notebook 之後，*DataScienceSamples* 目錄將顯示在瀏覽器上。此目錄包含由 Microsoft 共用的 IPython Notebook 範例，可協助使用者進行資料科學工作。這些 IPython Notebook 範例是在 IPython Notebook 伺服器設定程序期間，從 [**GitHub 儲存機制**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)簽出至虛擬機器。Microsoft 會經常維護並更新此儲存機制。使用者可以瀏覽 GitHub 儲存機制，以取得最近更新的 IPython Notebook 範例。![建立工作區][18]
 
@@ -142,4 +142,4 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -166,7 +166,7 @@ Azure AD 的同意架構可讓您輕鬆地開發需要存取由 Azure AD 租用�
 
 如需以下項目所公開的存取範圍的完整討論：
 
-- Azure AD 圖形 API，請參閱 [權限範圍 | 圖形 API 概念] (https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) 一文。
+- Azure AD 圖形 API，請參閱 [權限範圍 | 圖形 API 概念](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) 一文。
 - Office 365 API，請參閱[使用一般同意架構的驗證和授權](https://msdn.microsoft.com/office/office365/howto/application-manifest)一文。如需更多有關如何建置可與 Office 365 API 整合之用戶端應用程式的討論，請參閱[設定 Office 365 開發環境](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment)。
 
 >[AZURE.NOTE] 由於目前的限制，如果原生用戶端應用程式使用「存取組織的目錄」權限，它們只能呼叫 Azure AD 圖形 API。這項限制不適用於 Web 應用程式。

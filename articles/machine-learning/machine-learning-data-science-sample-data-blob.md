@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="sunliangms;fashah;garye;bradsev" />
+	ms.date="09/19/2016" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Azure blob 儲存體中的取樣資料
 
@@ -33,7 +33,7 @@
 ## 下載和降低取樣資料
 1. 從下列 Python 程式碼範例中，使用 Blob 服務，從 Azure Blob 儲存體下載資料。
 
-	    from azure.storage.blob import BlobService
+    	from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -53,12 +53,12 @@
 
 		import pandas as pd
 
-	    #directly ready from file on disk
+		#directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 3. 使用 `numpy` 的 `random.choice` 以進行降低取樣資料，如下所示：
 
-	    # A 1 percent sample
+    	# A 1 percent sample
     	sample_ratio = 0.01 
     	sample_size = np.round(dataframe_blobdata.shape[0] * sample_ratio)
     	sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
@@ -102,4 +102,4 @@
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -144,7 +144,7 @@
 
 	<tr>
 	<td>ServiceVmSize</td>
-	<td>提供在雲端服務內使用的 VM 大小。此參數預設為 A0。接受 A0/A1/A2/A3 的參數值，這會導致背景工作角色分別使用 ExtraSmall/Small/Medium/Large 大小。如需背景工作角色大小的詳細資訊，請參閱 [彈性資料庫工作元件和訂價] (sql-database-elastic-jobs-overview/#components-and-pricing)。</td>
+	<td>提供在雲端服務內使用的 VM 大小。此參數預設為 A0。接受 A0/A1/A2/A3 的參數值，這會導致背景工作角色分別使用 ExtraSmall/Small/Medium/Large 大小。如需背景工作角色大小的詳細資訊，請參閱 [彈性資料庫工作元件和訂價](sql-database-elastic-jobs-overview/#components-and-pricing)。</td>
 </tr>
 
 </table>

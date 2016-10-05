@@ -29,7 +29,7 @@ Twilio 是一種電話語音 Web 服務 API，能夠讓您使用現有的 Web �
 **Twilio 語音**可讓應用程式撥打和接聽電話。**Twilio SMS** 可以讓您的應用程式撰寫和接收 SMS 訊息。**Twilio Client** 可以讓您的應用程式在現有網際網路連線 (包括行動連線) 中啟用語音通訊。
 
 ## <a id="Pricing"></a>Twilio 定價和特別優惠
-[Twilio 定價][twilio_pricing] (英文) 提供 Twilio 的定價資訊。Azure 客戶享有[特殊優惠][special_offer]：免費1000 則文字簡訊或接聽1000 分鐘電話。若要註冊獲得這項優惠或取得詳細資訊，請造訪 [http://ahoy.twilio.com/azure][special_offer] (英文)。
+[Twilio 定價][twilio_pricing] \(英文) 提供 Twilio 的定價資訊。Azure 客戶享有[特殊優惠][special_offer]：免費1000 則文字簡訊或接聽1000 分鐘電話。若要註冊獲得這項優惠或取得詳細資訊，請造訪 [http://ahoy.twilio.com/azure][special_offer] \(英文)。
 
 ## <a id="Concepts"></a>概念
 Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱＜[Twilio API 程式庫][twilio_libraries]＞(英文)。

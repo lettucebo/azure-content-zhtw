@@ -282,4 +282,4 @@ NSG 包含兩組規則：輸入和輸出。規則的優先順序在每一個集�
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0907_2016--->

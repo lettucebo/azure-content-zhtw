@@ -27,7 +27,7 @@
 
 ## 步驟 1：建立範本檔案
 
-您可以使用[編寫 Azure Resource Manager 範本](../resource-group-authoring-templates.md)中的資訊來建立專屬範本。您也可以從 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)部署為您建立的範本。
+您可以使用[編寫 Azure Resource Manager 範本](../resource-group-authoring-templates.md)中的資訊來建立專屬範本。您也可以從 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)部署已為您建立的範本。
 
 1. 開啟您常用的文字編輯器，然後將此 JSON 資訊複製到名為 *VirtualMachineTemplate.json* 的新檔案中：
 
@@ -286,4 +286,4 @@
 - 如果部署有問題，下一個步驟就是查看[使用 Azure 入口網站針對資源群組部署進行疑難排解](../resource-manager-troubleshoot-deployments-portal.md)。
 - 檢閱[使用 Azure Resource Manager 和 PowerShell 管理虛擬機器](virtual-machines-windows-ps-manage.md)，以了解如何管理您剛建立的虛擬機器。
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

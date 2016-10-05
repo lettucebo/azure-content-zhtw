@@ -35,7 +35,7 @@
 - Python 2.7 或 3.4
 - setuptools、pip、virtualenv (僅 Python 2.7)
 - Git
-- [Python Tools for Visual Studio][] (PTVS) - 注意：此為選擇性項目
+- [Python Tools for Visual Studio][] \(PTVS) - 注意：此為選擇性項目
 
 **注意**：Python 專案目前不支援 TFS 發佈。
 
@@ -45,7 +45,7 @@
 
 針對 Git，建議您安裝 [Git for Windows] 或 [GitHub for Windows]。如果您使用 Visual Studio，您可以使用整合式的 Git 支援。
 
-我們也建議您安裝 [Python Tools 2.2 for Visual Studio]。這是選擇性的，但如果您有 [Visual Studio] (包含免費的 Visual Studio Community 2013 或 Visual Studio Express 2013 for Web)，它會提供您絕佳的 Python IDE。
+我們也建議您安裝 [Python Tools 2.2 for Visual Studio]。這是選擇性的，但如果您有 [Visual Studio] \(包含免費的 Visual Studio Community 2013 或 Visual Studio Express 2013 for Web)，它會提供您絕佳的 Python IDE。
 
 ### Mac/Linux
 

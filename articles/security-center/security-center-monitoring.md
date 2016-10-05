@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 #Azure 資訊安全中心的安全性健康情況監視
@@ -29,7 +29,7 @@
 
 您可在 [資源健全狀況] 圖格上監視資源的安全性狀態。在以下範例中，您會看到一些需要注意的高度或中度嚴重性問題。已啟用的安全性原則將會影響受監督的控制項類型。
 
-![資源健康情況](./media/security-center-monitoring/security-center-monitoring-fig1-ga.png)
+![資源健康情況](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
 如果資訊安全中心找出必須處理的弱點 (例如遺漏安全性更新的 VM 或沒有[網路安全性群組](../virtual-network/virtual-networks-nsg.md)的子網路)，將會在這裡列出。
 
@@ -51,7 +51,7 @@
 
 
 ####虛擬機器建議
-本節提供一組 Azure 資訊安全中心所監視的每個 VM 的建議。第一個資料行列出建議，第二個資料行列出受到該建議影響的 VM 總數，第三個資料行顯示問題的嚴重性，如下所示。
+本節提供一組 Azure 資訊安全中心所監視之[每個 VM 的建議](security-center-virtual-machine-recommendations.md)。第一個資料行列出建議，第二個資料行列出受到該建議影響的 VM 總數，第三個資料行顯示問題的嚴重性，如下所示。
 
 ![VM 建議](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
 
@@ -79,7 +79,7 @@
 
 ![每個 VM 遺失的系統更新](./media/security-center-monitoring/security-center-monitoring-fig6-ga.png)
 
-> [AZURE.NOTE] 這裡的安全性建議與 [建議] 刀鋒視窗中的建議相同。如需解決建議的詳細資訊，請參閱[實作 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)一文。這不只適用於 VM，也適用於 [資源健康情況] 圖格中所有可用的資源。
+> [AZURE.NOTE] 這裡的安全性建議與 [建議] 刀鋒視窗中的建議相同。如需解決建議的詳細資訊，請參閱[實作 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)一文。這不只適用於 VM，也適用於 [資源健康情況] 磚中所有可用的資源。
 
 ####虛擬機器區段
 虛擬機器區段提供所有 VM 和建議的概觀。每個資料行代表一組建議，如下所示：
@@ -116,7 +116,7 @@
 
 類似於虛擬機器資源健康情況資訊，這個刀鋒視窗也在刀鋒視窗上半部提供問題的摘要清單，在下半部提供受監督的網路清單。
 
-網路狀態明細區段會列出網路功能的狀態分解區段列出潛在的安全性問題，並提供建議。可能的問題包括：
+網路狀態明細區段會列出潛在的安全性問題，並提供[建議](security-center-network-recommendations.md)。可能的問題包括：
 
 - 未安裝新一代防火牆 (NGFW)
 - 未啟用子網路上的網路安全性群組 (NSG)
@@ -141,7 +141,7 @@
 此資料表有代表 VM 的端點名稱、網際網路面向的 IP 位址、NSG 和 NGFW 目前的嚴重性狀態。此資料表是依嚴重性排序，如下所述︰
 - 紅色 (在頂端)：高優先順序，應立即處理
 - 橘色︰中等優先順序，應儘速處理
-- 綠色 (最後一個)︰健全狀況
+- 綠色 (最後一個)︰健康狀態
 
 ####網路拓撲區段
 
@@ -152,7 +152,7 @@
 此資料表是依重要性排序 (VM 和子網路)，如下所述︰
 - 紅色 (在頂端)：高優先順序，應立即處理
 - 橘色︰中等優先順序，應儘速處理
-- 綠色 (最後一個)︰健全狀況
+- 綠色 (最後一個)︰健康狀態
 
 在此拓撲檢視中，第一層有[虛擬網路](../virtual-network/virtual-networks-overview.md)、[虛擬網路閘道](../vpn-gateway/vpn-gateway-site-to-site-create.md)和[虛擬網路 (傳統)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。第二層有子網路，第三層有屬於這些子網路的 VM。右側資料行有這些資源的網路安全性群組 (NSG) 的目前狀態，如以下範例所示：
 
@@ -160,8 +160,8 @@
 
 此刀鋒視窗的下半部有此 VM 的建議 (類似上面所述)。您可以按一下建議以深入了解或套用所需的安全性控制/組態。
 
-###監視 SQL 資源
-當您按一下 [資源安全性健全狀況] 圖格中的 [SQL] 時，將會開啟 [SQL] 刀鋒視窗，內含問題的建議，例如未啟用稽核、透明資料加密。它也具有資料庫的一般健全狀況狀態建議。
+###監視資料
+當您按一下 [資源安全性健全狀況] 圖格中的 [資料] 時，將會開啟 [SQL] 刀鋒視窗，內含問題的建議，例如未啟用稽核、透明資料加密。它也具有資料庫的一般健全狀況狀態[建議](security-center-sql-service-recommendations.md)。
 
 ![SQL 資源健全狀況](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
 
@@ -193,7 +193,7 @@
 
 ![應用程式](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
 
-此刀鋒視窗會有此應用程式的所有建議清單。當您按一下 [加入 Web 應用程式防火牆] 建議時，將會開啟 [加入 Web 應用程式防火牆] 刀鋒視窗，其中包含讓您安裝第三方 WAF (Web 應用程式防火牆) 的選項，如下所示。
+此刀鋒視窗會有此應用程式的所有建議清單。當您按一下 [新增 Web 應用程式防火牆] 建議時，將會開啟 [新增 Web 應用程式防火牆] 刀鋒視窗，其中包含讓您安裝第三方 WAF (Web 應用程式防火牆) 的選項，如下所示。
 
 ![新增 WAF](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 
@@ -206,4 +206,4 @@
 - [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題。
 - [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) — 尋找有關 Azure 安全性與相容性的部落格文章。
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

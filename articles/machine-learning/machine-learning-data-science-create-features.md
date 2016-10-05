@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="zhangya;bradsev" />
 
 
@@ -25,8 +25,10 @@
 
 這個**功能表**所連結的主題會說明如何在各種環境中建立資料的特徵。此工作是 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中的一個步驟。
 
-特徵工程設計藉由以協助學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。特徵的工程設計與選取是[何謂 Team Data Science Process？](data-science-process-overview.md)中所概述 TDSP 程序的其中一部分。 特性工程設計和選取項目屬於 CAP 的**開發功能**步驟。
+特徵工程設計藉由以協助學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。特徵的工程設計與選取是[何謂 Team Data Science Process？](data-science-process-overview.md)中所概述 TDSP 程序的其中一部分。 特徵工程設計和選取屬於 TDSP 的**開發特徵**步驟。
+
 * **特性工程設計**：此程序嘗試從資料中的現有原始特性建立其他相關特性，以及增加學習演算法的預測功效。
+
 * **特性選取**：此程序嘗試選取主要的原始資料特性子集，以縮小定型問題的維度。
 
 通常會先套用**功能工程設計**以產生其他功能，然後執行**功能選取**步驟以排除不相關、多餘或高度相關的功能。
@@ -95,4 +97,4 @@ Azure 機器學習中有一個[特性雜湊](https://msdn.microsoft.com/library/
 請注意，不一定要執行特性工程設計和特性選取。需要與否取決於我們所擁有或收集的資料、我們挑選的演算法，以及實驗的目標。
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

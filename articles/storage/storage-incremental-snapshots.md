@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="tamram;aungoo-msft"/>
+	ms.date="09/20/2016"
+	ms.author="tamram;aungoo"/>
 
 
 # 使用增量快照集備份 Azure 虛擬機器磁碟
 
-## 概觀 
+## Overview
 
 Azure 儲存體提供拍攝 Blob 快照的功能。快照會擷取該時間點的 Blob 狀態。在本文中，我們將說明如何使用快照維護虛擬機器磁碟備份的案例。當您選擇不使用 Azure 的備份和復原服務，但是想要為虛擬機器磁碟建立自訂的備份策略時，您可以使用這個方法。
 
@@ -128,4 +128,4 @@ Blob 快照是在某個時間點擷取的 Blob 唯讀版本。一旦建立快照
 - [建立 Blob 的快照集](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 - [規劃 VM 備份基礎結構](../backup/backup-azure-vms-introduction.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

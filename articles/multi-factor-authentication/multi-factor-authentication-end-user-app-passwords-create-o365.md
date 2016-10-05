@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="在 Office 365 入口網站中建立 Azure Multi-Factor Authentication 的應用程式密碼" 
-	description="此頁面會顯示使用者如何在 Office 365 入口網站中建立其他應用程式密碼。" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
+<properties
+	pageTitle="在 Office 365 入口網站中建立 Azure Multi-Factor Authentication 的應用程式密碼"
+	description="此頁面會顯示使用者如何在 Office 365 入口網站中建立其他應用程式密碼。"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # 在 Office 365 入口網站中建立或刪除 Azure Multi-Factor Authentication 的應用程式密碼
 
@@ -68,9 +68,4 @@
 <li>您將會看到確認刪除的快顯示窗。</li>
 <li>按一下 [是]。</li>
 
-
-
- 
- 
-
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->

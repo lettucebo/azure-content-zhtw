@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -29,7 +29,7 @@
 ## 設定串流處理單位
 串流處理單位 (SU) 代表執行 Azure 串流分析工作的資源和能力。SU 會根據 CPU、記憶體，以及讀寫率的混合量值，提供一個方式來描述相關的事件處理容量。每個串流處理單元會對應至約 1 MB/秒的輸送量。
 
-選擇特定工作所需的 SU 數量取決於輸入的磁碟分割設定以及針對工作定義的查詢。您可以使用 Azure 傳統入口網站，為工作選取串流處理單元的配額上限。在特定區域中，每個 Azure 訂用帳戶的所有分析工作預設最多有 50 個串流處理單元的配額。若要增加訂用帳戶的串流處理單元，請連絡 [Microsoft 支援服務](http://support.microsoft.com)。
+選擇特定工作所需的 SU 數量取決於輸入的磁碟分割設定以及針對工作定義的查詢。您可以使用 Azure 傳統入口網站，為工作選取串流處理單元的配額上限。在特定區域中，每個 Azure 訂用帳戶的所有分析工作的預設資料流單位配額上限為 50。若要增加訂用帳戶的資料流單位，請連絡 [Microsoft 支援服務](http://support.microsoft.com)。
 
 工作可以使用的串流處理單元數目，取決於輸入的資料分割設定以及為工作定義的查詢。此外請注意，必須使用有效的串流處理單元的值。有效值從 1、3、6 開始，然後以 6 向上遞增，如下所示。
 
@@ -350,4 +350,4 @@ PowerBI 輸出目前並不支援資料分割。
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

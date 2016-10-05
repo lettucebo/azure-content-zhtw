@@ -63,7 +63,7 @@ SQL 資料倉儲支援最常用的資料類型。以下是 SQL 資料倉儲支�
 |[ntext][ntext,text,image]|[nvarchar][]|
 |[sql\_variant][]|將資料行分割成數個強型別資料行。|
 |[資料表][]|轉換成暫存資料表。|
-|[timestamp][]|修改程式碼來使用 [datetime2][] 和 `CURRENT_TIMESTAMP` 函式。僅支援常數做為預設值，因此 current\_timestamp 不可定義為預設條件約束。如果您需要從 timestamp 類型資料行移轉資料列版本值，請對 NOT NULL 或 NULL 資料列版本值使用 [BINARY][] (8) 或 [VARBINARY][BINARY](8)。|
+|[timestamp][]|修改程式碼來使用 [datetime2][] 和 `CURRENT_TIMESTAMP` 函式。僅支援常數做為預設值，因此 current\_timestamp 不可定義為預設條件約束。如果您需要從 timestamp 類型資料行移轉資料列版本值，請對 NOT NULL 或 NULL 資料列版本值使用 [BINARY][] \(8) 或 [VARBINARY][BINARY](8)。|
 |[xml][]|[varchar][]|
 |[使用者定義型別][]|可能的話，轉換回原生型別|
 |預設值|預設值僅支援常值和常數。不支援不具決定性的運算式或函式，例如 `GETDATE()` 或 `CURRENT_TIMESTAMP`。|

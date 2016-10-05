@@ -3,7 +3,7 @@
    description="說明如何使用 Docker 電腦在 Azure 中建立 Docker 主機。"
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="06/08/2016"
-   ms.author="allclark;stevelas" />
+   ms.author="mlearned" />
 
 # 使用 Docker-Machine 在 Azure 中建立 Docker 主機
 
@@ -109,4 +109,4 @@ PS C:\> docker-machine ip MyDockerHost
 
 若要使用 Visual Studio 開發 .NET Core 應用程式，請參閱 [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

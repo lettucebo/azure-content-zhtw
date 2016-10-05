@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD 網域服務：啟用 Azure AD 網域服務 | Microsoft Azure"
-	description="開始使用 Azure Active Directory 網域服務 (預覽)"
+	description="開始使用 Azure Active Directory 網域服務"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
-# Azure AD 網域服務 (預覽) - 啟用 Azure AD 網域服務
+# 啟用 Azure AD 網域服務
 
 ## 工作 3：啟用 Azure AD 網域服務
 在此工作中，您會針對目錄啟用 Azure AD 網域服務。執行下列組態步驟，針對您的目錄啟用 Azure AD 網域服務。
@@ -37,13 +37,13 @@
 
     ![網域服務組態區段](./media/active-directory-domain-services-getting-started/domain-services-configuration.png)
 
-6. 將標題為**啟用此目錄的網域服務**的選項切換至 [是]。您將會注意到頁面上出現了更多適用於 Azure AD 網域服務的組態選項。
+6. 將標題為**啟用此目錄的網域服務**的選項切換至 [是]。您會注意到頁面上出現了更多適用於 Azure AD 網域服務的組態選項。
 
     ![啟用網域服務](./media/active-directory-domain-services-getting-started/enable-domain-services.png)
 
-    > [AZURE.NOTE] 當您針對租用戶啟用 Azure AD 網域服務時，Azure AD 將會產生並儲存驗證使用者所需的 Kerberos 和 NTLM 認證雜湊。
+    > [AZURE.NOTE] 當您針對租用戶啟用 Azure AD 網域服務時，Azure AD 會產生並儲存驗證使用者所需的 Kerberos 和 NTLM 認證雜湊。
 
-7. 指定 [網域服務的 DNS 網域名稱]。
+7. 指定**網域服務的 DNS 網域名稱**。
 
    - 根據預設，將會選取目錄的預設網域名稱 (亦即以 **.onmicrosoft.com** 網域尾碼為結束)。
 
@@ -53,45 +53,45 @@
 
      > [AZURE.WARNING] 請確定您指定之網域名稱的網域前置詞 (例如 'contoso100.com' 網域名稱中的 'contoso100') 不超過 15 個字元。您無法建立網域前置詞超過 15 個字元的「Azure AD 網域服務」網域。
 
-8. 下一個步驟是選取您想要在其中使用「Azure AD 網域服務」的虛擬網路。在標題為**將網域服務連接到此虛擬網路**的下拉式清單中，選取您剛建立的虛擬網路。
+8. 下一個步驟是選取您想要在其中使用「Azure AD 網域服務」的虛擬網路。在標題為**將網域服務連接到此虛擬網路**的下拉式清單中，選取您建立的虛擬網路。
 
    - 請確定您指定的虛擬網路屬於「Azure AD 網域服務」所支援的 Azure 區域。
 
-   - 請參閱[依區域的 Azure 服務](https://azure.microsoft.com/regions/#services/)頁面以了解 Azure AD 網域服務可用的 Azure 區域。
+   - 請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services/)頁面，以了解可使用 Azure AD 網域服務的 Azure 區域。
 
-   - 請注意，屬於不支援 Azure AD 網域服務之區域的虛擬網路，不會出現在下拉式清單中。
+   - 屬於不支援 Azure AD 網域服務區域的虛擬網路，不會出現在下拉式清單中。
 
-   - 同樣地，使用 Azure Resource Manager (ARM 型虛擬網路) 建立的虛擬網路也不會出現在下拉式清單中。這是因為 Azure AD 網域服務目前不支援 ARM 型虛擬網路。
+   - 同樣地，使用 Azure Resource Manager 建立的虛擬網路也不會出現在下拉式清單中。Resource Manager 型虛擬網路目前不為 Azure AD 網域服務所支援。
 
-9. 確定虛擬網路中還沒有您為受管理網域選擇的 DNS 網域名稱。這種情形可能發生在下列任何案例中︰
+9. 確定虛擬網路中還沒有您為受管理網域選擇的 DNS 網域名稱。具體來說，請檢查是否有下列情況︰
 
-   - 如果您在虛擬網路上已有相同 DNS 網域名稱的網域。
+   - 您在虛擬網路上已有 DNS 網域名稱相同的網域。
 
-   - 如果您選取的虛擬網路已透過 VPN 連線到內部部署網路，而您在內部部署網路上有相同 DNS 網域名稱的網域。
+   - 您選取的虛擬網路已透過 VPN 連線到內部部署網路，而您在內部部署網路上有 DNS 網域名稱相同的網域。
 
-   - 如果您在虛擬網路上已有具有該名稱的雲端服務。
+   - 您在虛擬網路上已有具有該名稱的雲端服務。
 
-10. 完成選取上述選項時，請按一下頁面底部之工作窗格中的 [儲存]，以啟用「Azure AD 網域服務」。
+10. 若要啟用 Azure AD 網域服務，請按一下頁面下方工作窗格中的 [儲存]。
 
-11. 針對您的目錄啟用「Azure AD 網域服務」時，頁面將會顯示 [擱置中...] 狀態。
+11. 針對您的目錄啟用 Azure AD 網域服務時，此頁面會顯示 [擱置中...] 狀態。
 
     ![啟用網域服務 - 擱置中狀態](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
-    > [AZURE.NOTE] 「Azure AD 網域服務」可針對您的受管理網域提供高可用性。當您第一次針對網域啟用「Azure AD 網域服務」時，您會注意到可在虛擬網路上使用「網域服務」的 IP 位址會一個接著一個顯示。一旦服務針對您的網域啟用高可用性之後，第二個 IP 位址將會立即顯示。在針對您的網域設定高可用性並使它成為作用中狀態時，您應該會在 [設定] 索引標籤的 [網域服務] 區段中看到兩個 IP 位址。
+    > [AZURE.NOTE] 「Azure AD 網域服務」可針對您的受管理網域提供高可用性。啟用 Azure AD 網域服務後請注意，可在虛擬網路上使用網域服務的 IP 位址會逐一顯示。一旦服務針對您的網域啟用高可用性之後，第二個 IP 位址便會立即顯示。在針對您的網域設定高可用性並使它成為作用中狀態時，您應該會在 [設定] 索引標籤的 [網域服務] 區段中看到兩個 IP 位址。
 
-12. 大約 20-30 分鐘後，您將會在 [設定] 頁面的 [IP 位址] 欄位中看見可在您虛擬網路上使用「網域服務」的第一個 IP 位址。
+12. 大約 20-30 分鐘後，您會在 [設定] 頁面的 [IP 位址] 欄位中看見可在您虛擬網路上使用「網域服務」的第一個 IP 位址。
 
     ![網域服務已啟用 - 已佈建第一個 IP](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
 
-13. 若高可用性會針對您的網域進行運作，則您將會在頁面上看見兩個 IP 位址。這些都是可在您所選虛擬網路上使用 Azure AD 網域服務的 IP 位址。記下這些 IP 位址，以更新您虛擬網路的 DNS 設定。這個步驟會讓虛擬網路上的虛擬機器連線到網域，以進行像是加入網域等作業。
+13. 若您的網域可支援高可用性，則您會在頁面上看見兩個 IP 位址。這些都是可在您所選虛擬網路上使用 Azure AD 網域服務的 IP 位址。記下這些 IP 位址，以更新您虛擬網路的 DNS 設定。這個步驟會讓虛擬網路上的虛擬機器連線到網域，以進行像是加入網域等作業。
 
     ![網域服務已啟用 - 已佈建兩個 IP](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
-> [AZURE.NOTE] 根據您的 Azure AD 目錄大小而定 (使用者的數目、群組等)，它需要一些時間，才能在 Azure AD 網域服務中取得目錄的內容。這個同步處理程序會在背景執行。對於具有成千上萬個物件的大型目錄，可能需要一天或兩天的時間，在 Azure AD 網域服務中同步處理所有使用者、群組成員資格和認證並加以使用。
+> [AZURE.NOTE] 根據 Azure AD 租用戶大小而定 (使用者的數目、群組等)，租用戶的內容需要一些時間才會出現在 Azure AD 網域服務中。這個同步處理程序會在背景執行。對於具有成千上萬個物件的大型租用戶，則可能需要一到兩天的時間，所有使用者、群組成員資格和認證才會出現在 Azure AD 網域服務中。
 
 <br>
 
 ## 工作 4 - 更新 Azure 虛擬網路的 DNS 設定
 下一個組態工作是[更新 Azure 虛擬網路的 DNS 設定](active-directory-ds-getting-started-dns.md)。
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

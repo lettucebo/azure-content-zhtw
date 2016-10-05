@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/23/2016"
+	ms.date="09/21/2016"
 	ms.author="jroth" />
 
 # 連線到 Azure 上的 SQL Server 虛擬機器 (資源管理員)
@@ -23,7 +23,7 @@
 
 ## 概觀
 
-本主題說明如何連接在 Azure 虛擬機器上執行的 SQL Server 執行個體。其中涵蓋一些[一般連線案例](#connection-scenarios)並提供[在 Azure VM 中設定 SQL Server 連線的詳細步驟](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)。
+本主題說明如何連線到在 Azure 虛擬機器上執行的 SQL Server 執行個體。其中涵蓋一些[一般連線案例](#connection-scenarios)並提供[在 Azure VM 中設定 SQL Server 連線的詳細步驟](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 傳統部署模型。如需本文的傳統部署版本，請參閱[連線到 Azure 傳統部署上的 SQL Server 虛擬機器](virtual-machines-windows-classic-sql-connect.md)。
 
@@ -46,6 +46,8 @@
 
 如果在佈建期間未完成此準備工作，您可以依照[本文中手動設定連線的步驟](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)來手動設定 SQL Server 和虛擬機器。
 
+>[AZURE.NOTE] SQL Server Express 版本的虛擬機器映像不會自動啟用 TCP/IP 通訊協定。在 Express 版本中，您必須在建立 VM 之後，使用「SQL Server 組態管理員」來[手動啟用 TCP/IP 通訊協定](#configure-sql-server-to-listen-on-the-tcp-protocol)。
+
 完成此準備工作之後，任何能夠存取網際網路的用戶端便都能藉由指定虛擬機器的公用 IP 位址或指派給該 IP 位址的 DNS 標籤，連線到 SQL Server 執行個體。如果 SQL Server 連接埠是 1433，則不需要在連接字串中指定它。
 
 	"Server=sqlvmlabel.eastus.cloudapp.azure.com;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
@@ -54,7 +56,7 @@
 
 	"Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
->[AZURE.NOTE] 請務必注意，當您使用此技術與 SQL Server 通訊時，所有從 Azure 資料中心傳出的資料都會以一般[輸出資料傳輸價格](https://azure.microsoft.com/pricing/details/data-transfers/)計費。
+>[AZURE.NOTE] 請務必注意，當您使用這項技術與 SQL Server 進行通訊時，所有從 Azure 資料中心傳出的資料都會以一般[輸出資料傳輸價格](https://azure.microsoft.com/pricing/details/data-transfers/)計費。
 
 ### 連接相同虛擬網路中的 SQL Server
 
@@ -62,7 +64,9 @@
 
 虛擬網路也可讓您將 Azure VM 加入網域。這是在 SQL Server 使用的 Windows 驗證的唯一方式。其他連接案例則需要使用者名稱和密碼進行 SQL 驗證。
 
-如果您使用入口網站以資源管理員佈建 SQL Server 虛擬機器映像，當您在 SQL 連線選項選取 [私人] 時，系統就會為虛擬網路上的通訊設定適當的防火牆規則。如果在佈建期間未完成此準備工作，您可以依照[本文中手動設定連線的步驟](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)來手動設定 SQL Server 和虛擬機器。但是，如果您打算設定網域環境和「Windows 驗證」，就不需要使用本文中的步驟來設定「SQL 驗證」和登入。您也不需要針對透過網際網路進行存取設定「網路安全性群組」規則。
+如果您使用入口網站透過資源管理員佈建 SQL Server 虛擬機器映像，當您在 SQL 連線選項選取 [私人] 時，系統就會為虛擬網路上的通訊設定適當的防火牆規則。如果在佈建期間未完成此準備工作，您可以依照[本文中手動設定連線的步驟](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)來手動設定 SQL Server 和虛擬機器。但是，如果您打算設定網域環境和「Windows 驗證」，就不需要使用本文中的步驟來設定「SQL 驗證」和登入。您也不需要針對透過網際網路進行存取設定「網路安全性群組」規則。
+
+>[AZURE.NOTE] SQL Server Express 版本的虛擬機器映像不會自動啟用 TCP/IP 通訊協定。在 Express 版本中，您必須在建立 VM 之後，使用「SQL Server 組態管理員」來[手動啟用 TCP/IP 通訊協定](#configure-sql-server-to-listen-on-the-tcp-protocol)。
 
 假設您已在虛擬網路中設定 DNS，您便可以在連接字串中指定 SQL Server VM 電腦名稱來連線到 SQL Server 執行個體。下列範例假設「Windows 驗證」也已設定妥當，且使用者已獲得存取 SQL Server 執行個體的權限。
 
@@ -80,6 +84,7 @@
 - [設定 SQL Server 以接聽 TCP 通訊協定](#configure-sql-server-to-listen-on-the-tcp-protocol)
 - [設定 SQL Server 以進行混合模式驗證](#configure-sql-server-for-mixed-mode-authentication)
 - [建立 SQL Server 驗證登入](#create-sql-server-authentication-logins)
+- [設定網路安全性群組輸入規則](#configure-a-network-security-group-inbound-rule-for-the-vm)
 - [設定公用 IP 位址的 DNS 標籤](#configure-a-dns-label-for-the-public-ip-address)
 - [從另一部電腦連接到 Database Engine](#connect-to-the-database-engine-from-another-computer)
 
@@ -95,6 +100,6 @@
 
 [探索學習路徑](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/)：Azure 虛擬機器上的 SQL Server。
 
-如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)。
+如需有關在 Azure VM 中執行 SQL Server 的其他主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)。
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

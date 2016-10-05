@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # 使用 Power BI 從 Azure 資訊安全中心的資料取得見解
@@ -26,7 +26,7 @@ Azure 資訊安全中心的 [Power BI 儀表板](http://aka.ms/azure-security-ce
 
 1. 在 [Azure 資訊安全中心] 儀表板按一下 [在 Power BI 中瀏覽] 按鈕。
 
-	![使用 Power BI 連線到 Azure 資訊安全中心](./media/security-center-powerbi/security-center-powerbi-fig1-new1.png)
+	![使用 Power BI 連線到 Azure 資訊安全中心](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
 
 2. [在 Power BI 中瀏覽] 刀鋒視窗隨即會在右側開啟，如下列畫面所示：
 
@@ -42,7 +42,7 @@ Azure 資訊安全中心的 [Power BI 儀表板](http://aka.ms/azure-security-ce
 
 	![Azure 資訊安全中心安全性深入解析儀表板](./media/security-center-powerbi/security-center-powerbi-fig1-new3.png)
 
-5. [連接到 Azure 資訊安全中心安全性深入解析] 視窗隨即出現。確定 [驗證] 方法為 [oAuth2] \(如下所示)，然後按一下 [登入] 按鈕。
+5. [連接到 Azure 資訊安全中心安全性深入解析] 視窗隨即出現。確定 [驗證] 方法為 [oAuth2] (如下所示)，然後按一下 [登入] 按鈕。
 	
 	![驗證](./media/security-center-powerbi/security-center-powerbi-fig1-new4.png)
 
@@ -92,7 +92,7 @@ Azure 資訊安全中心的連結會將您重新導向至 Azure 入口網站。�
 
 2. 如此範例所述，按一下 [Azure 資訊安全中心原則管理] 圖格中的 [取得]。
 
-3. 在 [連接到 Azure 資訊安全中心原則管理] 視窗中，請務必選取 [驗證方法] 下拉式清單下方的 [oAuth2] \(如下所示)，然後按一下 [登入] 按鈕。
+3. 在 [連接到 Azure 資訊安全中心原則管理] 視窗中，請務必選取 [驗證方法] 下拉式清單下方的 [oAuth2] (如下所示)，然後按一下 [登入] 按鈕。
 
 	![原則管理視窗](./media/security-center-powerbi/security-center-powerbi-fig1-new8.png)
 
@@ -115,4 +115,4 @@ Azure 資訊安全中心的連結會將您重新導向至 Azure 入口網站。�
 - [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題
 - [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) — 尋找有關 Azure 安全性與相容性的部落格文章
 
-<!----HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

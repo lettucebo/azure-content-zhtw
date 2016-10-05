@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -32,7 +32,7 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 
 - 安裝 Visual Studio 2012 或 2013。
 - 下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)。
-- 在您的訂閱中建立 Azure 資源群組。下列是 PowerShell 指令碼範例。如需 Azure PowerShell 資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
+- 在您的訂用帳戶中建立「Azure 資源群組」。下列是 PowerShell 指令碼範例。如需 Azure PowerShell 資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
 
 
 		# Log in to your Azure account
@@ -75,7 +75,7 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 		</appSettings>
 
 
-	以您的 Azure 訂用帳戶與租用戶識別碼取代 **SubscriptionId** 和 **ActiveDirectoryTenantId** 的值。您可以藉由執行下列 Azure PowerShell Cmdlet 來取得這些值：
+	以您的 Azure 訂用帳戶 ID 及租用戶識別碼取代 **SubscriptionId** 和 **ActiveDirectoryTenantId** 的值。您可以藉由執行下列 Azure PowerShell Cmdlet 來取得這些值：
 
 		Get-AzureAccount
 
@@ -155,7 +155,7 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 
 本文的其餘章節會假設 **Main** 方法的開頭已有這段程式碼。
 
-## 建立串流分析工作
+## 建立串流分析作業
 
 下列程式碼會在您已定義的資源群組下方建立一個串流分析工作。您稍後可以在工作中加入輸入、輸出和轉換。
 
@@ -366,4 +366,4 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

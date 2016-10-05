@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="08/30/2016"
+   	ms.date="09/20/2016"
    	ms.author="larryfr"/>
 
 #使用 Azure CLI 建立 HDInsight 上的 Linux 型叢集
@@ -23,11 +23,11 @@
 
 Azure CLI 是可讓您管理 Azure 服務的跨平台命令列公用工具。它可搭配 Azure 資源管理範本用來建立 HDInsight 叢集，以及相關聯的儲存體帳戶和其他服務。
 
-Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 HDInsight) 的 JSON 文件。 這個以範本為基礎的方法可讓您在一個範本中定義 HDInsight 所需的所有資源，並透過可將變更套用至群組的__部署__，整體管理群組的變更。
+Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 HDInsight) 的 JSON 文件。 此範本型方法可讓您在一個範本中定義 HDInsight 所需的所有資源。它也可讓您透過__部署__來整體管理群組的變更，以將變更套用至整個群組。
 
 本文件中的步驟將逐步完成使用 Azure CLI 和範本建立新 HDInsight 叢集的程序。
 
-> [AZURE.IMPORTANT] 本文件中的步驟使用 HDInsight 叢集的背景工作節點預設數目 (4)。如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
+> [AZURE.IMPORTANT] 本文件中的步驟使用 HDInsight 叢集的背景工作節點預設數目 (4)。如果您 (在建立叢集期間或藉由調整叢集) 規劃 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
@@ -52,22 +52,22 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
         azure login
 
-    系統會提示您提供使用者名稱與密碼。如果您有多個 Azure 訂用帳戶，則可以使用 `azure account set <subscriptionname>` 設定 Azure CLI 命令將使用的訂用帳戶。
+    系統會提示您提供使用者名稱與密碼。如果您有多個 Azure 訂用帳戶，則可以使用 `azure account set <subscriptionname>` 來設定 Azure CLI 命令所使用的訂用帳戶。
 
 3. 使用下列命令來切換至 Azure 資源管理員模式︰
 
         azure config mode arm
 
-4. 建立新的資源群組。這將會包含 HDInsight 叢集和關聯的儲存體帳戶。
+4. 建立資源群組。此資源群組會包含 HDInsight 叢集和關聯的儲存體帳戶。
 
         azure group create groupname location
         
     * 以群組的唯一名稱取代 __groupname__。
     * 以您想要在其中建立群組的地理區域取代 __location__。
     
-        如需有效位置的清單，請使用 `azure locations list` 命令，然後使用 [名稱] 欄中的其中一個位置。
+        如需有效位置的清單，請使用 `azure location list` 命令，然後使用 [名稱] 欄中的其中一個位置。
 
-5. 建立新的儲存體帳戶。這將用來做為 HDInsight 叢集的預設儲存體。
+5. 建立儲存體帳戶。此儲存體帳戶會用來做為 HDInsight 叢集的預設儲存體。
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
@@ -86,7 +86,7 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
     
     在傳回的資料中，儲存 __key1__ 的「金鑰」值。
 
-6. 建立新的 HDInsight 叢集
+6. 建立 HDInsight 叢集。
 
         azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
@@ -121,4 +121,4 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 * [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python-topology.md)
 * [在 HDInsight 上使用 Storm 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

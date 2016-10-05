@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>在 Azure 上 SQL Server 中進行資料取樣
@@ -25,7 +25,7 @@ Python 取樣使用 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 程式庫�
 
 >[AZURE.NOTE] 本文件中的 SQL 程式碼範例假設資料位於 Azure 上的 SQL Server 中。如果資料不在其中，請參閱[移動資料至 Azure 虛擬機器上的 SQL Server](machine-learning-data-science-move-sql-server-virtual-machine.md) 主題，以取得如何將資料移至 Azure 上 SQL Server 的指示。
 
-**為何要對您的資料進行取樣？** 如果您規劃分析的資料集很龐大，通常最好是對資料進行向下取樣，將資料縮減為更小但具代表性且更容易管理的大小。這有助於資料了解、探索和功能工程。它在 Team Data Science Process 中扮演的角色是，能夠快速建立資料處理函式與機器學習服務模型的原型。
+**為何要對您的資料進行取樣？** 如果您規劃分析的資料集很龐大，通常最好是對資料進行向下取樣，將資料縮減為更小但具代表性且更容易管理的大小。這有助於資料了解、探索和功能工程。它在 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中扮演的角色是，能夠快速建立資料處理函式與機器學習服務模型的原型。
 
 以下**功能表**所連結的主題會說明如何從各種不同儲存體環境進行資料取樣。
 
@@ -60,7 +60,7 @@ Tablesample 可用來進行取樣及示範，如下所示。如果資料大小�
 
 ###<a name="sql-aml"></a>連接到 Azure Machine Learning
 
-您可以在 Azure ML「匯入資料」模組中直接使用上述取樣查詢，來進行即時資料縮小取樣，然後帶入 Azure ML 實驗中。使用讀取程式模組讀取取樣資料的螢幕擷取畫面如下所示：
+您可以在 Azure Machine Learning [匯入資料][import-data]模組中直接使用上述取樣查詢，來進行即時資料縮小取樣，然後帶入 Azure Machine Learning 實驗中。使用讀取程式模組讀取取樣資料的螢幕擷取畫面如下所示：
    
 ![讀取器 SQL][1]
 
@@ -83,7 +83,7 @@ Python 中的 [Pandas](http://pandas.pydata.org/) 程式庫提供一組豐富的
 
 ###<a name="python-aml"></a>連接到 Azure Machine Learning
 
-您可以使用下列程式碼範例，將向下取樣的資料儲存至檔案，並將它上傳至 Azure Blob。使用「匯入資料模組」即可將 Blob 中的資料直接讀取到「Azure ML 實驗」中。步驟如下：
+您可以使用下列程式碼範例，將向下取樣的資料儲存至檔案，並將它上傳至 Azure Blob。使用[匯入資料][import-data]模組即可將 Blob 中的資料直接讀取到「Azure Machine Learning 實驗」中。步驟如下：
 
 1. 將 Pandas 資料框架寫入本機檔案
 
@@ -111,7 +111,7 @@ Python 中的 [Pandas](http://pandas.pydata.org/) 程式庫提供一組豐富的
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. 使用 Azure ML「匯入資料模組」從 Azure Blob 讀取資料，如以下螢幕擷取畫面所示：
+3. 使用 Azure Machine Learning [匯入資料][import-data]模組從 Azure Blob 讀取資料，如以下螢幕擷取畫面所示：
  
 ![讀取器 Blob][2]
 
@@ -122,6 +122,6 @@ Python 中的 [Pandas](http://pandas.pydata.org/) 程式庫提供一組豐富的
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
- 
+ [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

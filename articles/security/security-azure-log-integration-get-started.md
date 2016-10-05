@@ -125,6 +125,8 @@ Azure 記錄檔整合服務會從其安裝所在的電腦收集遙測資料。�
 
 6. 將標準的 SIEM 檔案轉寄站連接器指向適當資料夾，以透過管線將資料傳送至 SIEM 執行個體。您可能需要根據所使用的 SIEM 產品進行某些欄位對應。
 
+如果您有關於「Azure 記錄整合」的問題，請傳送電子郵件給 [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+
 ## 後續步驟
 
 在本教學課程中，您已了解如何安裝 Azure 記錄整合，並整合來自 Azure 儲存體的記錄檔。若要深入了解，請參閱下列文章：
@@ -136,4 +138,4 @@ Azure 記錄檔整合服務會從其安裝所在的電腦收集遙測資料。�
 - [以 Azure 記錄整合來整合資訊安全中心警示](../security-center/security-center-integrating-alerts-with-log-integration.md) - 這份文件說明如何將資訊安全中心警示以及 Azure 診斷和 Azure 稽核記錄檔所收集的虛擬機器安全性事件，與您的 Log Analytics 或 SIEM 方案進行同步處理。
 - [Azure 診斷和 Azure 稽核記錄檔的新功能](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) – 此部落格文章為您介紹 Azure 稽核記錄檔和其他功能，協助您深入了解您的 Azure 資源的作業。
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

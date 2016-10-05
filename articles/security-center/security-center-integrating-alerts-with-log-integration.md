@@ -75,6 +75,8 @@ Azure 記錄檔整合服務會從其安裝所在的電腦收集遙測資料。�
 
 6. 將標準的 SIEM 檔案轉寄站連接器指向適當資料夾，以透過管線將資料傳送至 SIEM 執行個體。請參閱 [SIEM 組態](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm)以取得您的 SIEM 組態。
 
+如果您有關於「Azure 記錄整合」的問題，請傳送電子郵件給 [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+
 ## 後續步驟
 
 若要深入了解 Azure 稽核記錄檔和屬性定義，請參閱︰
@@ -88,4 +90,4 @@ Azure 記錄檔整合服務會從其安裝所在的電腦收集遙測資料。�
 - [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題。
 - [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) — 取得最新的 Azure 安全性新聞和資訊。
 
-<!---HONumber=AcomDC_0810_2016------>
+<!---HONumber=AcomDC_0921_2016-->
